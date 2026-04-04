@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="paper-title" content="Extended Unsteady Vortex-Lattice Method for Insect Flapping Wings">
+<meta name="paper-year" content="2016">
+<meta name="paper-author" content="Anh Tuan Nguyen, Joong-Kwan Kim, Jong-Seob Han, Jae-Hung Han">
+<meta name="paper-journal" content="Journal of Aircraft">
+<meta name="paper-tags" content="UVLM, flapping wing, insect flight, leading-edge vortex, hawkmoth, aerodynamics, vortex-lattice method">
+<meta name="paper-doi" content="10.2514/1.C033456">
+<title>Extended Unsteady Vortex-Lattice Method for Insect Flapping Wings — Summary</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', 'Segoe UI', -apple-system, sans-serif;
+    background: #f8f9fb;
+    color: #1e293b;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Header ── */
+  .hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0c4a6e 100%);
+    color: #fff;
+    padding: 56px 0 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; top: 0; right: 0; bottom: 0;
+    width: 40%;
+    background: radial-gradient(ellipse at 80% 50%, rgba(56,189,248,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+    z-index: 1;
+  }
+  .hero h1 {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: -0.3px;
+    margin-bottom: 16px;
+  }
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    font-size: 14px;
+    color: #94a3b8;
+  }
+  .hero-meta a { color: #7dd3fc; text-decoration: none; }
+  .hero-meta a:hover { text-decoration: underline; }
+  .importance-badge {
+    position: absolute;
+    top: 56px; right: 40px;
+    font-size: 22px;
+    letter-spacing: 2px;
+    filter: drop-shadow(0 0 6px rgba(255,215,0,0.4));
+  }
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 20px;
+  }
+  .tag {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #cbd5e1;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.3px;
+  }
+
+  /* ── Content ── */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 40px 80px;
+  }
+
+  .section {
+    margin-bottom: 36px;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  .section-number {
+    background: #0f172a;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .section-header h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+    letter-spacing: -0.2px;
+  }
+
+  /* Overview paragraph */
+  .overview-text {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #334155;
+    background: #fff;
+    border-radius: 10px;
+    padding: 24px 28px;
+    border-left: 4px solid #0ea5e9;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  /* Bullet lists */
+  .section ul {
+    list-style: none;
+    padding: 0;
+  }
+  .section ul li {
+    position: relative;
+    padding: 8px 0 8px 20px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #334155;
+  }
+  .section ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 16px;
+    width: 6px; height: 6px;
+    background: #0ea5e9;
+    border-radius: 50%;
+  }
+  .section ul li + li {
+    border-top: 1px solid #f1f5f9;
+  }
+
+  /* Sub-section headings inside bullet sections */
+  .section h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #0c4a6e;
+    margin: 20px 0 8px;
+    padding-left: 2px;
+  }
+  .section h3:first-child {
+    margin-top: 0;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px 48px;
+    text-align: center;
+    font-size: 12px;
+    color: #94a3b8;
+  }
+  .footer a { color: #64748b; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <h1>Extended Unsteady Vortex-Lattice Method for Insect Flapping Wings</h1>
+    <div class="hero-meta">
+      <span>Anh Tuan Nguyen, Joong-Kwan Kim, Jong-Seob Han, Jae-Hung Han</span>
+      <span>Journal of Aircraft (2016)</span>
+      <span><a href="https://doi.org/10.2514/1.C033456">DOI: 10.2514/1.C033456</a></span>
+    </div>
+    <div class="tag-row"><span class="tag">UVLM</span><span class="tag">Flapping Wing</span><span class="tag">Insect Flight</span><span class="tag">Leading-Edge Vortex</span><span class="tag">Hawkmoth</span><span class="tag">Aerodynamics</span><span class="tag">Vortex-Lattice Method</span></div>
+    <div class="importance-badge">⭐⭐</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">1</div>
+      <h2>Overview</h2>
+    </div>
+    <div class="overview-text">This paper develops an extended unsteady vortex-lattice method (UVLM) capable of simulating insect flapping-wing aerodynamics in both hovering and forward flight. Two key extensions are incorporated into a conventional UVLM: (1) a vortex-core growth model based on the Lamb–Oseen vortex with eddy viscosity, where the core radius evolves as $r_c(t) = \sqrt{4\alpha_L \nu \delta t}$, to resolve wing–wake interaction singularities; and (2) a leading-edge suction analogy model adapted from Polhamus's delta-wing theory, computing vortex force as $F_s = \frac{\pi \eta_s \rho \Gamma_{LE}^2}{16 \Delta x_{LE} \cos\Lambda_{LE}}$, to capture LEV-induced lift augmentation. Validated against experimental data from Lua et al. (2010) at $Re = 12{,}000$ and CFD results from Aono and Liu (2006) at $Re = 6{,}300$ for hawkmoth (Manduca sexta) wing models, the method achieves good agreement in forces and pitching moment at a fraction of CFD computational cost (~14 s per cycle with 8-thread parallel computing). In forward flight at $V_\infty = 2.1$ m/s, the computed mean vertical force reaches 98% of body weight. Directly relevant to Dr. Yang's research on flapping-wing aerodynamics, multibody dynamics, and ornithopter flight mechanics at KAIST, originating from the same research group (PI: Prof. Jae-Hung Han).</div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">2</div>
+      <h2>Introduction</h2>
+    </div>
+    <h3>Motivation</h3>
+    <ul>
+      <li>Insects possess extraordinary flight characteristics — hovering in place and extreme agility — that are highly desirable for flapping micro air vehicle (MAV) design.</li>
+      <li>The leading-edge vortex (LEV) was identified by Ellington et al. (1996) as the primary high-lift mechanism in hawkmoth flight, fundamentally different from conventional fixed-wing aerodynamics.</li>
+      <li>Dickinson et al. (1999) confirmed three governing contributions to insect aerodynamics using a scaled robotic wing: delayed stall, rotational circulation, and wake capture effects.</li>
+      <li>CFD approaches solving the Navier–Stokes equations provide highly accurate flow-field solutions but incur significant computational cost when dealing with complex insect wing motions, motivating the search for efficient alternatives.</li>
+    </ul>
+    <h3>State of the Art</h3>
+    <ul>
+      <li>Quasi-steady models are widely used due to low cost and acceptable fidelity (validated by Sane and Dickinson, 2002), but they are semi-empirical, strip-based (ignoring spanwise flow), and unvalidated for aerodynamic moment estimation — they assume center of pressure fixed at the quarter-chord point.</li>
+      <li>Two-dimensional discrete vortex methods (Ansari et al., 2006) express chordwise load distribution via conformal mapping between a circle and a Joukowski-type airfoil but still perform per-strip simulations, lacking three-dimensional spanwise flow characteristics.</li>
+      <li>Conventional UVLMs offer intermediate cost-fidelity balance and have been applied to fixed-wing aircraft (Belotserkovskii, 1977), helicopter rotors (Padakannaya, 1974; Yoo et al., 2011), and flapping wings (Fritz and Long, 2004; Stanford and Beran, 2010; Ghommem et al., 2014).</li>
+      <li>Smith (1996) applied an unsteady panel method to moth wing aerodynamics but initially neglected LEV effects; a later correction improved results but only for a single flight speed of 3.36 m/s.</li>
+      <li>Roccia et al. (2013) modified UVLM for flapping wings in hover but encountered wing–wake interaction difficulties that complicated multi-cycle simulations.</li>
+    </ul>
+    <h3>Gap &amp; Contribution</h3>
+    <ul>
+      <li>Previous UVLMs cannot handle insect hovering flight due to singularities from wing–wake collisions and lack of LEV modeling — the present work addresses both limitations simultaneously.</li>
+      <li>The extended UVLM incorporates vortex-core growth (Bagai and Leishman, 1996) and leading-edge suction analogy (Polhamus, 1971) into a conventional UVLM framework, enabling stable multi-cycle hovering and accurate force/moment predictions at insect-relevant Reynolds numbers ($Re \sim 6{,}000$–$12{,}000$).</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">3</div>
+      <h2>Related Works</h2>
+    </div>
+    <h3>Experimental Studies</h3>
+    <ul>
+      <li>Ellington et al. (1996) discovered spiral LEV structures on hawkmoth wings using smoke visualization, establishing the LEV as the dominant lift mechanism at $Re \sim 6{,}000$–$12{,}000$.</li>
+      <li>Dickinson et al. (1999) quantified translational, rotational, and wake capture force contributions using a dynamically scaled robotic fruit fly wing.</li>
+      <li>Dickinson and Gotz (1993) measured unsteady aerodynamic performance of model wings at low Reynolds numbers, demonstrating LEV formation and delayed stall on translating airfoils.</li>
+      <li>Birch and Dickinson (2001) demonstrated spanwise flow and LEV attachment on insect wings, showing the LEV stabilization mechanism via axial spanwise flow.</li>
+      <li>Lua et al. (2010) measured aerodynamic forces on hovering rigid and flexible hawkmoth-like wings at $Re = 12{,}000$, providing the primary experimental benchmark for the convergence analysis and hovering validation.</li>
+      <li>Willmott and Ellington (1997) measured detailed wing kinematics of hawkmoth Manduca sexta in hovering and forward flight, supplying kinematic inputs for all simulations in this study.</li>
+    </ul>
+    <h3>Computational Methods</h3>
+    <ul>
+      <li>Liu et al. (1998) and Aono et al. (2008) performed Navier–Stokes CFD simulations of hawkmoth hovering; Aono and Liu (2006) provided the CFD benchmark (forces + pitching moment) for this paper at $Re = 6{,}300$.</li>
+      <li>Roccia et al. (2013) developed a modified UVLM for flapping wings in hover with $\alpha_c = 10°$–$20°$ but struggled with wake singularities beyond one stroke cycle.</li>
+      <li>Bagai and Leishman (1996) introduced vortex-core growth models for helicopter tandem/tilt-rotor free-wake analysis, which the present work adapts for insect-scale applications.</li>
+      <li>Kim and Han (2014) developed a multibody approach for 6-DOF flight dynamics of Manduca sexta from the same KAIST research group, directly connected to this aerodynamic solver.</li>
+    </ul>
+    <h3>Analytical Models</h3>
+    <ul>
+      <li>Polhamus (1971) developed the leading-edge suction analogy for delta wings: vortex force from a separated LEV equals the suction force predicted by attached-flow potential theory, provided flow reattaches on the upper surface.</li>
+      <li>Sane (2003) comprehensively reviewed insect flight aerodynamics and noted the adoption of Polhamus's suction analogy for insect flapping wings by Pedersen (2003) and Traub (2004).</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">4</div>
+      <h2>Materials and Methods</h2>
+    </div>
+    <h3>Problem Setup</h3>
+    <ul>
+      <li>Three right-handed Cartesian coordinate systems: ground-fixed $(X_G, Y_G, Z_G)$ with $Z_G$ vertical, stroke-plane-fixed $(x_{sp}, y_{sp}, z_{sp})$ inclined at stroke plane angle $\beta$ to horizontal, and wing-fixed $(x_w, y_w, z_w)$ with $y_w$ along wing span and $x_w$ parallel to chord direction.</li>
+      <li>Wing orientation defined by three angles via 3-1-2 rotation sequence: sweep angle $\phi$ (in stroke plane), elevation angle $\theta$ (out of stroke plane), and rotation angle $\alpha$ (pitch about wing span axis).</li>
+      <li>Only two wings modeled (body aerodynamics neglected), justified by Aono and Liu (2006) showing the body's contribution to total aerodynamic force is quite small. Kinematics assumed symmetric about the $X_G$–$Z_G$ plane.</li>
+      <li>Simple harmonic motion for convergence study: $\phi(t) = -\phi_0 \cos(2\pi f t)$ and $\alpha(t) = 90° - \alpha_0 \sin(2\pi f t)$, with $\phi_0 = 60°$, $\alpha_0 = 45°$, wing-tip distance $R = 0.3615$ m, $f = 0.1$ Hz, $S = 0.01963$ m², $\bar{c} = 0.07581$ m.</li>
+      <li>Real hawkmoth kinematics from Willmott and Ellington (1997) reconstructed via third-order Fourier series for hovering ($A_\phi = 111°$, $\beta = 15°$) and forward flight ($V_\infty = 2.1$ m/s, $\beta = 37.6°$, $R = 0.0521$ m, $f = 24.8$ Hz).</li>
+    </ul>
+    <h3>Governing Equations</h3>
+    <ul>
+      <li>No-penetration boundary condition at collocation points:
+        $$\left[\mathbf{V}_\infty + \mathbf{V}_{ib}(\mathbf{r},t) + \mathbf{V}_{iw}(\mathbf{r},t) - \mathbf{V}_w(\mathbf{r},t)\right] \cdot \mathbf{n} = 0$$
+        where $\mathbf{V}_{ib}$ and $\mathbf{V}_{iw}$ are induced velocities from bound vortices and wake, $\mathbf{V}_w$ is wing velocity.</li>
+      <li>Biot–Savart law for velocity induced by a straight vortex segment with circulation $\Gamma(t)$:
+        $$\mathbf{V}(\mathbf{r},t) = \frac{\Gamma}{4\pi} \frac{(|\mathbf{r}_1| + |\mathbf{r}_2|)(|\mathbf{r}_1||\mathbf{r}_2| - \mathbf{r}_1 \cdot \mathbf{r}_2)}{|\mathbf{r}_1||\mathbf{r}_2||\mathbf{r}_1 \times \mathbf{r}_2|^2} (\mathbf{r}_1 \times \mathbf{r}_2)$$</li>
+      <li>Pressure difference from the unsteady Bernoulli equation:
+        $$\Delta p_i(t) = \rho \left[(\mathbf{V}_i(t) \times \boldsymbol{\gamma}_i(t)) \cdot \mathbf{n}_i + \frac{\partial \Gamma_i(t)}{\partial t}\right]$$
+        integrated over the entire wing surface for forces and moments.</li>
+      <li>Vortex-core growth model: $r_c(t) = \sqrt{4 \alpha_L \nu \delta t}$, where $\alpha_L = 1.25643$ (Lamb constant), $\nu$ is kinematic viscosity, and the eddy viscosity parameter $\delta = 1 + a_1 \frac{\Gamma}{\nu}$ with Squire's parameter $a_1$.</li>
+      <li>Modified Biot–Savart law with finite core radius $r_c$: denominator includes $|\mathbf{r}_2 - \mathbf{r}_1|^2 r_c^2$ term to eliminate singularity when vortex lines are in close proximity or the wing collides with its own wake.</li>
+    </ul>
+    <h3>Leading-Edge Suction Analogy</h3>
+    <ul>
+      <li>Surface vorticity in the leading-edge panel follows $\gamma(\xi) = \frac{A}{\xi^{1/2}}$, with constant $A$ derived from leading-edge panel circulation: $A = \frac{\Gamma_{LE}}{2c \cos\Lambda_{LE}\, \Delta\xi_{LE}^{1/2}}$.</li>
+      <li>Leading-edge suction force with efficiency parameter:
+        $$F_s = \frac{\pi \eta_s \rho \Gamma_{LE}^2}{16\, \Delta x_{LE} \cos\Lambda_{LE}}$$
+        where $\eta_s$ is suction efficiency ($0 < \eta_s \le 1.0$) and $\Lambda_{LE}$ is the local leading-edge sweep angle.</li>
+      <li>Flow separation criterion: when local angle of attack $\alpha > \alpha_c = 12°$, suction force is rotated 90° to be normal to the wing surface (modeling LEV vortex lift). When $\alpha \le \alpha_c$, suction force remains parallel to the wing (attached flow).</li>
+      <li>Only leading-edge panel circulation is required, unlike Lan and Roskam (1972) and Smith (1996) who needed extrapolation from all chordwise panels — simplifying implementation.</li>
+    </ul>
+    <h3>Numerical Approach</h3>
+    <ul>
+      <li>Wing discretized into $N$ vortex ring panels with collocation points at centroids; Kutta condition enforces zero load at trailing edge with vortex sheets shed into free wake each time step.</li>
+      <li>Reference velocity $U_{ref} = 2R A_\phi f$, lift coefficient $C_L = \frac{2L}{\rho U_{ref}^2 S}$, Reynolds number $Re = \frac{U_{ref}\,\bar{c}}{\nu}$.</li>
+      <li>OpenMP parallel computing distributes independent wake node velocity calculations across threads; cost grows with time as wake segments accumulate each step.</li>
+    </ul>
+    <h3>Validation Strategy</h3>
+    <ul>
+      <li>Convergence analysis: four mesh types ($6 \times 12$, $12 \times 24$, $18 \times 36$, $24 \times 48$) with $n_s = 50$–$400$ time steps/cycle, benchmarked against Lua et al. (2010) at $Re = 12{,}000$.</li>
+      <li>Hovering: simple harmonic + real hawkmoth kinematics ($Re = 11{,}115$) vs. Lua et al. (2010) over four cycles; CFD benchmark vs. Aono and Liu (2006) at $Re = 6{,}300$.</li>
+      <li>Forward flight: hawkmoth F2 at $V_\infty = 2.1$ m/s, comparing mean forces against measured body weight ($0.0196$ N).</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">5</div>
+      <h2>Results</h2>
+    </div>
+    <h3>Convergence Analysis</h3>
+    <ul>
+      <li>Both $C_{Lp}$ (potential lift) and $C_{Lv}$ (vortex lift) converge asymptotically with increasing mesh fineness and time resolution; coarser meshes converge more rapidly than finer ones (Fig. 4, Fig. 5).</li>
+      <li>Mesh B ($12 \times 24$ panels) with $n_s = 200$ time steps/cycle selected as optimal compromise between computational effort and fidelity.</li>
+      <li>Spanwise resolution study: holding chordwise panels at 12, $n_{sp} = 18$ is sufficient; coarser $n_{sp} = 12$ produces undesirable spikes in $C_{Lp}$ (Fig. 6). Final mesh resolution: $12 \times 18$.</li>
+      <li>Squire's parameter sensitivity: $a_1 = 10^{-1}$ prevents non-physical spikes; lower values produce spike artifacts especially in $C_{Lp}$ (Fig. 7).</li>
+    </ul>
+    <h3>Hovering Flight Validation</h3>
+    <ul>
+      <li>Simple harmonic hovering: without leading-edge suction analogy, UVLM $C_L$ and $C_D$ are noticeably smaller than Lua et al. (2010) experiments; with $\eta_s = 0.5$, results show marked improvement confirming the LEV's critical role in lift augmentation (Fig. 8).</li>
+      <li>Real hawkmoth kinematics ($A_\phi = 111°$, $Re = 11{,}115$, $\nu = 9.570 \times 10^{-7}$ m²/s): aerodynamic forces are highly periodic across four stroke cycles with good experimental agreement (Fig. 10).</li>
+      <li>CFD comparison at $Re = 6{,}300$ ($f = 26.1$ Hz, $\bar{c} = 0.0183$ m, $\beta = 15°$): vertical force, horizontal force, and pitching moment show very good agreement during downstroke; upstroke agreement slightly reduced due to complex wing–wake interaction (Fig. 11).</li>
+    </ul>
+    <h3>Forward Flight Validation</h3>
+    <ul>
+      <li>Hawkmoth F2 at $V_\infty = 2.1$ m/s ($\beta = 37.6°$, $R = 0.0521$ m, $f = 24.8$ Hz): mean vertical force $= 0.0192$ N (98% of body weight $0.0196$ N), mean horizontal force $= 0.003$ N (15% of body weight) (Fig. 13).</li>
+      <li>Downstroke generates most vertical force due to higher relative wing-to-air velocity; upstroke contribution minimal because wings are nearly vertical during that phase.</li>
+      <li>Wake pattern shows characteristic trailing vortex structure with clear downstroke/upstroke asymmetry (Fig. 14).</li>
+    </ul>
+    <h3>Computational Performance</h3>
+    <ul>
+      <li>8-thread parallel: ~14 s for first cycle (vs. 46 s serial, ~$3.3\times$ speedup), 9.6 min for four cycles (vs. 40.6 min serial).</li>
+      <li>28-thread parallel: four cycles in 6.0 min (vs. 40.6 min serial, ~$6.8\times$ speedup), demonstrating good scalability with thread count.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">6</div>
+      <h2>Results Interpretation</h2>
+    </div>
+    <ul>
+      <li>The vortex-core growth model with eddy viscosity ($a_1 = 0.1$) eliminates wing–wake interaction singularities that plagued all previous UVLMs for insect hovering; at $Re \sim 10{,}000$ the flow is not completely laminar, so eddy viscosity is needed to grow $r_c$ faster than the pure Lamb–Oseen model predicts.</li>
+      <li>The LEV is confirmed as essential for insect weight support: without the leading-edge suction analogy, computed lift is insufficient to sustain body weight — consistent with Ellington et al. (1996), Dickinson and Gotz (1993), and Liu et al. (1998).</li>
+      <li>The suction analogy works well during the translational phase where flow is relatively steady; during the rotational phase, unsteadiness reduces its reliability, but the UVLM's native rotational circulation prediction dominates there (Dickinson et al., 1999), compensating for the analogy's weakness.</li>
+      <li>Near the wing tip, the LEV detaches and is no longer reattached (Nagai et al., 2009), so the suction analogy likely overestimates forces in this region; however, the wing-tip area is small relative to total wing area, limiting impact on resultant forces.</li>
+      <li>The efficiency $\eta_s = 0.5$ indicates approximately half the theoretical suction force is realized, reflecting viscous losses, leading-edge shape effects, and incomplete LEV reattachment.</li>
+      <li>Good pitching moment agreement with Aono and Liu (2006) CFD validates center-of-pressure prediction — a significant advantage over quasi-steady strip models that assume a fixed quarter-chord loading point.</li>
+      <li>Upstroke–downstroke asymmetry in forward flight arises from relative velocity differences: the downstroke is the advancing phase with higher resultant velocity, generating proportionally more lift.</li>
+      <li>Slight upstroke disagreement (hovering, CFD comparison) is attributed to complex wing–wake interaction as the wing passes through its own shed wake from the preceding downstroke.</li>
+      <li>The $12 \times 18$ mesh with $n_s = 200$ represents a practical engineering compromise; finer meshes converge to the same values but with diminishing returns relative to cost increase.</li>
+      <li>Using only leading-edge panel information for $F_s$ avoids numerical difficulties associated with extrapolation from all chordwise panels (Lan-Roskam, Smith approaches).</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">7</div>
+      <h2>Conclusion</h2>
+    </div>
+    <ul>
+      <li>The extended UVLM with vortex-core growth and leading-edge suction analogy successfully simulates hovering and forward flight aerodynamics of insect flapping wings with good agreement to both experimental and CFD benchmarks.</li>
+      <li>The vortex-core growth model ($a_1 = 0.1$, eddy viscosity via $\delta = 1 + a_1 \Gamma/\nu$) overcomes the wing–wake interaction problem at $Re \sim 10{,}000$ that had challenged all previous UVLM implementations.</li>
+      <li>LEV effects are captured through the suction analogy ($F_s \propto \Gamma_{LE}^2$); its inclusion produces noticeable lift improvement, confirming the LEV's critical importance in insect high-lift mechanisms.</li>
+      <li>At higher flight speeds, downstroke contribution to vertical force becomes increasingly dominant, as demonstrated for hawkmoth forward flight at $V_\infty = 2.1$ m/s.</li>
+      <li>Computational cost is very low — only several seconds per stroke cycle with parallel computing — making the method suitable for parametric optimization and flight dynamics studies.</li>
+      <li>The method shows considerable advantages over previous UVLMs and provides an efficient computational alternative to CFD for insect flapping-wing aerodynamics.</li>
+      <li>Future work should incorporate wing structural flexibility, as the rotation angle $\alpha$ varies along the span due to sectional deflection, essential for more accurate forward flight simulations.</li>
+      <li>The UVLM framework is naturally suited for coupling with multibody dynamics codes for 6-DOF flight dynamics and stability analyses of flapping MAVs, connecting to Kim and Han (2014) from the same research group.</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="footer">
+  Generated by YANG Lab RECON &middot; <a href="https://doi.org/10.2514/1.C033456">View Original Paper</a>
+</div>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '\\\\[', right: '\\\\]', display: true},
+      {left: '\\\\(', right: '\\\\)', display: false},
+      {left: '$', right: '$', display: false}
+    ],
+    throwOnError: false
+  });"></script>
+</body>
+</html>
