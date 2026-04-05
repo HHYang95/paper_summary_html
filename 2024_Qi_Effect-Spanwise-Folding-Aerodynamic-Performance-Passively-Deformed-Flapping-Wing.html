@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="paper-title" content="The Effect of Spanwise Folding on the Aerodynamic Performance of a Passively Deformed Flapping Wing">
+<meta name="paper-year" content="2024">
+<meta name="paper-author" content="Ming Qi, Menglong Ding, Wenguo Zhu, Shu Li">
+<meta name="paper-journal" content="Biomimetics">
+<meta name="paper-tags" content="Flapping, Wing Folding, Aerodynamics, UPM, FSI, Passive Torsion, Kinematics">
+<meta name="paper-doi" content="10.3390/biomimetics9010042">
+<title>The Effect of Spanwise Folding on the Aerodynamic Performance of a Passively Deformed Flapping Wing — Summary</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', 'Segoe UI', -apple-system, sans-serif;
+    background: #f8f9fb;
+    color: #1e293b;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Header ── */
+  .hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0c4a6e 100%);
+    color: #fff;
+    padding: 56px 0 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; top: 0; right: 0; bottom: 0;
+    width: 40%;
+    background: radial-gradient(ellipse at 80% 50%, rgba(56,189,248,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+    z-index: 1;
+  }
+  .hero h1 {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: -0.3px;
+    margin-bottom: 16px;
+  }
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    font-size: 14px;
+    color: #94a3b8;
+  }
+  .hero-meta a { color: #7dd3fc; text-decoration: none; }
+  .hero-meta a:hover { text-decoration: underline; }
+  .importance-badge {
+    position: absolute;
+    top: 56px; right: 40px;
+    font-size: 22px;
+    letter-spacing: 2px;
+    filter: drop-shadow(0 0 6px rgba(255,215,0,0.4));
+  }
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 20px;
+  }
+  .tag {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #cbd5e1;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.3px;
+  }
+
+  /* ── Content ── */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 40px 80px;
+  }
+
+  /* ── Toggle sections ── */
+  details {
+    margin-bottom: 12px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    overflow: hidden;
+  }
+  details[open] {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  summary {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    cursor: pointer;
+    user-select: none;
+    list-style: none;
+    border-bottom: 2px solid transparent;
+    transition: background 0.15s;
+  }
+  summary:hover {
+    background: #f1f5f9;
+  }
+  details[open] > summary {
+    border-bottom-color: #e2e8f0;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::before {
+    content: '\25B6';
+    font-size: 10px;
+    color: #94a3b8;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+  }
+  details[open] > summary::before {
+    transform: rotate(90deg);
+  }
+  .section-number {
+    background: #0f172a;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  summary h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
+    letter-spacing: -0.2px;
+  }
+
+  /* ── Section body ── */
+  .section-body {
+    padding: 16px 20px 20px;
+  }
+
+  /* Overview (always open, special style) */
+  .overview {
+    margin-bottom: 12px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    overflow: hidden;
+  }
+  .overview-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  .overview-header h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
+  }
+  .overview-text {
+    font-size: 14.5px;
+    line-height: 1.8;
+    color: #334155;
+    padding: 16px 20px 20px;
+    border-left: 4px solid #0ea5e9;
+    margin: 0;
+  }
+
+  /* Bullet lists */
+  .section-body ul {
+    list-style: none;
+    padding: 0;
+  }
+  .section-body ul li {
+    position: relative;
+    padding: 7px 0 7px 18px;
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: #334155;
+  }
+  .section-body ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 15px;
+    width: 5px; height: 5px;
+    background: #0ea5e9;
+    border-radius: 50%;
+  }
+  .section-body ul li + li {
+    border-top: 1px solid #f1f5f9;
+  }
+
+  /* Sub-section headings */
+  .section-body h3 {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #0c4a6e;
+    margin: 16px 0 6px;
+    padding-left: 2px;
+  }
+  .section-body h3:first-child {
+    margin-top: 0;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px 48px;
+    text-align: center;
+    font-size: 12px;
+    color: #94a3b8;
+  }
+  .footer a { color: #64748b; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <h1>The Effect of Spanwise Folding on the Aerodynamic Performance of a Passively Deformed Flapping Wing</h1>
+    <div class="hero-meta">
+      <span>Ming Qi, Menglong Ding, Wenguo Zhu, Shu Li</span>
+      <span>Biomimetics (2024)</span>
+      <span><a href="https://doi.org/10.3390/biomimetics9010042">DOI: 10.3390/biomimetics9010042</a></span>
+    </div>
+    <div class="tag-row"><span class="tag">Flapping</span><span class="tag">Wing Folding</span><span class="tag">Aerodynamics</span><span class="tag">UPM</span><span class="tag">FSI</span><span class="tag">Passive Torsion</span><span class="tag">Kinematics</span></div>
+    <div class="importance-badge">&#9733;&#9733;</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Overview: always visible (no toggle) -->
+  <div class="overview">
+    <div class="overview-header">
+      <div class="section-number">1</div>
+      <h2>Overview</h2>
+    </div>
+    <div class="overview-text">This paper presents a coupled aeroelastic method for the rapid analysis of folding flapping wings with passive torsional deformation, targeting the early design stage. The aerodynamic solver employs the <strong>unsteady three-dimensional panel method</strong> (UPM) while structural deformation is modeled via a <strong>linear beam element model</strong>, coupled through a Newmark-$\beta$ time-marching scheme. The study systematically investigates 10 kinematic parameter combinations&mdash;varying the flapping phase angle $\phi_\beta$, inner wing flapping amplitude $\beta_{in\_max}$, and mean folding angle $\beta_{mean}$&mdash;on a Canadian-goose-inspired wing at $Re \approx 37{,}500$&ndash;$183{,}750$, $St = 0.167$. Key results show that the phase angle $\phi_\beta$ most strongly governs thrust and propulsion efficiency, while $\beta_{mean}$ primarily affects lift by creating asymmetric flapping trajectories that reduce upstroke lift loss. The best propulsion efficiency ($\eta_P = 0.632$) is achieved in Case 7 ($\phi_\beta = 45°$, $\beta_{in\_max} = 30°$, $\beta_{mean} = 0°$). This work is directly relevant to Dr. Yang's research on ornithopter parameter optimization and folding wing mechanism design, particularly the interaction between spanwise folding kinematics and passive aeroelastic response&mdash;complementing <strong>Yang et al. (2024)</strong> on foldable flapping-wing mechanism optimization (Ref. [8]).</div>
+  </div>
+
+  <details>
+    <summary>
+      <div class="section-number">2</div>
+      <h2>Introduction</h2>
+    </summary>
+    <div class="section-body">
+      <h3>Motivation</h3>
+      <ul>
+        <li>Birds exhibit multi-degree-of-freedom wing motions including active flapping, twisting, passive torsional/bending deformation, and <strong>spanwise folding</strong>&mdash;all contributing to exceptional flight performance.</li>
+        <li>Spanwise folding is a primary characteristic of large birds in flight, enabling efficient lift and thrust generation.</li>
+        <li>Understanding the impact of folding kinematics combined with passive torsional deformation on performance is pivotal for flapping-wing design.</li>
+      </ul>
+      <h3>State of the Art</h3>
+      <ul>
+        <li>Prior experimental studies: <strong>Ryu et al. (2020)</strong> built four-bar linkage folding wings; <strong>Chen et al. (2021)</strong> measured vertical aerodynamic force with different wing-folding amplitudes; <strong>Qin et al. (2021)</strong> used PIV to study tip vortex evolution.</li>
+        <li>Prior computational studies: <strong>Han (2009)</strong> applied the panel method to seagull wing folding; <strong>Yang et al. (2024)</strong> used UVLM to optimize ornithopter folding parameters; <strong>Lang et al. (2022)</strong> solved N-S equations for flat-panel folding wings.</li>
+        <li>The single-layer <strong>vortex lattice method</strong> (VLM) cannot compute surface pressure coefficients, limiting design insight.</li>
+        <li>N-S equation solvers are accurate but computationally expensive, especially with fluid&ndash;structure coupling, making them impractical for early design stages.</li>
+      </ul>
+      <h3>Gap &amp; Contribution</h3>
+      <ul>
+        <li>Existing research lacks efficient methods that capture surface pressure while accounting for passive torsional deformation in folding wings.</li>
+        <li>The impact of folding on <strong>propulsion efficiency</strong> has not been adequately addressed.</li>
+        <li>Most studies ignore wing torsional deformation and geometric parameters, focusing solely on folding motion and leading to unrealistic separated-flow conditions.</li>
+        <li>This paper proposes an <strong>unsteady 3D panel method + linear beam element</strong> coupled approach for rapid aeroelastic analysis of folding flapping wings.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>
+      <div class="section-number">3</div>
+      <h2>Related Works</h2>
+    </summary>
+    <div class="section-body">
+      <h3>Experimental Studies</h3>
+      <ul>
+        <li><strong>Send et al. (2012)</strong> designed the Festo SmartBird with active torsion and studied unsteady 2D airfoil aerodynamics via thin-plate theory, CFD, and experiments.</li>
+        <li><strong>Kim et al. (2018)</strong> built a folding bird-like flapping wing and conducted flight tests.</li>
+        <li><strong>Ryu et al. (2020)</strong> experimentally studied a folding flapping wing with a four-bar linkage mechanism, concluding that folding is conducive to lift generation.</li>
+        <li><strong>Chen et al. (2021)</strong> experimentally studied the influence of wing-folding amplitudes on vertical aerodynamic force of a small flapping wing.</li>
+        <li><strong>Qin et al. (2021)</strong> employed PIV experiments to study tip vortex evolution and physical characteristics of a folding flapping wing.</li>
+      </ul>
+      <h3>Computational and Analytical Methods</h3>
+      <ul>
+        <li><strong>Huang (2019)</strong> employed a 2D airfoil method to solve folding wing aerodynamic forces and optimized structural parameters in the linkage mechanism.</li>
+        <li><strong>Han (2009)</strong> applied the panel method to study unsteady aerodynamic force of a folding seagull wing, finding that folding yields greater lift and thrust than simple flapping.</li>
+        <li><strong>Yang et al. (2024)</strong> employed UVLM to calculate aerodynamic force of a folding ornithopter and optimized shape and motion parameters for maximum average lift.</li>
+        <li><strong>Karimian and Jahanbin (2020)</strong> applied a simple 2D lift-line model with a linear beam element model to study aeroelastic behavior, finding that folding improves flight performance and that outer wing phase greatly influences aerodynamic performance.</li>
+        <li><strong>Verstraete et al. (2015)</strong> utilized UVLM with a linear FEM model to simulate seagull-like folding wings and studied the effect of folding on flutter speed.</li>
+        <li><strong>Chang et al. (2019)</strong> solved N-S equations for a folding-flapping model with preset torsion (no FSI), finding that lift and thrust are mainly generated during downstroke.</li>
+        <li><strong>Lang et al. (2022)</strong> used commercial N-S solvers to study folding parameter effects on flat-panel wing performance.</li>
+        <li><strong>Bie et al. (2022)</strong> applied N-S solver to study a bat-like folding flapping wing and analyzed inner-to-outer wing ratio effects.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>
+      <div class="section-number">4</div>
+      <h2>Materials and Methods</h2>
+    </summary>
+    <div class="section-body">
+      <h3>Problem Setup</h3>
+      <ul>
+        <li>Wing geometry inspired by the <strong>Canadian goose</strong>: half wingspan = 0.8 m, aspect ratio = 12, root chord = 0.3 m, root-to-tip ratio = 2.</li>
+        <li>Inner-to-outer wing length ratio: 0.45 (inner) : 0.55 (outer). Inner wing is torsionally rigid; outer wing undergoes passive torsion.</li>
+        <li>Airfoils: <strong>NACA 8412</strong> (root) and <strong>NACA 0012</strong> (tip), linearly interpolated along span. Root angle of incidence = 4&deg;.</li>
+        <li>Flight velocity $V_\infty = 15$ m/s; $Re$ from 37,500 to 183,750; flapping period $T = 0.33$ s; Strouhal number $St = 0.167$; reduced frequency $k = 0.0952$.</li>
+        <li>Beam placed at 10% chord behind the leading edge; lift center at ~25% chord; mass distributed at 10% chord behind beam.</li>
+        <li>Torsional stiffness $GJ$ varies with wingspan to the fourth power (linear relationship between beam cross-sectional diameter and wingspan).</li>
+      </ul>
+      <h3>Governing Equations</h3>
+      <ul>
+        <li><strong>Aerodynamic model</strong>: Unsteady 3D panel method with source + dipole panels on wing surface and dipole-only wake panels. Neumann (velocity) boundary condition: $\vec{V} \cdot \hat{n} = 0$ on wing surface.</li>
+        <li>Unsteady <strong>Kutta condition</strong> at trailing edge: $[V_{t_{up}}]_k^2 - [V_{t_{down}}]_k^2 = 2\left[\frac{\partial(\Phi_{down} - \Phi_{up})}{\partial t}\right]_k$</li>
+        <li><strong>Structural model</strong>: Linear beam element with $6 \times 6$ stiffness matrix incorporating bending stiffness $EI$ and torsional stiffness $GJ$.</li>
+        <li><strong>Aeroelastic equilibrium</strong>: $[K]\vec{q}_{k+1} + [M]\ddot{\vec{q}}_{k+1} = \vec{F}_{k+1}$, solved via Newmark-$\beta$ method (unconditionally stable).</li>
+        <li>Unsteady Bernoulli theorem for pressure coefficient: $C_p = \left(\frac{V_{move}}{V_\infty}\right)^2 - \left(\frac{V}{V_\infty}\right)^2 - \frac{2}{V_\infty^2}\frac{\partial \Phi}{\partial t}$</li>
+      </ul>
+      <h3>Kinematic Parameterization</h3>
+      <ul>
+        <li>Inner wing flapping: $\beta_{in}(t) = \beta_{in\_max} \cos(\omega t)$</li>
+        <li>Outer wing (relative to inner): $\beta_{out}(t) = \beta_{mean} - \beta_{out\_max} \cos(\omega t - \phi_\beta)$</li>
+        <li>Three key parameters varied: flapping phase angle $\phi_\beta \in \{0°, 45°, 90°\}$, inner wing amplitude $\beta_{in\_max} \in \{20°, 30°\}$, mean folding angle $\beta_{mean} \in \{0°, 30°\}$. Outer wing amplitude fixed at $\beta_{out\_max} = 30°$.</li>
+        <li>10 parameter combinations (Cases 1&ndash;10) studied systematically (Table 1).</li>
+      </ul>
+      <h3>Validation Strategy</h3>
+      <ul>
+        <li><strong>Aerodynamic validation</strong>: Compared against <strong>Lin (2005)</strong> 3D Euler equation results for a flapping rectangular NACA 0014 wing with 4&deg; tip twist and 90&deg; phase lag. Good agreement in both lift and thrust coefficients (Fig. 3).</li>
+        <li><strong>FSI validation</strong>: Compared against <strong>DeLaurier (1993)</strong> computational and experimental results for a passively twisted flapping wing. Good agreement in average lift, average thrust, torsion amplitude, and flapping elastic amplitude (Fig. 4). Minor deviations attributed to differences in structural and aerodynamic models.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>
+      <div class="section-number">5</div>
+      <h2>Results</h2>
+    </summary>
+    <div class="section-body">
+      <h3>Effect of Initial Geometric Twist Angle</h3>
+      <ul>
+        <li>Lift coefficient $C_l$ increases monotonically with increasing initial geometric twist angle $\theta_{geo}$ across all cases (Fig. 9a).</li>
+        <li>When $\beta_{mean} = 0°$, kinematic parameters have little impact on $C_l$; when $\beta_{mean} = 30°$, asymmetric wing configurations produce larger $C_l$ (Cases 2, 4 vs. Cases 1, 3).</li>
+        <li>Thrust coefficient $C_t$ first increases then decreases with $\theta_{geo}$, peaking near average angle of attack = 0&deg; (Fig. 9b). $C_t$ clearly stratified into three levels: highest in Cases 7&ndash;8 ($C_t = 0.112, 0.104$), followed by Cases 3&ndash;4, 5&ndash;6, 9&ndash;10, lowest in Cases 1&ndash;2 ($C_t = 0.028, 0.027$).</li>
+        <li>Propulsion efficiency $\eta_P$ also first increases then decreases. Best: Case 7 ($\eta_P = 0.632$), Case 8 ($\eta_P = 0.622$).</li>
+      </ul>
+      <h3>Intra-Cycle Aerodynamic Variations</h3>
+      <ul>
+        <li>Lift coefficient during one period is approximately sinusoidal, generally positive but briefly negative during upstroke (Fig. 10a). Larger $\phi_\beta$ produces more lagging phase and smaller peak values.</li>
+        <li>When $\beta_{mean} = 30°$, the maximum lift coefficient is advanced over that when $\beta_{mean} = 0°$, consistent with reduced upstroke lift loss from the asymmetric folding trajectory.</li>
+        <li>Thrust coefficient curve has two peaks per cycle; downstroke peak > upstroke peak (Fig. 10b). Smaller $\phi_\beta$ yields larger thrust and more lagging phase.</li>
+        <li>Wing-tip passive twist angle is approximately linear along span (Fig. 11b). Maximum effective angle of attack $\theta_{eff}$ does not exceed 15&deg; for all cases, validating the inviscid method applicability (Fig. 11c).</li>
+      </ul>
+      <h3>Surface Pressure Coefficient Analysis</h3>
+      <ul>
+        <li>Pressure distribution at 75% span analyzed at four phase points per cycle (Figs. 12&ndash;16). Suction peak indicates positive effective angle of attack at $t/T = 0.25 + \phi_{max}/2\pi$ and negative at $t/T = 0.75 + \phi_{min}/2\pi$.</li>
+        <li>$\beta_{mean} = 30°$ biases average angle of attack positive during the cycle (Case 2 vs. Case 1), making lift coefficient larger.</li>
+        <li>Cases 3&ndash;4 ($\phi_\beta = 90°$, $\beta_{in\_max} = 30°$) show excessively large effective angles of attack, risking airflow separation in practice.</li>
+        <li>Cases 7&ndash;8 ($\phi_\beta = 45°$, $\beta_{in\_max} = 30°$): maximum effective angle of attack is excessively large, indicating the need to adjust initial geometric twist angle. Not allowed during the flapping process (Ref. [18]).</li>
+        <li>Case 4 with $\theta_{geo} = -7°$ yields comparable airfoil pressure range to Case 6 with $\theta_{geo} = -4°$, but with higher thrust and propulsion efficiency, demonstrating that larger $\phi_\beta$ with adjusted twist angle is beneficial.</li>
+      </ul>
+      <h3>Key Quantitative Results (Table 2, $\theta_{geo} = -4°$)</h3>
+      <ul>
+        <li>$C_l$: ranges from 0.536 (Cases 3, 7) to 0.623 (Case 4). $\beta_{mean} = 30°$ consistently increases $C_l$ by ~3&ndash;15%.</li>
+        <li>$C_t$: ranges from 0.0274 (Case 2) to 0.112 (Case 7), a 4x variation. Dominated by $\phi_\beta$ and $\beta_{in\_max}$.</li>
+        <li>$\eta_P$: ranges from 0.431 (Case 1) to 0.632 (Case 7). Case 4 with $\theta_{geo} = -7°$: $\eta_P = 0.584$, $C_t = 0.069$, $C_l = 0.575$.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>
+      <div class="section-number">6</div>
+      <h2>Results Interpretation</h2>
+    </summary>
+    <div class="section-body">
+      <h3>Physical Mechanisms</h3>
+      <ul>
+        <li>The <strong>flapping phase angle $\phi_\beta$</strong> governs outer wing velocity amplitude: smaller $\phi_\beta$ produces higher wing-tip velocity, directly increasing thrust coefficient and unsteadiness. This is the dominant parameter for thrust and propulsion efficiency.</li>
+        <li>The <strong>mean folding angle $\beta_{mean}$</strong> creates trajectory asymmetry between upstroke and downstroke. When positive, the outer wing folds downward during upstroke, reducing upward velocity and lift loss, yielding net higher cycle-averaged lift.</li>
+        <li>The <strong>inner wing amplitude $\beta_{in\_max}$</strong> controls overall unsteadiness. Higher values increase thrust but risk excessive effective angle of attack on the outer wing, potentially causing separation and reducing propulsion efficiency.</li>
+        <li>Wing-tip velocity analysis (Fig. 8) confirms that the curve of velocity vs. time is sinusoidal; larger $\phi_\beta$ reduces peak velocity and introduces phase lag; $\beta_{mean}$ has only a tiny effect on velocity peak.</li>
+      </ul>
+      <h3>Relationship Between Pressure and Performance</h3>
+      <ul>
+        <li>Surface pressure coefficient analysis reveals the connection between kinematic parameters and effective angle of attack history: excessive angles of attack lead to suction peaks that would cause separation in viscous flow.</li>
+        <li>The inviscid panel method cannot simulate separation directly, but pressure distributions enable identification of parameter combinations that would be problematic in practice.</li>
+        <li>The initial geometric twist angle $\theta_{geo}$ serves as a design variable to keep the effective angle of attack within a reasonable range during both upstroke and downstroke.</li>
+      </ul>
+      <h3>Limitations</h3>
+      <ul>
+        <li>The method is <strong>inviscid</strong> (no viscous effects, no separation modeling), limiting applicability to conditions where effective angle of attack remains moderate (&lt;15&deg;).</li>
+        <li>Fixed-wake model used instead of free-wake, which may affect accuracy for large-amplitude motions.</li>
+        <li>Bending stiffness assumed rigid to isolate folding effects; real wings have coupled bending-torsion.</li>
+        <li>Only 2D airfoil characteristics used for torsion loading; 3D spanwise flow effects on separation are not captured.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>
+      <div class="section-number">7</div>
+      <h2>Conclusion</h2>
+    </summary>
+    <div class="section-body">
+      <h3>Key Claims</h3>
+      <ul>
+        <li>The proposed <strong>UPM + linear beam element + Newmark-$\beta$</strong> coupled method enables rapid and accurate aeroelastic analysis of folding flapping wings for early-stage design.</li>
+        <li>Kinematic parameters significantly impact performance: $\phi_\beta$ governs outer wing velocity and thrust; $\beta_{mean}$ governs trajectory asymmetry and lift; $\beta_{in\_max}$ governs overall unsteadiness.</li>
+        <li>A larger $\phi_\beta$ (e.g., 90&deg;) reduces outer wing flapping velocity and thrust but creates beneficial asymmetric trajectories when combined with positive $\beta_{mean}$.</li>
+        <li>The <strong>mean folding angle $\beta_{mean}$</strong> should be designed to align with the initial geometric twist angle $\theta_{geo}$ to prevent excessive angle of attack throughout the flapping cycle.</li>
+        <li>Best propulsion efficiency ($\eta_P = 0.632$) at Case 7; Case 4 with adjusted $\theta_{geo} = -7°$ achieves good balance of $C_l = 0.575$, $C_t = 0.069$, $\eta_P = 0.584$.</li>
+      </ul>
+      <h3>Design Guidelines for Folding Flapping Wings</h3>
+      <ul>
+        <li>For <strong>lift</strong>: use asymmetric configuration with positive $\beta_{mean}$ and large $\phi_\beta$ to reduce upstroke lift loss.</li>
+        <li>For <strong>thrust and propulsion efficiency</strong>: concentrate thrust generation in the downstroke by selecting positive $\beta_{mean}$; adjust $\beta_{in\_max}$ for overall unsteadiness; match $\theta_{geo}$ with $\beta_{mean}$ to maintain reasonable angle of attack range.</li>
+        <li>When $\phi_\beta = 0°$, although wing-tip flapping velocity is maximized, the outer wing experiences excessive angle of attack, reducing propulsion efficiency compared to $\phi_\beta = 45°$ or $90°$.</li>
+      </ul>
+      <h3>Future Directions</h3>
+      <ul>
+        <li>Extend to viscous methods (RANS or hybrid RANS-LES) for high-angle-of-attack regime with separation.</li>
+        <li>Incorporate free-wake models for improved wake interaction accuracy.</li>
+        <li>Include coupled bending-torsion structural response for more realistic wing deformation.</li>
+        <li>Optimization of full kinematic parameter space (including outer wing amplitude, wing planform geometry).</li>
+      </ul>
+    </div>
+  </details>
+
+</div>
+
+<div class="footer">
+  Generated by YANG Lab RECON &middot; <a href="https://doi.org/10.3390/biomimetics9010042">View Original Paper</a>
+</div>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '\\[', right: '\\]', display: true},
+      {left: '\\(', right: '\\)', display: false},
+      {left: '$', right: '$', display: false}
+    ],
+    throwOnError: false
+  });"></script>
+</body>
+</html>
