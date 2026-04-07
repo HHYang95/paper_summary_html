@@ -1,0 +1,143 @@
+/* ── Paper Summary Master Page — Custom Styles ── */
+
+/* Spinner animation (Tailwind animate-spin needs this for border-3) */
+.border-3 {
+  border-width: 3px;
+}
+
+/* Tag button base */
+.tag-btn {
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.tag-btn:hover {
+  filter: brightness(0.95);
+}
+
+.tag-btn.active {
+  ring: 2px;
+  box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.3);
+}
+
+/* Tag color — unified slate-blue tone, fixed border */
+.tag-aerodynamics,
+.tag-uvlm,
+.tag-flapping-wing,
+.tag-ornithopter,
+.tag-fsi,
+.tag-multibody-dynamics,
+.tag-biorobotics,
+.tag-cfd,
+.tag-simulation,
+.tag-aeroelasticity,
+.tag-methodology,
+.tag-optimization,
+.tag-flight-dynamics,
+.tag-key-paper,
+.tag-review,
+.tag-default {
+  background: #EFF6FF;
+  color: #1E40AF;
+  border-color: #BFDBFE;
+}
+
+/* Paper card */
+.paper-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 20px 24px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.paper-card:hover {
+  border-color: #CBD5E1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  transform: translateY(-1px);
+}
+
+.paper-card:active {
+  transform: translateY(0);
+}
+
+/* Importance stars */
+.stars {
+  color: #F59E0B;
+  letter-spacing: 1px;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.stars-dimmed {
+  color: #E2E8F0;
+}
+
+/* Year badge */
+.year-badge {
+  background: #F1F5F9;
+  color: #64748B;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+/* DOI link */
+.doi-link {
+  color: #0EA5E9;
+  font-size: 12px;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.doi-link:hover {
+  color: #0284C7;
+  text-decoration: underline;
+}
+
+/* Inline tag in card */
+.card-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 500;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F8FAFC;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Responsive tweaks */
+@media (max-width: 640px) {
+  .paper-card {
+    padding: 16px;
+  }
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "id": "1993_DeLaurier",
+    "title": "An Aerodynamic Model For Flapping-Wing Flight",
+    "authors": "J. D. DeLaurier",
+    "year": 1993,
+    "journal": "The Aeronautical Journal",
+    "tags": ["Flapping Wing", "Ornithopter", "Aeroelasticity", "Methodology"],
+    "doi": "10.1017/S0001924000026002",
+    "abstract": "A design-oriented aerodynamic model for flapping-wing flight based on modified strip theory, incorporating finite-wing unsteady wake effects through modified Theodorsen functions, partial leading-edge suction, and post-stall behavior.",
+    "importance": 3,
+    "file": "1993_DeLaurier_Aerodynamic-Model-Flapping-Wing-Flight.html"
+  },
+  {
+    "id": "2012_Murua",
+    "title": "Applications of the Unsteady Vortex-Lattice Method in Aircraft Aeroelasticity and Flight Dynamics",
+    "authors": "J. Murua, R. Palacios, J. M. R. Graham",
+    "year": 2012,
+    "journal": "Progress in Aerospace Sciences",
+    "tags": ["UVLM", "Aeroelasticity", "Flight Dynamics", "Simulation"],
+    "doi": "10.1016/j.paerosci.2012.06.001",
+    "abstract": "A comprehensive review of the unsteady vortex-lattice method and its applications in aircraft aeroelasticity, covering wake modeling, geometric nonlinearities, and coupled flight dynamics simulations.",
+    "importance": 3,
+    "file": "2012_Murua_Applications-UVLM-Aircraft-Aeroelasticity-Flight-Dynamics.html"
+  },
+  {
+    "id": "2021_Deng",
+    "title": "Acceleration of Unsteady Vortex Lattice Method via Dipole Panel Fast Multipole Method",
+    "authors": "Shuai Deng, Chen Jiang, Yunjie Wang, Haowen Wang",
+    "year": 2021,
+    "journal": "Chinese Journal of Aeronautics",
+    "tags": ["UVLM", "CFD", "Simulation", "Optimization", "Methodology"],
+    "doi": "10.1016/j.cja.2020.06.029",
+    "abstract": "A novel acceleration technique for UVLM computations using dipole panel fast multipole method, achieving significant speedup while maintaining accuracy for flapping wing simulations.",
+    "importance": 2,
+    "file": "2021_Deng_Acceleration-UVLM-via-Dipole-Panel-FMM.html"
+  },
+  {
+    "id": "2020_Joshi",
+    "title": "A Variational Flexible Multibody Formulation for Partitioned Fluid-Structure Interaction: Application to Bat-Inspired Drones and Robotic Wings",
+    "authors": "V. Joshi, R. K. Jaiman, C. Ollivier-Gooch",
+    "year": 2020,
+    "journal": "Computers & Mathematics with Applications",
+    "tags": ["FSI", "Multibody Dynamics", "Biorobotics", "Flapping Wing"],
+    "doi": "10.1016/j.camwa.2019.09.020",
+    "abstract": "A variational flexible multibody dynamics formulation for partitioned fluid-structure interaction, applied to bat-inspired drone wings with large structural deformations and complex kinematics.",
+    "importance": 2,
+    "file": "2020_Joshi_Variational-Flexible-Multibody-FSI-Bat-Inspired-Drones.html"
+  }
+]
