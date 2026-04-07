@@ -48,6 +48,25 @@
   border-color: #BFDBFE;
 }
 
+/* Tag toggle button */
+.tag-toggle-btn {
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 9999px;
+  border: 1px solid #E2E8F0;
+  background: #FFFFFF;
+  color: #64748B;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.tag-toggle-btn:hover {
+  background: #F1F5F9;
+  color: #475569;
+}
+
 /* Paper card */
 .paper-card {
   background: #FFFFFF;

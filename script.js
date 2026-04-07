@@ -8,6 +8,8 @@
   let activeTags = new Set();
   let sortOrder = 'desc'; // desc = newest first
   let searchQuery = '';
+  let tagsExpanded = false;
+  const MAX_VISIBLE_TAGS = 8;
 
   // DOM refs
   const searchInput = document.getElementById('search-input');
@@ -70,20 +72,42 @@
       </div>`;
   }
 
-  // ── Collect all unique tags from papers ──
-  function collectTags(papers) {
-    const tagSet = new Set();
-    papers.forEach(p => p.tags.forEach(t => tagSet.add(t)));
-    return Array.from(tagSet).sort();
+  // ── Collect tags sorted by frequency (descending), active tags always first ──
+  function collectTagsByFrequency(papers) {
+    const freq = {};
+    papers.forEach(p => p.tags.forEach(t => { freq[t] = (freq[t] || 0) + 1; }));
+    return Object.entries(freq)
+      .sort((a, b) => b[1] - a[1])
+      .map(([tag]) => tag);
   }
 
-  // ── Render tag filter buttons ──
+  // ── Render tag filter buttons with toggle ──
   function renderTagButtons(tags) {
-    tagContainer.innerHTML = tags.map(tag => {
+    // Active tags always visible at the top, then frequency-sorted rest
+    const activeList = tags.filter(t => activeTags.has(t));
+    const inactiveList = tags.filter(t => !activeTags.has(t));
+    const ordered = [...activeList, ...inactiveList];
+
+    const needsToggle = ordered.length > MAX_VISIBLE_TAGS;
+    const visible = tagsExpanded ? ordered : ordered.slice(0, MAX_VISIBLE_TAGS);
+    const hiddenCount = ordered.length - MAX_VISIBLE_TAGS;
+
+    let html = visible.map(tag => {
       const isActive = activeTags.has(tag);
       return `<button class="tag-btn ${tagToClass(tag)} ${isActive ? 'active' : ''}" data-tag="${tag}">${tag}</button>`;
     }).join('');
 
+    if (needsToggle) {
+      if (tagsExpanded) {
+        html += `<button class="tag-toggle-btn" id="tag-toggle">Show less</button>`;
+      } else {
+        html += `<button class="tag-toggle-btn" id="tag-toggle">+${hiddenCount} more</button>`;
+      }
+    }
+
+    tagContainer.innerHTML = html;
+
+    // Tag click handlers
     tagContainer.querySelectorAll('.tag-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const tag = btn.dataset.tag;
@@ -95,6 +119,15 @@
         render();
       });
     });
+
+    // Toggle handler
+    const toggleBtn = document.getElementById('tag-toggle');
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', () => {
+        tagsExpanded = !tagsExpanded;
+        render();
+      });
+    }
   }
 
   // ── Filter & sort papers ──
@@ -130,7 +163,7 @@
   // ── Main render ──
   function render() {
     const filtered = getFilteredPapers();
-    const allTags = collectTags(papers);
+    const allTags = collectTagsByFrequency(papers);
 
     // Tag buttons
     renderTagButtons(allTags);
