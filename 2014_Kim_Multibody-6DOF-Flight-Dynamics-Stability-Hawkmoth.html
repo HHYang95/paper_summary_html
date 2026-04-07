@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="paper-title" content="A Multibody Approach For 6-DOF Flight Dynamics and Stability Analysis of the Hawkmoth Manduca sexta">
+<meta name="paper-year" content="2014">
+<meta name="paper-author" content="Joong-Kwan Kim, Jae-Hung Han">
+<meta name="paper-journal" content="Bioinspiration &amp; Biomimetics">
+<meta name="paper-tags" content="Flight Dynamics, Multibody Dynamics, Flapping Wing, Insect Flight, Stability Analysis, Hawkmoth">
+<meta name="paper-doi" content="10.1088/1748-3182/9/1/016011">
+<title>A Multibody Approach For 6-DOF Flight Dynamics and Stability Analysis of the Hawkmoth Manduca sexta &mdash; Summary</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', 'Segoe UI', -apple-system, sans-serif; background: #f8f9fb; color: #1e293b; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  .hero { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0c4a6e 100%); color: #fff; padding: 56px 0 48px; position: relative; overflow: hidden; }
+  .hero::after { content: ''; position: absolute; top: 0; right: 0; bottom: 0; width: 40%; background: radial-gradient(ellipse at 80% 50%, rgba(56,189,248,0.08) 0%, transparent 70%); pointer-events: none; }
+  .hero-inner { max-width: 900px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 1; }
+  .hero h1 { font-size: 28px; font-weight: 700; line-height: 1.35; letter-spacing: -0.3px; margin-bottom: 16px; }
+  .hero-meta { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px; color: #94a3b8; }
+  .hero-meta a { color: #7dd3fc; text-decoration: none; }
+  .hero-meta a:hover { text-decoration: underline; }
+  .importance-badge { position: absolute; top: 56px; right: 40px; font-size: 22px; letter-spacing: 2px; filter: drop-shadow(0 0 6px rgba(255,215,0,0.4)); }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px; }
+  .tag { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); color: #cbd5e1; font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px; letter-spacing: 0.3px; }
+  .container { max-width: 900px; margin: 0 auto; padding: 40px 40px 80px; }
+  details { margin-bottom: 12px; border-radius: 10px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.04); overflow: hidden; }
+  details[open] { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  summary { display: flex; align-items: center; gap: 12px; padding: 14px 20px; cursor: pointer; user-select: none; list-style: none; border-bottom: 2px solid transparent; transition: background 0.15s; }
+  summary:hover { background: #f1f5f9; }
+  details[open] > summary { border-bottom-color: #e2e8f0; }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: '\25B6'; font-size: 10px; color: #94a3b8; transition: transform 0.2s; flex-shrink: 0; }
+  details[open] > summary::before { transform: rotate(90deg); }
+  .section-number { background: #0f172a; color: #fff; font-size: 11px; font-weight: 700; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  summary h2 { font-size: 16px; font-weight: 700; color: #0f172a; letter-spacing: -0.2px; }
+  .section-body { padding: 16px 20px 20px; }
+  .overview { margin-bottom: 12px; background: #fff; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); overflow: hidden; }
+  .overview-header { display: flex; align-items: center; gap: 12px; padding: 14px 20px; border-bottom: 2px solid #e2e8f0; }
+  .overview-header h2 { font-size: 16px; font-weight: 700; color: #0f172a; }
+  .overview-text { font-size: 14.5px; line-height: 1.8; color: #334155; padding: 16px 20px 20px; border-left: 4px solid #0ea5e9; margin: 0; }
+  .section-body ul { list-style: none; padding: 0; }
+  .section-body ul li { position: relative; padding: 7px 0 7px 18px; font-size: 13.5px; line-height: 1.7; color: #334155; }
+  .section-body ul li::before { content: ''; position: absolute; left: 0; top: 15px; width: 5px; height: 5px; background: #0ea5e9; border-radius: 50%; }
+  .section-body ul li + li { border-top: 1px solid #f1f5f9; }
+  .section-body h3 { font-size: 13.5px; font-weight: 600; color: #0c4a6e; margin: 16px 0 6px; padding-left: 2px; }
+  .section-body h3:first-child { margin-top: 0; }
+  .footer { max-width: 900px; margin: 0 auto; padding: 0 40px 48px; text-align: center; font-size: 12px; color: #94a3b8; }
+  .footer a { color: #64748b; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="hero-inner">
+    <h1>A Multibody Approach For 6-DOF Flight Dynamics and Stability Analysis of the Hawkmoth Manduca sexta</h1>
+    <div class="hero-meta">
+      <span>Joong-Kwan Kim, Jae-Hung Han</span>
+      <span>Bioinspiration &amp; Biomimetics (2014)</span>
+      <span><a href="https://doi.org/10.1088/1748-3182/9/1/016011">DOI: 10.1088/1748-3182/9/1/016011</a></span>
+    </div>
+    <div class="tag-row">
+      <span class="tag">Flight Dynamics</span><span class="tag">Multibody Dynamics</span><span class="tag">Flapping Wing</span><span class="tag">Insect Flight</span><span class="tag">Stability Analysis</span><span class="tag">Hawkmoth</span></div>
+    <div class="importance-badge">&#9733;&#9733;&#9733;</div>
+  </div>
+</div>
+<div class="container">
+  <div class="overview">
+    <div class="overview-header">
+      <div class="section-number">1</div>
+      <h2>Overview</h2>
+    </div>
+    <div class="overview-text">This paper presents a <strong>multibody dynamics framework</strong> for the hawkmoth <em>Manduca sexta</em> that performs <strong>direct time integration</strong> of fully coupled <strong>6-DOF nonlinear equations of motion</strong>, incorporating <strong>time-varying inertia tensors</strong> of all body segments including wings. Conventional insect flight stability analyses rely on <strong>eigenmode analysis</strong> applied to <strong>linearized time-invariant (LTI) systems</strong>, requiring three major simplifications: neglecting time-varying wing inertia, wingbeat-cycle-averaging of aerodynamics, and linearization about hovering equilibrium. The multibody approach captures <strong>within-wingbeat dynamics</strong> and <strong>cross-plane coupling effects</strong> that eigenmode analysis inherently misses. All six independent DOFs exhibit <strong>passive aerodynamic damping</strong>, with sideslip translation being the least damped translational DOF ($t_{\text{half},v} = 17.95$ strokes) and pitch rotation being the least damped rotational DOF ($t_{\text{half},q} = 2.39$ strokes). A critical finding is the <strong>asymmetric cross-coupling</strong> between longitudinal and lateral planes: lateral disturbances excite longitudinal instability within <strong>5-6 wingbeat strokes</strong>, a phenomenon invisible to linearized models.</div>
+  </div>
+
+  <details><summary><div class="section-number">2</div><h2>Introduction</h2></summary>
+    <div class="section-body">
+      <h3>Insect Flight Stability Problem</h3>
+      <ul>
+        <li>Flying insects exhibit remarkable maneuverability and stability that surpasses current <strong>micro air vehicles (MAVs)</strong></li>
+        <li>Understanding <strong>dynamic flight stability</strong> provides quantified plant characteristics for <strong>control law identification</strong> and biologically inspired MAV design</li>
+        <li>Insect flight dynamics is characterized as a <strong>nonlinear time periodic (NLTP) system</strong>, making direct eigenmode analysis inapplicable without simplifying assumptions</li>
+      </ul>
+      <h3>Prior Approaches and Limitations</h3>
+      <ul>
+        <li>Previous eigenmode studies (<strong>Taylor and Thomas (2003)</strong>; <strong>Sun et al. (2007)</strong>; <strong>Zhang and Sun (2010a)</strong>; <strong>Cheng and Deng (2011)</strong>) identified longitudinal and lateral modes for various insect species</li>
+        <li>These required <strong>linearization</strong> and <strong>wingbeat-cycle-averaging</strong>, which can omit energy transfer from high-frequency to low-frequency modes (<strong>Taha et al. (2012)</strong>)</li>
+        <li>More direct approaches using <strong>Floquet theory</strong> or <strong>CFD-coupled simulations</strong> exist but are computationally expensive</li>
+      </ul>
+    </div>
+  </details>
+
+  <details><summary><div class="section-number">3</div><h2>Related Works</h2></summary>
+    <div class="section-body">
+      <h3>Eigenmode Analysis Studies</h3>
+      <ul>
+        <li><strong>Sun et al. (2007)</strong> identified three longitudinal modes for the hawkmoth: one <strong>unstable oscillatory mode</strong> and two <strong>stable subsidence modes</strong></li>
+        <li><strong>Zhang and Sun (2010a)</strong> and <strong>Zhang et al. (2012)</strong> extended to lateral dynamics; different studies reported conflicting stability results due to <strong>eigenvalue sensitivity</strong> near the imaginary axis</li>
+        <li><strong>Cheng and Deng (2011)</strong> performed a full <strong>6-DOF eigenmode analysis</strong>, revealing high sensitivity to modeling assumptions</li>
+      </ul>
+      <h3>Periodic System and Direct Simulation Approaches</h3>
+      <ul>
+        <li><strong>Taylor and Zbikowski (2005)</strong> constructed an <strong>NLTP model</strong> for the desert locust with <strong>Fourier-series-based instantaneous aerodynamics</strong></li>
+        <li><strong>Gao et al. (2010)</strong> used <strong>CFD-based aerodynamics</strong> with 6-DOF rigid body equations for the fruit fly</li>
+        <li><strong>Wu et al. (2009)</strong> directly coupled CFD with rigid body dynamics</li>
+        <li><strong>Orlowski and Girard (2011a)</strong> employed a <strong>multibody dynamics approach</strong> for a rigid-winged flapping MAV but without aerodynamic modeling</li>
+      </ul>
+    </div>
+  </details>
+
+  <details><summary><div class="section-number">4</div><h2>Materials and Methods</h2></summary>
+    <div class="section-body">
+      <h3>Multibody Hawkmoth Model</h3>
+      <ul>
+        <li>The model consists of <strong>five rigid bodies</strong>: head, thorax, abdomen (connected by fixed joints), and two wings (attached via <strong>3-DOF revolute joints</strong>)</li>
+        <li>Total mass $m_{\text{total}} = 1456.33$ mg, wing span $R = 48.30$ mm, mean chord $\bar{c} = 18.09$ mm</li>
+        <li>Wing kinematics use three rotational DOFs: <strong>stroke positional angle</strong> $\phi(t)$, <strong>feathering angle</strong> $\alpha(t)$, <strong>deviation angle</strong> $\theta(t)$ at flapping frequency of <strong>29.46 Hz</strong></li>
+      </ul>
+      <h3>Aerodynamic Model</h3>
+      <ul>
+        <li><strong>Blade element theory</strong> decomposes instantaneous aerodynamic forces into <strong>translational</strong> and <strong>rotational</strong> components on <strong>five aerodynamic strips</strong> per wing</li>
+        <li>Force components: $dF_{\text{lift},i} = \frac{1}{2}\rho V_i^2 \, dS_i \, C_L$, $dF_{\text{drag},i} = \frac{1}{2}\rho V_i^2 \, dS_i \, C_D$, $dF_{\text{rot},i} = \rho V_i C_{\text{rot}} \dot{\alpha}_i \bar{c}_i \, dS_i$</li>
+        <li>Aerodynamic coefficients from <strong>Usherwood and Ellington (2002)</strong> revolving-wing experiments on hawkmoth wings</li>
+        <li>The 6-DOF body flight states incorporated through <strong>velocity transformations</strong> to the stroke-plane frame</li>
+      </ul>
+      <h3>Simulation Framework and Analysis Methodology</h3>
+      <ul>
+        <li>Simulation environment uses <strong>MSC.Adams</strong> for direct time integration of the <strong>DAE system</strong> via the <strong>GSTIFF integrator</strong> with variable step size</li>
+        <li>Two analyses performed: (1) <strong>passive damping analysis</strong> on each independent DOF with simplified sinusoidal kinematics, and (2) <strong>natural modes of motion analysis</strong> on fully coupled 6-DOF responses</li>
+        <li>Hovering reference condition found by adjusting <strong>Fourier coefficients</strong> until all time-averaged velocity states satisfy the <strong>zero-drift criterion</strong> within <strong>1%</strong> tolerance</li>
+      </ul>
+    </div>
+  </details>
+
+  <details><summary><div class="section-number">5</div><h2>Results</h2></summary>
+    <div class="section-body">
+      <h3>Passive Damping Characteristics</h3>
+      <ul>
+        <li>Half-life results in wingbeat strokes: $t_{\text{half},u} = 7.10$, $t_{\text{half},v} = 17.95$, $t_{\text{half},w}^{\text{asc}} = 7.13$, $t_{\text{half},w}^{\text{desc}} = 5.77$</li>
+        <li>Rotational half-lives: $t_{\text{half},p} = 0.68$, $t_{\text{half},q} = 2.39$, $t_{\text{half},r} = 0.25$</li>
+        <li><strong>Sideslip translation</strong> is approximately <strong>three times</strong> less damped than forward/backward translation</li>
+        <li><strong>Pitch rotation</strong> is approximately <strong>five times</strong> less damped than roll and yaw rotations</li>
+        <li><strong>Yaw rotation</strong> exhibits the highest rotational damping, requiring only <strong>a quarter wingbeat stroke</strong> to halve the initial angular velocity</li>
+      </ul>
+      <h3>Longitudinal Modal Dynamics</h3>
+      <ul>
+        <li><strong>Mode 1</strong> (in-phase $\delta u_b$, $\delta q_b$): <strong>diverging oscillatory dynamics</strong> at <strong>1.22 Hz</strong> with $t_{\text{double}} = 7.5$ strokes</li>
+        <li><strong>Mode 2</strong> (out-of-phase $\delta u_b$, $\delta q_b$): initial <strong>fast subsidence</strong> transitioning to <strong>unstable oscillation</strong></li>
+        <li><strong>Mode 3</strong> ($\delta w_b$ alone): initial subsidence ($t_{\text{half}} = 2.5$) followed by divergence through $u_b$-$q_b$ coupling</li>
+      </ul>
+      <h3>Lateral Modal Dynamics</h3>
+      <ul>
+        <li>In-phase $\delta v_b$-$\delta p_b$: <strong>monotonic divergence</strong> ($t_{\text{double}} = 6.0$)</li>
+        <li>Out-of-phase $\delta v_b$-$\delta p_b$: <strong>stable subsidence</strong></li>
+        <li>$\delta p_b$-$\delta r_b$: <strong>fast subsidence</strong> transitions to divergence through $v_b$ excitation</li>
+      </ul>
+    </div>
+  </details>
+
+  <details><summary><div class="section-number">6</div><h2>Results Interpretation</h2></summary>
+    <div class="section-body">
+      <h3>Cross-Plane Coupling Effects</h3>
+      <ul>
+        <li>Longitudinal disturbances do not affect lateral states, maintaining decoupled dynamics</li>
+        <li>However, <strong>lateral disturbances excite longitudinal states</strong> within <strong>5-6 wingbeat strokes</strong>, triggering the $u_b$-$q_b$ coupled longitudinal instability</li>
+        <li>This <strong>asymmetric cross-coupling</strong> arises from <strong>higher-order terms neglected during linearization</strong> and has direct implications for flight control design</li>
+      </ul>
+      <h3>Limitations of Eigenmode Analysis</h3>
+      <ul>
+        <li><strong>Wingbeat-cycle-averaging</strong> eliminates <strong>within-wingbeat dynamics</strong>, causing underestimation of coupling between states</li>
+        <li><strong>Stability derivatives</strong> such as $N_v$ (yaw moment due to sideslip velocity) and $Y_r$ (sideslip force due to yaw rate) are underestimated</li>
+        <li>The <strong>nonlinear multibody approach</strong> reveals all modes eventually converge to a <strong>combined longitudinal-lateral instability</strong> pattern, invisible to linear analysis</li>
+      </ul>
+      <h3>Biological Implications</h3>
+      <ul>
+        <li><strong>Instability growth timescales</strong> (less than <strong>7 wingbeat strokes</strong> to double) compared against sensory latencies</li>
+        <li><strong>Angular rate sensing</strong> via antennae: less than <strong>0.5 stroke</strong> latency; <strong>visual orientation detection</strong>: <strong>1-3 strokes</strong> latency</li>
+        <li>The hawkmoth has sufficient time to sense and correct perturbations before instability growth becomes unrecoverable</li>
+      </ul>
+    </div>
+  </details>
+
+  <details><summary><div class="section-number">7</div><h2>Conclusion</h2></summary>
+    <div class="section-body">
+      <h3>Principal Results</h3>
+      <ul>
+        <li>The <strong>multibody dynamics approach</strong> successfully captures 6-DOF flight dynamics without simplifying assumptions required by eigenmode analysis</li>
+        <li>All six independent DOFs possess <strong>passive aerodynamic damping</strong>, with quantitative imbalances driving coupled instabilities</li>
+        <li><strong>Longitudinal instability</strong> primarily from $u_b$-$q_b$ coupling (forward velocity and pitch rate)</li>
+        <li><strong>Lateral instability</strong> from $v_b$-$p_b$ coupling (sideslip velocity and roll rate)</li>
+        <li>The <strong>lateral-to-longitudinal cross-coupling</strong> effect is a significant finding with implications for MAV flight control design</li>
+      </ul>
+      <h3>Methodological Significance</h3>
+      <ul>
+        <li><strong>Direct time integration</strong> of fully coupled nonlinear multibody equations avoids <strong>linearization artifacts</strong> and captures dynamics across both short and long time windows</li>
+        <li>This framework provides a more complete picture of insect flight stability than eigenmode analysis, particularly for lateral dynamics where linearized models show the greatest discrepancies</li>
+        <li>The approach is extensible to other insect species and flight conditions beyond hovering</li>
+      </ul>
+    </div>
+  </details>
+</div>
+<div class="footer">Generated by YANG Lab RECON &middot; <a href="https://doi.org/10.1088/1748-3182/9/1/016011">View Original Paper</a></div>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, {
+    delimiters: [{left: '$$', right: '$$', display: true},{left: '\\[', right: '\\]', display: true},{left: '\\(', right: '\\)', display: false},{left: '$', right: '$', display: false}],
+    throwOnError: false
+  });"></script>
+</body>
+</html>

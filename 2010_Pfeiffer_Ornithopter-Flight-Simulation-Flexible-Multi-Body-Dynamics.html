@@ -1,0 +1,161 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="paper-title" content="Ornithopter Flight Simulation Based on Flexible Multi-Body Dynamics"><meta name="paper-year" content="2010"><meta name="paper-author" content="Pfeiffer, A. T., Lee, J.-S., Han, J.-H., Baier, H."><meta name="paper-journal" content="Journal of Bionic Engineering"><meta name="paper-tags" content="Ornithopter, MBD, FSI, Flapping Wing, Simulation, Flight Dynamics, Aeroelasticity"><meta name="paper-doi" content="10.1016/S1672-6529(09)60189-X">
+<title>Ornithopter Flight Simulation Based on Flexible Multi-Body Dynamics — Summary</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter','Segoe UI',-apple-system,sans-serif;background:#f8f9fb;color:#1e293b;line-height:1.7;-webkit-font-smoothing:antialiased}.hero{background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 50%,#0c4a6e 100%);color:#fff;padding:56px 0 48px;position:relative;overflow:hidden}.hero::after{content:'';position:absolute;top:0;right:0;bottom:0;width:40%;background:radial-gradient(ellipse at 80% 50%,rgba(56,189,248,0.08) 0%,transparent 70%);pointer-events:none}.hero-inner{max-width:900px;margin:0 auto;padding:0 40px;position:relative;z-index:1}.hero h1{font-size:28px;font-weight:700;line-height:1.35;letter-spacing:-0.3px;margin-bottom:16px}.hero-meta{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:14px;color:#94a3b8}.hero-meta a{color:#7dd3fc;text-decoration:none}.importance-badge{position:absolute;top:56px;right:40px;font-size:22px;letter-spacing:2px;filter:drop-shadow(0 0 6px rgba(255,215,0,0.4))}.tag-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:20px}.tag{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);color:#cbd5e1;font-size:11px;font-weight:500;padding:3px 10px;border-radius:20px}.container{max-width:900px;margin:0 auto;padding:40px 40px 80px}details{margin-bottom:12px;border-radius:10px;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,0.04);overflow:hidden}details[open]{box-shadow:0 2px 8px rgba(0,0,0,0.06)}summary{display:flex;align-items:center;gap:12px;padding:14px 20px;cursor:pointer;user-select:none;list-style:none;border-bottom:2px solid transparent;transition:background 0.15s}summary:hover{background:#f1f5f9}details[open]>summary{border-bottom-color:#e2e8f0}summary::-webkit-details-marker{display:none}summary::before{content:'\25B6';font-size:10px;color:#94a3b8;transition:transform 0.2s;flex-shrink:0}details[open]>summary::before{transform:rotate(90deg)}.section-number{background:#0f172a;color:#fff;font-size:11px;font-weight:700;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}summary h2{font-size:16px;font-weight:700;color:#0f172a}.section-body{padding:16px 20px 20px}.overview{margin-bottom:12px;background:#fff;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,0.04);overflow:hidden}.overview-header{display:flex;align-items:center;gap:12px;padding:14px 20px;border-bottom:2px solid #e2e8f0}.overview-header h2{font-size:16px;font-weight:700;color:#0f172a}.overview-text{font-size:14.5px;line-height:1.8;color:#334155;padding:16px 20px 20px;border-left:4px solid #0ea5e9;margin:0}.section-body ul{list-style:none;padding:0}.section-body ul li{position:relative;padding:7px 0 7px 18px;font-size:13.5px;line-height:1.7;color:#334155}.section-body ul li::before{content:'';position:absolute;left:0;top:15px;width:5px;height:5px;background:#0ea5e9;border-radius:50%}.section-body ul li+li{border-top:1px solid #f1f5f9}.section-body h3{font-size:13.5px;font-weight:600;color:#0c4a6e;margin:16px 0 6px}.section-body h3:first-child{margin-top:0}.footer{max-width:900px;margin:0 auto;padding:0 40px 48px;text-align:center;font-size:12px;color:#94a3b8}.footer a{color:#64748b;text-decoration:none}</style>
+</head><body>
+<div class="hero"><div class="hero-inner"><h1>Ornithopter Flight Simulation Based on Flexible Multi-Body Dynamics</h1><div class="hero-meta"><span>Pfeiffer, A. T., Lee, J.-S., Han, J.-H., Baier, H.</span><span>Journal of Bionic Engineering (2010)</span><span><a href="https://doi.org/10.1016/S1672-6529(09)60189-X">DOI: 10.1016/S1672-6529(09)60189-X</a></span></div><div class="tag-row"><span class="tag">Ornithopter</span><span class="tag">MBD</span><span class="tag">FSI</span><span class="tag">Flapping Wing</span><span class="tag">Simulation</span><span class="tag">Flight Dynamics</span><span class="tag">Aeroelasticity</span></div><div class="importance-badge">★★</div></div></div>
+<div class="container">
+  <div class="overview"><div class="overview-header"><div class="section-number">1</div><h2>Overview</h2></div><div class="overview-text">This paper presents an efficient integrative simulation framework for ornithopter (flapping-wing air vehicle) flight based on flexible <strong>multi-body dynamics (MBD)</strong>, a <strong>modified strip theory (MST)</strong> aerodynamic model, and a <strong>fluid-structure interaction (FSI)</strong> approach. The framework couples <strong>MSC.ADAMS</strong> for multi-body dynamics with <strong>ANSYS</strong> finite element models via <strong>Craig-Bampton component mode synthesis</strong>. A magpie-sized ornithopter model is designed and trimmed for longitudinal flight at $f = 12$ Hz, $U = 10.8$ m/s, and $\theta_{\text{MEAN}} = 9.2°$. The key finding is the observation of <strong>limit-cycle oscillations (LCO)</strong> in pitch attitude, altitude, and flight speed during trimmed flight, explained through the concept of a <strong>Zero Moment Point (ZMP)</strong> and the <strong>stability residual</strong> $\varepsilon$. The simulation of <strong>10 flapping cycles</strong> with FSI takes approximately <strong>2 minutes</strong>, making it practical for preliminary ornithopter design.</div></div>
+  <details><summary><div class="section-number">2</div><h2>Introduction</h2></summary><div class="section-body">
+    <h3>Motivation</h3>
+    <ul>
+      <li>Ornithopters represent engineering realizations of biological flapping-wing flight, with applications as next-generation UAVs for surveillance and reconnaissance with natural camouflage</li>
+      <li>Ornithopter preliminary design differs fundamentally from <strong>fixed-wing aircraft</strong> due to coupled aerodynamic, structural, and kinematic complexities</li>
+      <li>Existing flight simulation studies mostly used <strong>rigid-wing insect models</strong> (e.g., Drosophila) with <strong>quasi-steady aerodynamics</strong>, lacking FSI coupling for bird-scale flexible-wing vehicles</li>
+    </ul>
+    <h3>Key Challenges</h3>
+    <ul>
+      <li>Flapping-wing aerodynamics are governed by <strong>unsteady, low Reynolds number flows</strong> with nonlinear, time-varying, periodic characteristics</li>
+      <li>Thin <strong>flexible membrane wings</strong> undergo significant structural deformation during flapping, requiring <strong>fluid-structure interaction</strong></li>
+      <li>Wing kinematics (flapping, pitching, twisting, lagging) simultaneously affect both aerodynamics and structural dynamics</li>
+      <li>CFD approaches are computationally prohibitive for preliminary design: <strong>~10 hours</strong> for only <strong>4 flapping cycles</strong> of a hawkmoth model</li>
+    </ul>
+    <h3>Approach</h3>
+    <ul>
+      <li>Target organism is a magpie-like bird with single flapping frequency and a tail-wing for longitudinal stability, rather than an insect</li>
+      <li>Proposes a time-efficient integrative framework coupling <strong>flexible MBD</strong>, <strong>reduced-order aerodynamics</strong>, and FSI for trimmed longitudinal flight</li>
+    </ul>
+  </div></details>
+  <details><summary><div class="section-number">3</div><h2>Related Works</h2></summary><div class="section-body">
+    <h3>Flapping-Wing Aerodynamic Models</h3>
+    <ul>
+      <li><strong>DeLaurier (1993)</strong> developed the <strong>modified strip theory (MST)</strong> for flapping-wing aerodynamics, providing a reduced-order alternative to CFD with reasonable accuracy</li>
+      <li><strong>Lee et al. (2008)</strong> experimentally evaluated a flapping-wing aerodynamic model for MAV applications using wind tunnel data</li>
+      <li><strong>Liu and Aono (2009)</strong> used CFD to study insect hovering aerodynamics but required <strong>~10 hours</strong> for <strong>4 flapping cycles</strong>, highlighting the need for efficient alternatives</li>
+    </ul>
+    <h3>Ornithopter Flight Dynamics</h3>
+    <ul>
+      <li><strong>Dietl and Garcia (2008)</strong> studied stability in ornithopter longitudinal flight dynamics, finding similar oscillating tendencies in numerical analysis</li>
+      <li><strong>Grauer and Hubbard (2009)</strong> provided inertial measurements from flight data of a flapping-wing ornithopter, confirming oscillatory behavior in real flight</li>
+      <li><strong>Dickson et al. (2008)</strong> developed an integrative model of Drosophila flight using rigid wings without FSI</li>
+    </ul>
+    <h3>Multi-Body Dynamics for MAVs</h3>
+    <ul>
+      <li><strong>Jones et al. (2004)</strong> and <strong>Wood (2007)</strong> advanced flapping-wing MAV design but relied on simplified structural models</li>
+      <li><strong>Han et al. (2009)</strong> explored bio-inspired flapping UAV design at the university scale, providing context for the KAIST approach</li>
+      <li>Previous studies mostly used <strong>rigid-wing models</strong> with <strong>quasi-steady aerodynamics</strong>, not accounting for FSI effects critical for bird-scale ornithopters</li>
+    </ul>
+  </div></details>
+  <details><summary><div class="section-number">4</div><h2>Materials and Methods</h2></summary><div class="section-body">
+    <h3>Flexible Multi-Body Dynamics Framework</h3>
+    <ul>
+      <li><strong>MSC.ADAMS</strong> models the kinematic motion of the ornithopter; <strong>ANSYS</strong> provides the finite element model of the flexible wing imported as a <strong>modal neutral file</strong></li>
+      <li><strong>Craig-Bampton component mode synthesis</strong> (dynamic sub-structuring) represents wing flexibility through a modal approach for each sub-structure</li>
+      <li>Main wing is modeled as flexible; fuselage and tail-wing are treated as <strong>rigid bodies</strong> for simplicity</li>
+    </ul>
+    <h3>Aerodynamic Model: Modified Strip Theory</h3>
+    <ul>
+      <li><strong>Reduced-order MST</strong> model computes sectional aerodynamic loads (normal force, tangential force, moment) at the quarter-chord of each strip</li>
+      <li>Wing divided into <strong>27 aerodynamic surfaces</strong> (strips) for the <strong>quarter-ellipse wing planform</strong></li>
+      <li>Tail-wing uses <strong>thin-airfoil theory</strong> with <strong>finite-wing correction</strong>: $C_{L,T} = \frac{2\pi}{\displaystyle 2 + \frac{\pi \cdot AR_T}{AR_T}} (\theta - \delta_T)$ and induced drag $C_{D,T} = C_{D0,T} + \frac{C_{L,T}^2}{\pi e \cdot AR_T}$</li>
+    </ul>
+    <h3>Efficient Fluid-Structure Interaction (E-FSI)</h3>
+    <ul>
+      <li>Iterative coupling between <strong>ADAMS</strong> (structural deformation) and <strong>MST</strong> (aerodynamic loads) at each time step</li>
+      <li>Instantaneous wing sectional velocity and flow speed feed into the aerodynamic model; resulting loads feed back into ADAMS</li>
+      <li>Computational cost: <strong>~2 minutes</strong> for <strong>10 flapping cycles</strong> with $\Delta t = 0.005$ s integration time step</li>
+    </ul>
+    <h3>Wing Structural Model (Efficient Flapping Wing, EFW)</h3>
+    <ul>
+      <li><strong>Quarter-ellipse planform</strong> with wingspan <strong>540 mm</strong> and <strong>aspect ratio 5.58</strong>, modeled after magpie wing geometry</li>
+      <li><strong>BEAM4</strong> elements for leading-edge and stiffeners (carbon-fiber rod), <strong>SHELL63</strong> for skin (thin membrane); total <strong>1857 finite elements</strong></li>
+      <li>Material properties: leading edge $E = 250$ GPa, $\rho = 1800$ kg/m$^3$; skin $E = 100$ GPa, thickness <strong>0.04 mm</strong></li>
+    </ul>
+    <h3>Trim Condition Search</h3>
+    <ul>
+      <li><strong>Force and moment equilibrium</strong> in time-averaged sense: $\langle F_V \rangle = 0$, $\langle F_H \rangle = 0$, $\langle M_{CG} \rangle = 0$</li>
+      <li>Longitudinal equations of motion: $\dot{U} = -QW - g\sin\theta + F_{X_B}/m$ and $\dot{W} = QU + g\cos\theta + F_{Z_B}/m$ with pitch dynamics $\dot{Q} = M_{Y_B}/I_{Y_B}$</li>
+      <li><strong>Aerodynamic map</strong> of mean vertical and horizontal constraint forces generated as a function of flight speed, flapping frequency, and mean pitch angle</li>
+    </ul>
+    <h3>Validation</h3>
+    <ul>
+      <li>Validated against <strong>Rectangular Flapping-Wing (RFW)</strong> wind tunnel data from <strong>Lee et al. (Ref. [9])</strong> at $f = 4$ Hz, $U = 6$ m/s</li>
+      <li>RFW model: <strong>540 mm</strong> wingspan, <strong>AR 5.58</strong>; carbon fiber beams (<strong>BEAM4</strong>, <strong>PIPE16</strong>, <strong>118 elements</strong>) with point masses for skin (<strong>MASS21</strong>, <strong>100 elements</strong>)</li>
+      <li>Vertical constraint force: sinusoidal at flapping frequency, peak at mid-downstroke; horizontal force: twice the flapping frequency</li>
+    </ul>
+  </div></details>
+  <details><summary><div class="section-number">5</div><h2>Results</h2></summary><div class="section-body">
+    <h3>Trim Flight Conditions</h3>
+    <ul>
+      <li>Trimmed configuration for the <strong>0.118 kg</strong> model ornithopter: $\theta_{\text{MEAN}} = 9.2°$, $f = 12$ Hz, $U = 10.8$ m/s, tail-wing angle $\delta_T = 11.85°$</li>
+      <li>Pitch attitude oscillates from approximately <strong>0° to 20°</strong> during each flapping cycle, with mean value at <strong>9.2°</strong></li>
+      <li>Vertical body oscillation: <strong>~1 cm</strong> peak-to-peak at flapping frequency (short period mode), <strong>~3 cm</strong> peak-to-peak for long period mode</li>
+    </ul>
+    <h3>Limit-Cycle Oscillation (LCO)</h3>
+    <ul>
+      <li>Phase portrait of pitch attitude vs. pitch rate forms a <strong>closed circular trajectory</strong>, characteristic of <strong>limit-cycle oscillation</strong></li>
+      <li><strong>LCO</strong> is independent of initial condition perturbation within certain ranges, confirming <strong>nonlinear dynamic behavior</strong></li>
+      <li>FFT analysis reveals dominant frequency at <strong>12 Hz</strong> in main-wing motion, pitch attitude, and altitude spectra</li>
+    </ul>
+    <h3>Zero Moment Point Analysis</h3>
+    <ul>
+      <li>Constrained (tethered) flight test: all DOFs fixed at center of gravity under trim conditions to measure constraint forces and moments</li>
+      <li><strong>ZMP position</strong> varies periodically with flapping motion; the <strong>stability residual</strong> $\varepsilon = (x_{\text{ZMP}} - x_{\text{CG}})/c_{\text{MEAN}}$ is not exactly zero throughout the cycle</li>
+      <li>Non-zero $\varepsilon$ at the end of upstroke and downstroke is identified as the source of the <strong>pitch LCO</strong></li>
+    </ul>
+    <h3>Validation Results</h3>
+    <ul>
+      <li><strong>E-FSI simulation</strong> matches experimental wind tunnel data with reasonable accuracy for both vertical and horizontal constraint forces</li>
+      <li>Force waveforms correctly captured: vertical force sinusoidal at $f$, horizontal force at $2f$</li>
+      <li>Asymmetric distortions in horizontal force at $\theta_{\text{MEAN}} = 20°$ due to <strong>wing deformation</strong> also reproduced</li>
+    </ul>
+  </div></details>
+  <details><summary><div class="section-number">6</div><h2>Results Interpretation</h2></summary><div class="section-body">
+    <h3>Physics of Ornithopter Trim Flight</h3>
+    <ul>
+      <li>Unlike <strong>fixed-wing aircraft</strong>, ornithopter trim does not yield constant flight states; instead, all state variables (pitch, altitude, speed) exhibit <strong>periodic oscillations</strong> at the flapping frequency</li>
+      <li>The pitch attitude is inherently unsteady because the <strong>aerodynamic center of pressure</strong> shifts continuously relative to the center of gravity during each flapping cycle</li>
+      <li>Maximum pitch-up occurs when the wing passes through neutral position during the downstroke, where total aerodynamic force acting ahead of CG is maximized</li>
+    </ul>
+    <h3>Stability Residual Interpretation</h3>
+    <ul>
+      <li>The <strong>stability residual</strong> $\varepsilon$ provides a quantitative measure of how far the system is from instantaneous <strong>moment equilibrium</strong></li>
+      <li>$\varepsilon = 0$ corresponds to static moment equilibrium where <strong>ZMP</strong> coincides with CG; this condition is never sustained throughout the full flapping cycle</li>
+      <li>The non-zero $\varepsilon$ at stroke transitions drives the <strong>pitch LCO</strong>, implying that passive trim alone cannot achieve <strong>time-invariant pitch attitude</strong> for flapping-wing vehicles</li>
+    </ul>
+    <h3>Design Implications</h3>
+    <ul>
+      <li>To suppress pitch LCO, one needs either: (a) a <strong>damping component</strong>, (b) <strong>active tail-wing elevation angle control</strong>, or (c) <strong>modulated flapping motion</strong></li>
+      <li>The <strong>aerodynamic map</strong> approach (mean forces vs. $\theta_{\text{MEAN}}$, $f$, $U$) enables rapid identification of feasible trim envelopes during preliminary design</li>
+      <li>The <strong>2-minute computation</strong> time per 10 cycles makes <strong>parametric design sweeps</strong> practical, unlike CFD-based approaches</li>
+      <li>Oscillatory tendencies match both real ornithopter flight data (<strong>Grauer and Hubbard, 2009</strong>) and independent numerical results (<strong>Dietl and Garcia, 2008</strong>)</li>
+    </ul>
+  </div></details>
+  <details><summary><div class="section-number">7</div><h2>Conclusion</h2></summary><div class="section-body">
+    <h3>Key Contributions</h3>
+    <ul>
+      <li>Established an efficient integrative simulation framework coupling <strong>MSC.ADAMS</strong> (flexible MBD), <strong>ANSYS</strong> (FEM), and <strong>modified strip theory</strong> (aerodynamics) with FSI for ornithopter flight</li>
+      <li>Validated the <strong>E-FSI framework</strong> against experimental wind tunnel data for flapping-wing constraint forces, demonstrating reasonable accuracy</li>
+      <li>Successfully designed a magpie-sized ornithopter model capable of <strong>trimmed longitudinal flight</strong> at $f = 12$ Hz, $U = 10.8$ m/s</li>
+    </ul>
+    <h3>Novel Findings</h3>
+    <ul>
+      <li>Identified <strong>limit-cycle oscillation</strong> as an inherent characteristic of ornithopter trimmed flight, with closed phase portraits in pitch attitude vs. pitch rate space</li>
+      <li>Introduced the <strong>Zero Moment Point</strong> concept and <strong>stability residual</strong> $\varepsilon$ to quantitatively explain the physics of <strong>pitch LCO</strong> in ornithopter longitudinal flight</li>
+      <li>Demonstrated that <strong>active control</strong> (tail-wing actuation or flapping modulation) is necessary to achieve <strong>time-invariant pitch attitude</strong></li>
+    </ul>
+    <h3>Relevance to Dr. Yang's Research</h3>
+    <ul>
+      <li>Directly relevant: uses <strong>MBD (MSC.ADAMS)</strong> coupled with <strong>reduced-order aerodynamics</strong> for ornithopter simulation, closely paralleling ORNISP's approach with <strong>RecurDyn + UVLM</strong></li>
+      <li>The <strong>Craig-Bampton CMS</strong> for flexible wing modeling provides an established benchmark for comparison with alternative modal reduction strategies</li>
+      <li><strong>LCO</strong> and <strong>ZMP analysis</strong> offer physically meaningful metrics for evaluating trim quality in ornithopter longitudinal flight simulations</li>
+      <li>The <strong>2-minute FSI computation</strong> demonstrates the feasibility of efficient coupled simulation, relevant to the computational efficiency goals of integrated ornithopter design tools</li>
+    </ul>
+  </div></details>
+</div>
+<div class="footer">Generated by YANG Lab RECON &middot; <a href="https://doi.org/10.1016/S1672-6529(09)60189-X">View Original Paper</a></div>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false},{left:'$',right:'$',display:false}],throwOnError:false});"></script>
+</body></html>

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="paper-title" content="A Novel Fluid-Structure Interaction Framework For Flapping, Flexible Wings">
+<meta name="paper-year" content="2019">
+<meta name="paper-author" content="Ryan Schwab, Erick Johnson, Mark Jankauski">
+<meta name="paper-journal" content="Journal of Vibration and Acoustics (JVA)">
+<meta name="paper-tags" content="Flapping Wing, FSI, Aeroelasticity, Simulation, Insect Flight, MAV, Bio Inspired">
+<meta name="paper-doi" content="10.1115/1.4044268">
+<title>A Novel Fluid-Structure Interaction Framework For Flapping, Flexible Wings — Summary</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', 'Segoe UI', -apple-system, sans-serif;
+    background: #f8f9fb;
+    color: #1e293b;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Header ── */
+  .hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0c4a6e 100%);
+    color: #fff;
+    padding: 56px 0 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; top: 0; right: 0; bottom: 0;
+    width: 40%;
+    background: radial-gradient(ellipse at 80% 50%, rgba(56,189,248,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+    z-index: 1;
+  }
+  .hero h1 {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: -0.3px;
+    margin-bottom: 16px;
+  }
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    font-size: 14px;
+    color: #94a3b8;
+  }
+  .hero-meta a { color: #7dd3fc; text-decoration: none; }
+  .hero-meta a:hover { text-decoration: underline; }
+  .importance-badge {
+    position: absolute;
+    top: 56px; right: 40px;
+    font-size: 22px;
+    letter-spacing: 2px;
+    filter: drop-shadow(0 0 6px rgba(255,215,0,0.4));
+  }
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 20px;
+  }
+  .tag {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #cbd5e1;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.3px;
+  }
+
+  /* ── Content ── */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 40px 80px;
+  }
+
+  /* ── Toggle sections ── */
+  details {
+    margin-bottom: 12px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    overflow: hidden;
+  }
+  details[open] {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  summary {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    cursor: pointer;
+    user-select: none;
+    list-style: none;
+    border-bottom: 2px solid transparent;
+    transition: background 0.15s;
+  }
+  summary:hover {
+    background: #f1f5f9;
+  }
+  details[open] > summary {
+    border-bottom-color: #e2e8f0;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::before {
+    content: '\25B6';
+    font-size: 10px;
+    color: #94a3b8;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+  }
+  details[open] > summary::before {
+    transform: rotate(90deg);
+  }
+  .section-number {
+    background: #0f172a;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  summary h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
+    letter-spacing: -0.2px;
+  }
+
+  /* ── Section body ── */
+  .section-body {
+    padding: 16px 20px 20px;
+  }
+
+  /* Overview (always open, special style) */
+  .overview {
+    margin-bottom: 12px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    overflow: hidden;
+  }
+  .overview-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  .overview-header h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
+  }
+  .overview-text {
+    font-size: 14.5px;
+    line-height: 1.8;
+    color: #334155;
+    padding: 16px 20px 20px;
+    border-left: 4px solid #0ea5e9;
+    margin: 0;
+  }
+
+  /* Bullet lists */
+  .section-body ul {
+    list-style: none;
+    padding: 0;
+  }
+  .section-body ul li {
+    position: relative;
+    padding: 7px 0 7px 18px;
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: #334155;
+  }
+  .section-body ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 15px;
+    width: 5px; height: 5px;
+    background: #0ea5e9;
+    border-radius: 50%;
+  }
+  .section-body ul li + li {
+    border-top: 1px solid #f1f5f9;
+  }
+
+  /* Sub-section headings */
+  .section-body h3 {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #0c4a6e;
+    margin: 16px 0 6px;
+    padding-left: 2px;
+  }
+  .section-body h3:first-child {
+    margin-top: 0;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px 48px;
+    text-align: center;
+    font-size: 12px;
+    color: #94a3b8;
+  }
+  .footer a { color: #64748b; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <h1>A Novel Fluid-Structure Interaction Framework For Flapping, Flexible Wings</h1>
+    <div class="hero-meta">
+      <span>Ryan Schwab, Erick Johnson, Mark Jankauski</span>
+      <span>Journal of Vibration and Acoustics (JVA) (2019)</span>
+      <span><a href="https://doi.org/10.1115/1.4044268">DOI: 10.1115/1.4044268</a></span>
+    </div>
+    <div class="tag-row"><span class="tag">Flapping Wing</span><span class="tag">FSI</span><span class="tag">Aeroelasticity</span><span class="tag">Simulation</span><span class="tag">Insect Flight</span><span class="tag">MAV</span><span class="tag">Bio Inspired</span></div>
+    <div class="importance-badge">★★</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Overview: always visible (no toggle) -->
+  <div class="overview">
+    <div class="overview-header">
+      <div class="section-number">1</div>
+      <h2>Overview</h2>
+    </div>
+    <div class="overview-text">This paper develops a novel reduced-order <strong>fluid-structure interaction (FSI)</strong> framework for flapping, flexible insect wings that accommodates arbitrary wing geometry and any fluid loading model. The framework uses <strong>Lagrangian mechanics</strong> for structural dynamics and the <strong>principle of virtual work</strong> for aerodynamic modal forces, enabling either unilateral or bilateral FSI coupling. Applied to an idealized hawkmoth (<em>Manduca sexta</em>) forewing, the authors compare <strong>blade element theory (BET)</strong> against <strong>RANS CFD</strong> and find that BET estimates modal forces <strong>five orders of magnitude</strong> faster than CFD with reasonable accuracy. The study reveals that inertial-elastic and aerodynamic forces are of the <strong>same order of magnitude</strong> but excite different deformation modes: inertial-elastic forces primarily drive bending while aerodynamic forces primarily drive torsion. This finding is directly relevant to Dr. Yang's ornithopter FSI research, as it provides a computationally efficient framework for parametric studies of flapping wing aeroelasticity and challenges the prevailing assumption that wing deformation is dominated solely by inertial forces.</div>
+  </div>
+
+  <details>
+    <summary>
+      <div class="section-number">2</div>
+      <h2>Introduction</h2>
+    </summary>
+    <div class="section-body">
+      <h3>Motivation</h3>
+      <ul>
+        <li>Flapping wing micro air vehicles (<strong>FWMAVs</strong>) offer flight capability at centimeter scales and milligram weights where conventional fixed-wing and rotary aircraft suffer aerodynamic inefficiency</li>
+        <li>Insect wings deform under both aerodynamic and inertial-elastic forces through <strong>fluid-structure interaction (FSI)</strong>, and this deformation serves critical functions including energy management and angular rate sensing</li>
+        <li>Flexible wings achieve higher lift-to-drag ratios than rigid counterparts and store strain energy that can be recycled to improve inertial power economy</li>
+        <li>Wing mechanoreceptors (<strong>campaniform sensilla</strong>) provide low-latency mechanical feedback for flight control, making understanding of FSI essential for bio-inspired sensor design</li>
+      </ul>
+      <h3>State of the Art</h3>
+      <ul>
+        <li>Most FSI models couple <strong>FEA with CFD</strong>, producing accurate results but at enormous computational cost unsuitable for parametric studies</li>
+        <li>Large wing rotations cause time-varying FEA stiffness matrices, creating DOFs on the order of $N_{\text{elements}} \times N_{\text{timesteps}}$</li>
+        <li><strong>BET</strong> has been used to study insect flight aerodynamics but is conventionally applied to rigid wings and not widely used for FSI</li>
+        <li>Prior BET-FSI models by <strong>Wang et al. (2017)</strong> could handle torsion but not spanwise bending; <strong>Stanford et al. (2012)</strong> captured bending but with coarse discretization</li>
+      </ul>
+      <h3>Gap &amp; Contribution</h3>
+      <ul>
+        <li>No existing reduced-order FSI model accommodates both arbitrary wing geometry and general fluid loading while permitting either unilateral or bilateral coupling</li>
+        <li>The relative contribution of aerodynamic vs inertial-elastic forces to wing deformation at moth scale was unknown, with conflicting evidence from <strong>Combes and Daniel (2003)</strong> and <strong>Norris (2013)</strong></li>
+        <li>This paper provides a general FSI framework and quantifies the accuracy of BET as a low-order fluid model for flapping wing FSI</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>
+      <div class="section-number">3</div>
+      <h2>Related Works</h2>
+    </summary>
+    <div class="section-body">
+      <h3>Experimental Studies</h3>
+      <ul>
+        <li><strong>Combes and Daniel (2003)</strong> flapped hawkmoth wings in air and helium with SDOF rotation and concluded deformation was primarily inertial-elastic</li>
+        <li><strong>Norris (2013)</strong> conducted similar experiments in coarse vacuum with full-field displacement measurement and contradictorily asserted fluid loading cannot be neglected</li>
+        <li><strong>Young et al. (2009)</strong> demonstrated that wing deformation details enhance aerodynamic function and flight efficiency</li>
+        <li><strong>Du and Sun (2010)</strong> found flexibility increased averaged lift by only 10% in hoverflies, suggesting modest flow field effects from deformation</li>
+      </ul>
+      <h3>Computational FSI Models</h3>
+      <ul>
+        <li><strong>Fairuz et al. (2013)</strong> studied unsteady aerodynamics of flapping wings at low Reynolds number using coupled FEA-CFD</li>
+        <li><strong>Ishihara et al. (2009)</strong> investigated FSI-caused wing pitch changes in dipteran flight</li>
+        <li><strong>Nakata and Liu (2012)</strong> computed aerodynamic performance of hovering hawkmoth with flexible wings, estimating flexibility increased peak vertical forces by ~22%</li>
+        <li><strong>Pfeiffer et al. (2010)</strong> simulated ornithopter flight based on flexible multi-body dynamics</li>
+      </ul>
+      <h3>Reduced-Order Approaches</h3>
+      <ul>
+        <li><strong>Wang et al. (2017)</strong> developed BET-based FSI for twistable wings showing torsional flexibility improves power efficiency</li>
+        <li><strong>Stanford et al. (2012)</strong> parameterized shape, structure, and kinematics for power-optimal hovering</li>
+        <li><strong>Berman and Wang (2007)</strong> used BET to identify energy-minimizing kinematics in hovering insect flight</li>
+        <li><strong>Jankauski and Shen (2014)</strong> developed the original structural framework using Lagrangian dynamics for 3D-rotating insect wings, neglecting aerodynamic forces</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>
+      <div class="section-number">4</div>
+      <h2>Materials and Methods</h2>
+    </summary>
+    <div class="section-body">
+      <h3>Problem Setup</h3>
+      <ul>
+        <li>Idealized hawkmoth <em>Manduca sexta</em> forewing: constant thickness $t = 45\,\mu\text{m}$, density $\rho_w = 1200\,\text{kg/m}^3$, neglecting venation, camber, and spatial variation</li>
+        <li>Wing mass $m_w = 47\,\text{mg}$, wingspan $R = 54\,\text{mm}$, aspect ratio $AR = 3.48$, surface area $A = 867\,\text{mm}^2$, mean chord $\bar{c} = 15.5\,\text{mm}$</li>
+        <li>Rotating reference frame with three Euler rotations: roll $\alpha$ (about $X$), pitch $\beta$ (about $y''$), yaw $\gamma$ (about $z'$)</li>
+        <li>Unilateral coupling: fluid affects structure but deforming structure does not affect fluid; appropriate when wing deflections are small</li>
+      </ul>
+      <h3>Governing Equations</h3>
+      <ul>
+        <li>Angular velocity vector: $\vec{\Omega} = \Omega_x \vec{e}_x + \Omega_y \vec{e}_y + \Omega_z \vec{e}_z$ from Euler rotation rates</li>
+        <li>Elastic deformation as modal series: $W(\vec{r}_1, t) = \sum_{k=1}^{\infty} \phi_k(\vec{r}_1) q_k(t)$ with orthonormal mode shapes</li>
+        <li>Equation of motion: $\ddot{q}_k + [\omega_k^2 - (\Omega_x^2 + \Omega_y^2)] q_k = \dot{\vec{\Omega}} \cdot \vec{b}_k - \Omega_z \vec{\Omega} \cdot \vec{a}_k + Q_k$</li>
+        <li>Aerodynamic modal force via virtual work: $Q_k = \int_{S_w} F_N(\vec{r}_1, t) \phi_k(\vec{r}_1)\, dS_w$</li>
+        <li>BET differential force: $dF = \frac{1}{2} C \rho_f |\vec{V}|^2 dS_w$ with lift/drag coefficients $C_L = C_{L,\max} \sin(2A)$, $C_D = \frac{C_{D,\max}+C_{D,0}}{2} - \frac{C_{D,\max}-C_{D,0}}{2}\cos(2A)$</li>
+      </ul>
+      <h3>Numerical Approach</h3>
+      <ul>
+        <li>FEA model in <strong>ABAQUS</strong> with 611 shell elements (converged); first two modes retained: bending ($\omega_1 = 59\,\text{Hz}$) and torsion ($\omega_2 = 75\,\text{Hz}$)</li>
+        <li>BET: 20 blade elements in <strong>MATLAB</strong>, 25 wingbeats at 100 time intervals each; aerodynamic coefficients $C_{L,\max} = 1.68$, $C_{D,\max} = 3.06$, $C_{D,\min} = 0.07$</li>
+        <li>CFD: <strong>STAR-CCM+ v12.04</strong>, Spalart-Allmaras RANS with chimera overset mesh, ~2M elements, $\Delta t = 0.001\,\text{s}$, 10 rotation periods</li>
+        <li>Hovering kinematics: roll amplitude $\alpha_0 = 60°$, pitch amplitude $\beta_0 = 45°$, pitch/roll phase $\phi_{\alpha\beta} = \pi/2$, flap frequency $\omega = 25\,\text{Hz}$</li>
+        <li>Light modal damping $\zeta = 0.05$ in both modes; approximate analytic solution via <strong>harmonic balance method</strong> for verification</li>
+      </ul>
+      <h3>Validation Strategy</h3>
+      <ul>
+        <li>CFD mesh convergence: RMS error 1.5% at ~2M elements; time-step convergence at $\Delta t = 1.25 \times 10^{-4}\,\text{s}$</li>
+        <li>BET vs CFD comparison across net normal force, modal forces ($Q_1$, $Q_2$), and modal responses ($q_1$, $q_2$)</li>
+        <li>Sensitivity study varying $\alpha_0$, $\beta_0$, $\phi_{\alpha\beta}$ by $\pm\pi/8$ in $\pi/16$ increments, and driving frequency at 15, 25, 35 Hz</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>
+      <div class="section-number">5</div>
+      <h2>Results</h2>
+    </summary>
+    <div class="section-body">
+      <h3>BET vs CFD Force Comparison</h3>
+      <ul>
+        <li>Net aerodynamic normal force $F_N$: good agreement; BET overestimated primary response magnitude by <strong>~30%</strong>; both models show oscillation at $\omega$ with harmonic at $3\omega$</li>
+        <li>Second modal force $Q_2$: excellent agreement at $\omega$ (BET: <strong>1.92</strong>, CFD: <strong>1.91</strong>, <strong>0.26%</strong> difference); $3\omega$ also close (BET: <strong>0.34</strong>, CFD: <strong>0.35</strong>)</li>
+        <li>First modal force $Q_1$: BET overestimated $\omega$-magnitude by <strong>~59%</strong> (BET: <strong>4.52</strong>, CFD: <strong>2.84</strong>) due to spanwise force center discrepancy (BET $r \approx 3.94\,\text{cm}$ vs CFD $r \approx 3.52\,\text{cm}$)</li>
+        <li>BET computed modal forces <strong>five orders of magnitude faster</strong> than CFD</li>
+      </ul>
+      <h3>Sensitivity Analysis</h3>
+      <ul>
+        <li>Small kinematic deviations ($\pm\pi/16$): BET performed fairly well, maximum magnitude error <strong>~125%</strong></li>
+        <li>Large deviations ($\pm\pi/8$): significant errors in $3\omega$ components (<strong>&gt;300%</strong> for $Q_1$ at reduced pitch), but these correspond to non-flyable conditions</li>
+        <li>Results insensitive to driving frequency changes (<strong>15, 25, 35 Hz</strong>)</li>
+        <li>Flow separation at increased roll amplitude only modestly affected agreement: max error <strong>~100%</strong>, phase difference <strong>~$\pi/10$</strong></li>
+      </ul>
+      <h3>Modal Force Decomposition</h3>
+      <ul>
+        <li>First (bending) mode: inertial-elastic forces <strong>~1.8 times</strong> larger than aerodynamic at $\omega$; forces out of phase by $\pi/4$, interacting constructively</li>
+        <li>Second (torsional) mode: aerodynamic forces <strong>~1.6 times</strong> larger than inertial-elastic at $\omega$; forces nearly out of phase by $\pi$, interacting destructively</li>
+        <li>In-air first modal response <strong>~35%</strong> larger (peak-to-peak) than vacuum; $3\omega$ component <strong>3 times</strong> larger in air</li>
+        <li>In-air second modal response dominated by $3\omega$ (near <strong>$\omega_2 = 75\,\text{Hz}$</strong>); in-vacuum dominated by $\omega$; phase differs by nearly $\pi$</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>
+      <div class="section-number">6</div>
+      <h2>Results Interpretation</h2>
+    </summary>
+    <div class="section-body">
+      <h3>Physical Reasoning</h3>
+      <ul>
+        <li>Aerodynamic forces contribute significantly to modal responses, contradicting <strong>Combes and Daniel (2003)</strong> who used only SDOF rotation</li>
+        <li>For SDOF rotation, fluid loading contribution may be even larger because induced flow remains normal to wing throughout the cycle</li>
+        <li>SDOF BET simulation confirms first modal response <strong>25%</strong> larger in air than vacuum</li>
+        <li>Different force types governing different modes suggests insects may decouple aerodynamic and inertial sensing via strategic mechanoreceptor placement</li>
+      </ul>
+      <h3>Implications for Bio-Inspired Design</h3>
+      <ul>
+        <li>Analogy to <strong>halteres</strong> (gyroscopic organs shielded from aerodynamic forces) suggests wings of moths/butterflies may achieve similar sensing through mode-selective campaniform sensilla placement</li>
+        <li>BET with added mass captures critical aerodynamic features for FSI despite lacking absolute quantitative accuracy, making it a powerful tool for <strong>FWMAV parametric design</strong></li>
+      </ul>
+      <h3>Limitations</h3>
+      <ul>
+        <li>Unilateral coupling: average steady-state displacement ~1.2 cm may affect flow field; <strong>Nakata and Liu (2011)</strong> estimated ~22% increase in peak vertical forces from wing flexibility</li>
+        <li>BET cannot model dynamic stall, clap-and-fling, or wing-wake interactions</li>
+        <li>Rotational correction factors did not improve predictions across all parameter sets</li>
+        <li><strong>Du and Sun (2010)</strong> found only 10% lift increase in hoverflies, suggesting unilateral coupling may be justified in some cases</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>
+      <div class="section-number">7</div>
+      <h2>Conclusion</h2>
+    </summary>
+    <div class="section-body">
+      <ul>
+        <li>Developed a novel <strong>reduced-order FSI framework</strong> that is general enough for arbitrary wing geometry, any fluid model, and unilateral or bilateral coupling</li>
+        <li>BET provides reasonable aerodynamic modal force approximations <strong>five orders of magnitude faster</strong> than CFD</li>
+        <li>For hovering kinematics, BET-CFD agreement fair in magnitude (largest error ~50% for $Q_1$ at $\omega$) and phase; degrades for large kinematic deviations but those regimes are generally non-flyable</li>
+        <li>Inertial-elastic and aerodynamic forces are of the <strong>same order of magnitude</strong>: inertial-elastic dominates bending, aerodynamic dominates torsion</li>
+        <li>Aerodynamic forces contribute significantly to wing deformation, contradicting prior SDOF experimental findings</li>
+        <li>Framework enables high-dimensional <strong>parametric design of FWMAVs</strong> and lays foundation for advanced studies in insect sensorimotor control</li>
+        <li>Future work: bilateral FSI coupling, forward flight regimes, more realistic FEA models with venation and spatial property variation</li>
+      </ul>
+    </div>
+  </details>
+
+</div>
+
+<div class="footer">
+  Generated by YANG Lab RECON &middot; <a href="https://doi.org/10.1115/1.4044268">View Original Paper</a>
+</div>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '\\[', right: '\\]', display: true},
+      {left: '\\(', right: '\\)', display: false},
+      {left: '$', right: '$', display: false}
+    ],
+    throwOnError: false
+  });"></script>
+</body>
+</html>

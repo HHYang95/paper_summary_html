@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="paper-title" content="Effect of Spanwise Folding on the Aerodynamic Performance of Three Dimensional Flapping Flat Wing">
+<meta name="paper-year" content="2022">
+<meta name="paper-author" content="Xinyu Lang, Bifeng Song, Wenqing Yang, Xiaojun Yang">
+<meta name="paper-journal" content="Physics of Fluids">
+<meta name="paper-tags" content="Flapping Wing, Folding Wing, CFD, LEV, Bio Inspired, Aerodynamic Performance">
+<meta name="paper-doi" content="10.1063/5.0078844">
+<title>Effect of Spanwise Folding on the Aerodynamic Performance of Three Dimensional Flapping Flat Wing — Summary</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', 'Segoe UI', -apple-system, sans-serif; background: #f8f9fb; color: #1e293b; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  .hero { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0c4a6e 100%); color: #fff; padding: 56px 0 48px; position: relative; overflow: hidden; }
+  .hero::after { content: ''; position: absolute; top: 0; right: 0; bottom: 0; width: 40%; background: radial-gradient(ellipse at 80% 50%, rgba(56,189,248,0.08) 0%, transparent 70%); pointer-events: none; }
+  .hero-inner { max-width: 900px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 1; }
+  .hero h1 { font-size: 28px; font-weight: 700; line-height: 1.35; letter-spacing: -0.3px; margin-bottom: 16px; }
+  .hero-meta { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px; color: #94a3b8; }
+  .hero-meta a { color: #7dd3fc; text-decoration: none; }
+  .importance-badge { position: absolute; top: 56px; right: 40px; font-size: 22px; letter-spacing: 2px; filter: drop-shadow(0 0 6px rgba(255,215,0,0.4)); }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px; }
+  .tag { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); color: #cbd5e1; font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px; }
+  .container { max-width: 900px; margin: 0 auto; padding: 40px 40px 80px; }
+  details { margin-bottom: 12px; border-radius: 10px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.04); overflow: hidden; }
+  details[open] { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  summary { display: flex; align-items: center; gap: 12px; padding: 14px 20px; cursor: pointer; user-select: none; list-style: none; border-bottom: 2px solid transparent; transition: background 0.15s; }
+  summary:hover { background: #f1f5f9; }
+  details[open] > summary { border-bottom-color: #e2e8f0; }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: '\25B6'; font-size: 10px; color: #94a3b8; transition: transform 0.2s; flex-shrink: 0; }
+  details[open] > summary::before { transform: rotate(90deg); }
+  .section-number { background: #0f172a; color: #fff; font-size: 11px; font-weight: 700; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  summary h2 { font-size: 16px; font-weight: 700; color: #0f172a; }
+  .section-body { padding: 16px 20px 20px; }
+  .overview { margin-bottom: 12px; background: #fff; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); overflow: hidden; }
+  .overview-header { display: flex; align-items: center; gap: 12px; padding: 14px 20px; border-bottom: 2px solid #e2e8f0; }
+  .overview-header h2 { font-size: 16px; font-weight: 700; color: #0f172a; }
+  .overview-text { font-size: 14.5px; line-height: 1.8; color: #334155; padding: 16px 20px 20px; border-left: 4px solid #0ea5e9; margin: 0; }
+  .section-body ul { list-style: none; padding: 0; }
+  .section-body ul li { position: relative; padding: 7px 0 7px 18px; font-size: 13.5px; line-height: 1.7; color: #334155; }
+  .section-body ul li::before { content: ''; position: absolute; left: 0; top: 15px; width: 5px; height: 5px; background: #0ea5e9; border-radius: 50%; }
+  .section-body ul li + li { border-top: 1px solid #f1f5f9; }
+  .section-body h3 { font-size: 13.5px; font-weight: 600; color: #0c4a6e; margin: 16px 0 6px; }
+  .section-body h3:first-child { margin-top: 0; }
+  .footer { max-width: 900px; margin: 0 auto; padding: 0 40px 48px; text-align: center; font-size: 12px; color: #94a3b8; }
+  .footer a { color: #64748b; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="hero"><div class="hero-inner">
+    <h1>Effect of Spanwise Folding on the Aerodynamic Performance of Three Dimensional Flapping Flat Wing</h1>
+    <div class="hero-meta"><span>Xinyu Lang, Bifeng Song, Wenqing Yang, Xiaojun Yang</span><span>Physics of Fluids (2022)</span><span><a href="https://doi.org/10.1063/5.0078844">DOI: 10.1063/5.0078844</a></span></div>
+    <div class="tag-row"><span class="tag">Flapping Wing</span><span class="tag">Folding Wing</span><span class="tag">CFD</span><span class="tag">LEV</span><span class="tag">Bio Inspired</span><span class="tag">Aerodynamic Performance</span></div>
+    <div class="importance-badge">★★</div>
+</div></div>
+<div class="container">
+  <div class="overview"><div class="overview-header"><div class="section-number">1</div><h2>Overview</h2></div>
+    <div class="overview-text">This paper numerically investigates the effect of <strong>spanwise folding motion</strong> on the aerodynamic performance of a <strong>three-dimensional two-section flapping flat plate</strong> using CFD (ANSYS Fluent, $k$-$\omega$ SST turbulence model) at $\text{Re} = 69\,000$. Three folding kinematic parameters &mdash; <strong>folding amplitude</strong> ($\beta_m$), <strong>phase angle</strong> ($\varphi$), and <strong>mean folding angle</strong> ($\beta_0$) &mdash; are systematically varied under a sinusoidal flapping motion ($\Psi_m = 30^\circ$, $f = 5\,\text{Hz}$). The study establishes quantitative relationships between folding kinematics and aerodynamic forces through horizontal projection area, local tangential velocity, and effective angle of attack. A key finding is that a <strong>negative mean folding angle significantly increases time-averaged lift</strong>, consistent with natural bird flight and suggesting design guidance for bio-inspired micro-air vehicles.</div></div>
+
+  <details><summary><div class="section-number">2</div><h2>Introduction</h2></summary>
+    <div class="section-body">
+      <h3>Motivation</h3>
+      <ul>
+        <li>Bird flight involves complex <strong>multi-degree-of-freedom wing motions</strong> including flapping, pitching, twisting, and spanwise folding, yet the aerodynamic mechanism of <strong>coupled flapping-folding motion</strong> remains insufficiently understood.</li>
+        <li>Observations of large birds (albatross, gull, stork) reveal prominent spanwise folding during flight, distinct from the flexion-extension seen in smaller birds.</li>
+        <li>Understanding folding kinematics is essential for designing <strong>bio-inspired micro-air vehicles</strong> with improved aerodynamic performance.</li>
+      </ul>
+      <h3>State of the Art</h3>
+      <ul>
+        <li><strong>Han (2009)</strong> found that flapping-folding seagull wing motion shows lift advantage over pure flapping using CFD.</li>
+        <li><strong>Karimian and Jahanbin (2020)</strong> established a quasi-steady model showing phase and amplitude of folding significantly affect two-section wing performance.</li>
+        <li><strong>Verstraete et al. (2015)</strong> adopted <strong>UVLM</strong> to simulate seagull wing folding; later studied boundary flutter of two-section wings.</li>
+        <li>Experimental work by <strong>Ryu et al.</strong>, <strong>Chen and Yeh</strong>, and <strong>Qin et al.</strong> confirmed benefits of folding for force generation.</li>
+      </ul>
+      <h3>Gap &amp; Contribution</h3>
+      <ul>
+        <li>Prior studies lack <strong>systematic parametric investigation</strong> of folding amplitude, phase angle, and mean folding angle and their coupled effects on aerodynamic performance.</li>
+        <li>This paper provides a <strong>comprehensive CFD-based parametric study</strong> linking folding kinematics to aerodynamic forces through horizontal projection area, tangential velocity, effective angle of attack, and LEV dynamics.</li>
+      </ul>
+    </div></details>
+
+  <details><summary><div class="section-number">3</div><h2>Related Works</h2></summary>
+    <div class="section-body">
+      <h3>Numerical Simulation of Folding Wings</h3>
+      <ul>
+        <li><strong>Han (2009)</strong> &mdash; CFD of unsteady seagull wing aerodynamics; demonstrated lift advantage of flapping-folding over pure flapping.</li>
+        <li><strong>Karimian and Jahanbin (2020)</strong> &mdash; Bond graph quasi-steady model showing phase and amplitude as dominant folding parameters.</li>
+        <li><strong>Verstraete et al. (2015, 2019)</strong> &mdash; UVLM simulation of bioinspired morphing wings; nonlinear aeroelastic behavior and flutter analysis.</li>
+        <li><strong>Chang et al. (2019)</strong> &mdash; CFD of bionic flapping wing with folding under asymmetric kinematics.</li>
+        <li><strong>Billingsley et al. (2021)</strong> &mdash; Active morphing in formation flight showing aerodynamic improvement potential.</li>
+      </ul>
+      <h3>Experimental Studies</h3>
+      <ul>
+        <li><strong>Ryu et al.</strong> &mdash; Crank-rocker flapping-folding mechanism; force measurements confirmed folding effectiveness for lift.</li>
+        <li><strong>Chen and Yeh</strong> &mdash; Compared folding amplitudes; found amplitude affects vertical force generation.</li>
+        <li><strong>Qin et al.</strong> &mdash; Two-section flapping wing with folding; analyzed tip vortex evolution and physical features.</li>
+      </ul>
+      <h3>Fundamental Aerodynamic Mechanisms</h3>
+      <ul>
+        <li><strong>Deshpande and Modani (2019)</strong> &mdash; Local tangential velocity determines LEV size and strength responsible for high-lift mode.</li>
+        <li><strong>Van Den Berg and Ellington (1997)</strong> &mdash; LEV detaches from mid-span on 3D flapping wings (experimental observation).</li>
+        <li><strong>Heathcote et al. (2008)</strong> &mdash; Spanwise flexibility effects on flapping wing propulsion; provided validation benchmark for present study.</li>
+      </ul>
+    </div></details>
+
+  <details><summary><div class="section-number">4</div><h2>Materials and Methods</h2></summary>
+    <div class="section-body">
+      <h3>Problem Setup</h3>
+      <ul>
+        <li>3D two-section flat plate: chord $c = 100\,\text{mm}$, inner and outer wing lengths $L_1 = L_2 = 250\,\text{mm}$, cross-section thickness $2\%c$ with rounded edges.</li>
+        <li>Flapping: $\Psi(t) = \Psi_m \cos(2\pi f t)$, $\Psi_m = 30^\circ$, $f = 5\,\text{Hz}$; folding: $\beta(t) = \beta_0 + \beta_m \cos(2\pi f t + \varphi)$.</li>
+        <li>Freestream $U_\infty = 10\,\text{m/s}$; $\text{Re} = 69\,000$; gap root cutout of $0.2c$.</li>
+      </ul>
+      <h3>Governing Equations</h3>
+      <ul>
+        <li>Navier-Stokes equations solved with <strong>$k$-$\omega$ SST turbulence model</strong> (ANSYS Fluent); wing motion via UDF with <code>DEFINE_GRID_MOTION</code> macro.</li>
+        <li>Inner wing coordinate transformation: $\mathbf{r}'_{\text{inner}} = \mathbf{T}_2 \mathbf{R}_1 \mathbf{T}_1 \, \mathbf{r}_{0,\text{inner}}$ (translation + flapping rotation).</li>
+        <li>Outer wing transformation: $\mathbf{r}'_{\text{outer}} = \mathbf{T}_4 \mathbf{R}_2 \mathbf{T}_3 \mathbf{R}_1 \, \mathbf{r}_{0,\text{outer}}$ (flapping + folding rotation).</li>
+        <li>Horizontal projection area: $S = [L_1 \cos\Psi + L_2 \cos(\Psi + \beta)] \cdot c$.</li>
+        <li>Effective angle of attack: $\alpha_{\text{eff}} = \arctan(-V_{\text{sec}} / U_\infty)$.</li>
+      </ul>
+      <h3>Numerical Approach</h3>
+      <ul>
+        <li>Stationary zone ($90c \times 50c \times 60c$, Cartesian) + deformable zone ($21c \times 13c \times 20c$, tetrahedral); <strong>diffusion smoothing</strong> for dynamic mesh.</li>
+        <li>Second-order upwind; <strong>SIMPLEC</strong> pressure-velocity coupling; time step $T/200$; 6-cycle simulation.</li>
+        <li>Mesh independence: three resolutions ($1.5$, $3$, $6 \times 10^6$ cells); time step independence: 100, 200, 400 steps/period.</li>
+      </ul>
+      <h3>Validation</h3>
+      <ul>
+        <li>Validated against <strong>Heathcote et al. (2008)</strong> experiment: NACA0012 wing in pure heave, $k = 1.82$; thrust coefficient in good agreement.</li>
+        <li>Results closely matched numerical results by <strong>Liu (2009)</strong>; small peak/valley discrepancy attributed to slight wing flexibility in experiment.</li>
+      </ul>
+    </div></details>
+
+  <details><summary><div class="section-number">5</div><h2>Results</h2></summary>
+    <div class="section-body">
+      <h3>Folding Amplitude ($\beta_m = -20^\circ$ to $+20^\circ$)</h3>
+      <ul>
+        <li>Introduces significant <strong>phase shift</strong> in lift and drag curves; <strong>peak lift magnitude</strong> remains similar across amplitudes.</li>
+        <li>Larger positive $\beta_m$ generates <strong>more negative drag (thrust)</strong> around mid-downstroke and mid-upstroke.</li>
+        <li><strong>Horizontal projection area</strong> shows corresponding phase shift, confirming it dominates the lift trend.</li>
+      </ul>
+      <h3>Phase Angle ($\varphi = 70^\circ$ to $110^\circ$)</h3>
+      <ul>
+        <li>Controls <strong>force amplitude</strong> without phase shift: <strong>$\varphi = 70^\circ$</strong> yields <strong>highest peak lift</strong> and strongest <strong>LEV suction</strong>.</li>
+        <li>Increasing $\varphi$ reduces lift amplitude and weakens thrust generation; <strong>time-averaged drag</strong> decreases with lower $\varphi$.</li>
+        <li>Lower $\varphi$ produces larger peak $\alpha_{\text{eff}}$, <strong>faster growth rates</strong>, and stronger <strong>outer-wing LEV</strong> development.</li>
+      </ul>
+      <h3>Mean Folding Angle ($\beta_0 = -20^\circ$ to $+20^\circ$)</h3>
+      <ul>
+        <li>Negative $\beta_0$ creates <strong>asymmetric forces</strong>: enhanced downstroke lift, reduced upstroke negative lift, <strong>significantly increasing mean lift coefficient</strong>.</li>
+        <li>Negative $\beta_0$ also generates <strong>more downstroke thrust</strong> but more upstroke drag, with slight change in <strong>time-averaged drag</strong>.</li>
+        <li>The result confirms natural birds' <strong>negative mean folding angle</strong> as beneficial for flight performance.</li>
+      </ul>
+      <h3>Flow Structure Analysis</h3>
+      <ul>
+        <li><strong>Conical LEV</strong> grows along span; detaches at mid-span into <strong>arch-shaped structure</strong>; reattaches near tip due to tip vortex downwash.</li>
+        <li>Folding primarily affects the <strong>outer wing LEV</strong>: higher tangential velocity &rarr; faster LEV growth &rarr; larger circulation &rarr; stronger lift.</li>
+        <li>Inner wing LEV remains largely unaffected by folding parameters.</li>
+        <li>Dimensionless LEV circulation correlates with local tangential velocity along the span.</li>
+      </ul>
+    </div></details>
+
+  <details><summary><div class="section-number">6</div><h2>Results Interpretation</h2></summary>
+    <div class="section-body">
+      <h3>Mechanism Decomposition</h3>
+      <ul>
+        <li>Three kinematic parameters influence forces through <strong>distinct mechanisms</strong>: amplitude &rarr; phase shift, phase angle &rarr; amplitude control, mean angle &rarr; asymmetry.</li>
+        <li>Horizontal projection area provides first-order lift prediction; effective angle of attack and LEV dynamics explain instantaneous magnitudes.</li>
+        <li>Local tangential velocity $V_{\text{sec}}$ is the fundamental kinematic quantity linking folding parameters to LEV strength and force generation.</li>
+      </ul>
+      <h3>Biological Relevance</h3>
+      <ul>
+        <li>The finding that negative $\beta_0$ enhances time-averaged lift is consistent with <strong>Liu et al.</strong> observations of negative mean folding angles in forward-flying birds.</li>
+        <li>Suggests an <strong>evolutionary adaptation</strong> for efficient lift generation that can be mimicked in MAV design.</li>
+      </ul>
+      <h3>Design Implications</h3>
+      <ul>
+        <li>Phase angle selection involves a <strong>trade-off</strong>: smaller $\varphi$ enhances thrust but amplifies lift oscillation, with potential structural implications.</li>
+        <li>Arch-shaped LEV detachment and tip reattachment demonstrate fundamentally different vortex dynamics in 3D folding wings compared to 2D models.</li>
+        <li>The $k$-$\omega$ SST model at $\text{Re} = 69\,000$ captures essential LEV physics, though wing flexibility effects are not addressed.</li>
+      </ul>
+    </div></details>
+
+  <details><summary><div class="section-number">7</div><h2>Conclusion</h2></summary>
+    <div class="section-body">
+      <h3>Principal Findings</h3>
+      <ul>
+        <li>Spanwise <strong>folding motion significantly affects</strong> 3D flapping wing aerodynamics by modifying horizontal projection area, local tangential velocity, and effective angle of attack.</li>
+        <li><strong>Folding amplitude</strong> causes phase shift in forces and enhances thrust at larger positive values.</li>
+        <li><strong>Phase angle</strong> controls force amplitude: smaller $\varphi$ yields larger lift peaks, stronger LEV, and more thrust, but increases oscillation.</li>
+        <li><strong>Negative mean folding angle</strong> significantly increases time-averaged lift through downstroke-upstroke asymmetry, confirming an advantage of natural bird folding kinematics.</li>
+      </ul>
+      <h3>Broader Impact</h3>
+      <ul>
+        <li>The <strong>LEV on the outer wing</strong> is the primary flow structure affected by folding; its arch-shaped detachment pattern is governed by local tangential velocity determined by folding kinematics.</li>
+        <li>These findings provide guidance for <strong>bio-inspired MAV design</strong> with actively controlled spanwise folding, particularly using negative mean folding angle for lift enhancement.</li>
+      </ul>
+    </div></details>
+</div>
+<div class="footer">Generated by YANG Lab &middot; RECON Agent &middot; <a href="https://doi.org/10.1063/5.0078844">Original Paper</a></div>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+</body>
+</html>

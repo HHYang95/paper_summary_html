@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="paper-title" content="Modified Unsteady Vortex-Lattice Method to Study Flapping Wings in Hover Flight">
+<meta name="paper-year" content="2013">
+<meta name="paper-author" content="Bruno A. Roccia, Sergio Preidikman, Julio C. Massa, Dean T. Mook">
+<meta name="paper-journal" content="AIAA Journal">
+<meta name="paper-tags" content="UVLM, Flapping Wing, Hover Flight, Insect Aerodynamics, Vortex Method, Leading Edge Separation">
+<meta name="paper-doi" content="10.2514/1.J052262">
+<title>Modified Unsteady Vortex-Lattice Method to Study Flapping Wings in Hover Flight &mdash; Summary</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', 'Segoe UI', -apple-system, sans-serif; background: #f8f9fb; color: #1e293b; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  .hero { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0c4a6e 100%); color: #fff; padding: 56px 0 48px; position: relative; overflow: hidden; }
+  .hero::after { content: ''; position: absolute; top: 0; right: 0; bottom: 0; width: 40%; background: radial-gradient(ellipse at 80% 50%, rgba(56,189,248,0.08) 0%, transparent 70%); pointer-events: none; }
+  .hero-inner { max-width: 900px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 1; }
+  .hero h1 { font-size: 28px; font-weight: 700; line-height: 1.35; letter-spacing: -0.3px; margin-bottom: 16px; }
+  .hero-meta { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px; color: #94a3b8; }
+  .hero-meta a { color: #7dd3fc; text-decoration: none; }
+  .hero-meta a:hover { text-decoration: underline; }
+  .importance-badge { position: absolute; top: 56px; right: 40px; font-size: 22px; letter-spacing: 2px; filter: drop-shadow(0 0 6px rgba(255,215,0,0.4)); }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px; }
+  .tag { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); color: #cbd5e1; font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px; letter-spacing: 0.3px; }
+  .container { max-width: 900px; margin: 0 auto; padding: 40px 40px 80px; }
+  details { margin-bottom: 12px; border-radius: 10px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.04); overflow: hidden; }
+  details[open] { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  summary { display: flex; align-items: center; gap: 12px; padding: 14px 20px; cursor: pointer; user-select: none; list-style: none; border-bottom: 2px solid transparent; transition: background 0.15s; }
+  summary:hover { background: #f1f5f9; }
+  details[open] > summary { border-bottom-color: #e2e8f0; }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: '\25B6'; font-size: 10px; color: #94a3b8; transition: transform 0.2s; flex-shrink: 0; }
+  details[open] > summary::before { transform: rotate(90deg); }
+  .section-number { background: #0f172a; color: #fff; font-size: 11px; font-weight: 700; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  summary h2 { font-size: 16px; font-weight: 700; color: #0f172a; letter-spacing: -0.2px; }
+  .section-body { padding: 16px 20px 20px; }
+  .overview { margin-bottom: 12px; background: #fff; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); overflow: hidden; }
+  .overview-header { display: flex; align-items: center; gap: 12px; padding: 14px 20px; border-bottom: 2px solid #e2e8f0; }
+  .overview-header h2 { font-size: 16px; font-weight: 700; color: #0f172a; }
+  .overview-text { font-size: 14.5px; line-height: 1.8; color: #334155; padding: 16px 20px 20px; border-left: 4px solid #0ea5e9; margin: 0; }
+  .section-body ul { list-style: none; padding: 0; }
+  .section-body ul li { position: relative; padding: 7px 0 7px 18px; font-size: 13.5px; line-height: 1.7; color: #334155; }
+  .section-body ul li::before { content: ''; position: absolute; left: 0; top: 15px; width: 5px; height: 5px; background: #0ea5e9; border-radius: 50%; }
+  .section-body ul li + li { border-top: 1px solid #f1f5f9; }
+  .section-body h3 { font-size: 13.5px; font-weight: 600; color: #0c4a6e; margin: 16px 0 6px; padding-left: 2px; }
+  .section-body h3:first-child { margin-top: 0; }
+  .footer { max-width: 900px; margin: 0 auto; padding: 0 40px 48px; text-align: center; font-size: 12px; color: #94a3b8; }
+  .footer a { color: #64748b; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="hero-inner">
+    <h1>Modified Unsteady Vortex-Lattice Method to Study Flapping Wings in Hover Flight</h1>
+    <div class="hero-meta">
+      <span>Bruno A. Roccia, Sergio Preidikman, Julio C. Massa, Dean T. Mook</span>
+      <span>AIAA Journal (2013)</span>
+      <span><a href="https://doi.org/10.2514/1.J052262">DOI: 10.2514/1.J052262</a></span>
+    </div>
+    <div class="tag-row">
+      <span class="tag">UVLM</span><span class="tag">Flapping Wing</span><span class="tag">Hover Flight</span><span class="tag">Insect Aerodynamics</span><span class="tag">Vortex Method</span><span class="tag">Leading Edge Separation</span></div>
+    <div class="importance-badge">&#9733;&#9733;&#9733;</div>
+  </div>
+</div>
+<div class="container">
+  <div class="overview">
+    <div class="overview-header">
+      <div class="section-number">1</div>
+      <h2>Overview</h2>
+    </div>
+    <div class="overview-text">This paper presents a <strong>modified three-dimensional unsteady vortex-lattice method (UVLM)</strong> designed to model the nonlinear unsteady aerodynamics of flapping wings in hover flight. The primary contribution is the extension of the <strong>classical UVLM</strong> to incorporate <strong>leading-edge vortex (LEV) separation</strong> through an <strong>on/off shedding mechanism</strong>. The model is validated against <strong>Euler-equation solutions</strong> for a twisting flapping wing and against experimental data from the <strong>robofly apparatus</strong> of <strong>Dickinson et al.</strong>. Applied to realistic <em>Drosophila melanogaster</em> kinematics, the <strong>modified UVLM</strong> captures the essential physics of hover flight, with mean lift predictions closely matching the weight of a fruit fly ($\bar{L} \approx 1.112 \times 10^{-5}$ N). The computational efficiency (approximately <strong>55 minutes</strong> for <strong>384 panels</strong>) makes the model suitable for <strong>parametric studies</strong>, <strong>optimization</strong>, and <strong>aeroelastic coupling</strong>.</div>
+  </div>
+
+  <details><summary><div class="section-number">2</div><h2>Introduction</h2></summary>
+    <div class="section-body">
+      <h3>State of the Art in Flapping-Wing Aerodynamics</h3>
+      <ul>
+        <li>The aerodynamics of flapping wings at insect scale involves several unsteady mechanisms: <strong>translational lift</strong>, <strong>rotational circulation</strong>, the <strong>leading-edge vortex (LEV)</strong>, <strong>wake capture</strong>, and <strong>added-mass effects</strong></li>
+        <li>Previous computational approaches range from full <strong>Navier-Stokes CFD</strong> solvers to simplified <strong>blade-element models</strong></li>
+        <li><strong>Liu and Kawachi</strong> studied hawkmoth aerodynamics using CFD and detected LEVs with axial flow consistent with <strong>Ellington's</strong> observations</li>
+        <li>The UVLM approach, pioneered by <strong>Belotserkovskii</strong>, <strong>Rehbach</strong>, and researchers at <strong>Virginia Tech</strong> and <strong>Technion</strong>, captures all key mechanisms except viscous and LEV effects</li>
+      </ul>
+      <h3>Research Gaps and Objectives</h3>
+      <ul>
+        <li>Most UVLM implementations at the time lacked the ability to model <strong>leading-edge separation</strong>, limiting applicability to cases where the LEV plays a significant role</li>
+        <li>The objective is to extend the general UVLM to include <strong>leading-edge separation</strong> and validate comprehensively against both numerical benchmarks and <strong>robofly experiments</strong></li>
+        <li>The model is further applied to simulate the aerodynamics of a real <em>Drosophila</em> in hover using measured wing kinematics</li>
+      </ul>
+    </div>
+  </details>
+
+  <details><summary><div class="section-number">3</div><h2>Related Works</h2></summary>
+    <div class="section-body">
+      <h3>Experimental and CFD Studies of Insect Flight</h3>
+      <ul>
+        <li><strong>Dickinson et al.</strong> conducted seminal <strong>robofly experiments</strong> using dynamically scaled <em>Drosophila</em> wings in mineral oil, revealing the critical role of <strong>rotational timing</strong> in lift production</li>
+        <li><strong>Ramamurti and Sandberg</strong> showed through 3D Navier-Stokes simulations that viscous effects on <em>Drosophila</em> wings are minimal and forces are dominated by <strong>inertial effects</strong></li>
+        <li><strong>Sun and Tang's</strong> CFD studies confirmed <strong>force-enhancement mechanisms</strong> but showed relatively poor quantitative agreement with experimental data</li>
+      </ul>
+      <h3>Prior Vortex-Lattice Implementations</h3>
+      <ul>
+        <li><strong>Fritz and Long</strong> implemented the UVLM using object-oriented techniques for oscillating plunging and pitching wings</li>
+        <li><strong>Stanford and Beran</strong> developed an <strong>analytical sensitivity analysis</strong> framework for UVLM-based flapping-wing optimization</li>
+        <li><strong>Ghommem et al.</strong> applied <strong>global optimization</strong> to actively morphing flapping wings using UVLM</li>
+        <li><strong>Willis et al.</strong> combined the panel method with <strong>vortex-particle wakes</strong> using the <strong>fast multipole method</strong></li>
+        <li><strong>Neef and Hummel</strong> solved both Euler equations and used a UVLM for a twisted flapping wing, providing a key benchmark for the present work</li>
+      </ul>
+    </div>
+  </details>
+
+  <details><summary><div class="section-number">4</div><h2>Materials and Methods</h2></summary>
+    <div class="section-body">
+      <h3>Kinematic Model and Insect Geometry</h3>
+      <ul>
+        <li>The insect model is based on the morphology of <em>Drosophila melanogaster</em>, with each body part modeled as a <strong>surface of revolution</strong></li>
+        <li>Four reference frames: inertial ($N$), body-fixed ($T$), stroke-plane ($Z$), and wing-root ($A$, $B$) frames</li>
+        <li>Wing orientation governed by three time-dependent <strong>Euler angles</strong>: <strong>stroke position angle</strong> $\phi(t)$, <strong>stroke deviation angle</strong> $\theta(t)$, and <strong>rotation angle</strong> $\psi(t)$</li>
+      </ul>
+      <h3>Modified UVLM Formulation</h3>
+      <ul>
+        <li>The velocity induced by a vortex segment is computed via a <strong>regularized Biot-Savart law</strong> with <strong>cutoff radius</strong> $\delta$:</li>
+      </ul>
+      $$\mathbf{V}(\mathbf{r}, t) = \frac{\Gamma(t)}{4\pi} \frac{\boldsymbol{\omega} \times \mathbf{r}_1}{|\boldsymbol{\omega} \times \mathbf{r}_2|^2 + \left(\delta|\boldsymbol{\omega}|\right)^2} \boldsymbol{\omega} \cdot (\hat{e}_1 - \hat{e}_2)$$
+      <ul>
+        <li>Wing surface discretized into <strong>quadrilateral panels</strong> forming <strong>bound-vortex lattices</strong>; <strong>free-vortex lattices</strong> shed from trailing edges and leading edges</li>
+        <li><strong>No-penetration boundary condition</strong> enforced at panel control points, yielding the linear system $[A(t)]\{\Gamma(t)\} = \{RHS\}$</li>
+        <li>Aerodynamic loads computed using the <strong>unsteady Bernoulli equation</strong></li>
+      </ul>
+      <h3>Leading-Edge Separation Model</h3>
+      <ul>
+        <li><strong>On/off mechanism</strong>: when the <strong>effective angle of attack</strong> $\alpha_e$ at a spanwise station exceeds a <strong>reference angle</strong> $\alpha_c$, vortex shedding is activated from the leading edge</li>
+        <li>Shed <strong>LEV panels</strong> are transported with the local flow velocity at each time step, forming a <strong>free-vortex sheet</strong> analogous to the trailing-edge wake</li>
+        <li>The <strong>pressure jump</strong> at each panel control point is computed and integrated over the wing surface for resultant force</li>
+      </ul>
+    </div>
+  </details>
+
+  <details><summary><div class="section-number">5</div><h2>Results</h2></summary>
+    <div class="section-body">
+      <h3>Validation Against Euler Solutions</h3>
+      <ul>
+        <li>Model validated against a <strong>twisted flapping wing benchmark</strong> from <strong>Stanford and Beran</strong> and <strong>Neef and Hummel</strong></li>
+        <li>Lift coefficient histories at angles of attack of <strong>0</strong> and <strong>4 degrees</strong> showed <strong>excellent agreement</strong> among all three solution methods</li>
+        <li>Minor discrepancies attributed to differences in <strong>cutoff radius</strong> specification and <strong>Bernoulli equation</strong> formulations</li>
+      </ul>
+      <h3>Robofly Experiment Comparison</h3>
+      <ul>
+        <li>Validated against <strong>Dickinson et al.'s robofly experiments</strong> ($Re = 136$, stroke amplitude $= 160°$, midstroke angle of attack $= 40°$)</li>
+        <li>Three <strong>rotation timing patterns</strong> simulated: <strong>advanced</strong> (rotation precedes stroke reversal by <strong>8%</strong> of cycle), <strong>symmetrical</strong>, and <strong>delayed</strong> (rotation lags by <strong>8%</strong>)</li>
+        <li>Each wing discretized into <strong>384 panels</strong> with <strong>100 time steps</strong> per cycle; cutoff radii: $\delta = 0.15$ (trailing edge), $\delta = 0.05$ (leading edge)</li>
+        <li>Both magnitude and <strong>peak timing matched</strong> experimental data; <strong>FFT</strong> confirmed matching <strong>flapping frequency</strong> ($n_f = 0.145$ Hz) and harmonics</li>
+      </ul>
+      <h3>Fruit-Fly Hover Simulation</h3>
+      <ul>
+        <li>Actual <em>Drosophila</em> kinematics from <strong>Fry et al.</strong> used with $n_f = 220$ Hz, $R = 2.5$ mm, and <strong>3448 aerodynamic panels</strong>; $Re_{3D} = 133$</li>
+        <li><strong>Wing deviation from the stroke plane</strong> increases mean lift by approximately <strong>12%</strong> ($\bar{L}_\theta = 1.112 \times 10^{-5}$ N vs. $\bar{L}_{\theta=0} = 0.9881 \times 10^{-5}$ N)</li>
+        <li>The <strong>mean lift closely matched the weight</strong> of a <em>Drosophila</em>, confirming the model's predictive capability</li>
+      </ul>
+    </div>
+  </details>
+
+  <details><summary><div class="section-number">6</div><h2>Results Interpretation</h2></summary>
+    <div class="section-body">
+      <h3>Physical Mechanisms and Inertial Dominance</h3>
+      <ul>
+        <li>The strong agreement between <strong>inviscid UVLM</strong> predictions and experimental data provides evidence that <strong>inertial effects dominate viscous effects</strong> in flapping flight at insect-scale Reynolds numbers</li>
+        <li>The model captures the essential <strong>vortex-interaction mechanisms</strong> that allow insects to generate sufficient lift</li>
+        <li><strong>Frequency analysis</strong> via discrete FFT confirmed that the numerical model captures both the <strong>flapping frequency</strong> and its <strong>harmonics</strong></li>
+      </ul>
+      <h3>Role of Wing Deviation and Rotational Timing</h3>
+      <ul>
+        <li>The <strong>stroke deviation angle</strong> produces a <strong>figure-of-eight wing-tip trajectory</strong> that levels the force distribution throughout the stroke cycle while increasing mean lift by <strong>12%</strong></li>
+        <li>The extra "bump" in the angle of attack after stroke reversal generates an additional <strong>lift increment</strong> at the beginning of each half-stroke</li>
+        <li>The sensitivity of lift to <strong>rotational timing</strong> suggests insects may exploit this mechanism for <strong>flight control</strong> and maneuvering</li>
+      </ul>
+      <h3>Convergence and Computational Efficiency</h3>
+      <ul>
+        <li><strong>Mesh convergence analysis</strong> showed <strong>120-384 panels</strong> per wing produce well-converged results</li>
+        <li>A <strong>384-panel</strong> simulation required approximately <strong>55 minutes</strong>; <strong>1200 panels</strong> increased runtime to <strong>5 hours</strong> with marginal accuracy improvement</li>
+        <li>This <strong>computational efficiency</strong> makes the modified UVLM suitable for <strong>parametric studies</strong>, <strong>optimization</strong>, and <strong>aeroelastic coupling</strong></li>
+      </ul>
+    </div>
+  </details>
+
+  <details><summary><div class="section-number">7</div><h2>Conclusion</h2></summary>
+    <div class="section-body">
+      <h3>Summary of Achievements</h3>
+      <ul>
+        <li>The paper successfully extends the <strong>3-D UVLM</strong> to include <strong>leading-edge separation</strong> for flapping-wing aerodynamics in hover</li>
+        <li>Validated against <strong>Euler-equation solutions</strong> and <strong>robofly experimental data</strong>, showing excellent agreement in lift trends, magnitudes, peak timing, frequency content, and mean lift values</li>
+        <li>Application to realistic <em>Drosophila</em> kinematics demonstrated the model's ability to capture aerodynamic effects of <strong>wing deviation</strong> and realistic kinematic patterns</li>
+        <li>Results confirm that <strong>vortex interaction</strong> is the primary mechanism enabling insect hover flight</li>
+      </ul>
+      <h3>Limitations and Future Directions</h3>
+      <ul>
+        <li>The <strong>inviscid formulation</strong> cannot predict separation locations, which must be prescribed</li>
+        <li>Numerical instabilities from vortex-segment proximity require <strong>cutoff-radius regularization</strong></li>
+        <li>The wing cutting through its own wake during hovering is not addressed</li>
+        <li>Future work should combine with <strong>vortex-particle methods</strong> for improved wake description and incorporate the <strong>fast multipole method</strong> for computational acceleration</li>
+      </ul>
+    </div>
+  </details>
+</div>
+<div class="footer">Generated by YANG Lab RECON &middot; <a href="https://doi.org/10.2514/1.J052262">View Original Paper</a></div>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, {
+    delimiters: [{left: '$$', right: '$$', display: true},{left: '\\[', right: '\\]', display: true},{left: '\\(', right: '\\)', display: false},{left: '$', right: '$', display: false}],
+    throwOnError: false
+  });"></script>
+</body>
+</html>

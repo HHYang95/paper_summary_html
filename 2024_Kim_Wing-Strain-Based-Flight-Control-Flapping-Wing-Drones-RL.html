@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="paper-title" content="Wing-strain-based flight control of flapping-wing drones through reinforcement learning">
+<meta name="paper-year" content="2024">
+<meta name="paper-author" content="Taewi Kim, Insic Hong, Sunghoon Im, Seungeun Rho, Minho Kim, et al.">
+<meta name="paper-journal" content="Nature Machine Intelligence">
+<meta name="paper-tags" content="Flapping Wing, Reinforcement Learning, Control, Bio-Inspired, MAV, Experimental">
+<meta name="paper-doi" content="10.1038/s42256-024-00893-9">
+<title>Wing-strain-based flight control of flapping-wing drones through reinforcement learning — Summary</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', 'Segoe UI', -apple-system, sans-serif;
+    background: #f8f9fb;
+    color: #1e293b;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Header ── */
+  .hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0c4a6e 100%);
+    color: #fff;
+    padding: 56px 0 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; top: 0; right: 0; bottom: 0;
+    width: 40%;
+    background: radial-gradient(ellipse at 80% 50%, rgba(56,189,248,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+    z-index: 1;
+  }
+  .hero h1 {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: -0.3px;
+    margin-bottom: 16px;
+  }
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    font-size: 14px;
+    color: #94a3b8;
+  }
+  .hero-meta a { color: #7dd3fc; text-decoration: none; }
+  .hero-meta a:hover { text-decoration: underline; }
+  .importance-badge {
+    position: absolute;
+    top: 56px; right: 40px;
+    font-size: 22px;
+    letter-spacing: 2px;
+    filter: drop-shadow(0 0 6px rgba(255,215,0,0.4));
+  }
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 20px;
+  }
+  .tag {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #cbd5e1;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.3px;
+  }
+
+  /* ── Content ── */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 40px 80px;
+  }
+
+  /* ── Toggle sections ── */
+  details {
+    margin-bottom: 12px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    overflow: hidden;
+  }
+  details[open] {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  summary {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    cursor: pointer;
+    user-select: none;
+    list-style: none;
+    border-bottom: 2px solid transparent;
+    transition: background 0.15s;
+  }
+  summary:hover {
+    background: #f1f5f9;
+  }
+  details[open] > summary {
+    border-bottom-color: #e2e8f0;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::before {
+    content: '\25B6';
+    font-size: 10px;
+    color: #94a3b8;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+  }
+  details[open] > summary::before {
+    transform: rotate(90deg);
+  }
+  .section-number {
+    background: #0f172a;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  summary h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
+    letter-spacing: -0.2px;
+  }
+
+  /* ── Section body ── */
+  .section-body {
+    padding: 16px 20px 20px;
+  }
+
+  /* Overview (always open, special style) */
+  .overview {
+    margin-bottom: 12px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    overflow: hidden;
+  }
+  .overview-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  .overview-header h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
+  }
+  .overview-text {
+    font-size: 14.5px;
+    line-height: 1.8;
+    color: #334155;
+    padding: 16px 20px 20px;
+    border-left: 4px solid #0ea5e9;
+    margin: 0;
+  }
+
+  /* Bullet lists */
+  .section-body ul {
+    list-style: none;
+    padding: 0;
+  }
+  .section-body ul li {
+    position: relative;
+    padding: 7px 0 7px 18px;
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: #334155;
+  }
+  .section-body ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 15px;
+    width: 5px; height: 5px;
+    background: #0ea5e9;
+    border-radius: 50%;
+  }
+  .section-body ul li + li {
+    border-top: 1px solid #f1f5f9;
+  }
+
+  /* Sub-section headings */
+  .section-body h3 {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #0c4a6e;
+    margin: 16px 0 6px;
+    padding-left: 2px;
+  }
+  .section-body h3:first-child {
+    margin-top: 0;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px 48px;
+    text-align: center;
+    font-size: 12px;
+    color: #94a3b8;
+  }
+  .footer a { color: #64748b; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <h1>Wing-strain-based flight control of flapping-wing drones through reinforcement learning</h1>
+    <div class="hero-meta">
+      <span>Taewi Kim, Insic Hong, Sunghoon Im, Seungeun Rho, Minho Kim, et al.</span>
+      <span>Nature Machine Intelligence (2024)</span>
+      <span><a href="https://doi.org/10.1038/s42256-024-00893-9">DOI: 10.1038/s42256-024-00893-9</a></span>
+    </div>
+    <div class="tag-row"><span class="tag">Flapping Wing</span><span class="tag">Reinforcement Learning</span><span class="tag">Control</span><span class="tag">Bio-Inspired</span><span class="tag">MAV</span><span class="tag">Experimental</span></div>
+    <div class="importance-badge">★★★</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Overview: always visible (no toggle) -->
+  <div class="overview">
+    <div class="overview-header">
+      <div class="section-number">1</div>
+      <h2>Overview</h2>
+    </div>
+    <div class="overview-text">This paper presents a bio-inspired "fly-by-feel" flight control system for flapping-wing drones that replaces traditional inertial measurement units (IMUs) and gyroscopic sensors with ultrasensitive crack-based strain sensors attached to the wing bases. Inspired by insect campaniform sensilla, the system measures aeroelastic wing deformation and feeds the strain signals into a reinforcement learning (RL) controller based on the soft actor-critic (SAC) algorithm. The authors validate the concept through five progressive experiments: wind state recognition (80% classification accuracy across 186 wind cases), 1 DOF position control under changing winds, 2 DOF attitude control with gravity-based pitch adjustment, 3D position control in a wind tunnel, and free flight path control (zigzag and circular trajectories) in a windless environment. The crack-based sensors are extremely thin (~7.5 $\mu$m) and lightweight (~3 mg), with a gauge factor of ~30,000. This work is relevant to Dr. Yang's ornithopter research as it demonstrates a novel sensing-control paradigm for flapping-wing vehicles that captures complex aeroelastic information without computational aerodynamic modeling.</div>
+  </div>
+
+  <details>
+    <summary>
+      <div class="section-number">2</div>
+      <h2>Introduction</h2>
+    </summary>
+    <div class="section-body">
+<h3>Motivation</h3>
+<ul>
+  <li>Flapping-wing micro aerial vehicles (FWMAVs) such as <strong>RoboBee</strong>, <strong>DelFly</strong>, <strong>KUBeetle</strong>, and <strong>Purdue Hummingbird</strong> offer superior agility and energy efficiency at small scale over quadcopters and fixed-wing drones, but encounter severe difficulties in flight control and lightweight design</li>
+  <li>Controlling FWMAVs in windy conditions is challenging due to complex dynamics, small size limiting thrust generation, and highly flexible body structures incompatible with rigid IMU sensors</li>
+  <li>Model-based controllers with limited tuning parameters struggle to manage the complex aerodynamics of flexible flapping wings, and even supercomputers cannot develop sensing and control algorithms for stable flight in real time</li>
+  <li>Flying insects (dragonflies, hawk moths, hoverflies) possess remarkable flight ability including hovering, turning, and gliding in unsteady aerodynamic environments, attributed to complex sensory systems including <strong>campaniform sensilla</strong></li>
+</ul>
+<h3>State of the Art</h3>
+<ul>
+  <li>Current FWMAV control relies on IMUs, vision cameras, and PID controllers, but these are insufficient: IMUs on the body require body movement for disturbance detection causing delayed stabilization; existing sensors are too rigid for flexible flapping-wing bodies</li>
+  <li>Campaniform sensilla are strain-detecting mechanosensors distributed on insect wings that enable immediate proprioceptive flight control by detecting combined inertial-aerodynamic loads</li>
+  <li>Recent research claims campaniform sensilla detect <strong>Coriolis force</strong> and function as inertial sensors based on electrophysiology data and numerical simulations</li>
+  <li>From an engineering perspective, direct measurement of wing load is advantageous because unsteady aerodynamics makes real-time wing load estimation extremely difficult for conventional control systems</li>
+</ul>
+<h3>Gap &amp; Contribution</h3>
+<ul>
+  <li>No prior successful cases exist of flapping drones controlled by wing strain sensors due to the extreme complexity of aerodynamics between deformable wings and airflow</li>
+  <li>This paper introduces a <strong>fly-by-feel</strong> flight controller using crack-based strain sensors and reinforcement learning (SAC algorithm) to autonomously control flight paths using only wing strain information</li>
+  <li>Five progressive experiments validate the system from basic state recognition to full free-flight path control, demonstrating that wing strain alone encodes sufficient information for autonomous flight control</li>
+</ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>
+      <div class="section-number">3</div>
+      <h2>Related Works</h2>
+    </summary>
+    <div class="section-body">
+<h3>Flapping-Wing MAV Design and Control</h3>
+<ul>
+  <li><strong>Ma et al. (2013)</strong>: Controlled flight of a biologically inspired insect-scale robot (RoboBee), demonstrating fundamental FWMAV flight capability</li>
+  <li><strong>Chen et al. (2019)</strong>: Controlled flight of a microrobot powered by soft artificial muscles, advancing actuator technology for FWMAVs</li>
+  <li><strong>Jafferis et al. (2019)</strong>: Untethered flight of an insect-sized flapping-wing microscale aerial vehicle, a milestone in FWMAV autonomy</li>
+  <li><strong>Phan et al. (2017)</strong>: Design and stable flight of a 21 g tailless flapping-wing MAV (KUBeetle) with angular rate feedback control</li>
+  <li><strong>Baek et al. (2011)</strong>: Flight control for target seeking by a 13 g ornithopter using conventional sensor approaches</li>
+  <li><strong>Nguyen and Chan (2018)</strong>: Biologically-inspired tailless FWMAV with wing stroke plane modulation for flight control</li>
+</ul>
+<h3>Insect Sensory Mechanisms</h3>
+<ul>
+  <li><strong>Dickerson et al. (2014)</strong>: Demonstrated that control of moth flight posture is mediated by wing mechanosensory feedback from campaniform sensilla</li>
+  <li><strong>Pratt et al. (2017)</strong>: Provided neural evidence supporting a dual sensory-motor role for insect wings via campaniform sensilla</li>
+  <li><strong>Fabian et al. (2022)</strong>: Systematic characterization of wing mechanosensors that monitor airflow and wing deformations</li>
+  <li><strong>Hinson and Morgansen (2015)</strong>: Investigated gyroscopic sensing in hawkmoth wings, analyzing the role of sensor location and directional sensitivity</li>
+</ul>
+<h3>Strain Sensing and Bio-Inspired Control</h3>
+<ul>
+  <li><strong>Kang et al. (2014)</strong>: Developed the ultrasensitive mechanical crack-based sensor inspired by spider sensory systems, achieving gauge factors of ~30,000</li>
+  <li><strong>Shin et al. (2021)</strong>: Bio-inspired large-area soft sensing skins to measure UAV wing deformation in flight, an early attempt at wing-strain-based feedback</li>
+  <li><strong>Tagliabue and How (2021)</strong>: Airflow-inertial odometry for resilient state estimation on multirotors, combining airflow sensing with IMU data</li>
+</ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>
+      <div class="section-number">4</div>
+      <h2>Materials and Methods</h2>
+    </summary>
+    <div class="section-body">
+<h3>Sensor Fabrication and Integration</h3>
+<ul>
+  <li><strong>Crack-based strain sensors</strong> fabricated by depositing 50 nm Cr and 20 nm Au thin films on a 7.5 $\mu$m polyimide (PI) substrate at a rate of 0.5 A/s under $1.2 \times 10^{-5}$ mTorr vacuum</li>
+  <li>Substrate stretched to 2% strain to generate nanoscale cracks at 3 $\mu$m intervals on the metal surface, achieving a gauge factor of ~30,000 at 2% strain</li>
+  <li>Sensors are ~7.5 $\mu$m thick and ~3 mg in weight, attached to wing bases (1 mm width) of a commercial flapping drone (MetaFly, XTIM; mass 10 g, wingspan 13.5 cm) using PDMS dry transfer and strain gauge adhesive</li>
+  <li>Signal acquisition via DEWESoft SIRIUS DAQ with bandpass filter (0.1-55 Hz), signals normalized to [-1, 1] range</li>
+</ul>
+<h3>RL Framework: POMDP and SAC Algorithm</h3>
+<ul>
+  <li>System modeled as a <strong>partially observable Markov decision process</strong> (POMDP) $\equiv (S, A, r, P, \Omega, O, \gamma)$ where the agent cannot access the true state directly</li>
+  <li>Agent state constructed from the most recent 32 observations (0.05 s intervals, equivalent to 1.6 s of time): $s_t = (o_t, o_{t-1}, \ldots, o_{t-31}) \in \mathbb{R}^{32}$</li>
+  <li>Actions are continuous motor torque values $a_t \in [0, 1]$, where 1 = maximum motor output and 0 = minimum</li>
+  <li><strong>Soft actor-critic</strong> (SAC) algorithm chosen for high sample efficiency (off-policy, reuses data) and robustness via maximum entropy objective: $$\theta_{\text{sac}} = \arg\max_\theta \mathbb{E}_{\pi_\theta} \left[ \sum_t \gamma^t \left[ r_t + \alpha \mathcal{H}(\pi(\cdot | s_t)) \right] \right]$$</li>
+  <li>Discount factor $\gamma = 0.98$; minibatch size of 64 transitions sampled from replay buffer; temperature parameter $\alpha$ controls entropy-reward tradeoff</li>
+</ul>
+<h3>Neural Network Architecture</h3>
+<ul>
+  <li>Policy network $\pi_\theta$: input $s_t \in \mathbb{R}^{32}$ passes through two consecutive <strong>1D CNN layers</strong> (32 filters, width 5) with max pooling (window width 2), flattened into 256-dimensional embedding, outputting Gaussian mean $\mu$ and variance $\sigma^2$</li>
+  <li>Action value function $Q_\phi$: same CNN architecture with additional 64-dimensional action embedding concatenated before the output layer</li>
+  <li>Wind classification network: two 1D convolutional layers (5 filters, size 50, total 64 filters) followed by two fully connected layers with ReLU activation, max pooling, dropout, and softmax output for 186 wind classes</li>
+</ul>
+<h3>Experimental Setups (5 Phases)</h3>
+<ul>
+  <li><strong>Phase 1</strong> (Wind prediction): Drone anchored to 3-DOF motor system; 62 wind direction cases $\times$ 3 speeds (3, 5, 7 m/s) = 186 total cases; 1D CNN classification model trained on 0.2 s input windows</li>
+  <li><strong>Phase 2</strong> (1 DOF): Drone on 20 cm stick fixed to rotary encoder; circular motion in x-y plane; torsion spring returns to initial position; fans at 3 and 5 m/s; target at 180 degrees</li>
+  <li><strong>Phase 3</strong> (2 DOF): Pin joint allowing pitch angle $\beta$ from -30 to 60 degrees; 5 m/s apparent wind; single left-wing sensor; Kinovea for pitch measurement</li>
+  <li><strong>Phase 4</strong> (Position control): Wind tunnel with honeycomb lattice; asymmetric airflow from multiple fans; motion capture cameras for position reward; drone tethered with nylon cord for safety</li>
+  <li><strong>Phase 5</strong> (Free flight): 6 m $\times$ 8 m $\times$ 4 m space; 12 motion capture cameras; drone launcher at 1 m/s takeoff speed; 8 copper wires (AWG 40, 96.5 $\mu$m diameter, 8 m length; total tether mass 1.32 g = 13.2% of drone weight)</li>
+</ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>
+      <div class="section-number">5</div>
+      <h2>Results</h2>
+    </summary>
+    <div class="section-body">
+<h3>Wind State Recognition (Phase 1)</h3>
+<ul>
+  <li>Classification model achieved <strong>mean accuracy of 80%</strong> across <strong>186 wind cases</strong> (<strong>62 directions</strong> $\times$ <strong>3 speeds</strong>), with mean area under the curve of <strong>~0.99</strong></li>
+  <li>Regression model: mean absolute angle error <strong>$\theta_{\text{error}} = 29^\circ$</strong> (<strong>76%</strong> of errors within 0-33 degrees); mean speed error <strong>$s_{\text{error}} = 26\%$</strong> (<strong>63.5%</strong> of errors within 0-30%)</li>
+  <li>Highest prediction accuracy in front, lower-left, and lower-right wind regions where wing base deformation is greatest; lowest accuracy in upper-rear region</li>
+</ul>
+<h3>1 DOF Position Control (Phase 2)</h3>
+<ul>
+  <li>RL-based drone successfully adapted to changing wind conditions and maintained target position at $180^\circ$, outperforming untrained baselines (minimum, maximum, and random motor power)</li>
+  <li>Drone demonstrated agile response to state changes: quickly increased then decreased motor power to approach target smoothly as episodes progressed</li>
+  <li>Successfully maintained alternative target at $270^\circ$ and recovered from intentional backward disturbances, confirming ability to decode wind direction from strain data</li>
+</ul>
+<h3>2 DOF Attitude Control (Phase 3)</h3>
+<ul>
+  <li>Drone recognized falling state (pitch $\beta < 0^\circ$) within <strong>0.1 s</strong> and reduced motor power to zero to recover optimal pitch angle using only one wing-base strain sensor</li>
+  <li>Trained drone maintained optimal pitch angle of approximately $10^\circ$ during forward flight and recovered balance even after intentional disturbances</li>
+  <li>Performance improved consistently with training episodes (decreasing entropy, increasing scores)</li>
+</ul>
+<h3>3D Position Control in Wind (Phase 4)</h3>
+<ul>
+  <li>Trained drone substantially outperformed untrained drones in maintaining proximity to target position with <strong>reduced standard deviation</strong> in average position</li>
+  <li>Using only two strain sensors, the drone managed position and attitude control in complex 3D wind-tunnel flow without IMUs or vision sensors</li>
+  <li>Drone successfully reached alternative target positions on both left and right sides; performance discrepancy between positions attributed to flow field variations and hardware limitations</li>
+</ul>
+<h3>Free Flight Path Control (Phase 5)</h3>
+<ul>
+  <li>RL agent learned to control <strong>zigzag and circular flight trajectories</strong> using only wing strain data, aided by human demonstration data in the replay buffer</li>
+  <li>Agent improved over manual control: RL achieved higher scores and reduced entropy compared to 30% success rate of manual trajectory control</li>
+  <li>Altitude control also demonstrated: RL agent managed both thrust and directional motors to maintain target altitudes of 1.6 m and 0.8 m</li>
+  <li>Odometry reconstructed from strain data showed good agreement with motion capture ground truth for zigzag, circular, and S-curve motions across 5-fold cross-validation</li>
+</ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>
+      <div class="section-number">6</div>
+      <h2>Results Interpretation</h2>
+    </summary>
+    <div class="section-body">
+<h3>Physical Reasoning</h3>
+<ul>
+  <li>Wing-base strain sensors capture comprehensive aeroelastic information encoding wind speed, direction, drone attitude, and flapping speed into a single signal channel, confirming the biological hypothesis that campaniform sensilla provide sufficient state information for flight control</li>
+  <li>The crack-based sensor's ultra-high gauge factor (~30,000) enables detection of subtle wing deformation changes that correlate with complex aerodynamic phenomena including airflow stagnation, separation, and vortex shedding</li>
+  <li>The end-to-end RL approach (SAC) bypasses the need for explicit aerodynamic modeling, directly mapping sensor inputs to motor outputs, which is critical given that even simplified computational models require days to converge per simulation</li>
+  <li>Success with only 1-2 sensors demonstrates that wing-base strain is a highly information-dense measurement point, consistent with biological findings on campaniform sensilla distribution</li>
+</ul>
+<h3>Comparison with Prior Work and Limitations</h3>
+<ul>
+  <li>Unlike previous drones requiring gyro sensors, accelerometers, and vision sensors, this system performs positioning, balancing, and navigating tasks using only wind cues sensed through wing strain</li>
+  <li>The system offers a unique navigation method independent of IMU, GPS, or visual cues, adapting to aerodynamic shifts where conventional systems may be compromised</li>
+  <li>Current sensor dimensions (1 mm $\times$ 5 mm) require further miniaturization for subgram drones with wing weights of ~3 mg; crack sensors are advantageous due to simple fabrication (photolithography or laser ablation)</li>
+  <li>Tethered experiments limit direct applicability to free flight; tether mass (1.32 g, 13.2% of drone weight) affects flight dynamics despite being lightweight</li>
+  <li>Gravity sensing via wing strain remains unverified; differentiation of gravitational deformation from wind and acceleration effects may require multiple spatially distributed sensors to detect complex twisting or buckling</li>
+</ul>
+<h3>Broader Implications</h3>
+<ul>
+  <li>The fly-by-feel paradigm could complement or replace traditional sensor suites in FWMAVs, reducing weight and complexity while improving responsiveness to aerodynamic disturbances</li>
+  <li>Integration of strain sensing with conventional IMUs and gyroscopes could optimize data utilization while minimizing sensor redundancy for enhanced precision and stability</li>
+</ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>
+      <div class="section-number">7</div>
+      <h2>Conclusion</h2>
+    </summary>
+    <div class="section-body">
+<ul>
+  <li>Successfully demonstrated autonomous flight control of a flapping-wing drone using only crack-based wing strain sensors and RL (SAC algorithm), validating the bio-inspired fly-by-feel concept</li>
+  <li>Five progressive experiments confirmed that wing strain encodes sufficient environmental and state information for flight tasks including wind detection, position control, attitude control, and trajectory tracking</li>
+  <li>Wind state recognition achieved 80% classification accuracy across 186 wind cases; position and attitude control outperformed untrained baselines across all experiments</li>
+  <li>The system eliminates reliance on IMUs, GPS, and vision sensors, offering a lightweight, responsive alternative for FWMAV control in complex aerodynamic environments</li>
+  <li>Future work includes attaching multiple sensors for gravity detection, enabling advanced autonomous behaviors such as hovering and wind-assisted flight without accelerometers</li>
+  <li>Integration with gyroscopes and accelerometers planned to further enhance control performance through optimized sensor fusion strategies</li>
+  <li>The aerobatic fly-by-feel flight control system is expected to be applicable across varied scenarios from gust resistance to wind-assisted flight for autonomous flying robots</li>
+</ul>
+    </div>
+  </details>
+
+</div>
+
+<div class="footer">
+  Generated by YANG Lab RECON &middot; <a href="https://doi.org/10.1038/s42256-024-00893-9">View Original Paper</a>
+</div>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '\\[', right: '\\]', display: true},
+      {left: '\\(', right: '\\)', display: false},
+      {left: '$', right: '$', display: false}
+    ],
+    throwOnError: false
+  });"></script>
+</body>
+</html>

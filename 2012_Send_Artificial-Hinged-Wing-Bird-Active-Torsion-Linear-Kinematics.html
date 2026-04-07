@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="paper-title" content="Artificial Hinged-Wing Bird With Active Torsion and Partially Linear Kinematics">
+<meta name="paper-year" content="2012">
+<meta name="paper-author" content="Wolfgang Send, Markus Fischer, Kristof Jebens, Rainer Mugrauer, Agalya Nagarathinam, Felix Scharstein">
+<meta name="paper-journal" content="ICAS 2012">
+<meta name="paper-tags" content="Flapping Wing, Active Torsion, Ornithopter, Bio Inspired, Smartbird, Kinematics, Unsteady Aerodynamics, Experimental">
+<meta name="paper-doi" content="">
+<title>Artificial Hinged-Wing Bird With Active Torsion and Partially Linear Kinematics — Summary</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter','Segoe UI',-apple-system,sans-serif;background:#f8f9fb;color:#1e293b;line-height:1.7;-webkit-font-smoothing:antialiased}.hero{background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 50%,#0c4a6e 100%);color:#fff;padding:56px 0 48px;position:relative;overflow:hidden}.hero::after{content:'';position:absolute;top:0;right:0;bottom:0;width:40%;background:radial-gradient(ellipse at 80% 50%,rgba(56,189,248,0.08) 0%,transparent 70%);pointer-events:none}.hero-inner{max-width:900px;margin:0 auto;padding:0 40px;position:relative;z-index:1}.hero h1{font-size:28px;font-weight:700;line-height:1.35;letter-spacing:-0.3px;margin-bottom:16px}.hero-meta{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:14px;color:#94a3b8}.hero-meta a{color:#7dd3fc;text-decoration:none}.importance-badge{position:absolute;top:56px;right:40px;font-size:22px;letter-spacing:2px;filter:drop-shadow(0 0 6px rgba(255,215,0,0.4))}.tag-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:20px}.tag{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);color:#cbd5e1;font-size:11px;font-weight:500;padding:3px 10px;border-radius:20px}.container{max-width:900px;margin:0 auto;padding:40px 40px 80px}details{margin-bottom:12px;border-radius:10px;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,0.04);overflow:hidden}details[open]{box-shadow:0 2px 8px rgba(0,0,0,0.06)}summary{display:flex;align-items:center;gap:12px;padding:14px 20px;cursor:pointer;user-select:none;list-style:none;border-bottom:2px solid transparent;transition:background 0.15s}summary:hover{background:#f1f5f9}details[open]>summary{border-bottom-color:#e2e8f0}summary::-webkit-details-marker{display:none}summary::before{content:'\25B6';font-size:10px;color:#94a3b8;transition:transform 0.2s;flex-shrink:0}details[open]>summary::before{transform:rotate(90deg)}.section-number{background:#0f172a;color:#fff;font-size:11px;font-weight:700;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}summary h2{font-size:16px;font-weight:700;color:#0f172a}.section-body{padding:16px 20px 20px}.overview{margin-bottom:12px;background:#fff;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,0.04);overflow:hidden}.overview-header{display:flex;align-items:center;gap:12px;padding:14px 20px;border-bottom:2px solid #e2e8f0}.overview-header h2{font-size:16px;font-weight:700;color:#0f172a}.overview-text{font-size:14.5px;line-height:1.8;color:#334155;padding:16px 20px 20px;border-left:4px solid #0ea5e9;margin:0}.section-body ul{list-style:none;padding:0}.section-body ul li{position:relative;padding:7px 0 7px 18px;font-size:13.5px;line-height:1.7;color:#334155}.section-body ul li::before{content:'';position:absolute;left:0;top:15px;width:5px;height:5px;background:#0ea5e9;border-radius:50%}.section-body ul li+li{border-top:1px solid #f1f5f9}.section-body h3{font-size:13.5px;font-weight:600;color:#0c4a6e;margin:16px 0 6px}.section-body h3:first-child{margin-top:0}.footer{max-width:900px;margin:0 auto;padding:0 40px 48px;text-align:center;font-size:12px;color:#94a3b8}.footer a{color:#64748b;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="hero"><div class="hero-inner"><h1>Artificial Hinged-Wing Bird With Active Torsion and Partially Linear Kinematics</h1><div class="hero-meta"><span>Wolfgang Send, Markus Fischer, Kristof Jebens, Rainer Mugrauer, Agalya Nagarathinam, Felix Scharstein</span><span>ICAS 2012</span></div><div class="tag-row"><span class="tag">Flapping Wing</span><span class="tag">Active Torsion</span><span class="tag">Ornithopter</span><span class="tag">Bio Inspired</span><span class="tag">Smartbird</span><span class="tag">Kinematics</span><span class="tag">Unsteady Aerodynamics</span><span class="tag">Experimental</span></div><div class="importance-badge">★★</div></div></div>
+<div class="container">
+  <div class="overview"><div class="overview-header"><div class="section-number">1</div><h2>Overview</h2></div><div class="overview-text">This paper introduces SmartBird, an artificial hinged-wing bird developed by Festo's Bionic Learning Network, featuring two novel concepts in biologically-inspired flight: active torsion and partially linear kinematics. The active torsion mechanism uses a servomotor at the outer wing tip to prescribe a torsion shape function that transitions the angle of incidence between positive and negative values within a short fraction of the flapping period, with the angle held constant between turning points. The partially linear kinematics concept replaces conventional harmonic pitching with a trapezoidal waveform inspired by flying locust observations. Tethered flight measurements demonstrate aerodynamic efficiencies $\eta_{\text{aero}}$ of 60&ndash;80%, while free flight achieves sustained horizontal flight at $u_0 = 4.7$ m/s with 18 W total power at $Re \approx 80{,}000$. Both thin-plate theory and 2D Euler code confirm the benefits of partially linear kinematics over harmonic torsion.</div></div>
+
+  <details><summary><div class="section-number">2</div><h2>Introduction</h2></summary><div class="section-body">
+    <h3>Historical Context of Flapping-Wing Flight</h3>
+    <ul>
+      <li>Flapping wings produce thrust without rotating parts by coupling lift and thrust generation through <strong>coupled bending and torsional motion</strong></li>
+      <li>The physics traces back to <strong>Birnbaum (1924)</strong>, discovered during airplane flutter research; flutter and flapping-wing propulsion share the same mathematical description</li>
+      <li>High plunging at small pitching produces thrust; low plunging with high pitching extracts energy; the transition domain achieves nearly <strong>90% energy conversion</strong></li>
+      <li>Early ornithopter work by <strong>Lippisch (before 1930)</strong> and Leonardo da Vinci's hinged-wing designs represent historical milestones in human-built flappers</li>
+    </ul>
+    <h3>Motivation and Design Philosophy</h3>
+    <ul>
+      <li>Primary motivation: better understanding of <strong>coupled bending-torsion motion</strong> and its optimization for technical applications</li>
+      <li>SmartBird serves as a <strong>technology carrier and demonstrator</strong> for both thrust production and renewable energy extraction via flapping wings</li>
+      <li>Energy extraction from airstreams using flapping wings was investigated by <strong>McKinney and DeLaurier (1981)</strong>, later extended to the stroke-wing engine up to $150$ kW installed power</li>
+    </ul>
+    <h3>Aerodynamic Foundation</h3>
+    <ul>
+      <li>3D coupled bending-torsion reduces to 2D coupled pitching $\alpha(t)$ and plunging $h(t)$; the <strong>amplitude ratio</strong> and <strong>phase shift</strong> are the two governing parameters</li>
+      <li>In typical flapping flight, plunge leads pitch by $90°$ with maximum positive torsion during upstroke</li>
+      <li>The <strong>torsion shape function</strong> introduces a third control feature transforming harmonic torsion into partially linear motion</li>
+    </ul>
+  </div></details>
+
+  <details><summary><div class="section-number">3</div><h2>Related Works</h2></summary><div class="section-body">
+    <ul>
+      <li><strong>Birnbaum (1924)</strong> &mdash; discovery of the flapping-wing propulsion mechanism as a spin-off from airplane flutter research, establishing the mathematical foundation for coupled pitching-plunging motion</li>
+      <li><strong>Platzer et al. (2008)</strong> &mdash; comprehensive overview of progress and challenges in flapping-wing aerodynamics providing historical context</li>
+      <li><strong>McKinney and DeLaurier (1981)</strong> &mdash; first investigation of beneficial energy extraction from airstreams using oscillating wings (the wingmill concept)</li>
+      <li><strong>Marey (1891)</strong> &mdash; pioneer in animal flight research who developed the carousel-type measurement technique adapted for the ANIPROP RL3 test stand</li>
+      <li><strong>Send (1992)</strong> &mdash; theoretical framework for mean power of forces and moments in unsteady aerodynamics providing the design basis</li>
+      <li><strong>Theodorsen (1935)</strong> &mdash; general theory of aerodynamic instability and flutter mechanism, foundational to understanding pitching-plunging coupling</li>
+      <li><strong>K&uuml;ssner (1936)</strong> &mdash; comprehensive report on unsteady lift of wings establishing classical results for the theoretical background</li>
+      <li><strong>Garrick (1936)</strong> &mdash; theoretical analysis of propulsion from a flapping and oscillating airfoil</li>
+      <li><strong>Send and Scharstein (2010)</strong> &mdash; thrust measurement methodology for flapping-flight components using the ANIPROP RL3 apparatus</li>
+    </ul>
+  </div></details>
+
+  <details><summary><div class="section-number">4</div><h2>Materials and Methods</h2></summary><div class="section-body">
+    <h3>SmartBird Mechanical Design</h3>
+    <ul>
+      <li>Wing: two-part inner spar + <strong>trapezoidal hinge</strong> (1:3 transmission ratio) + outer wing spar; inner wing generates lift, outer wing generates thrust</li>
+      <li>Specifications: span $b = 2$ m, planform area $A = 0.5$ m$^2$, mean chord $c = 0.25$ m, weight $m = 0.48$ kg including battery</li>
+      <li>Active torsion via <strong>servomotor at outer wing tip</strong> twisting wing against spar via the outermost rib</li>
+      <li>External rotor motor with two-stage spur gearing (<strong>1:45 speed reduction</strong>); three Hall sensors for absolute wing position; crank mechanism without dead center for smooth flight</li>
+      <li>Head and fuselage movable by two electric drives for aerodynamic body bending and weight displacement</li>
+    </ul>
+    <h3>Active Torsion and Kinematics</h3>
+    <ul>
+      <li>Torsion shape function defined by amplitude, turn beginning/end, slope, and phase shift relative to plunge motion</li>
+      <li>Three kinematic modes compared: <strong>partially linear</strong> (trapezoidal), <strong>harmonic</strong> (sinusoidal), and <strong>ideally linear</strong> (sawtooth)</li>
+      <li>Control parameters <strong>interactively adjustable during flight</strong> via bi-directional ZigBee radio communication</li>
+    </ul>
+    <h3>Experimental Apparatus (ANIPROP RL3)</h3>
+    <ul>
+      <li>Carousel test stand: model moves against air at rest; inner boom $L = 2.17$ m, outer boom support $d_V + h_S = 1.25$ m; max speed $> 10$ m/s</li>
+      <li>Force sensor ($\pm 50$ N), bar-coded disk (180 bars, 360 positions/rotation), nine slip rings for data and power</li>
+      <li>Aerodynamic angle $\beta_{\text{aero}} = 90°$ at rest, $0°$ for 100% lift in horizontal flight</li>
+    </ul>
+    <h3>Efficiency Methodology</h3>
+    <ul>
+      <li>Total efficiency: $\eta_{\text{tot}} = -P_T / (P_{\text{el}} - P_{0,\text{sv}})$; thrust power: $P_T = (F_{\text{SM}} - F_{\text{tow}}) \cdot (R_f / R_{\beta,M}) \cdot u_0$</li>
+      <li>Electromechanical efficiency $\eta_{\text{em}}$ via dynamometrical brake; aerodynamic efficiency $\eta_{\text{aero}} = \eta_{\text{tot}} / \eta_{\text{em}}$</li>
+    </ul>
+  </div></details>
+
+  <details><summary><div class="section-number">5</div><h2>Results</h2></summary><div class="section-body">
+    <h3>Tethered and Free Flight Performance</h3>
+    <ul>
+      <li>Aerodynamic efficiency $\eta_{\text{aero}}$ reached <strong>60&ndash;80%</strong> in tethered flight; highest values at specific speed-flapping parameter combinations</li>
+      <li>Servo motor bias power $P_{0,\text{sv}} \approx 5$ W; earlier models achieved similar efficiency but insufficient thrust for free flight</li>
+      <li>Free flight: average velocity $u_0 = 4.7$ m/s, total power $P_{\text{el}} = 18$ W, net power 13 W</li>
+      <li>Thrust force $F_T = 0.7$ N; thrust coefficient $c_T = 0.1$; lift coefficient $c_L = 0.7$; $c_L/c_D \approx 7$</li>
+      <li>Reynolds number $Re \approx 80{,}000$; reduced frequency $\omega^* = 0.3$&ndash;$0.45$</li>
+    </ul>
+    <h3>Sensitivity and Control</h3>
+    <ul>
+      <li><strong>Very sensitive dependence</strong> of thrust generation on torsion shape function parameters observed in flight tests</li>
+      <li>Free flight required even lower electric power than tethered measurements indicated</li>
+      <li>Real-time optimization of control parameters enabled by on-board microcontroller and ZigBee telemetry</li>
+    </ul>
+    <h3>Numerical Predictions</h3>
+    <ul>
+      <li>Thin-plate theory predicts high-efficiency range bounded by thrust generation and active torsion requirements; amplitude ratio $\lambda = h_0 / (\alpha_0 \cdot c/2)$ governs efficiency map</li>
+      <li>2D Euler code for NACA 7412: design point at $\eta_{\text{aero}} = 0.8$, $\kappa = 100°$; partially linear achieves same efficiency at <strong>smaller amplitude ratio</strong> than harmonic motion</li>
+      <li>Broad efficiency plateau from CFD not reproduced in flight tests; experimental sensitivity closer to thin-plate theory narrow range</li>
+    </ul>
+  </div></details>
+
+  <details><summary><div class="section-number">6</div><h2>Results Interpretation</h2></summary><div class="section-body">
+    <ul>
+      <li>Active torsion enables operation within the <strong>narrow high-efficiency corridor</strong> predicted by unsteady aerodynamic theory through direct control of amplitude ratio and phase relationship</li>
+      <li>The trapezoidal torsion waveform maintains constant angle of incidence during productive stroke phases, <strong>optimizing flow utilization</strong> for thrust generation</li>
+      <li>Partially linear kinematics reduces required pitch amplitude for a given efficiency target because constant-angle plateaus maintain favorable flow conditions for a larger fraction of the cycle</li>
+      <li>The discrepancy between broad CFD efficiency plateau and narrow experimental sensitivity suggests that <strong>viscous effects and flow separation</strong> constrain the operational envelope more than inviscid theory predicts</li>
+      <li>Precise absolute data of wing torsion and bending in free flight remain unknown; measurement requires <strong>continuous spatial tracking</strong> of the entire flying bird</li>
+      <li>The suction force from thin-plate theory originates from the first <strong>3% of chord</strong> and tends to disappear for increasing lift, representing a critical issue in CFD validation</li>
+      <li>SmartBird implements only two of three aerodynamic DOFs (plunging and torsion but not lagging), suggesting room for further optimization</li>
+      <li>The proximity of propulsion and energy extraction regimes means large birds may fly near the domain of almost <strong>complete energy conversion</strong> (up to 90%)</li>
+    </ul>
+  </div></details>
+
+  <details><summary><div class="section-number">7</div><h2>Conclusion</h2></summary><div class="section-body">
+    <ul>
+      <li>SmartBird demonstrates successful sustained free flight using <strong>active torsion</strong> and <strong>partially linear kinematics</strong> inspired by locust flight observations</li>
+      <li>Tethered flight yields $\eta_{\text{aero}}$ of <strong>60&ndash;80%</strong> on the ANIPROP RL3 test stand, confirming theoretical predictions for coupled pitching-plunging propulsion</li>
+      <li>Free flight achieves $u_0 = 4.7$ m/s with 18 W total power, $c_L/c_D \approx 7$ at $Re \approx 80{,}000$</li>
+      <li>Thin-plate theory and 2D Euler code confirm partially linear kinematics <strong>reduces required pitch amplitude</strong> compared to harmonic motion while maintaining high propulsive efficiency</li>
+      <li>Torsion shape function provides <strong>real-time in-flight control</strong> over critical parameters governing thrust generation</li>
+      <li>Sensitive dependence of thrust on torsion parameters is consistent with the <strong>narrow high-efficiency domain</strong> from thin-plate theory</li>
+      <li>Future directions include incorporating the <strong>lagging DOF</strong> and applying flapping wings to <strong>renewable energy extraction</strong></li>
+    </ul>
+  </div></details>
+</div>
+<div class="footer">Generated by YANG Lab RECON</div>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false},{left:'$',right:'$',display:false}],throwOnError:false});"></script>
+</body></html>

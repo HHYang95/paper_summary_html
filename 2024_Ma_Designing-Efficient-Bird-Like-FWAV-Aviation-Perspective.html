@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="paper-title" content="Designing efficient bird-like flapping-wing aerial vehicles: insights from aviation perspective">
+<meta name="paper-year" content="2024">
+<meta name="paper-author" content="Dongfu Ma, Bifeng Song, Shijin Gao, Dong Xue, Jianlin Xuan">
+<meta name="paper-journal" content="Bioinspiration & Biomimetics">
+<meta name="paper-tags" content="Flapping Wing, Ornithopter, Bio-Inspired, Review Paper, Optimization, MAV, Mechanism">
+<meta name="paper-doi" content="10.1088/1748-3190/ad88c4">
+<title>Designing efficient bird-like flapping-wing aerial vehicles: insights from aviation perspective — Summary</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', 'Segoe UI', -apple-system, sans-serif;
+    background: #f8f9fb;
+    color: #1e293b;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Header ── */
+  .hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0c4a6e 100%);
+    color: #fff;
+    padding: 56px 0 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; top: 0; right: 0; bottom: 0;
+    width: 40%;
+    background: radial-gradient(ellipse at 80% 50%, rgba(56,189,248,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+    z-index: 1;
+  }
+  .hero h1 {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: -0.3px;
+    margin-bottom: 16px;
+  }
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    font-size: 14px;
+    color: #94a3b8;
+  }
+  .hero-meta a { color: #7dd3fc; text-decoration: none; }
+  .hero-meta a:hover { text-decoration: underline; }
+  .importance-badge {
+    position: absolute;
+    top: 56px; right: 40px;
+    font-size: 22px;
+    letter-spacing: 2px;
+    filter: drop-shadow(0 0 6px rgba(255,215,0,0.4));
+  }
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 20px;
+  }
+  .tag {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #cbd5e1;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.3px;
+  }
+
+  /* ── Content ── */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 40px 80px;
+  }
+
+  /* ── Toggle sections ── */
+  details {
+    margin-bottom: 12px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    overflow: hidden;
+  }
+  details[open] {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  summary {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    cursor: pointer;
+    user-select: none;
+    list-style: none;
+    border-bottom: 2px solid transparent;
+    transition: background 0.15s;
+  }
+  summary:hover {
+    background: #f1f5f9;
+  }
+  details[open] > summary {
+    border-bottom-color: #e2e8f0;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::before {
+    content: '\25B6';
+    font-size: 10px;
+    color: #94a3b8;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+  }
+  details[open] > summary::before {
+    transform: rotate(90deg);
+  }
+  .section-number {
+    background: #0f172a;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  summary h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
+    letter-spacing: -0.2px;
+  }
+
+  /* ── Section body ── */
+  .section-body {
+    padding: 16px 20px 20px;
+  }
+
+  /* Overview (always open, special style) */
+  .overview {
+    margin-bottom: 12px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    overflow: hidden;
+  }
+  .overview-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  .overview-header h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
+  }
+  .overview-text {
+    font-size: 14.5px;
+    line-height: 1.8;
+    color: #334155;
+    padding: 16px 20px 20px;
+    border-left: 4px solid #0ea5e9;
+    margin: 0;
+  }
+
+  /* Bullet lists */
+  .section-body ul {
+    list-style: none;
+    padding: 0;
+  }
+  .section-body ul li {
+    position: relative;
+    padding: 7px 0 7px 18px;
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: #334155;
+  }
+  .section-body ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 15px;
+    width: 5px; height: 5px;
+    background: #0ea5e9;
+    border-radius: 50%;
+  }
+  .section-body ul li + li {
+    border-top: 1px solid #f1f5f9;
+  }
+
+  /* Sub-section headings */
+  .section-body h3 {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #0c4a6e;
+    margin: 16px 0 6px;
+    padding-left: 2px;
+  }
+  .section-body h3:first-child {
+    margin-top: 0;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px 48px;
+    text-align: center;
+    font-size: 12px;
+    color: #94a3b8;
+  }
+  .footer a { color: #64748b; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <h1>Designing efficient bird-like flapping-wing aerial vehicles: insights from aviation perspective</h1>
+    <div class="hero-meta">
+      <span>Dongfu Ma, Bifeng Song, Shijin Gao, Dong Xue, Jianlin Xuan</span>
+      <span>Bioinspiration &amp; Biomimetics (2024)</span>
+      <span><a href="https://doi.org/10.1088/1748-3190/ad88c4">DOI: 10.1088/1748-3190/ad88c4</a></span>
+    </div>
+    <div class="tag-row"><span class="tag">Flapping Wing</span><span class="tag">Ornithopter</span><span class="tag">Bio-Inspired</span><span class="tag">Review Paper</span><span class="tag">Optimization</span><span class="tag">MAV</span><span class="tag">Mechanism</span></div>
+    <div class="importance-badge">★★</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Overview: always visible (no toggle) -->
+  <div class="overview">
+    <div class="overview-header">
+      <div class="section-number">1</div>
+      <h2>Overview</h2>
+    </div>
+    <div class="overview-text">This topical review provides a comprehensive survey of <strong>bird-like flapping-wing aerial vehicle (BFAV)</strong> design from the perspective of aviation engineering, covering <strong>overall parameter design</strong>, <strong>flapping wing design</strong>, and <strong>drive system design</strong>. The authors systematically analyze the <strong>scaling laws</strong> relating body mass $m$ to wing parameters (e.g., $b \propto m^{0.39}$, $S \propto m^{0.72}$, $f \propto m^{-0.33}$), review over <strong>30 successfully flown BFAV prototypes</strong> spanning two decades, and catalog multi-mode motion capabilities. The paper identifies five key challenges: refining scaling laws, building universal design methods, advancing flapping wing optimization, improving drive system efficiency (currently only <strong>~46.5%</strong> of input power generates aerodynamic force), and achieving miniaturization.</div>
+  </div>
+
+  <details>
+    <summary>
+      <div class="section-number">2</div>
+      <h2>Introduction</h2>
+    </summary>
+    <div class="section-body">
+      <h3>Motivation</h3>
+      <ul>
+        <li><strong>Flapping-wing flight</strong> achieves higher propulsive efficiency than fixed-wing or rotary-wing flight at <strong>low Reynolds numbers</strong>, motivating bio-inspired aerial vehicle development</li>
+        <li>Approximately <strong>one million flying species</strong> demonstrate highly adapted flight structures optimized through evolution</li>
+        <li>Birds outperform man-made vehicles at the same scale in flight speed per unit body length and roll rate (<strong>Shyy et al., 1999</strong>)</li>
+      </ul>
+      <h3>State of the Art</h3>
+      <ul>
+        <li>FAVs are categorized into <strong>insect-like (IFAVs)</strong> and <strong>bird-like (BFAVs)</strong>, with BFAVs offering superior endurance, range, and load capacity</li>
+        <li>BFAVs consist of flapping wings, drive system, control system, energy components, and mission payload integrated through the airframe</li>
+        <li>Aerodynamic mechanism differs fundamentally from fixed-wing: flapping wings generate both <strong>lift and thrust simultaneously</strong>, making them inseparable</li>
+        <li><strong>BFAV technology</strong> is more mature than IFAV for practical applications requiring long range and payload</li>
+      </ul>
+      <h3>Gap &amp; Contribution</h3>
+      <ul>
+        <li>Existing reviews focus on biological flight mechanisms rather than <strong>practical engineering design methods</strong> for BFAVs</li>
+        <li>This review bridges the gap by focusing on <strong>solutions and proven tools</strong> for aviation designers</li>
+        <li>Covers three critical design domains: <strong>overall design</strong>, <strong>flapping wing design</strong>, and <strong>drive system design</strong></li>
+        <li>Provides a comprehensive catalog of <strong>30+ successfully flown prototypes</strong> with detailed parameter data</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>
+      <div class="section-number">3</div>
+      <h2>Related Works</h2>
+    </summary>
+    <div class="section-body">
+      <h3>Biological Flight &amp; Scaling Laws</h3>
+      <ul>
+        <li><strong>Rayner (1988)</strong> and <strong>Norberg (1990)</strong> derived power function relations between wing geometric parameters and flight parameters at different weights</li>
+        <li><strong>Pennycuick (1996)</strong> revised flapping frequency estimates using extensive bird species data</li>
+        <li><strong>Taylor et al. (2003)</strong> introduced the Strouhal number similarity principle: $St = fA/V$, with peak propulsive efficiency near $St = 0.3$</li>
+        <li><strong>Weis-Fogh (1973)</strong> and <strong>Ellington (1984)</strong> characterized the "clap and fling" mechanism that boosts lift by 15%&ndash;25%</li>
+      </ul>
+      <h3>Computational Aerodynamics</h3>
+      <ul>
+        <li><strong>Ghommem et al. (2012)</strong> optimized flapping wing motion using UVLM, showing second-order torsion/bending modes enhance efficiency</li>
+        <li><strong>Stanford and Beran (2010)</strong> optimized chord torsion and spanwise bending under lift/thrust constraints</li>
+        <li><strong>Du and Sun (2010)</strong> found spanwise twist reduced power by 5% and bending deformation increased lift by 10%</li>
+        <li><strong>Heathcote and Gursul (2007)</strong> showed optimal propulsion efficiency at deformation phase angles of $95^\circ$&ndash;$100^\circ$</li>
+      </ul>
+      <h3>Key Prototypes</h3>
+      <ul>
+        <li><strong>Microbat (2001)</strong>: 15 cm wingspan, 10.5 g, first MEMS-fabricated BFAV</li>
+        <li><strong>Dove/HIT (2018)</strong>: 50 cm wingspan, 220 g, 30 min endurance, V-tail with autonomous flight</li>
+        <li><strong>Cloud Owl (2023)</strong>: 160 cm, 1310 g, Guinness World Record of 2 h 34 min flight endurance</li>
+        <li><strong>HIT Hawk (2021)</strong>: 200 cm, 1150 g, 65 min endurance, 358 g payload</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>
+      <div class="section-number">4</div>
+      <h2>Materials and Methods</h2>
+    </summary>
+    <div class="section-body">
+      <h3>Overall Parameter Design (Scaling Laws)</h3>
+      <ul>
+        <li>Wingspan $b \propto m^{0.39}$, wing area $S \propto m^{0.72}$, wing loading $Q \propto m^{0.28}$, aspect ratio $AR \propto m^{0.06}$</li>
+        <li>Flapping frequency $f \propto m^{-0.27}$ for birds excluding hummingbirds</li>
+        <li>Minimum power speed $V_{mp} = 9.73 m^{0.167}$ and maximum range speed $V_{mr} = 13.136 m^{0.167}$</li>
+        <li>Strouhal number $St = fA/V$ governs propulsive efficiency: peak ~70% at $St = 0.2$&ndash;$0.4$, optimum at $St = 0.3$</li>
+        <li>Weight distribution (400&ndash;800 g class): structure 72%, power plant 12%, battery 12%, avionics 4%</li>
+      </ul>
+      <h3>Layout Design</h3>
+      <ul>
+        <li>Two wing configurations: two-wing (superior range/endurance) and X-wing (clap-and-fling, better for hovering)</li>
+        <li>Three tail forms: fan-shaped (light, poor stability), T-tail (good stability, heavy), V-tail (balanced)</li>
+        <li><strong>Guzman et al.</strong>: inverted V-tail achieved 3.7 m turn radius at 1.6 rad/s turning speed</li>
+        <li>Flapping wing wake significantly affects tail lift coefficient, shifting the neutral point</li>
+      </ul>
+      <h3>Flapping Wing Design</h3>
+      <ul>
+        <li>Bird wings: arm wing (curved, thick airfoil) and hand wing (flat, thin); hand wing length 40%&ndash;75% of span depending on species</li>
+        <li>Key kinematics: waving (fundamental), twisting (optimal $\sim 90^\circ$ phase with waving), sweeping (up to 10% efficiency gain), folding (~20% lift-to-drag improvement)</li>
+        <li>Parameters decomposed: geometric/flow &rarr; lift-drag; flapping/stiffness &rarr; thrust, enabling independent optimization</li>
+        <li>Three optimization model tiers: blade element theory, UVLM, unsteady Navier&ndash;Stokes equations</li>
+      </ul>
+      <h3>Drive System Design</h3>
+      <ul>
+        <li>Configurations: single crank rocker (simple, asymmetric), double crank rocker (symmetric, heavier), space crank rocker (large-scale)</li>
+        <li>Multi-DOF mechanisms: flapping-twisting coupling (<strong>Han et al.</strong>), flapping-twisting-sweeping (<strong>Ji et al.</strong>), conical rocker arm (<strong>Chen et al., 2022</strong>)</li>
+        <li>Elastic energy storage: springs reduce motor torque variation by up to 56.32% and peak torque by 12%; flexible mechanisms achieve 66% peak reduction</li>
+        <li>System modeling: bond graph (<strong>Jahanbin et al.</strong>), ADAMS + MATLAB co-simulation (<strong>Peng et al.</strong>), dynamic parameter identification (<strong>Nian et al.</strong>)</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>
+      <div class="section-number">5</div>
+      <h2>Results</h2>
+    </summary>
+    <div class="section-body">
+      <h3>Prototype Performance Trends</h3>
+      <ul>
+        <li><strong>30+ BFAV prototypes</strong> cataloged (2001&ndash;2023): wingspans from <strong>10 cm</strong> (4.72 g) to <strong>230 cm</strong> (880 g)</li>
+        <li>Endurance improved from <strong>0.3 min</strong> (Microbat, 2001) to <strong>154 min</strong> (Cloud Owl, 2023) &mdash; approximately <strong>500x improvement</strong></li>
+        <li>Payload capacity reached <strong>520 g</strong> (Cloud Owl) and <strong>358 g</strong> (HIT Hawk), enabling practical mission equipment</li>
+        <li>Design trend shifted from <strong>miniaturization</strong> (pre-2013, &lt; 30 cm) to <strong>practical large-scale</strong> (post-2013, &gt; 100 cm)</li>
+      </ul>
+      <h3>Multi-Mode Motion</h3>
+      <ul>
+        <li><strong>Intermittent flapping-gliding</strong> increases endurance; <strong>latching structures</strong> enable power-off gliding</li>
+        <li><strong>Perching mechanisms</strong> developed for energy conservation; <strong>solar cell integration</strong> extends mission time</li>
+        <li><strong>Jumping take-off</strong> mechanisms (parallelogram, four-bar, five-bar) mostly remain at simulation stage</li>
+        <li><strong>Hybrid quad-rotor + flapping</strong> configuration enables autonomous take-off/landing and extended fixed-point reconnaissance</li>
+      </ul>
+      <h3>Applications</h3>
+      <ul>
+        <li>Commercial success: <strong>GoGobird 201</strong> achieved <strong>200,000 annual sales</strong> as a BFAV toy</li>
+        <li>Military viability: <strong>Dove</strong> completed <strong>3,000+ flights</strong> across 10+ regions, operating $-10^\circ$C to $35^\circ$C, level 4 wind, light rain</li>
+        <li><strong>Image stabilization</strong> during flapping flight effectively resolved, enabling clear video transmission</li>
+        <li><strong>X-wing BFAVs</strong> achieve <strong>vertical take-off</strong> without additional devices, with seamless hover-to-forward flight transition</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>
+      <div class="section-number">6</div>
+      <h2>Results Interpretation</h2>
+    </summary>
+    <div class="section-body">
+      <h3>Design Philosophy Evolution</h3>
+      <ul>
+        <li>The field has transitioned from <strong>biology-driven miniaturization</strong> to <strong>engineering-driven practical design</strong> after 2013</li>
+        <li>Small-scale (&lt; 30 cm) performance has shown <strong>limited improvement</strong> over two decades, suggesting fundamental technical barriers</li>
+        <li>The <strong>lift-drag / thrust parameter decoupling</strong> is a key engineering insight simplifying multi-parameter optimization</li>
+        <li><strong>Carbon fiber composites</strong> dominate skeleton material selection due to superior specific strength and modulus</li>
+      </ul>
+      <h3>Efficiency &amp; Power</h3>
+      <ul>
+        <li>Only ~46.5% of input power converts to aerodynamic force (<strong>Nguyen et al.</strong>), indicating major improvement potential</li>
+        <li><strong>Spring-based energy storage</strong> reduces motor torque variation by <strong>56.32%</strong> and peak torque by <strong>12%</strong></li>
+        <li><strong>Flexible mechanisms</strong> achieve up to <strong>66%</strong> peak torque reduction compared to rigid mechanisms</li>
+        <li>Strong <strong>electromechanical coupling</strong> demands <strong>system-level</strong> (not component-level) optimization</li>
+      </ul>
+      <h3>Limitations</h3>
+      <ul>
+        <li>Scaling laws from biological data may not directly apply due to <strong>inferior aerodynamic performance</strong> of engineered wings</li>
+        <li>No consistent principle exists for <strong>take-off weight determination</strong>, causing iterative design cycles</li>
+        <li><strong>Trial-and-error</strong> remains prevalent in flapping wing design, lacking systematic methodology</li>
+        <li><strong>Multi-DOF drive mechanisms</strong> face weight, efficiency, and reliability challenges at small scales</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>
+      <div class="section-number">7</div>
+      <h2>Conclusion</h2>
+    </summary>
+    <div class="section-body">
+      <ul>
+        <li><strong>Scaling law</strong> requires revision based on <strong>BFAV engineering data</strong> rather than pure biological bird data to reduce design iteration cycles</li>
+        <li>A <strong>universal overall design method</strong> tailored to BFAV characteristics (not fixed-wing methods) is critically needed</li>
+        <li><strong>Flapping wing design</strong> must integrate <strong>numerical simulation and experimental testing</strong>; the gap between engineered and biological wings remains substantial</li>
+        <li><strong>Drive system efficiency</strong> is a major bottleneck; <strong>multi-DOF systems</strong> and <strong>system-level electromechanical optimization</strong> are essential</li>
+        <li><strong>Miniaturization</strong> remains significant for stealth applications but faces fundamental technical barriers at <strong>sub-30 cm</strong> scales</li>
+        <li>BFAVs are at a <strong>critical transition from prototype to practical application</strong>; <strong>autonomous operations</strong>, modular design, and intelligent decision-making are key enablers</li>
+        <li>Future priorities: <strong>perfecting design methods</strong>, improving <strong>component performance</strong> (especially motors and flexible structures), and promoting practical deployment</li>
+      </ul>
+    </div>
+  </details>
+
+</div>
+
+<div class="footer">
+  Generated by YANG Lab RECON &middot; <a href="https://doi.org/10.1088/1748-3190/ad88c4">View Original Paper</a>
+</div>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '\\\\[', right: '\\\\]', display: true},
+      {left: '\\\\(', right: '\\\\)', display: false},
+      {left: '$', right: '$', display: false}
+    ],
+    throwOnError: false
+  });"></script>
+</body>
+</html>

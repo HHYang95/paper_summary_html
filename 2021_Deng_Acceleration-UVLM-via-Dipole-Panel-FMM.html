@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="paper-title" content="Acceleration of unsteady vortex lattice method via dipole panel fast multipole method">
+<meta name="paper-year" content="2021">
+<meta name="paper-author" content="Shuai Deng, Chen Jiang, Yunjie Wang, Haowen Wang">
+<meta name="paper-journal" content="Chinese Journal of Aeronautics (CJA)">
+<meta name="paper-tags" content="UVLM, CFD, Simulation, Flapping Wing, Ornithopter, Methodology, Optimization">
+<meta name="paper-doi" content="10.1016/j.cja.2020.06.029">
+<title>Acceleration of unsteady vortex lattice method via dipole panel fast multipole method — Summary</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', 'Segoe UI', -apple-system, sans-serif;
+    background: #f8f9fb;
+    color: #1e293b;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Header ── */
+  .hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0c4a6e 100%);
+    color: #fff;
+    padding: 56px 0 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; top: 0; right: 0; bottom: 0;
+    width: 40%;
+    background: radial-gradient(ellipse at 80% 50%, rgba(56,189,248,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+    z-index: 1;
+  }
+  .hero h1 {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: -0.3px;
+    margin-bottom: 16px;
+  }
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    font-size: 14px;
+    color: #94a3b8;
+  }
+  .hero-meta a { color: #7dd3fc; text-decoration: none; }
+  .hero-meta a:hover { text-decoration: underline; }
+  .importance-badge {
+    position: absolute;
+    top: 56px; right: 40px;
+    font-size: 22px;
+    letter-spacing: 2px;
+    filter: drop-shadow(0 0 6px rgba(255,215,0,0.4));
+  }
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 20px;
+  }
+  .tag {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #cbd5e1;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.3px;
+  }
+
+  /* ── Content ── */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 40px 80px;
+  }
+
+  /* ── Toggle sections ── */
+  details {
+    margin-bottom: 12px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    overflow: hidden;
+  }
+  details[open] {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  summary {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    cursor: pointer;
+    user-select: none;
+    list-style: none;
+    border-bottom: 2px solid transparent;
+    transition: background 0.15s;
+  }
+  summary:hover {
+    background: #f1f5f9;
+  }
+  details[open] > summary {
+    border-bottom-color: #e2e8f0;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::before {
+    content: '\25B6';
+    font-size: 10px;
+    color: #94a3b8;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+  }
+  details[open] > summary::before {
+    transform: rotate(90deg);
+  }
+  .section-number {
+    background: #0f172a;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  summary h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
+    letter-spacing: -0.2px;
+  }
+
+  /* ── Section body ── */
+  .section-body {
+    padding: 16px 20px 20px;
+  }
+
+  /* Overview (always open, special style) */
+  .overview {
+    margin-bottom: 12px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    overflow: hidden;
+  }
+  .overview-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  .overview-header h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
+  }
+  .overview-text {
+    font-size: 14.5px;
+    line-height: 1.8;
+    color: #334155;
+    padding: 16px 20px 20px;
+    border-left: 4px solid #0ea5e9;
+    margin: 0;
+  }
+
+  /* Bullet lists */
+  .section-body ul {
+    list-style: none;
+    padding: 0;
+  }
+  .section-body ul li {
+    position: relative;
+    padding: 7px 0 7px 18px;
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: #334155;
+  }
+  .section-body ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 15px;
+    width: 5px; height: 5px;
+    background: #0ea5e9;
+    border-radius: 50%;
+  }
+  .section-body ul li + li {
+    border-top: 1px solid #f1f5f9;
+  }
+
+  /* Sub-section headings */
+  .section-body h3 {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #0c4a6e;
+    margin: 16px 0 6px;
+    padding-left: 2px;
+  }
+  .section-body h3:first-child {
+    margin-top: 0;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px 48px;
+    text-align: center;
+    font-size: 12px;
+    color: #94a3b8;
+  }
+  .footer a { color: #64748b; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <h1>Acceleration of unsteady vortex lattice method via dipole panel fast multipole method</h1>
+    <div class="hero-meta">
+      <span>Shuai Deng, Chen Jiang, Yunjie Wang, Haowen Wang</span>
+      <span>Chinese Journal of Aeronautics (CJA) (2021)</span>
+      <span><a href="https://doi.org/10.1016/j.cja.2020.06.029">DOI: 10.1016/j.cja.2020.06.029</a></span>
+    </div>
+    <div class="tag-row"><span class="tag">UVLM</span><span class="tag">CFD</span><span class="tag">Simulation</span><span class="tag">Flapping Wing</span><span class="tag">Ornithopter</span><span class="tag">Methodology</span><span class="tag">Optimization</span></div>
+    <div class="importance-badge">★★</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Overview: always visible (no toggle) -->
+  <div class="overview">
+    <div class="overview-header">
+      <div class="section-number">1</div>
+      <h2>Overview</h2>
+    </div>
+    <div class="overview-text">This paper presents a <strong>Dipole Panel Fast Multipole Method (DPFMM)</strong> that accelerates the induced velocity computation in the <strong>Unsteady Vortex Lattice Method (UVLM)</strong> from <strong>$O(N^2)$</strong> to <strong>$O(N)$</strong> complexity. The key insight exploits the mathematical equivalence between a constant-strength <strong>dipole panel</strong> and a <strong>vortex ring</strong>, allowing the velocity field to be expressed via a single scalar harmonic function instead of the three required by conventional vortex filament FMM. The authors derive analytical <strong>multipole expansion coefficients</strong> for quadrilateral dipole panels in spherical coordinates and propose two <strong>octree</strong> space-partitioning strategies (loosening and shrinking methods) for volumetric panels. Benchmark tests demonstrate DPFMM is approximately <strong>two times faster</strong> than FMM for vortex filaments across $N \in [10^3, 10^6]$, reducing a multirotor UVLM simulation ($N \approx 10^4$) from <strong>100 minutes</strong> to <strong>2 minutes</strong>. This work is directly relevant to Dr. Yang's research on ornithopter aerodynamic simulation using UVLM, where computational acceleration is critical for design iteration and coupled aeroelastic analysis.</div>
+  </div>
+
+  <details>
+    <summary>
+      <div class="section-number">2</div>
+      <h2>Introduction</h2>
+    </summary>
+    <div class="section-body">
+      <h3>Motivation</h3>
+      <ul>
+        <li>The global UAV market is rapidly expanding, with VTOL multi-rotor configurations widely deployed in civil and military applications</li>
+        <li>Aerodynamic analysis tools are essential for performance optimization, vibration/noise reduction, and flight dynamics modeling</li>
+        <li>CFD is powerful but computationally prohibitive: a quadcopter simulation required 48-72 hours on a NASA supercomputer</li>
+        <li>UVLM provides medium-fidelity aerodynamic analysis at significantly lower cost, but the induced velocity evaluation via the <strong>Biot-Savart law</strong> scales as $O(N^2)$, becoming the bottleneck (over 90% of computation time)</li>
+      </ul>
+      <h3>State of the Art</h3>
+      <ul>
+        <li>Panel methods discretize lifting surfaces with singularity elements (source, dipole, vortex) to solve Laplace's equation under potential flow assumptions</li>
+        <li>The <strong>Doublet Lattice Method (DLM)</strong> operates in the frequency domain with harmonically oscillating surfaces, limiting applicability to non-periodic transient responses</li>
+        <li>UVLM formulated in the time domain allows arbitrary lifting surfaces under general motions with free wake distortion</li>
+        <li>GPU parallelization provides hardware-dependent acceleration; algorithmic approaches include $O(N \log N)$ treecodes (<strong>Barnes and Hut, 1986</strong>) and $O(N)$ FMM</li>
+        <li>FMM for the Biot-Savart kernel uses three independent Laplacian harmonics; <strong>Gumerov and Duraiswami (2013)</strong> reduced this to two via Lamb-Helmholtz decomposition</li>
+        <li><strong>Kebbie-Anthony et al. (2019)</strong> recently integrated FMM for vortex filaments with UVLM simulation models</li>
+      </ul>
+      <h3>Gap & Contribution</h3>
+      <ul>
+        <li>Existing FMM implementations for UVLM treat vortex lattices as collections of vortex filaments, requiring multiple scalar harmonic functions</li>
+        <li>This paper exploits the dipole-vortex ring equivalence to reduce the problem to a single scalar harmonic, yielding approximately 2x speedup</li>
+        <li>Analytical multipole expansion coefficients for quadrilateral dipole panels are derived in spherical coordinates for the first time</li>
+        <li>Two novel space-partitioning methods handle volumetric (non-point) source panels in the octree structure</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>
+      <div class="section-number">3</div>
+      <h2>Related Works</h2>
+    </summary>
+    <div class="section-body">
+      <h3>Vortex Lattice Methods</h3>
+      <ul>
+        <li><strong>Hess (1972)</strong>: Proved equivalence of constant dipole panel velocity to a vortex ring at the panel boundary</li>
+        <li><strong>Murua et al. (2012)</strong>: Applied UVLM to aircraft aeroelasticity and flight dynamics simulations</li>
+        <li><strong>Roccia and Preidikman (2017)</strong>: Co-simulation strategy for computational dynamics of flapping wings in hover</li>
+        <li><strong>Nguyen et al. (2016)</strong>: Extended UVLM for insect flapping wings with improved wake modeling</li>
+        <li><strong>Long and Fritz (2004)</strong>: Object-oriented UVLM implementation for flapping flight analysis</li>
+      </ul>
+      <h3>Fast Multipole Methods</h3>
+      <ul>
+        <li><strong>Greengard and Rokhlin (1987)</strong>: Pioneered the Fast Multipole Method achieving $O(N)$ complexity for particle simulations</li>
+        <li><strong>Barnes and Hut (1986)</strong>: Proposed the hierarchical $O(N \log N)$ treecode force-calculation algorithm</li>
+        <li><strong>Gumerov and Duraiswami (2013)</strong>: Lamb-Helmholtz decomposition reducing vortex FMM from three to two harmonics</li>
+        <li><strong>Kebbie-Anthony et al. (2018, 2019)</strong>: Integrated FMM with unsteady vortex lattice simulations; compared two vs. three harmonics performance</li>
+      </ul>
+      <h3>Multipole Expansion Theory</h3>
+      <ul>
+        <li><strong>Newman (1986)</strong>: Derived multipole expansions for source and dipole quadrilateral panels in Cartesian coordinates</li>
+        <li><strong>Gorn and Berkov (2004)</strong>: Analytical multipole coefficients for point dipoles in spherical coordinates</li>
+        <li><strong>Cheng et al. (1999)</strong>: Fast adaptive multipole algorithm in three dimensions with octree data structure</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>
+      <div class="section-number">4</div>
+      <h2>Materials and Methods</h2>
+    </summary>
+    <div class="section-body">
+      <h3>Problem Setup</h3>
+      <ul>
+        <li>Lifting surfaces modeled as thin (zero-thickness) panels with quadrilateral vortex lattices (vortex rings)</li>
+        <li>Bound vortex lattices: leading line at 1/4 chord, rear line at 1/4 chord of following element; collocation point at 3/4 chord center</li>
+        <li>Wake vortex lattices convected from trailing edge with free wake distortion; corner points transported with local velocity</li>
+        <li>Non-penetration boundary condition enforced at all collocation points: $(\mathbf{v}_b + \mathbf{v}_w + \mathbf{v}_\infty - \mathbf{v}_k) \cdot \mathbf{n} = 0$</li>
+      </ul>
+      <h3>Governing Equations</h3>
+      <ul>
+        <li>Velocity potential satisfies Laplace's equation: $\nabla^2 \Phi = 0$</li>
+        <li>Induced velocity of vortex filament computed via Biot-Savart law with <strong>Vatistas vortex core model</strong> (smoothing constant $n = 2$) to regularize singularity</li>
+        <li>Dipole panel potential: $\Phi(\mathbf{y}) = -\int_S \frac{\mu \, \mathbf{n} \cdot \mathbf{L}}{4\pi L^3} \, dS$ where $\mathbf{L} = \mathbf{y} - \mathbf{x}$</li>
+        <li>Far-field multipole expansion: $\Phi(\mathbf{y}) \approx \sum_{n=0}^{P-1} \sum_{m=-n}^{n} \frac{M_n^m}{r^{n+1}} Y_n^m(\theta, \phi)$ valid for $r > R$</li>
+        <li>Sparsity property: nonzero multipole coefficients $\approx P^2/4$ vs. dense $P(P+1)/2$, arising when $n + m + 1$ is even</li>
+      </ul>
+      <h3>Numerical Approach</h3>
+      <ul>
+        <li><strong>Octree construction</strong>: Two methods for volumetric panels &mdash; (1) loosening method enlarges cell radii to contain all children/bodies; (2) shrinking method finds minimum bounding spheres via post-order traversal</li>
+        <li><strong>P2M (Panel to Multipole)</strong>: Analytical derivation of coefficients in panel-fixed local frame via Chebyshev polynomial expansion and partial fraction decomposition; then translated (<strong>Rico et al., 2013</strong>) and rotated (<strong>Pinchon and Hoggan, 2007</strong>) to global frame</li>
+        <li><strong>FMM pipeline</strong>: P2M &rarr; M2M &rarr; M2L &rarr; L2L &rarr; L2P for far-field; P2P direct Biot-Savart for near-field</li>
+        <li><strong>Multipole Acceptance Criteria</strong> (MAC): $(r_1 + r_2)/L < \eta$ determines well-separated cell pairs for M2L translation</li>
+        <li>Panel area integral decomposed into four triangles, each parameterized in spherical coordinates with analytical indefinite integrals using recursive residue formulas from <strong>Ma et al. (2014)</strong></li>
+      </ul>
+      <h3>Validation Strategy</h3>
+      <ul>
+        <li>P2M accuracy: potential and velocity on sampling spheres at $d \in [R, 10R]$ compared against analytical Katz-Plotkin solutions</li>
+        <li>FMM benchmark: direct Biot-Savart evaluation as ground truth across $N \in [10^3, 10^6]$</li>
+        <li>Two distribution patterns: stack (uniform) and ring (clustered) with $N = 10164$ bodies</li>
+        <li>Optimal cost-accuracy analysis via $(P, \eta)$ parameter sweeps with $P \in [5, 12]$</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>
+      <div class="section-number">5</div>
+      <h2>Results</h2>
+    </summary>
+    <div class="section-body">
+      <h3>Validation Results</h3>
+      <ul>
+        <li>Mean relative error of both potential and velocity decreases with increasing distance ratio $d/R$, confirming multipole convergence</li>
+        <li>Velocity from one scalar potential (DPFMM) matches accuracy of three vortex potentials (filament FMM) at the same truncation degree $P$</li>
+        <li>P2M crossover at $P = 6$: panel P2M slower for $P < 6$ but faster for $P > 6$, with $O(P^3)$ complexity dominated by coefficient operations</li>
+      </ul>
+      <h3>Parametric Studies</h3>
+      <ul>
+        <li>Optimal cost-accuracy line constructed by connecting minimal computation time at each accuracy level across $(P, \eta)$ sweeps</li>
+        <li>Shrinking method outperforms loosening: average <strong>5.46%</strong> faster (stack distribution), <strong>19.63%</strong> faster (ring/clustered distribution)</li>
+        <li>Maximum performance advantage of shrinking method: <strong>26.29%</strong> for ring distribution in relative error range $[10^{-9}, 10^{-4}]$</li>
+      </ul>
+      <h3>Key Findings</h3>
+      <ul>
+        <li>DPFMM achieves confirmed $O(N)$ complexity (unit slope on log-log wall time plot)</li>
+        <li>Average runtime ratio (filament FMM / DPFMM) = 2.01 for $N \in [10^3, 10^6]$; DPFMM 1.76x faster at $N = 10^6$</li>
+        <li>8-rotor UVLM ($N \approx 10^4$, 1400 lattices/rotor): 100.3 min (direct) reduced to 2.1 min (DPFMM) with relative velocity error $\sim 10^{-5}$</li>
+        <li>Time integration: explicit RK4, step size 0.001 s, 1-second rotational speed ramp; induced velocity evaluated 4 times per step</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>
+      <div class="section-number">6</div>
+      <h2>Results Interpretation</h2>
+    </summary>
+    <div class="section-body">
+      <ul>
+        <li>The approximately 2x speedup is consistent with reduction from three to one scalar harmonic; ratio is less than 3 because P2P (near-field direct) computation remains identical</li>
+        <li>The shrinking method provides tighter bounding spheres, enabling more M2L operations with fewer P2P evaluations, particularly beneficial for clustered distributions common in rotor wakes</li>
+        <li>The sparsity property of dipole panel coefficients ($P^2/4$ nonzero terms) contributes to additional savings in M2M and M2L translation operations</li>
+        <li>Crossover at $P = 6$ for P2M indicates that for typical engineering accuracy requirements ($P \geq 6$), DPFMM's P2M stage is already more efficient than filament P2M</li>
+        <li>The method maintains identical accuracy to filament FMM at any truncation degree, providing a pure speedup without accuracy trade-off</li>
+        <li>All benchmarks conducted on a single desktop (Intel i7-8700, 3.20 GHz, 16 GB RAM) using C++ with ExaFMM framework, demonstrating practical accessibility</li>
+        <li>Three-harmonics filament FMM used as baseline (rather than two-harmonics Lamb-Helmholtz version) since overall performance was reported comparable by <strong>Kebbie-Anthony et al. (2019)</strong></li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>
+      <div class="section-number">7</div>
+      <h2>Conclusion</h2>
+    </summary>
+    <div class="section-body">
+      <ul>
+        <li>DPFMM exploits dipole panel-vortex ring equivalence to express the velocity field via one scalar harmonic function instead of three</li>
+        <li>Analytical multipole expansion coefficients derived in spherical coordinates with accuracy matching the Biot-Savart kernel at identical truncation degree $P$</li>
+        <li>Shrinking method for octree space partitioning of volumetric panels outperforms loosening method, especially for highly clustered source distributions</li>
+        <li>Average runtime ratio of approximately 2x between filament FMM and DPFMM validated across four orders of magnitude ($N \in [10^3, 10^6]$)</li>
+        <li>Practical demonstration: 8-rotor UVLM simulation reduced from 100 min to 2 min on desktop hardware</li>
+        <li>Limitation: assumes constant dipole strength per panel; higher-order panel distributions would require new derivations</li>
+        <li>Future potential: coupling DPFMM-accelerated UVLM with structural dynamics for large-scale aeroelastic simulations of multi-rotor or flapping-wing configurations</li>
+      </ul>
+    </div>
+  </details>
+
+</div>
+
+<div class="footer">
+  Generated by YANG Lab RECON &middot; <a href="https://doi.org/10.1016/j.cja.2020.06.029">View Original Paper</a>
+</div>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '\\[', right: '\\]', display: true},
+      {left: '\\(', right: '\\)', display: false},
+      {left: '$', right: '$', display: false}
+    ],
+    throwOnError: false
+  });"></script>
+</body>
+</html>

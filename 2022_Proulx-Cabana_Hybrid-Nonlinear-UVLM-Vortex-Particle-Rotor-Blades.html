@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="paper-title" content="A Hybrid Non-Linear Unsteady Vortex Lattice-Vortex Particle Method For Rotor Blades Aerodynamic Simulations">
+<meta name="paper-year" content="2022">
+<meta name="paper-author" content="V. Proulx-Cabana, M. T. Nguyen, S. Prothin, G. Michon, E. Laurendeau">
+<meta name="paper-journal" content="Fluids (MDPI)">
+<meta name="paper-tags" content="UVLM, Vortex Particle Method, Rotor Aerodynamics, Ground Effect, Viscous Inviscid Coupling, LES, Fast Multipole Method">
+<meta name="paper-doi" content="10.3390/fluids7020081">
+<title>A Hybrid Non-Linear Unsteady Vortex Lattice-Vortex Particle Method For Rotor Blades Aerodynamic Simulations &mdash; Summary</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', 'Segoe UI', -apple-system, sans-serif; background: #f8f9fb; color: #1e293b; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  .hero { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0c4a6e 100%); color: #fff; padding: 56px 0 48px; position: relative; overflow: hidden; }
+  .hero::after { content: ''; position: absolute; top: 0; right: 0; bottom: 0; width: 40%; background: radial-gradient(ellipse at 80% 50%, rgba(56,189,248,0.08) 0%, transparent 70%); pointer-events: none; }
+  .hero-inner { max-width: 900px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 1; }
+  .hero h1 { font-size: 28px; font-weight: 700; line-height: 1.35; letter-spacing: -0.3px; margin-bottom: 16px; }
+  .hero-meta { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px; color: #94a3b8; }
+  .hero-meta a { color: #7dd3fc; text-decoration: none; }
+  .hero-meta a:hover { text-decoration: underline; }
+  .importance-badge { position: absolute; top: 56px; right: 40px; font-size: 22px; letter-spacing: 2px; filter: drop-shadow(0 0 6px rgba(255,215,0,0.4)); }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px; }
+  .tag { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); color: #cbd5e1; font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px; letter-spacing: 0.3px; }
+  .container { max-width: 900px; margin: 0 auto; padding: 40px 40px 80px; }
+  details { margin-bottom: 12px; border-radius: 10px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.04); overflow: hidden; }
+  details[open] { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  summary { display: flex; align-items: center; gap: 12px; padding: 14px 20px; cursor: pointer; user-select: none; list-style: none; border-bottom: 2px solid transparent; transition: background 0.15s; }
+  summary:hover { background: #f1f5f9; }
+  details[open] > summary { border-bottom-color: #e2e8f0; }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: '\25B6'; font-size: 10px; color: #94a3b8; transition: transform 0.2s; flex-shrink: 0; }
+  details[open] > summary::before { transform: rotate(90deg); }
+  .section-number { background: #0f172a; color: #fff; font-size: 11px; font-weight: 700; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  summary h2 { font-size: 16px; font-weight: 700; color: #0f172a; letter-spacing: -0.2px; }
+  .section-body { padding: 16px 20px 20px; }
+  .overview { margin-bottom: 12px; background: #fff; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); overflow: hidden; }
+  .overview-header { display: flex; align-items: center; gap: 12px; padding: 14px 20px; border-bottom: 2px solid #e2e8f0; }
+  .overview-header h2 { font-size: 16px; font-weight: 700; color: #0f172a; }
+  .overview-text { font-size: 14.5px; line-height: 1.8; color: #334155; padding: 16px 20px 20px; border-left: 4px solid #0ea5e9; margin: 0; }
+  .section-body ul { list-style: none; padding: 0; }
+  .section-body ul li { position: relative; padding: 7px 0 7px 18px; font-size: 13.5px; line-height: 1.7; color: #334155; }
+  .section-body ul li::before { content: ''; position: absolute; left: 0; top: 15px; width: 5px; height: 5px; background: #0ea5e9; border-radius: 50%; }
+  .section-body ul li + li { border-top: 1px solid #f1f5f9; }
+  .section-body h3 { font-size: 13.5px; font-weight: 600; color: #0c4a6e; margin: 16px 0 6px; padding-left: 2px; }
+  .section-body h3:first-child { margin-top: 0; }
+  .footer { max-width: 900px; margin: 0 auto; padding: 0 40px 48px; text-align: center; font-size: 12px; color: #94a3b8; }
+  .footer a { color: #64748b; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="hero-inner">
+    <h1>A Hybrid Non-Linear Unsteady Vortex Lattice&#x2013;Vortex Particle Method for Rotor Blades Aerodynamic Simulations</h1>
+    <div class="hero-meta">
+      <span>V. Proulx-Cabana, M. T. Nguyen, S. Prothin, G. Michon, E. Laurendeau</span>
+      <span>Fluids &mdash; MDPI (2022)</span>
+      <span><a href="https://doi.org/10.3390/fluids7020081">DOI: 10.3390/fluids7020081</a></span>
+    </div>
+    <div class="tag-row"><span class="tag">UVLM</span><span class="tag">Vortex Particle Method</span><span class="tag">Rotor Aerodynamics</span><span class="tag">Ground Effect</span><span class="tag">Viscous Inviscid Coupling</span><span class="tag">LES</span><span class="tag">Fast Multipole Method</span></div>
+    <div class="importance-badge">★★</div>
+  </div>
+</div>
+<div class="container">
+  <div class="overview">
+    <div class="overview-header">
+      <div class="section-number">1</div>
+      <h2>Overview</h2>
+    </div>
+    <div class="overview-text">This paper presents a <strong>hybrid non-linear unsteady vortex lattice method coupled with the vortex particle method (NL UVLM-VPM)</strong> for aerodynamic simulation of rotor blades hovering in and out of ground effect. The UVLM models blade surfaces with vortex panels that are converted to Lagrangian vortex particles for the wake, eliminating <strong>panel stretching instabilities</strong> near the ground. A <strong>Vreman SGS model</strong> provides LES-based viscous diffusion via particle strength exchange (PSE), while the <strong>fast-multipole method (FMM)</strong> reduces computational complexity to O(N). Non-linear aerodynamics are achieved through <strong>viscous-inviscid alpha coupling</strong> with stripwise 2D RANS or empirical databases. Validated on the <strong>S-76 rotor</strong> from the AIAA Hover Prediction Workshop, the method achieves accuracy competitive with 3D URANS codes at drastically reduced cost. For Dr. Yang's research, this hybrid framework is relevant as a <strong>computationally efficient alternative to full CFD</strong> for rotorcraft and ornithopter wake modeling.</div>
+  </div>
+
+  <details>
+    <summary><div class="section-number">2</div><h2>Introduction</h2></summary>
+    <div class="section-body">
+      <h3>Motivation</h3>
+      <ul>
+        <li>Computational rotary-wing aerodynamics is challenging due to <strong>intrinsic 3D unsteady rotor-wake interactions</strong> requiring many revolutions to reach steady-state forces</li>
+        <li>High-fidelity 3D URANS/DES require enormous resources (e.g., 5 days on 240&ndash;512 cores for 15&ndash;18 rotations on 40&ndash;88M cell meshes)</li>
+        <li><strong>Numerical dissipation</strong> in Eulerian CFD destroys wake vorticity, requiring excessively fine grids to preserve vortex structures</li>
+        <li>Panel-based free-wake methods suffer from <strong>unrealistic wake deformations</strong> when filaments are convected in diverging directions, especially in ground effect</li>
+      </ul>
+      <h3>State of the Art</h3>
+      <ul>
+        <li><strong>UVLM with panelized wakes</strong> has been applied to hovering rotors but struggles with wake panel stretching near the ground</li>
+        <li><strong>Vortex particle methods (VPM)</strong> offer mesh-free Lagrangian wake representations without connectivity constraints</li>
+        <li><strong>LES-based VPM</strong> with Smagorinsky SGS has been applied to turbulent flows and rotor wakes</li>
+        <li>Non-linear <strong>alpha and circulation coupling</strong> methods developed for fixed wings but only preliminary rotorcraft work existed</li>
+      </ul>
+      <h3>Gap &amp; Contribution</h3>
+      <ul>
+        <li>No prior method combined <strong>NL UVLM + VPM + LES-SGS + FMM</strong> for rotor simulations in ground effect</li>
+        <li>The <strong>Vreman SGS model</strong> had not been applied to mesh-free VPM for rotorcraft wakes</li>
+        <li>The viscous-inviscid <strong>alpha coupling</strong> framework is extended from fixed-wing to <strong>rotary-wing aerodynamics</strong></li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><div class="section-number">3</div><h2>Related Works</h2></summary>
+    <div class="section-body">
+      <h3>Panel and Lattice Methods for Rotorcraft</h3>
+      <ul>
+        <li><strong>Colmenares et al. (2015)</strong> &mdash; Applied UVLM to transverse rotor in hover; reported wake stretching difficulties</li>
+        <li><strong>Morency (2021)</strong> &mdash; Extended NL UVLM with alpha coupling for heat transfer on rotors; ground effect convergence issues unaddressed</li>
+        <li><strong>Perez et al. (2019)</strong> &mdash; UVLM for small quadcopter rotor; thrust overestimated by 12%</li>
+      </ul>
+      <h3>Vortex Particle Methods</h3>
+      <ul>
+        <li><strong>Winckelmans (1995), Winckelmans et al. (2005)</strong> &mdash; Pioneered 3D vortex particle LES formulations with dynamic Smagorinsky SGS</li>
+        <li><strong>Alvarez and Ning (2019)</strong> &mdash; VPM with FMM for multirotor aerodynamic interactions</li>
+        <li><strong>Tan et al. (2018, 2019)</strong> &mdash; Combined panel method with VPM for rotor aerodynamics near ground obstacles</li>
+        <li><strong>Zhao and He (2010)</strong> &mdash; Viscous vortex particle model for rotor wake and interference analysis</li>
+      </ul>
+      <h3>Viscous-Inviscid Coupling</h3>
+      <ul>
+        <li><strong>Van Dam (2002)</strong> &mdash; Proposed the alpha coupling method for multi-element high-lift design</li>
+        <li><strong>Gallay and Laurendeau (2015, 2016)</strong> &mdash; Extended alpha coupling to pre/post-stall flows with modified collocation</li>
+        <li><strong>Parenteau et al. (2018)</strong> &mdash; VLM coupled with 2.5D RANS sectional data for high-lift design</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><div class="section-number">4</div><h2>Methodology</h2></summary>
+    <div class="section-body">
+      <h3>UVLM Formulation</h3>
+      <ul>
+        <li>Lifting surfaces modeled by vortex panels; flow tangency enforced at collocation points via linear system <strong>A&Gamma; = &minus;u<sub>&infin;</sub>&middot;n</strong></li>
+        <li>Induced velocity from straight-line vortex elements via <strong>Biot-Savart law</strong> with <strong>Vatistas smoothing kernel</strong> to regularize singularities</li>
+        <li>Time stepping: blade displacement per rotational velocity, wake panel shedding from trailing edge, free-wake convection</li>
+      </ul>
+      <h3>Lagrangian Vortex Particle Method</h3>
+      <ul>
+        <li>3D vortex-velocity equations in Lagrangian frame with <strong>vortex stretching</strong> and <strong>viscous diffusion</strong> terms</li>
+        <li>Vorticity approximated by particles with <strong>3D Gaussian smoothing</strong>; <strong>transpose stretching scheme</strong> conserves total vorticity</li>
+        <li>Time integration via <strong>3rd-order low-storage Runge-Kutta</strong></li>
+      </ul>
+      <h3>LES with Vreman SGS</h3>
+      <ul>
+        <li><strong>Particle strength exchange (PSE)</strong> discretizes viscous diffusion directly in the vortex strength equation</li>
+        <li><strong>Vreman SGS model</strong> guarantees zero eddy viscosity for zero SGS dissipation, appropriate transitional/near-wall behavior</li>
+        <li>More accurate than standard Smagorinsky for inhomogeneous LES, as accurate as dynamic Smagorinsky</li>
+      </ul>
+      <h3>Hybrid Conversion</h3>
+      <ul>
+        <li>Trailing and shed vortex lines converted to equivalent vortex particles: <strong>&Gamma;<sub>p</sub> = &Delta;&Gamma; dl/n</strong></li>
+        <li>Upstream vortex lines retained to prevent circulation jump at trailing edge</li>
+        <li>Four interaction types (particle-panel, particle-particle, panel-particle, panel-panel) for induced velocity and gradient</li>
+      </ul>
+      <h3>Non-Linear Alpha Coupling</h3>
+      <ul>
+        <li>Modified <strong>Van Dam alpha method</strong> (Gallay formulation) iteratively corrects angles of attack using 2D viscous databases</li>
+        <li>Convergence: |C<sub>l,inv</sub> &minus; C<sub>l,vis</sub>| &le; 10<sup>&minus;4</sup>; two databases tested: <strong>Bousman correlations</strong> and <strong>2D RANS</strong> (Spalart-Allmaras)</li>
+      </ul>
+      <h3>FMM &amp; Ground Modeling</h3>
+      <ul>
+        <li><strong>Fast-multipole method</strong> reduces complexity from O(N<sup>2</sup>) to O(N); adapted for mirror-image ground boundary conditions</li>
+        <li>Ground modeled via <strong>mirror image method</strong>: reflected particles included in FMM for no-penetration condition</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><div class="section-number">5</div><h2>Key Results</h2></summary>
+    <div class="section-body">
+      <h3>Out of Ground Effect (S-76, M<sub>tip</sub>=0.65)</h3>
+      <ul>
+        <li><strong>Mesh convergence</strong>: 8&times;20 panels, &Delta;&Psi;=2.5&deg; selected; finest mesh (16&times;40) ran 42 days on 40 cores reaching only 15.7 rotations with similar converged results</li>
+        <li><strong>Thrust</strong>: <strong>NL UVLM-VPM</strong> with <strong>2D RANS</strong> achieves median C<sub>T</sub> error of <strong>4.03%</strong> vs experiment; linear UVLM-VPM underpredicts due to missing <strong>compressibility</strong></li>
+        <li><strong>Torque</strong>: <strong>NL coupling</strong> dramatically improves C<sub>Q</sub> by including <strong>viscous and pressure drag</strong> from databases</li>
+        <li><strong>Figure of merit</strong>: NL UVLM-VPM (RANS) achieves mean FM error <strong>5.98%</strong>, competitive with 3D URANS-Lagrangian codes; linear UVLM-VPM has ~73% FM error</li>
+        <li><strong>Spanwise loading</strong>: Thrust and torque distributions at C<sub>T</sub>/&sigma;=0.09 agree well with higher-fidelity codes, especially hybrid RANS-Lagrangian methods</li>
+        <li><strong>Pressure coefficient</strong>: C<sub>p</sub> at r/R=0.6, 0.85, 0.975 agrees well; differences increase near tip</li>
+      </ul>
+      <h3>In Ground Effect (z/R=1.2, M<sub>tip</sub>=0.6)</h3>
+      <ul>
+        <li>LES eddy viscosity appropriately high in starting vortex, small near rotor (preserving tip vortex features)</li>
+        <li>Thrust increase in ground effect follows experimental trends better than <strong>Cheeseman (1955)</strong> theory at close distances</li>
+        <li>NL coupling slightly overpredicts C<sub>T</sub> but provides best torque and figure of merit predictions</li>
+        <li>Computational cost: ~<strong>3 days on 40 cores</strong> (C++, OpenMP) vs. 5 days on 240&ndash;512 cores for 3D URANS</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><div class="section-number">6</div><h2>Discussion &amp; Implications</h2></summary>
+    <div class="section-body">
+      <h3>Key Findings</h3>
+      <ul>
+        <li>The hybrid formulation <strong>addresses three major limitations</strong> of prior potential-flow methods: wake stretching in ground effect, absence of viscous/compressibility effects, and O(N<sup>2</sup>) computational cost</li>
+        <li>The <strong>alpha coupling</strong> proves more robust than circulation coupling for rotary-wing applications, converging reliably across all collective angles</li>
+        <li>The <strong>Vreman SGS</strong> provides appropriate LES stabilization without excessive dissipation of coherent wake structures</li>
+      </ul>
+      <h3>Strengths</h3>
+      <ul>
+        <li><strong>Orders-of-magnitude computational savings</strong> compared to 3D URANS with comparable accuracy for hover predictions</li>
+        <li><strong>Modular viscous database</strong>: any 2D aerodynamic effect can be incorporated through sectional data without code changes</li>
+        <li><strong>Mesh-free wake</strong> eliminates background mesh refinement requirements for vorticity preservation</li>
+      </ul>
+      <h3>Limitations</h3>
+      <ul>
+        <li>No 3D rotational augmentation (centrifugal pumping, Coriolis stall delay) in viscous databases</li>
+        <li>Thrust overprediction at low collectives where linear UVLM-VPM already matches experiments</li>
+        <li>Tip region loading peak too narrow compared to 3D URANS due to panel discretization</li>
+        <li>IGE validation limited to experimental data only (no higher-fidelity code comparisons)</li>
+      </ul>
+      <h3>Relevance to Ornithopter Research</h3>
+      <ul>
+        <li>The NL UVLM-VPM framework offers a <strong>computationally tractable model</strong> for ornithopter simulations where unsteady wake interactions dominate</li>
+        <li>The viscous-inviscid coupling is applicable to flapping-wing UVLM where Reynolds-dependent viscous effects must be captured without full 3D CFD</li>
+        <li>FMM acceleration enables practical multi-stroke simulations of ornithopter flight</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><div class="section-number">7</div><h2>Conclusion &amp; Future Work</h2></summary>
+    <div class="section-body">
+      <h3>Conclusion</h3>
+      <ul>
+        <li>The hybrid NL UVLM-VPM with Vreman LES-SGS and FMM acceleration successfully simulates rotor hover in and out of ground effect with accuracy competitive to 3D URANS at a fraction of the cost</li>
+        <li>The non-linear alpha coupling greatly improves torque and figure of merit predictions by incorporating viscous and compressibility effects through 2D databases</li>
+        <li>The VPM wake representation eliminates panel stretching issues that plague purely panelized methods in ground proximity</li>
+      </ul>
+      <h3>Future Directions</h3>
+      <ul>
+        <li>Extension to <strong>forward flight</strong> conditions with advancing/retreating blade treatment</li>
+        <li>Incorporation of <strong>3D rotational augmentation effects</strong> in viscous databases</li>
+        <li>Validation with <strong>swept, tapered, and anhedral tip geometries</strong></li>
+        <li><strong>Aeroelastic coupling</strong> with structural dynamics for blade deformation</li>
+        <li>Full <strong>code optimization</strong> for production-level rotorcraft design tool</li>
+      </ul>
+    </div>
+  </details>
+</div>
+<div class="footer">
+  <p>Generated by YANG Lab &middot; RECON Agent &middot; <a href="https://doi.org/10.3390/fluids7020081">Original Paper</a></p>
+</div>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+</body>
+</html>

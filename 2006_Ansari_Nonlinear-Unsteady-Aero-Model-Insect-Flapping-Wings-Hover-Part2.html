@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="paper-title" content="Non-linear unsteady aerodynamic model for insect-like flapping wings in the hover. Part 2: implementation and validation">
+<meta name="paper-year" content="2006">
+<meta name="paper-author" content="S. A. Ansari, R. Zbikowski, K. Knowles">
+<meta name="paper-journal" content="Proceedings of the Institution of Mechanical Engineers, Part G: Journal of Aerospace Engineering">
+<meta name="paper-tags" content="Flapping Wing, Insect Flight, Vortex Method, Free Wake, Methodology, UVLM, MAV">
+<meta name="paper-doi" content="10.1243/09544100JAERO50">
+<title>Non-linear unsteady aerodynamic model for insect-like flapping wings in the hover. Part 2: implementation and validation — Summary</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter','Segoe UI',-apple-system,sans-serif;background:#f8f9fb;color:#1e293b;line-height:1.7;-webkit-font-smoothing:antialiased}.hero{background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 50%,#0c4a6e 100%);color:#fff;padding:56px 0 48px;position:relative;overflow:hidden}.hero::after{content:'';position:absolute;top:0;right:0;bottom:0;width:40%;background:radial-gradient(ellipse at 80% 50%,rgba(56,189,248,0.08) 0%,transparent 70%);pointer-events:none}.hero-inner{max-width:900px;margin:0 auto;padding:0 40px;position:relative;z-index:1}.hero h1{font-size:28px;font-weight:700;line-height:1.35;letter-spacing:-0.3px;margin-bottom:16px}.hero-meta{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:14px;color:#94a3b8}.hero-meta a{color:#7dd3fc;text-decoration:none}.importance-badge{position:absolute;top:56px;right:40px;font-size:22px;letter-spacing:2px;filter:drop-shadow(0 0 6px rgba(255,215,0,0.4))}.tag-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:20px}.tag{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);color:#cbd5e1;font-size:11px;font-weight:500;padding:3px 10px;border-radius:20px}.container{max-width:900px;margin:0 auto;padding:40px 40px 80px}details{margin-bottom:12px;border-radius:10px;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,0.04);overflow:hidden}details[open]{box-shadow:0 2px 8px rgba(0,0,0,0.06)}summary{display:flex;align-items:center;gap:12px;padding:14px 20px;cursor:pointer;user-select:none;list-style:none;border-bottom:2px solid transparent;transition:background 0.15s}summary:hover{background:#f1f5f9}details[open]>summary{border-bottom-color:#e2e8f0}summary::-webkit-details-marker{display:none}summary::before{content:'\25B6';font-size:10px;color:#94a3b8;transition:transform 0.2s;flex-shrink:0}details[open]>summary::before{transform:rotate(90deg)}.section-number{background:#0f172a;color:#fff;font-size:11px;font-weight:700;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}summary h2{font-size:16px;font-weight:700;color:#0f172a}.section-body{padding:16px 20px 20px}.overview{margin-bottom:12px;background:#fff;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,0.04);overflow:hidden}.overview-header{display:flex;align-items:center;gap:12px;padding:14px 20px;border-bottom:2px solid #e2e8f0}.overview-header h2{font-size:16px;font-weight:700;color:#0f172a}.overview-text{font-size:14.5px;line-height:1.8;color:#334155;padding:16px 20px 20px;border-left:4px solid #0ea5e9;margin:0}.section-body ul{list-style:none;padding:0}.section-body ul li{position:relative;padding:7px 0 7px 18px;font-size:13.5px;line-height:1.7;color:#334155}.section-body ul li::before{content:'';position:absolute;left:0;top:15px;width:5px;height:5px;background:#0ea5e9;border-radius:50%}.section-body ul li+li{border-top:1px solid #f1f5f9}.section-body h3{font-size:13.5px;font-weight:600;color:#0c4a6e;margin:16px 0 6px}.section-body h3:first-child{margin-top:0}.footer{max-width:900px;margin:0 auto;padding:0 40px 48px;text-align:center;font-size:12px;color:#94a3b8}.footer a{color:#64748b;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="hero"><div class="hero-inner"><h1>Non-linear unsteady aerodynamic model for insect-like flapping wings in the hover. Part 2: implementation and validation</h1><div class="hero-meta"><span>S. A. Ansari, R. Zbikowski, K. Knowles</span><span>Proc. IMechE Part G: J. Aerospace Engineering (2006)</span><span><a href="https://doi.org/10.1243/09544100JAERO50">DOI: 10.1243/09544100JAERO50</a></span></div><div class="tag-row"><span class="tag">Flapping Wing</span><span class="tag">Insect Flight</span><span class="tag">Vortex Method</span><span class="tag">Free Wake</span><span class="tag">Methodology</span><span class="tag">UVLM</span><span class="tag">MAV</span></div><div class="importance-badge">★★</div></div></div>
+<div class="container">
+  <div class="overview"><div class="overview-header"><div class="section-number">1</div><h2>Overview</h2></div><div class="overview-text">This paper presents the numerical implementation and experimental validation of a nonlinear, unsteady, quasi-three-dimensional aerodynamic model for insect-like flapping wings in hover. The coupled <strong>wake integral equations</strong> derived in Part 1 are solved using <strong>discrete vortex methods</strong> with a time-marching algorithm implemented in <strong>Fortran</strong>. The model captures <strong>dual separation</strong> from both leading and trailing edges, producing free vortex wakes that interact with the wing during each stroke. Validation against <strong>Dickinson and Gotz</strong> flow visualization at <strong>$Re = 192$</strong> and <strong>Robofly</strong> force measurements at <strong>$Re = 160$</strong> demonstrates excellent agreement in both flow topology and force prediction. Mean lift discrepancy reaches only <strong>6.8%</strong> in the last cycle, and spectral analysis confirms the model captures the correct vortex-shedding frequency of approximately <strong>0.34 Hz</strong>. The work establishes that 2D sectional flows, aggregated via <strong>blade-element theory</strong>, adequately represent 3D flapping-wing aerodynamics at low Reynolds numbers of order <strong>$Re \approx 200$</strong>.</div></div>
+  <details><summary><div class="section-number">2</div><h2>Introduction</h2></summary><div class="section-body">
+    <h3>Motivation</h3>
+    <ul>
+      <li>Insect-like flapping flight offers superior maneuverability for <strong>micro-air vehicle (MAV)</strong> design, but analytical aerodynamic models remain scarce</li>
+      <li>High angles of attack in insect flight produce <strong>dual separation</strong> from both leading and trailing edges, generating complex wake interactions</li>
+      <li>Part 1 derived exact but non-closed-form <strong>coupled nonlinear wake integral equations</strong> requiring numerical solution</li>
+    </ul>
+    <h3>State of the Art</h3>
+    <ul>
+      <li><strong>Rosenhead (1931)</strong> pioneered 2D vortex sheet simulation using discrete point vortices convected by the <strong>Rott-Birkhoff equation</strong>: $q(\bar{z}) = -\frac{i}{2\pi} \oint_C \frac{d\Gamma'}{z(\Gamma,t) - z(\Gamma',t)} + U_E - iV_E$</li>
+      <li>Desingularization methods evolved from <strong>Lamb-Oseen vortices</strong> to <strong>Vatistas vortex model</strong>: $v_\theta = \frac{\Gamma}{2\pi} \frac{r}{(r_c^{2n} + r^{2n})^{1/n}}$</li>
+      <li>Vortex amalgamation techniques (Spallart criterion) address computational cost of growing vortex populations</li>
+      <li>Existing CFD and experimental studies (Ellington et al., Birch and Dickinson) provided LEV observations but lacked fast analytical prediction capability</li>
+    </ul>
+    <h3>Gap and Contribution</h3>
+    <ul>
+      <li>No prior model combined <strong>nonlinear wake interactions</strong> with both LEV and trailing-edge wake in an analytical framework amenable to fast computation</li>
+      <li>This Part 2 bridges the gap by implementing the Part 1 equations via vortex methods, establishing numerical parameters, and providing comprehensive experimental validation</li>
+      <li>The quasi-3D blade-element extension enables full-wing performance prediction without expensive 3D CFD</li>
+    </ul>
+  </div></details>
+  <details><summary><div class="section-number">3</div><h2>Related Works</h2></summary><div class="section-body">
+    <h3>Vortex Methods and Desingularization</h3>
+    <ul>
+      <li><strong>Rosenhead (1931)</strong> introduced <strong>discrete vortex approximation</strong> of continuous vortex sheets for 2D unsteady flows</li>
+      <li><strong>Oseen (1911)</strong> and <strong>Lamb (1932)</strong> developed <strong>viscous core models</strong> replacing singular point vortices with finite-core distributions</li>
+      <li><strong>Vatistas et al. (1991)</strong> proposed a generalized vortex model unifying Rankine, Lamb-Oseen, and Scully profiles via parameter $n$</li>
+      <li><strong>Spallart (1988)</strong> and <strong>Sarpkaya (1989)</strong> established <strong>vortex amalgamation criteria</strong> to manage computational cost</li>
+    </ul>
+    <h3>Insect Flight Experiments</h3>
+    <ul>
+      <li><strong>Dickinson and Gotz (1993)</strong> performed <strong>flow visualization</strong> at <strong>$Re = 192$</strong> in sucrose solution, identifying LEV formation at $\alpha \geq 22.5°$</li>
+      <li><strong>Ellington et al. (1996)</strong> observed <strong>LEV spanwise transport</strong> and vortex breakdown on hawkmoth-scale flappers at <strong>$Re \approx 5000$</strong></li>
+      <li><strong>Birch and Dickinson (2001)</strong> demonstrated <strong>weak spanwise flow</strong> at low <strong>$Re \approx 200$</strong>, supporting 2D sectional analysis</li>
+      <li><strong>Dickinson</strong> Robofly experiments provided benchmark <strong>force data over four complete flapping cycles</strong> at <strong>$Re = 160$</strong></li>
+    </ul>
+    <h3>Kutta Condition in Unsteady Flows</h3>
+    <ul>
+      <li><strong>Crighton (1985)</strong> examined validity of <strong>Kutta-Joukowski condition</strong> in unsteady flows, noting it generally holds for moderate kinematics</li>
+      <li><strong>Giesing (1969)</strong> and <strong>Maskell (1972)</strong> showed separation surface direction depends on $d\Gamma/dt$ sign</li>
+      <li><strong>Sun and Boyd (2004)</strong> demonstrated significant <strong>slip velocity at edges</strong> for <strong>$Re = 135$</strong> flat plates, supporting K-J relaxation</li>
+    </ul>
+  </div></details>
+  <details><summary><div class="section-number">4</div><h2>Materials and Methods</h2></summary><div class="section-body">
+    <h3>Initial-Value Problem Formulation</h3>
+    <ul>
+      <li>Flow solved as <strong>time-marching initial-value problem</strong>: known initial conditions propagated forward with vortex shedding at each step</li>
+      <li>At each time step, a <strong>pair of vortices</strong> is shed from leading and trailing edges to satisfy Kutta-Joukowski conditions via Kelvin's theorem</li>
+      <li>Free vortices convect at local <strong>Kirchhoff velocity</strong> governed by the discretized Rott-Birkhoff equation</li>
+    </ul>
+    <h3>Discretized Wake Integral Equations</h3>
+    <ul>
+      <li>Wake-induced vorticity computed via: $\gamma_1(\theta,t)|_{wk+lv} = -\frac{\Gamma_0(t)}{2\pi R} - \frac{1}{2\pi R}\left[\sum_{i=1}^{n_{wk}} \Re\left(\frac{Z_{wk}+Re^{i\theta}}{Z_{wk}-Re^{i\theta}}\right)\gamma_{wk}dZ_{wk} + \sum_{i=1}^{n_{lv}} \Re\left(\frac{Z_{lv}+Re^{i\theta}}{Z_{lv}-Re^{i\theta}}\right)\gamma_{lv}dZ_{lv}\right]$</li>
+      <li>Aerofoil represented by <strong>Joukowski-type transformation</strong> from circle plane, providing tight spacing near edges</li>
+      <li>Aerofoil discretization $n_{foil} = 50$ elements chosen after convergence study</li>
+    </ul>
+    <h3>Numerical Techniques</h3>
+    <ul>
+      <li>New vortex placement uses <strong>one-third rule</strong>: $z_t = z_{edge} + \frac{1}{3}(z_{edge} - z_{t-1})$, accounting for both wing motion and prior vortex convection</li>
+      <li><strong>Sub-time-stepping</strong> ($n = 1, 2, 4$) during stroke reversals based on ratio of normal kinematic velocity to chord-lengths-per-step</li>
+      <li>Vatistas desingularization with vortex-core radius of <strong>2.5-5.0% chord</strong></li>
+      <li>Time-step size of <strong>0.01 s</strong> (mean angle per step of $0.6°$) after convergence study</li>
+    </ul>
+    <h3>Numerical Modifications</h3>
+    <ul>
+      <li><strong>Kutta-Joukowski relaxation</strong>: circulation limits imposed during extreme kinematics when shed vortex strengths exceeded 3 orders of magnitude above prior values</li>
+      <li><strong>Smoothing scheme</strong>: Gaussian low-pass filter applied to force/moment data to remove numerical spikes from wake re-entry, preserving frequency content</li>
+      <li>Blade-element method extends 2D sections to quasi-3D wing with <strong>20 spanwise sections</strong></li>
+    </ul>
+    <h3>Implementation</h3>
+    <ul>
+      <li>Implemented in <strong>Fortran</strong> (Intel Fortran Compiler v.8.0) exploiting native complex number arithmetic</li>
+      <li>All computations in <strong>double precision</strong>; program size ~2.0 MB with ~10 MB runtime memory for 16,000 section-time-steps</li>
+      <li>Computation time scales as $\sim n^{2.5}$ due to variable sub-time-steps; typical run of 6,400 section-time-steps completed in ~10 minutes</li>
+    </ul>
+  </div></details>
+  <details><summary><div class="section-number">5</div><h2>Results</h2></summary><div class="section-body">
+    <h3>Flow Visualization Validation (Dickinson and Gotz)</h3>
+    <ul>
+      <li>Simulated <strong>impulsive start at $\alpha = 45°$</strong> with <strong>$Re = 192$</strong>; wing traverses <strong>7.5 chord lengths</strong> before stopping</li>
+      <li>Good agreement with experimental flow topology: LEV roll-up, growth, lift-off, and breakdown all captured correctly</li>
+      <li>Model reproduces <strong>triangular LEV structure</strong> after 4 chord lengths of travel</li>
+      <li>Dual stopping vortices (from LE and TE) correctly predicted when wing halts</li>
+    </ul>
+    <h3>Force Validation (Robofly)</h3>
+    <ul>
+      <li>Benchmark simulation: <strong>48,000 section-time-steps</strong> (20 sections $\times$ 2,400 time-steps) with up to 4 sub-time-steps</li>
+      <li>Mean lift discrepancy: <strong>13% overall</strong>, reducing to <strong>6.8% for last cycle</strong> as flow approaches periodicity</li>
+      <li>Mean thrust discrepancy: <strong>7.2% overall</strong>, reducing to <strong>3.3% for last cycle</strong></li>
+      <li>Mean drag for last cycle: experimental $D = 0.0055$ N (0.9% of thrust); theoretical $D = 6.29 \times 10^{-4}$ N (0.1% of thrust) -- excellent hover condition</li>
+      <li>Stroke-reversal spikes in both lift and thrust captured at <strong>correct temporal positions</strong> without phase lag</li>
+    </ul>
+    <h3>Spectral Analysis</h3>
+    <ul>
+      <li>Power spectral density shows <strong>dominant blade-passing frequency</strong>: experimental <strong>0.3418 Hz</strong> vs. theoretical <strong>0.3483 Hz</strong></li>
+      <li>Higher harmonics match well between experiment and simulation, especially for thrust</li>
+      <li>Smoothing scheme confirmed to <strong>preserve frequency content</strong> of the force data</li>
+    </ul>
+    <h3>Flow Characteristics</h3>
+    <ul>
+      <li>Lift grows rapidly from zero at stroke start, remains roughly constant mid-stroke, then exhibits <strong>opposite spike pairs</strong> at each reversal</li>
+      <li>Thrust exceeds lift by ~50% due to dominant horizontal wake component in flat figure-of-eight kinematics</li>
+      <li>Outboard sections experience <strong>earlier vortex breakdown</strong> due to greater chord-lengths traveled, producing von Karman-type alternating shedding</li>
+    </ul>
+  </div></details>
+  <details><summary><div class="section-number">6</div><h2>Results Interpretation</h2></summary><div class="section-body">
+    <ul>
+      <li>The <strong>temporal synchrony</strong> between experimental and theoretical force peaks confirms that the model correctly captures the unsteady flow physics, not merely mean values</li>
+      <li>Close spectral agreement implies that underlying <strong>vortex shedding mechanisms</strong> are well represented by the inviscid potential framework</li>
+      <li>The quasi-3D blade-element approach is validated: at $Re \approx 200$, 3D flow is essentially an <strong>aggregation of 2D sectional flows</strong></li>
+      <li>Phase difference between spanwise sections (outboard sections "older" in chord-lengths) explains <strong>spanwise variation</strong> in LEV behavior, consistent with Ellington et al. observations</li>
+      <li>Vortex breakdown in outboard sections produces a <strong>tip-vortex-like effect</strong>, partially compensating for the absence of explicit 3D tip modeling</li>
+      <li>K-J relaxation during stroke reversals is physically justified: at extreme kinematics, flow velocity at edges becomes nearly <strong>perpendicular to the surface</strong></li>
+      <li>Wagner's use of semi-chords as independent variable is confirmed as relevant; flow behavior strongly depends on <strong>number of chord-lengths traveled</strong> rather than absolute time</li>
+      <li>Mean drag approaching zero in the last cycle confirms <strong>hover equilibrium</strong> is achieved, validating the overall force balance</li>
+      <li>The inviscid model consistently <strong>underestimates</strong> both lift and thrust by the last cycle, suggesting viscous effects contribute modestly at these Reynolds numbers</li>
+      <li>Tip-vortex downwash effects (Leishman et al.) and LEV spanwise motion at higher $Re$ remain <strong>unresolved limitations</strong> of the current framework</li>
+    </ul>
+  </div></details>
+  <details><summary><div class="section-number">7</div><h2>Conclusion</h2></summary><div class="section-body">
+    <ul>
+      <li>Successfully implemented the nonlinear wake integral equations from Part 1 using <strong>discrete vortex methods</strong> with a time-marching algorithm</li>
+      <li>Numerical parameter study established optimal values: $n_{foil} = 50$, time-step $0.01$ s ($0.6°$ per step), vortex-core radius $2.5$-$5.0\%$ chord</li>
+      <li>Flow visualization validation against Dickinson and Gotz ($Re = 192$) confirms accurate capture of <strong>LEV formation, growth, and breakdown</strong></li>
+      <li>Force validation against Robofly data ($Re = 160$) shows last-cycle discrepancies of only <strong>6.8% for lift</strong> and <strong>3.3% for thrust</strong></li>
+      <li>Spectral analysis demonstrates the model captures correct <strong>vortex-shedding frequency</strong> and higher harmonics</li>
+      <li>At low $Re \approx 200$, 3D flapping-wing flow is well approximated by <strong>quasi-3D blade-element aggregation</strong> of 2D sectional solutions</li>
+      <li>The model provides a <strong>computationally efficient alternative</strong> to full CFD for insect-like flapping wing analysis in hover</li>
+      <li>Limitations include absence of explicit tip-vortex modeling and inability to capture spanwise LEV transport at higher Reynolds numbers</li>
+    </ul>
+  </div></details>
+</div>
+<div class="footer">Generated by YANG Lab RECON &middot; <a href="https://doi.org/10.1243/09544100JAERO50">View Original Paper</a></div>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false},{left:'$',right:'$',display:false}],throwOnError:false});"></script>
+</body></html>

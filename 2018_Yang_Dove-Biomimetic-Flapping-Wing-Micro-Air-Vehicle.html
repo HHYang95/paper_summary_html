@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="paper-title" content="Dove: A Biomimetic Flapping-Wing Micro Air Vehicle">
+<meta name="paper-year" content="2018">
+<meta name="paper-author" content="Wenqing Yang, Liguang Wang, Bifeng Song">
+<meta name="paper-journal" content="International Journal of Micro Air Vehicles">
+<meta name="paper-tags" content="Flapping Wing, FWMAV, Biomimetic, Mechanism Design, Flexible Wing, Flight Control, System Integration">
+<meta name="paper-doi" content="10.1177/1756829317734837">
+<title>Dove: A Biomimetic Flapping-Wing Micro Air Vehicle — Summary</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', 'Segoe UI', -apple-system, sans-serif; background: #f8f9fb; color: #1e293b; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  .hero { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0c4a6e 100%); color: #fff; padding: 56px 0 48px; position: relative; overflow: hidden; }
+  .hero::after { content: ''; position: absolute; top: 0; right: 0; bottom: 0; width: 40%; background: radial-gradient(ellipse at 80% 50%, rgba(56,189,248,0.08) 0%, transparent 70%); pointer-events: none; }
+  .hero-inner { max-width: 900px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 1; }
+  .hero h1 { font-size: 28px; font-weight: 700; line-height: 1.35; letter-spacing: -0.3px; margin-bottom: 16px; }
+  .hero-meta { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px; color: #94a3b8; }
+  .hero-meta a { color: #7dd3fc; text-decoration: none; }
+  .importance-badge { position: absolute; top: 56px; right: 40px; font-size: 22px; letter-spacing: 2px; filter: drop-shadow(0 0 6px rgba(255,215,0,0.4)); }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px; }
+  .tag { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); color: #cbd5e1; font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px; }
+  .container { max-width: 900px; margin: 0 auto; padding: 40px 40px 80px; }
+  details { margin-bottom: 12px; border-radius: 10px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.04); overflow: hidden; }
+  details[open] { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  summary { display: flex; align-items: center; gap: 12px; padding: 14px 20px; cursor: pointer; user-select: none; list-style: none; border-bottom: 2px solid transparent; transition: background 0.15s; }
+  summary:hover { background: #f1f5f9; }
+  details[open] > summary { border-bottom-color: #e2e8f0; }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: '\25B6'; font-size: 10px; color: #94a3b8; transition: transform 0.2s; flex-shrink: 0; }
+  details[open] > summary::before { transform: rotate(90deg); }
+  .section-number { background: #0f172a; color: #fff; font-size: 11px; font-weight: 700; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  summary h2 { font-size: 16px; font-weight: 700; color: #0f172a; }
+  .section-body { padding: 16px 20px 20px; }
+  .overview { margin-bottom: 12px; background: #fff; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); overflow: hidden; }
+  .overview-header { display: flex; align-items: center; gap: 12px; padding: 14px 20px; border-bottom: 2px solid #e2e8f0; }
+  .overview-header h2 { font-size: 16px; font-weight: 700; color: #0f172a; }
+  .overview-text { font-size: 14.5px; line-height: 1.8; color: #334155; padding: 16px 20px 20px; border-left: 4px solid #0ea5e9; margin: 0; }
+  .section-body ul { list-style: none; padding: 0; }
+  .section-body ul li { position: relative; padding: 7px 0 7px 18px; font-size: 13.5px; line-height: 1.7; color: #334155; }
+  .section-body ul li::before { content: ''; position: absolute; left: 0; top: 15px; width: 5px; height: 5px; background: #0ea5e9; border-radius: 50%; }
+  .section-body ul li + li { border-top: 1px solid #f1f5f9; }
+  .section-body h3 { font-size: 13.5px; font-weight: 600; color: #0c4a6e; margin: 16px 0 6px; }
+  .section-body h3:first-child { margin-top: 0; }
+  .footer { max-width: 900px; margin: 0 auto; padding: 0 40px 48px; text-align: center; font-size: 12px; color: #94a3b8; }
+  .footer a { color: #64748b; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="hero"><div class="hero-inner">
+    <h1>Dove: A Biomimetic Flapping-Wing Micro Air Vehicle</h1>
+    <div class="hero-meta"><span>Wenqing Yang, Liguang Wang, Bifeng Song</span><span>Int J Micro Air Veh (2018)</span><span><a href="https://doi.org/10.1177/1756829317734837">DOI: 10.1177/1756829317734837</a></span></div>
+    <div class="tag-row"><span class="tag">Flapping Wing</span><span class="tag">FWMAV</span><span class="tag">Biomimetic</span><span class="tag">Mechanism Design</span><span class="tag">Flexible Wing</span><span class="tag">Flight Control</span><span class="tag">System Integration</span></div>
+    <div class="importance-badge">★★</div>
+</div></div>
+<div class="container">
+  <div class="overview"><div class="overview-header"><div class="section-number">1</div><h2>Overview</h2></div>
+    <div class="overview-text">This paper describes the design, development, and flight testing of <strong>Dove</strong>, a biomimetic <strong>flapping-wing micro air vehicle (FWMAV)</strong> developed at <strong>Northwestern Polytechnical University</strong>. The vehicle evolved through <strong>three developmental stages</strong> spanning over a decade. The final Dove has a mass of <strong>220 g</strong>, a wingspan of <strong>50 cm</strong>, flapping frequency of <strong>4&ndash;12 Hz</strong>, and endurance of <strong>30 min</strong>. Key achievements include a passively deforming <strong>flexible membrane wing</strong> designed via <strong>CFD/CSD coupled analysis</strong>, an optimized <strong>four-bar linkage</strong> flapping mechanism, and an <strong>Unscented Kalman Filter (UKF)</strong>-based flight control system with <strong>total energy control</strong> for the strongly nonlinear vibrating environment of flapping flight. The platform operates fully autonomously and transmits live stabilized color video over <strong>4 km</strong>.</div></div>
+
+  <details><summary><div class="section-number">2</div><h2>Introduction</h2></summary>
+    <div class="section-body">
+      <h3>Context and Motivation</h3>
+      <ul>
+        <li>FWMAVs offer potential aerodynamic advantages at small scales. Representative platforms include AeroVironment's <strong>Nano Hummingbird</strong> (<strong>19 g</strong>, hovering), Festo's <strong>SmartBird</strong> (<strong>450 g</strong>, gull-inspired), and <strong>BionicOpter</strong> (<strong>175 g</strong>, dragonfly-inspired with <strong>13 DOF</strong>).</li>
+        <li>Unlike hovering-focused or demonstrator platforms, Dove targets <strong>practical application</strong> with fully autonomous flight, live video surveillance, and <strong>30 min</strong> endurance.</li>
+        <li>NPU's research program began in 2000 and progressed through <strong>three evolutionary stages</strong> with numerous prototypes (PY1 through Dove).</li>
+      </ul>
+      <h3>Design Emphases</h3>
+      <ul>
+        <li>Dove was focused on <strong>application performance</strong>: autonomous flight including climb after launch and descent before landing, live colored video with real-time stabilization.</li>
+        <li>The biological <strong>pigeon-inspired appearance</strong> was a final-stage design objective, applied to the ASN-211 variant to create the Dove.</li>
+      </ul>
+    </div></details>
+
+  <details><summary><div class="section-number">3</div><h2>Related Works</h2></summary>
+    <div class="section-body">
+      <h3>FWMAV Platforms</h3>
+      <ul>
+        <li><strong>Keennon et al. (2012)</strong> &mdash; Nano Hummingbird: tailless hovering FWMAV, <strong>19 g</strong>, <strong>16.5 cm</strong> span, <strong>30 Hz</strong> flapping, live video transmission.</li>
+        <li><strong>Festo SmartBird (2011)</strong> &mdash; Herring gull-inspired, <strong>450 g</strong>, <strong>200 cm</strong> span, autonomous start/fly/land.</li>
+        <li><strong>Festo BionicOpter (2013)</strong> &mdash; Dragonfly-inspired, <strong>175 g</strong>, <strong>63 cm</strong> span, <strong>4</strong> individually adjustable wings.</li>
+      </ul>
+      <h3>Aerodynamic and Design Foundations</h3>
+      <ul>
+        <li><strong>Sibilski et al. (2007)</strong> &mdash; Comparative power requirements for fixed, rotary, and flapping wing MAVs.</li>
+        <li><strong>Hu et al. (2010)</strong> &mdash; Experimental investigation of flexible membrane wing aerodynamics in flapping flight.</li>
+        <li><strong>Ellington (1999)</strong> &mdash; Novel aerodynamics of insect flight applied to MAVs.</li>
+        <li><strong>de Croon et al. (2009)</strong> &mdash; DelFly: design, aerodynamics, and vision-based control.</li>
+        <li><strong>Gerdes et al. (2012)</strong> &mdash; Review of bird-inspired flapping wing miniature air vehicle designs.</li>
+      </ul>
+    </div></details>
+
+  <details><summary><div class="section-number">4</div><h2>Materials and Methods</h2></summary>
+    <div class="section-body">
+      <h3>Flexible Wing Design</h3>
+      <ul>
+        <li>Design loop: theoretical/experimental design &rarr; fabrication &rarr; test &rarr; refinement. Biological scaling laws from <strong>Shyy et al.</strong> for initial parameters.</li>
+        <li>Wind tunnel experiments confirmed thrust is strongly affected by <strong>unsteady flapping effects</strong>; lift depends primarily on speed and angle of attack ($Re \approx 5 \times 10^4$&ndash;$10 \times 10^4$).</li>
+        <li>Parametric studies: larger aspect ratios yield higher $L/D$ (set to <strong>7</strong>); inner wing generates lift, outer wing generates thrust; positive camber helps lift but reduces thrust.</li>
+        <li><strong>CFD/CSD coupled solver</strong> for aeroelastic analysis: <strong>triangular main frame</strong> with <strong>longitudinal ribs</strong> selected. Airfoil <strong>Eppler 378</strong> with <strong>half-convex rib cross-section</strong> for asymmetric upstroke/downstroke deformation.</li>
+        <li>Final wing: <strong>7 g</strong> each, <strong>50 cm</strong> span, aspect ratio <strong>7.4</strong>, composite and polymeric materials.</li>
+      </ul>
+      <h3>Flapping Mechanism</h3>
+      <ul>
+        <li>Multiple <strong>four-bar linkage</strong> variants explored; final design via <strong>fuzzy optimization</strong>: single-rack construction with unsymmetrical four-bar linkage. Average inter-wing phase lag: <strong>2.0&deg;</strong>.</li>
+        <li>Wind tunnel testing revealed <strong>fixed-amplitude operating region</strong>: $\Phi \approx$ <strong>73&deg;</strong> at $f =$ <strong>8 Hz</strong> across $V =$ <strong>6&ndash;10 m/s</strong>.</li>
+        <li>Final mechanism: <strong>POM/aluminum/titanium</strong>, <strong>35 g</strong> (incl. <strong>16 g</strong> brushless DC motor), drives <strong>4&ndash;12 Hz</strong>.</li>
+      </ul>
+      <h3>Avionics and Flight Control</h3>
+      <ul>
+        <li>FCS: MEMS gyroscopes, accelerometer, magnetometer, barometer, GPS, microprocessor. Mass <strong>&approx;35 g</strong>.</li>
+        <li><strong>Unscented Kalman Filter (UKF)</strong> for attitude estimation + <strong>total energy control</strong> for adaptive longitudinal control.</li>
+        <li>Actuator narrow bandwidth acts as <strong>natural low-pass filter</strong>, converting periodic nonlinear dynamics to time-averaged linear characteristics.</li>
+        <li>Data link: <strong>QPSK</strong> modulation, <strong>4 km</strong> range, combined telemetry + compressed video. Camera + data link: <strong>25 g</strong>.</li>
+      </ul>
+    </div></details>
+
+  <details><summary><div class="section-number">5</div><h2>Results</h2></summary>
+    <div class="section-body">
+      <h3>Wing Aerodynamic Performance</h3>
+      <ul>
+        <li>Residual thrust curve crosses zero at $\alpha \approx$ <strong>17&deg;</strong>, where lift <strong>&approx;230 g</strong> &mdash; exceeding <strong>220 g</strong> takeoff weight. Confirms $L > G$ and $T = D$ at operating condition.</li>
+        <li><strong>CFD/CSD solver</strong> validated against wind tunnel experiments for the flexible membrane wing.</li>
+      </ul>
+      <h3>Flight Test Performance</h3>
+      <ul>
+        <li><strong>Fully autonomous flight</strong> demonstrated in <strong>6&ndash;8 m/s</strong> wind with adequate controllability and autopilot effectiveness.</li>
+        <li>On-board camera (OV7725): spatial resolution <strong>0.25 m</strong> at <strong>50 m</strong> altitude, <strong>0.51 m</strong> at <strong>100 m</strong>, <strong>0.76 m</strong> at <strong>150 m</strong>.</li>
+        <li>Ground station image processing eliminates most <strong>flapping-induced oscillation</strong> for clear surveillance video.</li>
+      </ul>
+      <h3>Development Evolution</h3>
+      <ul>
+        <li><strong>Stage I</strong> (PY1&ndash;PY12): Fundamental principles, wing structure, control philosophy. PY12 achieved <strong>12 min</strong> RC flight.</li>
+        <li><strong>Stage II</strong> (PY16&ndash;PY17): Enlarged interim prototypes for avionics testing. PY16 carried <strong>80 g</strong> net payload.</li>
+        <li><strong>Stage III</strong> (PY19, ASN-211, Dove): System integration. PY19 first autonomous flight; Dove achieved <strong>30 min</strong> autonomous with biological pigeon appearance.</li>
+      </ul>
+    </div></details>
+
+  <details><summary><div class="section-number">6</div><h2>Results Interpretation</h2></summary>
+    <div class="section-body">
+      <h3>Design Philosophy</h3>
+      <ul>
+        <li>The <strong>three-stage iterative prototyping</strong> approach proved effective for FWMAV development where theoretical foundations are incomplete, with each stage building upon predecessors' lessons.</li>
+        <li><strong>Co-design</strong> of wing aerodynamics and mechanism kinematics through the <strong>fixed-amplitude operating region</strong> avoids variable-amplitude actuation complexity.</li>
+      </ul>
+      <h3>Engineering Trade-offs</h3>
+      <ul>
+        <li><strong>Four-bar linkage</strong> introduces <strong>2.0&deg;</strong> average phase asymmetry between wings, requiring careful design to prevent lateral/directional wobbling during high-speed oscillation.</li>
+        <li><strong>UKF control</strong> originally for fixed-wing aircraft worked on the flapping platform because actuator bandwidth naturally filters high-frequency vibrations, effectively <strong>linearizing the system</strong>.</li>
+        <li>Downsizing from <strong>1 m</strong> (PY16) to <strong>50 cm</strong> (Dove) while maintaining payload capacity required substantial efficiency gains, achieved primarily through <strong>optimized flexible wing design</strong>.</li>
+      </ul>
+    </div></details>
+
+  <details><summary><div class="section-number">7</div><h2>Conclusion</h2></summary>
+    <div class="section-body">
+      <h3>Summary</h3>
+      <ul>
+        <li>Demonstrated a complete <strong>FWMAV system</strong> capable of <strong>30 min</strong> fully autonomous flight with live video at <strong>220 g</strong> mass and <strong>50 cm</strong> wingspan.</li>
+        <li><strong>Flexible membrane wing</strong> with triangular frame and longitudinal ribs achieves passive deformation for simultaneous lift and thrust. Airfoil <strong>E387</strong> with <strong>half-convex ribs</strong> produces beneficial asymmetric deformation.</li>
+        <li><strong>Four-bar linkage mechanism</strong> optimized via motor-wing compatible design, exploiting <strong>fixed-amplitude operating region</strong> across multiple flight speeds.</li>
+        <li><strong>UKF-based flight control</strong> with <strong>total energy regulation</strong> successfully handles the strongly nonlinear vibrating environment of flapping flight.</li>
+      </ul>
+      <h3>Future Work</h3>
+      <ul>
+        <li>Increase <strong>bionic level</strong> in wing flexibility and flapping manner for improved agility and biological resemblance.</li>
+        <li>Reduce <strong>avionics mass</strong> and advance <strong>battery technology</strong> to extend endurance beyond <strong>30 min</strong>.</li>
+      </ul>
+    </div></details>
+</div>
+<div class="footer">YANG Lab &middot; Paper Summary &middot; Generated by RECON</div>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false});"></script>
+</body>
+</html>

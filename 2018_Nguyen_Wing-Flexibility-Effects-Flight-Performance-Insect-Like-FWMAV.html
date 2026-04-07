@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wing Flexibility Effects on the Flight Performance of an Insect-Like Flapping-Wing Micro-Air Vehicle</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', 'Segoe UI', -apple-system, sans-serif; background: #f8f9fb; color: #1e293b; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+.hero { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0c4a6e 100%); color: #fff; padding: 56px 0 48px; position: relative; overflow: hidden; }
+.hero::after { content: ''; position: absolute; top: 0; right: 0; bottom: 0; width: 40%; background: radial-gradient(ellipse at 80% 50%, rgba(56,189,248,0.08) 0%, transparent 70%); pointer-events: none; }
+.hero-inner { max-width: 900px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 1; }
+.hero h1 { font-size: 28px; font-weight: 700; line-height: 1.35; letter-spacing: -0.3px; margin-bottom: 16px; }
+.hero-meta { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px; color: #94a3b8; }
+.hero-meta a { color: #7dd3fc; text-decoration: none; }
+.hero-meta a:hover { text-decoration: underline; }
+.importance-badge { position: absolute; top: 56px; right: 40px; font-size: 22px; letter-spacing: 2px; filter: drop-shadow(0 0 6px rgba(255,215,0,0.4)); }
+.tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px; }
+.tag { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); color: #cbd5e1; font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px; letter-spacing: 0.3px; }
+.container { max-width: 900px; margin: 0 auto; padding: 40px 40px 80px; }
+details { margin-bottom: 12px; border-radius: 10px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.04); overflow: hidden; }
+details[open] { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+summary { display: flex; align-items: center; gap: 12px; padding: 14px 20px; cursor: pointer; user-select: none; list-style: none; border-bottom: 2px solid transparent; transition: background 0.15s; }
+summary:hover { background: #f1f5f9; }
+details[open] > summary { border-bottom-color: #e2e8f0; }
+summary::-webkit-details-marker { display: none; }
+summary::before { content: '\25B6'; font-size: 10px; color: #94a3b8; transition: transform 0.2s; flex-shrink: 0; }
+details[open] > summary::before { transform: rotate(90deg); }
+.section-number { background: #0f172a; color: #fff; font-size: 11px; font-weight: 700; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+summary h2 { font-size: 16px; font-weight: 700; color: #0f172a; letter-spacing: -0.2px; }
+.section-body { padding: 16px 20px 20px; }
+.overview { margin-bottom: 12px; background: #fff; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); overflow: hidden; }
+.overview-header { display: flex; align-items: center; gap: 12px; padding: 14px 20px; border-bottom: 2px solid #e2e8f0; }
+.overview-header h2 { font-size: 16px; font-weight: 700; color: #0f172a; }
+.overview-text { font-size: 14.5px; line-height: 1.8; color: #334155; padding: 16px 20px 20px; border-left: 4px solid #0ea5e9; margin: 0; }
+.section-body ul { list-style: none; padding: 0; }
+.section-body ul li { position: relative; padding: 7px 0 7px 18px; font-size: 13.5px; line-height: 1.7; color: #334155; }
+.section-body ul li::before { content: ''; position: absolute; left: 0; top: 15px; width: 5px; height: 5px; background: #0ea5e9; border-radius: 50%; }
+.section-body ul li + li { border-top: 1px solid #f1f5f9; }
+.section-body h3 { font-size: 13.5px; font-weight: 600; color: #0c4a6e; margin: 16px 0 6px; padding-left: 2px; }
+.section-body h3:first-child { margin-top: 0; }
+.footer { max-width: 900px; margin: 0 auto; padding: 0 40px 48px; text-align: center; font-size: 12px; color: #94a3b8; }
+.footer a { color: #64748b; text-decoration: none; }
+</style>
+    <meta name="paper-title" content="Wing Flexibility Effects on the Flight Performance of an Insect-Like Flapping-Wing Micro-Air Vehicle">
+    <meta name="paper-tags" content="Flapping Wing, Wing Flexibility, FWMAV, Aeroelasticity, UVLM, Multibody Dynamics, Flight Stability, Hawkmoth">
+    <meta name="paper-doi" content="10.1016/j.ast.2018.06.004">
+    <meta name="paper-year" content="2018">
+    <meta name="paper-author" content="Anh Tuan Nguyen, Jae-Hung Han">
+    <meta name="paper-journal" content="Aerospace Science and Technology (Aerosp. Sci. Technol.)">
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <h1>Wing Flexibility Effects on the Flight Performance of an Insect-Like Flapping-Wing Micro-Air Vehicle</h1>
+    <div class="hero-meta">
+      <span>Anh Tuan Nguyen, Jae-Hung Han</span>
+      <span>Aerospace Science and Technology (2018)</span>
+      <span><a href="https://doi.org/10.1016/j.ast.2018.06.004">DOI: 10.1016/j.ast.2018.06.004</a></span>
+    </div>
+    <div class="tag-row"><span class="tag">Flapping Wing</span><span class="tag">Wing Flexibility</span><span class="tag">FWMAV</span><span class="tag">Aeroelasticity</span><span class="tag">UVLM</span><span class="tag">Multibody Dynamics</span><span class="tag">Flight Stability</span><span class="tag">Hawkmoth</span></div>
+    <div class="importance-badge">&#9733;&#9733;&#9733;</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="overview">
+    <div class="overview-header"><div class="section-number">1</div><h2>Overview</h2></div>
+    <div class="overview-text">
+      <h3>Research Motivation and Gap</h3>
+      Insect-like <strong>flapping-wing micro-air vehicles (FWMAVs)</strong> have been the subject of extensive research in aerodynamics and flight dynamics, yet few studies have comprehensively examined how wing flexibility affects flight performance across multiple aspects simultaneously. Previous works addressed individual aspects such as aerodynamic force enhancement or power savings, but a unified treatment covering <strong>trim conditions</strong>, <strong>power requirements</strong>, and <strong>dynamic stability</strong> for flexible-winged FWMAVs across a range of flight speeds was lacking. This study addresses that gap by performing a systematic numerical analysis using coupled fluid-structure-flight dynamics simulation.
+      <h3>Core Contribution</h3>
+      The paper develops an integrated simulation framework that couples a potential-based aerodynamic model (combining the <strong>unsteady panel method</strong> and <strong>extended unsteady vortex-lattice method</strong>) with a flexible <strong>multibody dynamics</strong> solver (<strong>MSC.Adams</strong>) to analyze the hawkmoth <em>Manduca sexta</em> FWMAV at flight speeds from <strong>0.0 to 4.0 m/s</strong>. The framework captures the full interaction between wing structural deformation, unsteady aerodynamics, and <strong>6-DOF</strong> body dynamics, enabling a unified assessment of flexibility effects on trim, power, and stability.
+      <h3>Key Findings Summary</h3>
+      Wing flexibility reduces flapping frequency by up to <strong>14%</strong> and mechanical power by up to <strong>20.6%</strong> during hovering, with these benefits diminishing as flight speed increases. At <strong>4.0 m/s</strong>, flexible wings become detrimental, requiring higher flapping frequency and more power than rigid wings. Wing flexibility has negligible effects on <strong>longitudinal dynamic stability</strong> but significantly enhances <strong>lateral stability</strong> during low-speed flight through changes in the stability derivatives $L_v^+$ and $N_v^+$, attributed to <strong>bending-up deformations</strong> of flexible wings.
+    </div>
+  </div>
+
+  <details>
+    <summary><div class="section-number">2</div><h2>Introduction</h2></summary>
+    <div class="section-body">
+      <h3>Flapping-Wing MAV Development Context</h3>
+      <ul>
+        <li>Insect-like FWMAVs represent a new generation of micro-scale aircraft inspired by insect flight, offering efficiency advantages at small scales and capabilities for hovering and high maneuverability.</li>
+        <li>Advances in <strong>computational fluid dynamics</strong> and experimental methods have clarified many aerodynamic aspects of insect flight, while dynamic stability characterization has been investigated using linearization methods based on the <strong>cycle-average approach</strong>.</li>
+      </ul>
+      <h3>Wing Flexibility Research Landscape</h3>
+      <ul>
+        <li>Previous numerical studies by <strong>Singh and Chopra</strong>, <strong>Senda et al.</strong>, <strong>Gogulapati et al.</strong>, and <strong>Stanford and Beran</strong> investigated wing flexibility effects on flapping-wing performance, with most employing quasi-steady or two-dimensional aerodynamic models.</li>
+        <li>Higher-fidelity <strong>CFD-based</strong> approaches by <strong>Nakata and Liu</strong> showed that wing flexibility can increase lift by approximately <strong>20%</strong> for hawkmoth wings.</li>
+        <li>However, comprehensive analysis covering trim conditions, power requirements, and dynamic stability for flexible FWMAVs across multiple flight speeds had not been conducted.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><div class="section-number">3</div><h2>Related Works</h2></summary>
+    <div class="section-body">
+      <h3>Aerodynamic and Structural Modeling for Flexible Wings</h3>
+      <ul>
+        <li>The <strong>extended unsteady vortex-lattice method (UVLM)</strong> with <strong>leading-edge suction analogy</strong> was developed by the authors (<strong>Nguyen et al., 2016</strong>) for insect flapping wings, providing a computationally efficient yet physically faithful aerodynamic model.</li>
+        <li>The leading-edge suction analogy translates the suction force from attached flow around a round leading edge into a force perpendicular to the wing surface, modeling the effect of spiral spanwise <strong>leading-edge vortices</strong> observed on insect wings.</li>
+        <li>The <strong>vortex-core growth model</strong> incorporates viscous diffusion effects.</li>
+      </ul>
+      <h3>Flight Dynamics and Stability Studies</h3>
+      <ul>
+        <li><strong>Kim and Han (2014)</strong> developed a multibody approach for 6-DOF flight dynamics of the hawkmoth using quasi-steady <strong>blade element theory</strong>.</li>
+        <li><strong>Nguyen et al. (2016)</strong> investigated the effect of body aerodynamics on hawkmoth dynamic flight stability.</li>
+        <li>The trim search algorithm and linearization methods for longitudinal and lateral dynamics used in the present study were established in these earlier works.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><div class="section-number">4</div><h2>Materials and Methods</h2></summary>
+    <div class="section-body">
+      <h3>FWMAV and Wing Structural Models</h3>
+      <ul>
+        <li>The hawkmoth <em>Manduca sexta</em> serves as the reference insect. Wing mass $m_{\text{wg}} = 46.87$ mg, span $R = 48.50$ mm, mean chord $\bar{c} = 16.81$ mm, wing area $S = 815.33$ mm$^2$, and second moment of area radius $r_2 = 0.53$.</li>
+        <li>Body mass $m_{\text{bd}} = 1485.0$ mg and body length $L = 44.80$ mm.</li>
+        <li>Wing kinematics (sweep $\phi$, elevation $\theta$, rotation $\alpha$) are parameterized as <strong>third-order Fourier series</strong> from experimental measurements by <strong>Willmott and Ellington</strong>.</li>
+        <li>The flexible wing structure is modeled in <strong>ANSYS Mechanical APDL</strong> using <strong>BEAM188</strong> elements for veins and <strong>SHELL181</strong> elements for membrane.</li>
+        <li>The first three vibration modes have natural frequencies of <strong>65.8 Hz</strong> (bending), <strong>122.2 Hz</strong> (torsion), and <strong>175.3 Hz</strong> (saddle), validated against biological wing measurements by <strong>O'Hara</strong>.</li>
+      </ul>
+      <h3>Coupled Aerodynamic-Structural-Dynamics Framework</h3>
+      <ul>
+        <li>The aerodynamic model combines the <strong>unsteady panel method (UPM)</strong> for the streamlined body and the <strong>extended UVLM</strong> for the wings.</li>
+        <li>The leading-edge vortex force per unit length of leading edge is: $$F_V = \frac{\pi}{16}\eta_s \rho \Gamma_{L.E.}^2 \frac{x_{L.E.}}{\cos\Lambda_{L.E.}}$$ where $\eta_s = 0.5$ is the <strong>suction efficiency coefficient</strong>.</li>
+        <li>The vortex core radius grows as: $$r_c(t) = \sqrt{4\alpha_L\nu\left(1 + a_1\frac{\Gamma}{\nu}\right)t}$$ with <strong>Lamb constant</strong> $\alpha_L = 1.25643$ and <strong>Squire parameter</strong> $a_1 = 0.1$.</li>
+        <li>The flexible multibody dynamics solver in <strong>MSC.Adams</strong> integrates the coupled equations: $$M\ddot{\xi} + \dot{M}\dot{\xi} - \frac{1}{2}\frac{\partial M}{\partial\xi}\dot{\xi}^T\dot{\xi} + K\xi + f_g + \frac{\partial\Upsilon}{\partial\xi}^T\lambda = Q, \quad \Upsilon = 0$$</li>
+        <li>using the <strong>GSTIFF integrator</strong> with adaptive time stepping. Aerodynamic loads are transferred to the structural mesh via a <strong>nearest-neighbor interpolation</strong> scheme.</li>
+      </ul>
+      <h3>Trim Search and Stability Analysis</h3>
+      <ul>
+        <li>Trimmed flight is obtained by iteratively tuning the flapping frequency $f$, sweep angle $\phi$, and rotation angle $\alpha$ until the mean velocities match reference values across the flight speed range <strong>0.0--4.0 m/s</strong>.</li>
+        <li>The linearized <strong>6-DOF dynamics</strong> uses the cycle-average approach to derive longitudinal and lateral stability matrices from nondimensionalized equations of motion.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><div class="section-number">5</div><h2>Results</h2></summary>
+    <div class="section-body">
+      <h3>Convergence Study and Validation</h3>
+      <ul>
+        <li>Convergence studies determined appropriate simulation parameters: <strong>72 aerodynamic panels</strong>, <strong>1222 FEA nodes</strong>, <strong>100 time steps per stroke cycle</strong>, and <strong>3 vibration modes</strong>.</li>
+        <li>The rigid and flexible wing lift coefficients show good agreement with CSD/CFD coupling results by <strong>Nakata and Liu</strong> for the related species <em>Agrius convolvuli</em>, with wing flexibility increasing lift by approximately <strong>18%</strong> (reference value: <strong>20%</strong>).</li>
+      </ul>
+      <h3>Trim Condition Variations</h3>
+      <ul>
+        <li>Wing flexibility reduces the trim flapping frequency at all speeds below <strong>4.0 m/s</strong>, with the maximum reduction of <strong>3.9 Hz (14%)</strong> occurring at hovering.</li>
+        <li>The reduction diminishes with increasing speed: only <strong>0.5 Hz</strong> at <strong>3.0 m/s</strong>. At <strong>4.0 m/s</strong>, the flexible FWMAV requires a higher flapping frequency than the rigid case.</li>
+        <li>The mean sweep angle $\phi$ increases slightly due to flexibility at speeds <strong>0.0--2.0 m/s</strong>. The mean rotation angle $\alpha$ increases due to flexibility at speeds below <strong>3.0 m/s</strong>.</li>
+      </ul>
+      <h3>Mechanical Power Requirements</h3>
+      <ul>
+        <li>The mean mechanical power reductions due to flexibility are <strong>20.6%</strong> at <strong>0.0 m/s</strong>, <strong>10.3%</strong> at <strong>1.0 m/s</strong>, and <strong>18.6%</strong> at <strong>2.0 m/s</strong>.</li>
+        <li>At <strong>3.0 m/s</strong> the power difference is negligible, while at <strong>4.0 m/s</strong> the flexible FWMAV consumes approximately <strong>1.4 times</strong> more power than the rigid model due to the <strong>1.12 times</strong> higher flapping frequency.</li>
+        <li>The power trend correlates with the <strong>stroke plane angle</strong> $\beta$: at low speeds with small $\beta$, wing deformations enhance the downward induced flow beneficial for lift; at <strong>4.0 m/s</strong> with near-vertical stroke plane, deformations intensify an upward flow region detrimental to lift generation.</li>
+      </ul>
+      <h3>Dynamic Stability Characteristics</h3>
+      <ul>
+        <li>Wing flexibility has almost no effect on <strong>longitudinal dynamic stability</strong> characteristics. Both rigid and flexible FWMAVs exhibit two stable subsidence modes and one unstable oscillatory mode in the longitudinal plane.</li>
+        <li>In contrast, wing flexibility significantly enhances <strong>lateral stability</strong> at speeds below <strong>3.0 m/s</strong>, primarily through changes in the stability derivatives $L_v^+$ and $N_v^+$.</li>
+        <li>At <strong>4.0 m/s</strong>, the lateral stability enhancement becomes unnoticeable.</li>
+        <li>The <strong>bending-up deformations</strong> of flexible wings generate an extra force $F$ during lateral translation that produces stabilizing negative roll and yaw moments during the downstroke and upstroke respectively.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><div class="section-number">6</div><h2>Results Interpretation</h2></summary>
+    <div class="section-body">
+      <h3>Speed-Dependent Flexibility Benefits</h3>
+      <ul>
+        <li>The speed dependence of flexibility effects is governed by the <strong>stroke plane angle</strong> $\beta$.</li>
+        <li>At low speeds, the small stroke plane angle directs the airflow created by wing deformations nearly vertically downward, making a significant contribution to lift production via the <strong>momentum conservation</strong> mechanism.</li>
+        <li>As speed increases, $\beta$ grows and the induced flow direction tilts, reducing the lift contribution from wing deformations.</li>
+        <li>At <strong>4.0 m/s</strong> with a nearly vertical stroke plane, wing deformations create an upward flow at the beginning of the downstroke that is actively detrimental to lift.</li>
+      </ul>
+      <h3>Mechanism of Lateral Stability Enhancement</h3>
+      <ul>
+        <li>The lateral stability improvement at low speeds is attributed to the interaction between wing <strong>bending deformations</strong> and lateral body velocity.</li>
+        <li>During lateral translation, the bending-up wing deformations produce an extra aerodynamic force that generates stabilizing moments.</li>
+        <li>The wing surfaces are nearly perpendicular to the body axis during upstroke (causing negative yaw moment $N$) and nearly parallel during downstroke (causing negative roll moment $L$). These moment contributions modify the stability derivatives $L_v^+$ and $N_v^+$, making the lateral dynamics more stable.</li>
+        <li>At high speeds, wing deformations are less severe because inertial forces (which primarily drive the deformations) become relatively smaller.</li>
+      </ul>
+      <h3>Asymmetric Flexibility Impact on Longitudinal versus Lateral Dynamics</h3>
+      <ul>
+        <li>Wing deformations are concentrated in the <strong>wing tip regions</strong>, which generate the largest aerodynamic forces during translational motion.</li>
+        <li>The tip regions affect lateral moment components ($L$ and $N$) more strongly than the pitching moment $M$, explaining why flexibility has a more profound effect on <strong>lateral stability</strong> than on <strong>longitudinal stability</strong>.</li>
+        <li>The body pitch oscillation amplitude shows an interesting reversal: it increases with flexibility at low speeds (due to reduced pitch damping from wing torsion) but decreases at high speeds (where aftward wing positioning reverses the damping effect).</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><div class="section-number">7</div><h2>Conclusion</h2></summary>
+    <div class="section-body">
+      <h3>Principal Results</h3>
+      <ul>
+        <li>Wing flexibility offers significant performance benefits for the hawkmoth-like FWMAV at hovering and low flight speeds: up to <strong>14% reduction</strong> in flapping frequency, up to <strong>20.6% reduction</strong> in mechanical power, and enhanced <strong>lateral dynamic stability</strong>.</li>
+        <li>These advantages are governed by the stroke plane angle and diminish as flight speed increases. At <strong>4.0 m/s</strong>, flexibility becomes detrimental to both power efficiency and lift generation.</li>
+        <li>The <strong>longitudinal dynamic stability</strong> is essentially unaffected by wing flexibility across all flight speeds tested.</li>
+      </ul>
+      <h3>Design Implications for FWMAVs</h3>
+      <ul>
+        <li>The findings suggest that biomimetic flexible wings are advantageous for FWMAV designs intended primarily for hovering and low-speed flight regimes, offering both energy savings and improved stability.</li>
+        <li>For high-speed applications, designers should consider that flexible wings may increase power demands and reduce lift efficiency.</li>
+        <li>The speed at which flexibility transitions from beneficial to detrimental (approximately <strong>3.0 m/s</strong> for this hawkmoth model) provides a useful design reference for selecting wing stiffness in insect-scale FWMAVs.</li>
+      </ul>
+    </div>
+  </details>
+
+</div>
+
+<div class="footer">Generated by YANG Lab RECON &middot; <a href="https://doi.org/10.1016/j.ast.2018.06.004">View Original Paper</a></div>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, {
+    delimiters: [{left: '$$', right: '$$', display: true},{left: '\\[', right: '\\]', display: true},{left: '\\(', right: '\\)', display: false},{left: '$', right: '$', display: false}],
+    throwOnError: false
+  });"></script>
+
+</body>
+</html>

@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="paper-title" content="Aerodynamic performance and flow mechanism of 3D flapping wing using discrete vortex method">
+<meta name="paper-year" content="2024">
+<meta name="paper-author" content="Rahul Kumar, Srikant S. Padhee, Devranjan Samanta">
+<meta name="paper-journal" content="Journal of Fluids and Structures (JFS)">
+<meta name="paper-tags" content="Flapping Wing, Simulation, MAV, Bio-Inspired, Methodology">
+<meta name="paper-doi" content="10.1016/j.jfluidstructs.2024.104128">
+<title>Aerodynamic performance and flow mechanism of 3D flapping wing using discrete vortex method — Summary</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', 'Segoe UI', -apple-system, sans-serif;
+    background: #f8f9fb;
+    color: #1e293b;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Header ── */
+  .hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0c4a6e 100%);
+    color: #fff;
+    padding: 56px 0 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; top: 0; right: 0; bottom: 0;
+    width: 40%;
+    background: radial-gradient(ellipse at 80% 50%, rgba(56,189,248,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+    z-index: 1;
+  }
+  .hero h1 {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: -0.3px;
+    margin-bottom: 16px;
+  }
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    font-size: 14px;
+    color: #94a3b8;
+  }
+  .hero-meta a { color: #7dd3fc; text-decoration: none; }
+  .hero-meta a:hover { text-decoration: underline; }
+  .importance-badge {
+    position: absolute;
+    top: 56px; right: 40px;
+    font-size: 22px;
+    letter-spacing: 2px;
+    filter: drop-shadow(0 0 6px rgba(255,215,0,0.4));
+  }
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 20px;
+  }
+  .tag {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #cbd5e1;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.3px;
+  }
+
+  /* ── Content ── */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 40px 80px;
+  }
+
+  /* ── Toggle sections ── */
+  details {
+    margin-bottom: 12px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    overflow: hidden;
+  }
+  details[open] {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  summary {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    cursor: pointer;
+    user-select: none;
+    list-style: none;
+    border-bottom: 2px solid transparent;
+    transition: background 0.15s;
+  }
+  summary:hover {
+    background: #f1f5f9;
+  }
+  details[open] > summary {
+    border-bottom-color: #e2e8f0;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::before {
+    content: '\25B6';
+    font-size: 10px;
+    color: #94a3b8;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+  }
+  details[open] > summary::before {
+    transform: rotate(90deg);
+  }
+  .section-number {
+    background: #0f172a;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  summary h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
+    letter-spacing: -0.2px;
+  }
+
+  /* ── Section body ── */
+  .section-body {
+    padding: 16px 20px 20px;
+  }
+
+  /* Overview (always open, special style) */
+  .overview {
+    margin-bottom: 12px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    overflow: hidden;
+  }
+  .overview-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  .overview-header h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
+  }
+  .overview-text {
+    font-size: 14.5px;
+    line-height: 1.8;
+    color: #334155;
+    padding: 16px 20px 20px;
+    border-left: 4px solid #0ea5e9;
+    margin: 0;
+  }
+
+  /* Bullet lists */
+  .section-body ul {
+    list-style: none;
+    padding: 0;
+  }
+  .section-body ul li {
+    position: relative;
+    padding: 7px 0 7px 18px;
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: #334155;
+  }
+  .section-body ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 15px;
+    width: 5px; height: 5px;
+    background: #0ea5e9;
+    border-radius: 50%;
+  }
+  .section-body ul li + li {
+    border-top: 1px solid #f1f5f9;
+  }
+
+  /* Sub-section headings */
+  .section-body h3 {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #0c4a6e;
+    margin: 16px 0 6px;
+    padding-left: 2px;
+  }
+  .section-body h3:first-child {
+    margin-top: 0;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px 48px;
+    text-align: center;
+    font-size: 12px;
+    color: #94a3b8;
+  }
+  .footer a { color: #64748b; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <h1>Aerodynamic performance and flow mechanism of 3D flapping wing using discrete vortex method</h1>
+    <div class="hero-meta">
+      <span>Rahul Kumar, Srikant S. Padhee, Devranjan Samanta</span>
+      <span>Journal of Fluids and Structures (2024)</span>
+      <span><a href="https://doi.org/10.1016/j.jfluidstructs.2024.104128">DOI: 10.1016/j.jfluidstructs.2024.104128</a></span>
+    </div>
+    <div class="tag-row"><span class="tag">Flapping Wing</span><span class="tag">Simulation</span><span class="tag">MAV</span><span class="tag">Bio-Inspired</span><span class="tag">Methodology</span></div>
+    <div class="importance-badge">★★</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Overview: always visible (no toggle) -->
+  <div class="overview">
+    <div class="overview-header">
+      <div class="section-number">1</div>
+      <h2>Overview</h2>
+    </div>
+    <div class="overview-text">This paper presents a three-dimensional numerical simulation of flapping rectangular wings using the <strong>discrete vortex method (DVM)</strong>, an inviscid panel method that avoids flow-field grid generation at each time step. Four wing configurations are investigated: <strong>rigid</strong>, <strong>bending</strong>, <strong>twisting</strong>, and <strong>bending-twisting coupling (BTC)</strong>. A novel twisting approach is introduced where the wing rotates about a dynamically adjusted pivot at the <strong>root of the leading edge</strong> rather than the conventional fixed root axis. Parametric studies cover reduced frequency (<strong>$k = 0.1$&ndash;$0.6$</strong>), aspect ratio (<strong>$AR = 1$&ndash;$6$</strong>), and asymmetric ratio (<strong>$AS = 1$&ndash;$3$</strong>). The <strong>BTC</strong> mode yields the highest aerodynamic performance, achieving up to <strong>68.75%</strong> lift enhancement and optimal propulsive efficiency at <strong>$k = 0.3$&ndash;$0.4$</strong>, <strong>$AR = 3$&ndash;$4$</strong>, and <strong>$AS = 2$</strong>. This work is directly relevant to Dr. Yang's research on ornithopter aerodynamic modeling and flapping-wing mechanism design, particularly regarding computationally efficient inviscid methods for parametric wing deformation studies.</div>
+  </div>
+
+  <details>
+    <summary>
+      <div class="section-number">2</div>
+      <h2>Introduction</h2>
+    </summary>
+    <div class="section-body">
+      <h3>Motivation</h3>
+      <ul>
+        <li>Micro air vehicles (MAVs) and flapping drones are increasingly important for aerial surveillance, disaster management, and defense applications</li>
+        <li>At small length scales (Re below ~1000), flapping-wing mechanisms outperform fixed-wing aerodynamics due to significant viscous effects causing flow detachment on conventional lifting surfaces</li>
+        <li>Bio-inspired flapping wings offer hovering capability, superior maneuverability, and potentially lower noise emission compared to fixed and rotary wings</li>
+        <li>Unsteady flapping dynamics involves complex phenomena including clap-and-fling, delayed stall, wake capture, and chaotic wake transitions</li>
+      </ul>
+      <h3>State of the Art</h3>
+      <ul>
+        <li>Foundational work on flapping flight dates to <strong>Lighthill (1973)</strong> and <strong>Ellington (1984)</strong>, with extensive reviews by <strong>Tennekes (1997)</strong> and <strong>Dhawan (1991)</strong></li>
+        <li>Wing deformation's role in aerodynamic improvement is relatively under-studied compared to rigid flapping wings; insect wings are highly flexible structures that deform under aerodynamic and inertial loads</li>
+        <li>Deformation has been shown to improve force generation (<strong>Vanella et al., 2009</strong>; <strong>Mountcastle and Daniel, 2010</strong>) and efficiency (<strong>Jankauski et al., 2018</strong>; <strong>Reid et al., 2019</strong>)</li>
+        <li>Flexural rigidity variations along the chord (up to two orders of magnitude in hawkmoth <em>Manduca sexta</em>) suggest structural tuning for aerodynamic benefit (<strong>Combes and Daniel, 2003</strong>)</li>
+      </ul>
+      <h3>Gap &amp; Contribution</h3>
+      <ul>
+        <li>Prior 3D DVM studies of deformable flapping wings with systematic comparison of bending, twisting, and coupled deformation modes are lacking</li>
+        <li>Conventional twisting approaches rotate the wing about a fixed root axis; this study introduces a novel pivot at the leading-edge root that dynamically adjusts during the stroke</li>
+        <li>Comprehensive parametric study across reduced frequency, aspect ratio, and asymmetric ratio for all four deformation modes provides design guidelines for flapping MAVs</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>
+      <div class="section-number">3</div>
+      <h2>Related Works</h2>
+    </summary>
+    <div class="section-body">
+      <h3>Computational Studies of Flapping Wings</h3>
+      <ul>
+        <li><strong>Katz and Plotkin (2001)</strong> established the foundational framework for low-speed aerodynamics using discrete vortex methods, providing the unsteady Bernoulli equation formulation for panel pressure computation</li>
+        <li><strong>Ghommem et al. (2012)</strong> performed numerical simulations of rectangular flapping wings in forward flight, providing validation benchmarks for the current DVM implementation</li>
+        <li><strong>Stanford and Beran (2010)</strong> studied predefined wing deformation using bending and twisting mode shapes with conventional root-axis rotation; their bending mode shape function is adopted in this work</li>
+        <li><strong>Fritz and Long (2004)</strong> examined thrust generation mechanisms and the role of trailing-edge vortex dynamics in flapping flight</li>
+        <li><strong>Jaworski and Gordnier (2015)</strong> demonstrated thrust augmentation of flapping airfoils at low Re using flexible membranes</li>
+      </ul>
+      <h3>Experimental and Bio-Inspired Studies</h3>
+      <ul>
+        <li><strong>Combes and Daniel (2003)</strong> measured spanwise and chordwise flexural stiffness distributions in hawkmoth wings, revealing one-to-two order-of-magnitude gradients along the chord</li>
+        <li><strong>Bomphrey et al. (2017)</strong> used smoke visualization to reveal independent leading-edge vortices on each wing pair in mosquito flight at high frequency</li>
+        <li><strong>Dong et al. (2006)</strong> reported that for aspect ratios exceeding ~2.55, wingtip vortices detach, leading to efficiency drops</li>
+        <li><strong>Bose and Sarkar (2018)</strong> investigated chaotic wake dynamics behind flapping airfoils, explaining the transition from periodicity to chaos through vortex interactions</li>
+      </ul>
+      <h3>2D and Prior DVM Studies</h3>
+      <ul>
+        <li><strong>Kumar and Samanta (2023)</strong> developed a 2D DVM simulation for bending and length-varying flapping wings, serving as the direct precursor to this 3D extension</li>
+        <li><strong>Chakravarty and Samanta (2021)</strong> applied DVM to simulate 1D flexible filaments mimicking anguilliform swimming in 2D flow</li>
+        <li><strong>Devranjan et al. (2013)</strong> presented an early study of flapping flight using discrete vortex method simulations</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>
+      <div class="section-number">4</div>
+      <h2>Materials and Methods</h2>
+    </summary>
+    <div class="section-body">
+      <h3>Problem Setup</h3>
+      <ul>
+        <li>Rectangular wing in forward flight; chord $c = 0.1$ m, aspect ratio $AR = b/c$ varied from 1 to 6</li>
+        <li>Flapping amplitude $\delta_1 = 30°$, initial inclination $\delta_0 = -30°$, angle of attack $\alpha = 2°$, free-stream velocity $U_\infty = 11$ m/s</li>
+        <li>Reynolds number range $Re \approx 380$&ndash;$1910$, where inviscid approximation is valid for flapping dynamics</li>
+        <li>Four configurations: rigid, bending (spanwise), twisting (chordwise about leading-edge root pivot), and BTC (bending + twisting coupled)</li>
+        <li>Time step $\Delta t = 0.001$ s; wake vortex shed at $0.3 U_\infty \Delta t$ from the wing tip at each step</li>
+      </ul>
+      <h3>Governing Equations</h3>
+      <ul>
+        <li>Inviscid vorticity transport: $\frac{D\Omega}{Dt} = \Omega \cdot \nabla \vec{u}$, retaining vortex stretching/tilting in 3D while eliminating diffusion</li>
+        <li>Biot-Savart law for induced velocity from a finite vortex segment: $d\vec{v} = \frac{\Gamma}{4\pi} \frac{d\vec{l} \times \vec{r}}{|\vec{r}|^3}$</li>
+        <li>Zero normal velocity boundary condition at collocation points: $\sum_{L=1}^{m} a_{KL} \Gamma_L = RHS_K$, solved as a linear system at each time step</li>
+        <li>Unsteady Bernoulli equation for pressure: $\frac{p_{ref} - p}{\rho} = \frac{Q^2}{2} - \frac{v_{ref}^2}{2} + \frac{\partial \phi}{\partial t}$</li>
+        <li>Panel pressure difference (Katz formulation): $$\Delta p_{ij} = \rho \left[ (\vec{V}_{ij} \cdot \tau_i) \frac{\Gamma_{i,j} - \Gamma_{i-1,j}}{\Delta c_{ij}} + (\vec{V}_{ij} \cdot \tau_j) \frac{\Gamma_{i,j} - \Gamma_{i,j-1}}{\Delta b_{ij}} + \frac{\partial}{\partial t} \Gamma_{i,j} \right]$$</li>
+        <li>Lift coefficient: $C_L = F_L / (0.5 \rho S U_\infty^2)$; Thrust coefficient: $C_T = F_X / (0.5 \rho S U_\infty^2)$</li>
+        <li>Propulsive efficiency: $\eta_p = C_T / C_P$, where $C_P = P / (0.5 \rho S U_\infty^3)$</li>
+      </ul>
+      <h3>Wing Kinematics</h3>
+      <ul>
+        <li>Symmetric flapping: $\delta(t) = \delta_0 + \delta_1 \sin(\omega t)$</li>
+        <li>Asymmetric flapping: piecewise sinusoidal with different downstroke and upstroke speeds, governed by asymmetric ratio $AS$</li>
+        <li>Bending mode shape (from Stanford and Beran, 2010): polynomial function of spanwise coordinate $y/b$</li>
+        <li>Novel twisting: wing rotates about pivot point O at the root of the leading edge (not the conventional root axis), with twist angle varying along span</li>
+        <li>BTC mode: simultaneous bending and twisting deformations superposed</li>
+      </ul>
+      <h3>Numerical Implementation</h3>
+      <ul>
+        <li>Wing discretized into $N \times M$ quadrilateral panels with vortex ring elements; bound vortex at quarter-chord, collocation at three-quarter-chord</li>
+        <li>Lagrangian wake tracking: trailing-edge vortex rings shed and convected at each time step</li>
+        <li>Influence coefficient matrix $[a_{KL}]$ assembled and solved at each time step via matrix inversion</li>
+        <li>MATLAB implementation; simulations run for 30 cycles to achieve near-steady time-averaged values</li>
+      </ul>
+      <h3>Validation Strategy</h3>
+      <ul>
+        <li>DVM code validated against <strong>Ghommem et al. (2012)</strong> for a rectangular wing in forward flight with flapping motion</li>
+        <li>Grid convergence study performed to determine adequate panel resolution ($N \times M$)</li>
+        <li>Time-averaged lift and thrust converge after approximately 30 cycles (Fig. SI-VI)</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>
+      <div class="section-number">5</div>
+      <h2>Results</h2>
+    </summary>
+    <div class="section-body">
+      <h3>Validation Results</h3>
+      <ul>
+        <li>DVM results show good agreement with the benchmark data of <strong>Ghommem et al. (2012)</strong> for rigid rectangular wing in forward flight</li>
+        <li>Temporal lift and thrust profiles reproduce the expected sinusoidal behavior with peak magnitudes at wing mid-position during each half-stroke</li>
+      </ul>
+      <h3>Deformation Mode Comparison</h3>
+      <ul>
+        <li>At $k = 0.6$ (symmetric), lift coefficients: rigid $C_L = 0.805$, bending $C_L = 0.916$ (<strong>+13.78%</strong>), twisting $C_L = 1.25$ (<strong>+55.25%</strong>), <strong>BTC</strong> $C_L = 1.358$ (<strong>+68.75%</strong>)</li>
+        <li>At $k = 0.6$ (asymmetric, $AS = 2$), lift coefficients: rigid $C_L = 1.36$, bending $C_L = 1.51$ (<strong>+11%</strong>), twisting $C_L = 1.95$ (<strong>+43.3%</strong>), <strong>BTC</strong> $C_L = 2.15$ (<strong>+53.57%</strong>)</li>
+        <li>Bending mode provides modest lift improvement with relatively small thrust enhancement; twisting and BTC modes yield substantially higher lift and thrust</li>
+        <li>BTC wing achieves the highest pressure levels at the leading edge across all configurations, generating the strongest aerodynamic forces</li>
+      </ul>
+      <h3>Reduced Frequency Effects</h3>
+      <ul>
+        <li>Both <strong>$C_L$</strong> and <strong>$C_T$</strong> increase <strong>monotonically</strong> with reduced frequency $k$ from <strong>0.1 to 0.6</strong> for all four modes</li>
+        <li><strong>Propulsive efficiency</strong> $\eta_p$ increases with $k$ up to a maximum in the range <strong>$k = 0.3$&ndash;$0.4$</strong>, then decreases monotonically at higher frequencies</li>
+        <li>At higher $k$, the unsteady term $\frac{\partial}{\partial t}\Gamma_{i,j}$ becomes dominant in determining aerodynamic forces</li>
+        <li>Higher $k$ produces more energetic wake patterns with stronger vortex shedding from the trailing edge; wake vortex rings are located closer to the wing surface</li>
+      </ul>
+      <h3>Aspect Ratio Effects</h3>
+      <ul>
+        <li><strong>Propulsive efficiency</strong> increases continuously up to <strong>$AR \approx 3$&ndash;$4$</strong>, then decreases with further AR increase for all four modes</li>
+        <li>For <strong>$AR > 2.55$</strong>, <strong>wingtip vortices</strong> begin to detach, consistent with findings of <strong>Dong et al. (2006)</strong></li>
+        <li>Higher AR wings experience greater tip velocities and larger deformations, contributing to improved aerodynamic performance within the optimal range</li>
+      </ul>
+      <h3>Asymmetric Ratio Effects</h3>
+      <ul>
+        <li><strong>Asymmetric flapping</strong> ($AS > 1$) produces notably <strong>higher time-averaged aerodynamic forces</strong> compared to symmetric flapping</li>
+        <li>Propulsive efficiency peaks at <strong>$AS = 2$</strong> for all four wing configurations, then decreases due to increased <strong>power requirements</strong> at higher $AS$</li>
+        <li>Higher downstroke speed generates <strong>larger and stronger trailing vortices</strong>, directly enhancing thrust production</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>
+      <div class="section-number">6</div>
+      <h2>Results Interpretation</h2>
+    </summary>
+    <div class="section-body">
+      <h3>Vortex Dynamics Mechanisms</h3>
+      <ul>
+        <li>Twisted and BTC wings maintain higher-strength vortices near the trailing edge, directly enhancing circulation by Kelvin's theorem: $\frac{D\Gamma_{wing}}{Dt} + \frac{D\Gamma_{wake}}{Dt} = 0$</li>
+        <li>The novel leading-edge pivot twisting creates a spanwise-varying angle of attack, producing stronger pressure differentials and more concentrated wingtip vortices</li>
+        <li>Chaotic wake behavior observed in twisted and BTC modes arises from non-uniform vorticity distribution along the span induced by the twisting motion</li>
+        <li>At high $k$, the negative vortex above rigid wings produces a lift penalty, while deformable wings (especially BTC) position positive vortices beneath the wing for consistently higher average lift</li>
+      </ul>
+      <h3>Physical Interpretation of Pressure Distribution</h3>
+      <ul>
+        <li>BTC wings exhibit the highest positive pressure at the leading edge, facilitating flow attachment but also risking adverse pressure gradients at extreme conditions</li>
+        <li>The third term $\frac{\partial}{\partial t}\Gamma_{i,j}$ in the pressure equation becomes dominant at high reduced frequencies, explaining the nonlinear increase in aerodynamic forces</li>
+        <li>The propulsive efficiency peak at $k = 0.3$&ndash;$0.4$ reflects a balance between increasing force production and the rising power cost of faster flapping</li>
+      </ul>
+      <h3>Limitations</h3>
+      <ul>
+        <li>Inviscid DVM neglects viscous effects including boundary layer separation and transition; validity is limited to the moderate-Re range ($Re \approx 380$&ndash;$1910$)</li>
+        <li>Structural deformation is prescribed (kinematic), not computed via fluid-structure interaction; the feedback of aerodynamic loads on wing shape is not captured</li>
+        <li>Wing morphing power and inertial power input for flapping are neglected, which is a reasonable assumption for forward flight but may not hold for hovering</li>
+        <li>Only rectangular planform is studied; more realistic wing shapes (tapered, elliptical) are not considered</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>
+      <div class="section-number">7</div>
+      <h2>Conclusion</h2>
+    </summary>
+    <div class="section-body">
+      <ul>
+        <li><strong>BTC</strong> (bending-twisting coupling) mode is the most effective deformation strategy, achieving up to <strong>68.75%</strong> lift enhancement (symmetric) and <strong>53.57%</strong> (asymmetric) over rigid wings at <strong>$k = 0.6$</strong></li>
+        <li>Optimal aerodynamic performance is achieved with reduced frequency <strong>$k = 0.3$&ndash;$0.4$</strong>, aspect ratio <strong>$AR = 3$&ndash;$4$</strong>, and asymmetric ratio <strong>$AS = 2$</strong></li>
+        <li>The novel <strong>leading-edge root pivot</strong> for wing twisting is more effective than conventional root-axis rotation in generating aerodynamic forces</li>
+        <li><strong>DVM</strong> provides a computationally efficient framework for <strong>3D unsteady flapping simulations</strong> without requiring flow-field grid generation at each time step</li>
+        <li><strong>Twisting mode</strong> alone provides significant improvements (<strong>55.25%</strong> lift increase), making it a practical intermediate option when full BTC is not feasible</li>
+        <li>Future work should incorporate fluid-structure interaction (FSI) to capture the feedback between aerodynamic loads and structural deformation</li>
+        <li>The parametric design guidelines (optimal $k$, $AR$, $AS$) provide a framework for flapping MAV design optimization</li>
+      </ul>
+    </div>
+  </details>
+
+</div>
+
+<div class="footer">
+  Generated by YANG Lab RECON &middot; <a href="https://doi.org/10.1016/j.jfluidstructs.2024.104128">View Original Paper</a>
+</div>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '\\[', right: '\\]', display: true},
+      {left: '\\(', right: '\\)', display: false},
+      {left: '$', right: '$', display: false}
+    ],
+    throwOnError: false
+  });"></script>
+</body>
+</html>

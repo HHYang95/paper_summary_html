@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="paper-title" content="Fast Multipole Accelerated Unsteady Vortex Lattice Method Based Computations">
+<meta name="paper-year" content="2019">
+<meta name="paper-author" content="Abu Kebbie-Anthony, Nail A. Gumerov, Sergio Preidikman, Balakumar Balachandran, Shapour Azarm">
+<meta name="paper-journal" content="Journal of Aerospace Information Systems">
+<meta name="paper-tags" content="UVLM, Fast Multipole Method, Computational Acceleration, N Body Problem, Wake Velocity, Aeroelasticity, Decision Support System">
+<meta name="paper-doi" content="10.2514/1.I010690">
+<title>Fast Multipole Accelerated Unsteady Vortex Lattice Method Based Computations — Summary</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter','Segoe UI',-apple-system,sans-serif;background:#f8f9fb;color:#1e293b;line-height:1.7;-webkit-font-smoothing:antialiased}.hero{background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 50%,#0c4a6e 100%);color:#fff;padding:56px 0 48px;position:relative;overflow:hidden}.hero::after{content:'';position:absolute;top:0;right:0;bottom:0;width:40%;background:radial-gradient(ellipse at 80% 50%,rgba(56,189,248,0.08) 0%,transparent 70%);pointer-events:none}.hero-inner{max-width:900px;margin:0 auto;padding:0 40px;position:relative;z-index:1}.hero h1{font-size:28px;font-weight:700;line-height:1.35;letter-spacing:-0.3px;margin-bottom:16px}.hero-meta{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:14px;color:#94a3b8}.hero-meta a{color:#7dd3fc;text-decoration:none}.importance-badge{position:absolute;top:56px;right:40px;font-size:22px;letter-spacing:2px;filter:drop-shadow(0 0 6px rgba(255,215,0,0.4))}.tag-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:20px}.tag{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);color:#cbd5e1;font-size:11px;font-weight:500;padding:3px 10px;border-radius:20px}.container{max-width:900px;margin:0 auto;padding:40px 40px 80px}details{margin-bottom:12px;border-radius:10px;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,0.04);overflow:hidden}details[open]{box-shadow:0 2px 8px rgba(0,0,0,0.06)}summary{display:flex;align-items:center;gap:12px;padding:14px 20px;cursor:pointer;user-select:none;list-style:none;border-bottom:2px solid transparent;transition:background 0.15s}summary:hover{background:#f1f5f9}details[open]>summary{border-bottom-color:#e2e8f0}summary::-webkit-details-marker{display:none}summary::before{content:'\25B6';font-size:10px;color:#94a3b8;transition:transform 0.2s;flex-shrink:0}details[open]>summary::before{transform:rotate(90deg)}.section-number{background:#0f172a;color:#fff;font-size:11px;font-weight:700;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}summary h2{font-size:16px;font-weight:700;color:#0f172a}.section-body{padding:16px 20px 20px}.overview{margin-bottom:12px;background:#fff;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,0.04);overflow:hidden}.overview-header{display:flex;align-items:center;gap:12px;padding:14px 20px;border-bottom:2px solid #e2e8f0}.overview-header h2{font-size:16px;font-weight:700;color:#0f172a}.overview-text{font-size:14.5px;line-height:1.8;color:#334155;padding:16px 20px 20px;border-left:4px solid #0ea5e9;margin:0}.section-body ul{list-style:none;padding:0}.section-body ul li{position:relative;padding:7px 0 7px 18px;font-size:13.5px;line-height:1.7;color:#334155}.section-body ul li::before{content:'';position:absolute;left:0;top:15px;width:5px;height:5px;background:#0ea5e9;border-radius:50%}.section-body ul li+li{border-top:1px solid #f1f5f9}.section-body h3{font-size:13.5px;font-weight:600;color:#0c4a6e;margin:16px 0 6px}.section-body h3:first-child{margin-top:0}.footer{max-width:900px;margin:0 auto;padding:0 40px 48px;text-align:center;font-size:12px;color:#94a3b8}.footer a{color:#64748b;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="hero"><div class="hero-inner"><h1>Fast Multipole Accelerated Unsteady Vortex Lattice Method Based Computations</h1><div class="hero-meta"><span>Abu Kebbie-Anthony, Nail A. Gumerov, Sergio Preidikman, Balakumar Balachandran, Shapour Azarm</span><span>Journal of Aerospace Information Systems (2019)</span><span><a href="https://doi.org/10.2514/1.I010690">DOI: 10.2514/1.I010690</a></span></div><div class="tag-row"><span class="tag">UVLM</span><span class="tag">Fast Multipole Method</span><span class="tag">Computational Acceleration</span><span class="tag">N Body Problem</span><span class="tag">Wake Velocity</span><span class="tag">Aeroelasticity</span><span class="tag">Decision Support System</span></div><div class="importance-badge">★★</div></div></div>
+<div class="container">
+  <div class="overview"><div class="overview-header"><div class="section-number">1</div><h2>Overview</h2></div><div class="overview-text">This paper presents the first integration of the fast multipole method (FMM) with an unsteady vortex lattice method (UVLM)-based nonlinear, unsteady aerodynamic simulator. The FMM accelerates wake velocity evaluation — the dominant computational cost (>90% of total time) — by decomposing the Biot-Savart velocity field into near-field (direct) and far-field (multipole-approximated) interactions using a hierarchical octree. Through systematic tuning of three parameters (truncation number <span class="katex-inline">p_F = 12</span>, quadrature order <span class="katex-inline">N_q = 2</span>, clustering parameter <span class="katex-inline">s = 300</span>), the per-step complexity is reduced from <span class="katex-inline">O(K^2)</span> to <span class="katex-inline">$O(K)$</span>, yielding an approximately 90x speedup (15 min to 10 s) with relative <span class="katex-inline">L_2</span>-norm error of order <span class="katex-inline">\sim 10^{-5}</span>. This enables previously intractable domain sizes for aeroelastic analysis within the DDDAS paradigm.</div></div>
+
+  <details><summary><div class="section-number">2</div><h2>Introduction</h2></summary><div class="section-body">
+    <h3>Motivation: Decision Support for UAS Aeroelasticity</h3>
+    <ul>
+      <li>Unmanned aircraft systems (UASs) with high-aspect-ratio wings (e.g., <strong>joined-wing SensorCraft</strong>) are susceptible to <strong>aeroelastic instabilities</strong> from unforeseen environmental conditions</li>
+      <li>Linear aeroelastic models cannot capture <strong>postcritical behavior</strong> or generate reliable stability margins; fully coupled nonlinear methods are required</li>
+      <li>A <strong>decision support system (DSS)</strong> within the <strong>DDDAS paradigm</strong> combines nonlinear aeroelastic simulations with sensor data for real-time mission planning and failure prediction</li>
+      <li>Faster simulations mean more scenarios can be sampled, and computational models can be updated more rapidly from measurement data</li>
+    </ul>
+    <h3>Computational Bottleneck in UVLM</h3>
+    <ul>
+      <li>In aeroelastic simulations of the joined-wing SensorCraft, <strong>over 90%</strong> of computation time is consumed by evaluating wake velocities via the Biot-Savart law</li>
+      <li>The velocity field computation has <span class="katex-inline">O(NM)</span> cost per time step, where <span class="katex-inline">N</span> is the number of vortex segments and <span class="katex-inline">M</span> is the number of field points; both grow with time</li>
+      <li>Prior acceleration via <strong>GPU computing</strong> (Chabalko et al., Fleischmann et al.) is hardware-dependent and caps scalability for large problems</li>
+    </ul>
+    <h3>FMM as Algorithmic Solution</h3>
+    <ul>
+      <li>The FMM, one of the <strong>10 most influential algorithms</strong> of the 20th century, reduces N-body problem complexity from <span class="katex-inline">O(N^2)</span> to <span class="katex-inline">O(N)</span> or <span class="katex-inline">O(N \log N)</span></li>
+      <li>Originally developed by <strong>Greengard and Rokhlin (1987)</strong> for gravitational/electrostatic potentials; extended to vortex methods by <strong>Gumerov and Duraiswami (2013)</strong> via Lamb-Helmholtz decomposition</li>
+      <li>This paper is the <strong>first study</strong> implementing and examining FMM acceleration for a UVLM-based aerodynamic simulator</li>
+    </ul>
+  </div></details>
+
+  <details><summary><div class="section-number">3</div><h2>Related Works</h2></summary><div class="section-body">
+    <ul>
+      <li><strong>Preidikman (1998)</strong> — developed the UVLM-based aerodynamic model used in the aeroelastic co-simulation framework</li>
+      <li><strong>Roccia, Preidikman, and Balachandran (2017)</strong> — co-simulation strategy coupling UVLM with structural dynamics for flapping wings in hover flight</li>
+      <li><strong>Greengard and Rokhlin (1987)</strong> — original FMM algorithm reducing particle simulation from <span class="katex-inline">O(N^2)</span> to <span class="katex-inline">O(N)</span></li>
+      <li><strong>Gumerov and Duraiswami (2013)</strong> — efficient FMM-accelerated vortex methods via Lamb-Helmholtz decomposition into scalar harmonic functions</li>
+      <li><strong>Ricciardi, Wolf, and Bimbato (2017)</strong> — FMM applied to discrete vortex method for free domain and periodic problems</li>
+      <li><strong>Chabalko and Balachandran (2014)</strong> — GPU-based 2D vortex interaction implementation for UVLM acceleration</li>
+      <li><strong>Fleischmann et al. (2018)</strong> — GPU-accelerated UVLM in the Flexit aeroelastic computational framework</li>
+      <li><strong>Cheung et al. (2018)</strong> — octree data structure similar to FMM for accelerating wake velocity calculations</li>
+      <li><strong>Gumerov and Duraiswami (2008)</strong> — FMM on graphics processors combining algorithmic and hardware acceleration</li>
+    </ul>
+  </div></details>
+
+  <details><summary><div class="section-number">4</div><h2>Materials and Methods</h2></summary><div class="section-body">
+    <h3>UVLM Aerodynamic Model</h3>
+    <ul>
+      <li>Inviscid, incompressible, irrotational flow assumed except at solid boundaries and wakes; bound-vortex sheets replaced by lattices of straight vortex segments with circulation <span class="katex-inline">\Gamma(t)</span></li>
+      <li>No-penetration boundary condition: <span class="katex-inline">[\mathbf{V}_B + \mathbf{V}_W + \mathbf{V}_\infty - \mathbf{V}_{\text{Body}}] \cdot \hat{\mathbf{n}} = 0</span></li>
+      <li>Aerodynamic loads computed via the <strong>unsteady Bernoulli equation</strong>; wake nodes convected by local fluid velocity using first-order time integration</li>
+    </ul>
+    <h3>Biot-Savart Velocity Computation</h3>
+    <ul>
+      <li>Velocity at field point <span class="katex-inline">\mathbf{r}</span> from vortex segment <span class="katex-inline">L_i</span>: <span class="katex-inline">\mathbf{V}_i = \frac{\Gamma_i}{4\pi}\frac{\mathbf{L}_i \times \mathbf{r}_{1i}}{\|\mathbf{L}_i \times \mathbf{r}_{1i}\|^2}(\mathbf{L}_i \cdot (\hat{e}_{1i} - \hat{e}_{2i}))</span></li>
+      <li>Smoothing parameter <span class="katex-inline">\delta</span> prevents singularity near vortex lines; validated to produce negligible error in aerodynamic coefficients</li>
+      <li>Summing <span class="katex-inline">N</span> segment contributions at <span class="katex-inline">M</span> field points yields <span class="katex-inline">O(NM)</span> cost, motivating FMM acceleration</li>
+    </ul>
+    <h3>Fast Multipole Method Implementation</h3>
+    <ul>
+      <li><strong>Octree data structure</strong>: domain enclosed in cube, recursively subdivided until each leaf box contains at most <span class="katex-inline">s</span> sources (clustering parameter)</li>
+      <li>System equation split into <strong>near-field</strong> (sparse, direct) and <strong>far-field</strong> (dense, multipole-approximated) interactions</li>
+      <li>Multipole expansion with truncation number <span class="katex-inline">p_F</span> using regular and singular spherical basis functions <span class="katex-inline">R_n^m</span> and <span class="katex-inline">S_n^m</span></li>
+      <li>Vortex velocity expressed as <strong>curl of vector potential</strong>; each Cartesian component is a scalar harmonic function amenable to standard FMM for Laplace equation</li>
+      <li>Expansion coefficients computed via <strong>Gauss-Legendre quadrature</strong> of order <span class="katex-inline">N_q</span>; zero error guaranteed when <span class="katex-inline">N_q = \lceil(p_F-1)/2\rceil + 1</span></li>
+    </ul>
+    <h3>Parameter Tuning Strategy</h3>
+    <ul>
+      <li><strong>Step 1</strong>: Vary <span class="katex-inline">p_F</span> (with <span class="katex-inline">N_q</span> from zero-error formula and fixed <span class="katex-inline">s</span>) to find acceptable accuracy</li>
+      <li><strong>Step 2</strong>: Reduce <span class="katex-inline">N_q</span> as much as possible within required accuracy</li>
+      <li><strong>Step 3</strong>: Adjust <span class="katex-inline">s</span> to minimize wall-clock time (optimum where sparse and dense computation times balance)</li>
+    </ul>
+  </div></details>
+
+  <details><summary><div class="section-number">5</div><h2>Results</h2></summary><div class="section-body">
+    <h3>FMM Parameter Tuning</h3>
+    <ul>
+      <li>Test configuration: planar rectangular wing, AR = 4, chord = 1 m, span = 4 m, <span class="katex-inline">9 \times 36</span> panels, <span class="katex-inline">V_\infty = 125</span> m/s, <span class="katex-inline">\alpha = 5°</span></li>
+      <li><strong>Truncation number</strong>: <span class="katex-inline">L_2</span>-norm error decreases monotonically; <span class="katex-inline">\sim 10^{-5}</span> at <span class="katex-inline">p_F = 12</span>, <span class="katex-inline">\sim 10^{-8}</span> at <span class="katex-inline">p_F = 24</span>; optimal <span class="katex-inline">p_F = 12</span> balancing accuracy and cost</li>
+      <li><strong>Quadrature order</strong>: <span class="katex-inline">N_q = 2, 3, 4</span> produce nearly identical accuracy; <span class="katex-inline">N_q = 1</span> degrades; wall-clock times approximately equal — <span class="katex-inline">N_q = 2</span> is optimal</li>
+      <li><strong>Clustering parameter</strong>: strong minimum in wall-clock time at <span class="katex-inline">s = 300</span> (27.92 s vs 45.34 s at <span class="katex-inline">s = 100</span>); accuracy varies minimally across all <span class="katex-inline">s</span> values</li>
+    </ul>
+    <h3>Computational Cost Reduction</h3>
+    <ul>
+      <li>Optimal configuration: <span class="katex-inline">p_F = 12</span>, <span class="katex-inline">N_q = 2</span>, <span class="katex-inline">s = 300</span></li>
+      <li>Per-step wake velocity complexity reduced from <span class="katex-inline">O(K^2)</span> to <span class="katex-inline">$O(K)$</span></li>
+      <li>Cumulative complexity over <span class="katex-inline">K</span> steps reduced from <span class="katex-inline">O(K^3)</span> to <span class="katex-inline">O(K^2)</span></li>
+      <li>FMM outperforms standard UVLM after only <strong>~8 time steps</strong> (<span class="katex-inline">N \approx 1500</span> sources)</li>
+      <li>Approximately <strong>90x speedup</strong>: 15 min reduced to 10 s with <span class="katex-inline">L_2</span> error <span class="katex-inline">\sim 10^{-5}</span></li>
+    </ul>
+    <h3>Method Comparison</h3>
+    <ul>
+      <li>Three-scalar-harmonic approach vs Lamb-Helmholtz (two functions): latter is ~20% faster at same <span class="katex-inline">p_F</span> but with larger errors</li>
+      <li>Overall speed-vs-accuracy performance is approximately equivalent between the two formulations</li>
+      <li>FMM parameters found to be <strong>general</strong>: applicable across varying aspect ratios (4-16), angles of attack (5-20 deg), and flow conditions</li>
+    </ul>
+  </div></details>
+
+  <details><summary><div class="section-number">6</div><h2>Results Interpretation</h2></summary><div class="section-body">
+    <ul>
+      <li>The FMM fundamentally changes UVLM scaling: total algorithm complexity grows as <span class="katex-inline">O(K^2)</span> instead of <span class="katex-inline">O(K^3)</span>, enabling <strong>long-duration simulations</strong> previously intractable for full aircraft configurations</li>
+      <li>The early crossover at <span class="katex-inline">k \approx 8</span> time steps indicates <strong>minimal FMM overhead</strong>, making the method beneficial from nearly the start of any practical simulation</li>
+      <li><strong>Truncation number</strong> <span class="katex-inline">p_F</span> dominates both accuracy and cost; <strong>quadrature order</strong> <span class="katex-inline">N_q</span> has negligible impact beyond <span class="katex-inline">N_q = 2</span> (quadrature error dominated by truncation error); <strong>clustering parameter</strong> <span class="katex-inline">s</span> controls the sparse/dense computation balance</li>
+      <li>The three-component (standard FMM) approach is <strong>simpler to implement</strong> than Lamb-Helmholtz decomposition while achieving equivalent accuracy-speed tradeoff, lowering the barrier for adoption</li>
+      <li>With >90% of aeroelastic simulation time in wake velocity, the FMM directly addresses the <strong>primary bottleneck</strong> and enables the DDDAS paradigm for real-time, sensor-steered decision support</li>
+      <li>The <span class="katex-inline">$O(K)$</span> per-step scaling makes the method particularly advantageous for <strong>growing wake problems</strong> where the number of vortex segments increases linearly with time steps</li>
+    </ul>
+  </div></details>
+
+  <details><summary><div class="section-number">7</div><h2>Conclusion</h2></summary><div class="section-body">
+    <ul>
+      <li><strong>First implementation</strong> of FMM for accelerating a UVLM-based nonlinear unsteady aerodynamic simulator, addressing the literature gap</li>
+      <li>Systematic <strong>three-step parameter tuning</strong>: <span class="katex-inline">p_F = 12</span>, <span class="katex-inline">N_q = 2</span>, <span class="katex-inline">s = 300</span> yields optimal accuracy-cost tradeoff; parameters are general across flow conditions and geometries</li>
+      <li>Wake velocity complexity reduced from <span class="katex-inline">O(K^2)</span> to <span class="katex-inline">$O(K)$</span> per step; <strong>~90x speedup</strong> with <span class="katex-inline">L_2</span> error <span class="katex-inline">\sim 10^{-5}</span></li>
+      <li>Enables simulation of complex systems like the <strong>joined-wing SensorCraft</strong> that were previously computationally intractable</li>
+      <li>Future work: accelerate additional UVLM processes, study full aeroelastic coupling benefits, and combine FMM with <strong>GPU computing</strong> for further speedup</li>
+    </ul>
+  </div></details>
+</div>
+<div class="footer">Generated by YANG Lab RECON &middot; <a href="https://doi.org/10.2514/1.I010690">View Original Paper</a></div>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(".katex-inline").forEach(function(el){katex.render(el.textContent,el,{throwOnError:false,displayMode:false})})});
+</script>
+</body>
+</html>

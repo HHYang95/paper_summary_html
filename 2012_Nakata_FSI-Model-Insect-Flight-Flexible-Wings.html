@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="paper-title" content="A Fluid-Structure Interaction Model of Insect Flight With Flexible Wings">
+<meta name="paper-year" content="2012">
+<meta name="paper-author" content="Toshiyuki Nakata, Hao Liu">
+<meta name="paper-journal" content="Journal of Computational Physics">
+<meta name="paper-tags" content="FSI, Insect Flight, Flexible Wing, FEM, CFD, Hawkmoth, Hovering, Aeroelasticity, Thin Shell, Unsteady Aerodynamics">
+<meta name="paper-doi" content="10.1016/j.jcp.2011.11.005">
+<title>A Fluid-Structure Interaction Model of Insect Flight With Flexible Wings &mdash; Summary</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', 'Segoe UI', -apple-system, sans-serif; background: #f8f9fb; color: #1e293b; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  .hero { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0c4a6e 100%); color: #fff; padding: 56px 0 48px; position: relative; overflow: hidden; }
+  .hero::after { content: ''; position: absolute; top: 0; right: 0; bottom: 0; width: 40%; background: radial-gradient(ellipse at 80% 50%, rgba(56,189,248,0.08) 0%, transparent 70%); pointer-events: none; }
+  .hero-inner { max-width: 900px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 1; }
+  .hero h1 { font-size: 28px; font-weight: 700; line-height: 1.35; letter-spacing: -0.3px; margin-bottom: 16px; }
+  .hero-meta { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px; color: #94a3b8; }
+  .hero-meta a { color: #7dd3fc; text-decoration: none; }
+  .hero-meta a:hover { text-decoration: underline; }
+  .importance-badge { position: absolute; top: 56px; right: 40px; font-size: 22px; letter-spacing: 2px; filter: drop-shadow(0 0 6px rgba(255,215,0,0.4)); }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px; }
+  .tag { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); color: #cbd5e1; font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px; letter-spacing: 0.3px; }
+  .container { max-width: 900px; margin: 0 auto; padding: 40px 40px 80px; }
+  details { margin-bottom: 12px; border-radius: 10px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.04); overflow: hidden; }
+  details[open] { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  summary { display: flex; align-items: center; gap: 12px; padding: 14px 20px; cursor: pointer; user-select: none; list-style: none; border-bottom: 2px solid transparent; transition: background 0.15s; }
+  summary:hover { background: #f1f5f9; }
+  details[open] > summary { border-bottom-color: #e2e8f0; }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: '\25B6'; font-size: 10px; color: #94a3b8; transition: transform 0.2s; flex-shrink: 0; }
+  details[open] > summary::before { transform: rotate(90deg); }
+  .section-number { background: #0f172a; color: #fff; font-size: 11px; font-weight: 700; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  summary h2 { font-size: 16px; font-weight: 700; color: #0f172a; letter-spacing: -0.2px; }
+  .section-body { padding: 16px 20px 20px; }
+  .overview { margin-bottom: 12px; background: #fff; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); overflow: hidden; }
+  .overview-header { display: flex; align-items: center; gap: 12px; padding: 14px 20px; border-bottom: 2px solid #e2e8f0; }
+  .overview-header h2 { font-size: 16px; font-weight: 700; color: #0f172a; }
+  .overview-text { font-size: 14.5px; line-height: 1.8; color: #334155; padding: 16px 20px 20px; border-left: 4px solid #0ea5e9; margin: 0; }
+  .section-body ul { list-style: none; padding: 0; }
+  .section-body ul li { position: relative; padding: 7px 0 7px 18px; font-size: 13.5px; line-height: 1.7; color: #334155; }
+  .section-body ul li::before { content: ''; position: absolute; left: 0; top: 15px; width: 5px; height: 5px; background: #0ea5e9; border-radius: 50%; }
+  .section-body ul li + li { border-top: 1px solid #f1f5f9; }
+  .section-body h3 { font-size: 13.5px; font-weight: 600; color: #0c4a6e; margin: 16px 0 6px; padding-left: 2px; }
+  .section-body h3:first-child { margin-top: 0; }
+  .footer { max-width: 900px; margin: 0 auto; padding: 0 40px 48px; text-align: center; font-size: 12px; color: #94a3b8; }
+  .footer a { color: #64748b; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="hero-inner">
+    <h1>A Fluid-Structure Interaction Model of Insect Flight With Flexible Wings</h1>
+    <div class="hero-meta">
+      <span>Toshiyuki Nakata, Hao Liu</span>
+      <span>Journal of Computational Physics (2012)</span>
+      <span><a href="https://doi.org/10.1016/j.jcp.2011.11.005">DOI: 10.1016/j.jcp.2011.11.005</a></span>
+    </div>
+    <div class="tag-row">
+      <span class="tag">FSI</span><span class="tag">Insect Flight</span><span class="tag">Flexible Wing</span><span class="tag">FEM</span><span class="tag">CFD</span><span class="tag">Hawkmoth</span><span class="tag">Hovering</span><span class="tag">Aeroelasticity</span><span class="tag">Thin Shell</span><span class="tag">Unsteady Aerodynamics</span></div>
+    <div class="importance-badge">&#9733;&#9733;&#9733;</div>
+  </div>
+</div>
+<div class="container">
+  <div class="overview">
+    <div class="overview-header">
+      <div class="section-number">1</div>
+      <h2>Overview</h2>
+    </div>
+    <div class="overview-text">This paper presents a <strong>loosely coupled FSI model</strong> combining a <strong>finite element method (FEM)</strong>-based computational structural dynamics solver with a <strong>CFD-based insect dynamic flight simulator</strong>. The CSD solver models thin shell structures of insect wings using <strong>AT/DKT triangular elements</strong> with <strong>anisotropic material properties</strong> representing veins, membranes, and fibers. The CFD solver employs a <strong>multi-block, overset-grid, fortified Navier-Stokes</strong> approach. Applied to hawkmoth hovering, the model demonstrates that wing flexibility produces approximately <strong>20% higher vertical force</strong> and <strong>8.5% greater aerodynamic efficiency</strong> compared to rigid wings, achieved through delayed <strong>leading-edge vortex (LEV)</strong> breakdown, <strong>advanced wing rotation phase</strong>, and <strong>elastic energy release</strong> mechanisms.</div>
+  </div>
+
+  <details><summary><div class="section-number">2</div><h2>Introduction</h2></summary>
+    <div class="section-body">
+      <h3>Context of Insect Flexible-Wing Aerodynamics</h3>
+      <ul>
+        <li>Insects generate high aerodynamic forces through flapping wings whose inherent flexibility causes considerable <strong>elastic deformations</strong> during flight, creating a <strong>strongly coupled FSI problem</strong></li>
+        <li>Experimental approaches face difficulties in simultaneously measuring wing kinematics, deformation, flow fields, and aerodynamic forces</li>
+        <li>Combined experimental-computational methods can predict how deformation affects performance, but they do not couple flow and structure solutions and cannot capture <strong>mutual interactions</strong></li>
+      </ul>
+      <h3>Gap in Existing Research</h3>
+      <ul>
+        <li>Previous FSI analyses were limited to <strong>2D foils</strong> or highly idealized single 3D wing models without <strong>realistic insect morphology</strong></li>
+        <li>No prior study integrated <strong>body-wing morphology</strong>, kinematics, <strong>unsteady aerodynamics</strong>, wing structural dynamics, and <strong>energetic evaluation</strong> (forces, power, efficiency) for a realistic insect model</li>
+        <li>The governing fluid equations are the 3D incompressible unsteady <strong>Navier-Stokes equations</strong> in strong conservation form</li>
+      </ul>
+    </div>
+  </details>
+
+  <details><summary><div class="section-number">3</div><h2>Related Works</h2></summary>
+    <div class="section-body">
+      <h3>Experimental Studies on Flexible Wing Aerodynamics</h3>
+      <ul>
+        <li><strong>Heathcote et al.</strong> investigated spanwise-flexible rectangular wings oscillating in pure heave, demonstrating flexibility effects on thrust generation at <strong>$Re = 30{,}000$</strong></li>
+        <li><strong>Combes and Daniel</strong> measured <strong>flexural stiffness distributions</strong> and dynamic bending of hawkmoth wings, establishing benchmark data for structural validation</li>
+        <li>High-speed digital cameras for wing kinematics reconstruction and <strong>digital particle image velocimetry (DPIV)</strong> for flow measurement</li>
+      </ul>
+      <h3>Previous Computational FSI Approaches</h3>
+      <ul>
+        <li><strong>Chimakurthi et al.</strong> developed a computational aeroelasticity framework for flapping wing micro air vehicles</li>
+        <li><strong>Liu's</strong> integrated modeling of insect flight established the CFD-based flight simulator used in this work</li>
+        <li>Prior FSI studies by <strong>Hamamoto et al.</strong> and <strong>Ishihara et al.</strong> addressed deformable wings but lacked realistic morphology and <strong>anisotropic material properties</strong></li>
+        <li><strong>Stanford and Beran</strong> applied analytical sensitivity analysis of the <strong>unsteady vortex-lattice method</strong> for flapping wing optimization</li>
+      </ul>
+    </div>
+  </details>
+
+  <details><summary><div class="section-number">4</div><h2>Materials and Methods</h2></summary>
+    <div class="section-body">
+      <h3>CFD-Based Insect Dynamic Flight Simulator</h3>
+      <ul>
+        <li>The flight simulator employs a <strong>multi-block, overset-grid, fortified Navier-Stokes</strong> solver with morphological model from digitized images of hawkmoth <em>Agrius convolvuli</em></li>
+        <li>Simplified harmonic kinematics at wing base: $\phi = \phi'_{c1} \cos(\omega t)$, $\alpha = \alpha'_{s1} \sin(\omega t)$, $\theta = 0$</li>
+        <li>Reynolds number <strong>$Re \approx 6300$</strong> based on mean chord $c_m = 18.3$ mm, wing length $R = 50.5$ mm, and flapping frequency $f = 26.1$ Hz; reduced frequency <strong>$k \approx 0.3$</strong></li>
+      </ul>
+      <h3>FEM-Based CSD Solver for Thin Shell Structures</h3>
+      <ul>
+        <li><strong>AT/DKT triangular shell elements</strong> with <strong>updated Lagrangian formulation</strong> for large displacements and rotations</li>
+        <li>Virtual work principle: $\int \delta \mathbf{E}^T \mathbf{S} \, dV_e + \int \rho_s \delta \mathbf{R}^T \ddot{\mathbf{R}} \, dV_e = \delta W$ where $\mathbf{S}$ and $\mathbf{E}$ are the <strong>2nd Piola-Kirchhoff stress</strong> and incremental <strong>Green-Lagrange strain</strong></li>
+        <li><strong>Anisotropic material modeling</strong> via <strong>rule of mixture</strong>: $E_{c1} = V_f E_v + (1-V_f)E'_m$ (vein direction) and $1/E_{c2} = V_f/E_v + (1-V_f)/E'_m$ (transverse)</li>
+      </ul>
+      <h3>Loose Coupling Strategy</h3>
+      <ul>
+        <li><strong>Conventional serial staggered (CSS)</strong> procedure with a <strong>second-order</strong> time-accurate predictor for structural displacement</li>
+        <li>Load transfer employs <strong>Galerkin-based interpolation</strong> of aerodynamic pressures from fluid surface to structural surface</li>
+        <li><strong>Elastic-statics BEM</strong> approach handles grid regeneration for large deformations</li>
+      </ul>
+      <h3>Dimensionless Scaling Parameters</h3>
+      <ul>
+        <li>Five key parameters: <strong>Reynolds number</strong> $Re$, <strong>Strouhal number</strong> $St$, <strong>reduced frequency</strong> $k$, <strong>elastic parameter</strong> $\Pi_1$ (elastic-to-aerodynamic force ratio), and <strong>inertial parameter</strong> $\Pi_2$ (inertia-to-aerodynamic force ratio)</li>
+        <li>For the hawkmoth, spanwise and chordwise $\Pi_1$ are approximately <strong>40</strong> and <strong>0.4</strong>, respectively</li>
+      </ul>
+    </div>
+  </details>
+
+  <details><summary><div class="section-number">5</div><h2>Results</h2></summary>
+    <div class="section-body">
+      <h3>Benchmark Validation Cases</h3>
+      <ul>
+        <li><strong>Spanwise-flexible rectangular wing</strong> (NACA0012, AR=6) at <strong>$Re = 30{,}000$</strong>: computed wingtip displacements and thrust coefficients showed good agreement with measurements by <strong>Heathcote et al.</strong></li>
+        <li><strong>Chordwise-flexible wing</strong> at <strong>$Re = 9{,}000$</strong>: trailing-edge displacements and thrust coefficients agreed well with experimental data</li>
+        <li><strong>Rotating hawkmoth forewing</strong>: simulated bending angles showed excellent agreement with low-order Fourier components of measured data by <strong>Combes and Daniel</strong></li>
+      </ul>
+      <h3>In-Flight Wing Deformation</h3>
+      <ul>
+        <li>Flexible hawkmoth wing exhibited <strong>nose-down twist up to 12 degrees</strong> at wing tip, with low-stiffness hindwing model reaching <strong>17 degrees</strong>, consistent with measured values of <strong>15-20 degrees</strong></li>
+        <li><strong>Positive camber</strong> of less than <strong>2%</strong> predicted, representing physically correct sign unlike negative cambers in some prior studies</li>
+        <li>Wing deformed significantly immediately after <strong>stroke reversal</strong> when inertial forces increase rapidly</li>
+      </ul>
+      <h3>Aerodynamic Force Enhancement</h3>
+      <ul>
+        <li>Flexible wing generated approximately <strong>20% higher mean vertical force</strong> (<strong>18.4 mN</strong> vs <strong>15.4 mN</strong>) compared to rigid wing; both exceeded hawkmoth weight of <strong>14.7 mN</strong></li>
+        <li>Flexible wing produced a more stable <strong>LEV</strong> that delayed breakdown and created larger negative pressure regions</li>
+        <li>Stronger downstroke vortex rings with more intense downwash observed for the flexible wing</li>
+      </ul>
+    </div>
+  </details>
+
+  <details><summary><div class="section-number">6</div><h2>Results Interpretation</h2></summary>
+    <div class="section-body">
+      <h3>Mechanisms of Aerodynamic Enhancement</h3>
+      <ul>
+        <li><strong>Three synergistic mechanisms</strong>: (1) wing deformation <strong>stabilizes the LEV</strong>, delaying breakdown; (2) <strong>wing rotation phase is advanced</strong>, strengthening wake and rotational circulation; (3) <strong>elastic energy</strong> stored during deceleration is rapidly released, increasing angular velocities</li>
+        <li><strong>Vertical force-to-horizontal force ratio</strong> consistently higher for flexible wing, indicating more efficient <strong>force vectoring</strong></li>
+      </ul>
+      <h3>Energetic Analysis and Efficiency</h3>
+      <ul>
+        <li><strong>Aerodynamic efficiency</strong>: <strong>43.4%</strong> (flexible) vs <strong>40.0%</strong> (rigid), approximately <strong>8.5% improvement</strong></li>
+        <li>Muscle-mass-specific aerodynamic power: <strong>95.3 W/kg</strong> (flexible) vs <strong>83.3 W/kg</strong> (rigid)</li>
+        <li>While flexible wing requires more power due to increased drag, the disproportionately larger increase in vertical force results in net efficiency improvement</li>
+      </ul>
+      <h3>Role of Wing Anisotropy and Fore-Hindwing Connection</h3>
+      <ul>
+        <li>Low-stiffness hindwing model showed decreased horizontal force with marginal effect on vertical force, leading to reduced aerodynamic power and enhanced efficiency</li>
+        <li><strong>Positive camber</strong> prediction attributed to realistic <strong>anisotropic material properties</strong>, contrasting with negative cambers in isotropic models</li>
+        <li>Performance differences between original and low-stiffness hindwing models were smaller than between flexible and rigid, suggesting the unified model captures essential physics</li>
+      </ul>
+    </div>
+  </details>
+
+  <details><summary><div class="section-number">7</div><h2>Conclusion</h2></summary>
+    <div class="section-body">
+      <h3>Summary of Achievements</h3>
+      <ul>
+        <li>The FSI model successfully integrates a <strong>thin-shell FEM solver</strong> with <strong>anisotropic composite material</strong> modeling into a CFD-based insect flight simulator</li>
+        <li>Validation across three benchmark cases at Reynolds numbers from $O(10^3)$ to $O(10^4)$ demonstrates robustness and accuracy</li>
+        <li>Wing flexibility enhances hovering performance through <strong>multiple synergistic mechanisms</strong></li>
+      </ul>
+      <h3>Implications for Bio-Inspired Flight</h3>
+      <ul>
+        <li>Approximately <strong>20% increase</strong> in vertical force and <strong>8.5% improvement</strong> in aerodynamic efficiency highlight the importance of <strong>passive deformation</strong> in insect flight</li>
+        <li><strong>Elastic energy storage and release</strong> during stroke reversal suggests a passive mechanism insects may exploit without additional muscular effort</li>
+        <li>Results provide quantitative design guidance for <strong>micro air vehicles</strong> incorporating flexible wings</li>
+      </ul>
+      <h3>Limitations and Future Directions</h3>
+      <ul>
+        <li>Simplified symmetric wing kinematics produce non-zero net horizontal forces, requiring <strong>trimmed hovering kinematics</strong> in future studies</li>
+        <li>Future work should incorporate inherent wing camber (up to <strong>4-5%</strong>), more detailed structural components, and asymmetric wing kinematics</li>
+      </ul>
+    </div>
+  </details>
+</div>
+<div class="footer">Generated by YANG Lab RECON &middot; <a href="https://doi.org/10.1016/j.jcp.2011.11.005">View Original Paper</a></div>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, {
+    delimiters: [{left: '$$', right: '$$', display: true},{left: '\\[', right: '\\]', display: true},{left: '\\(', right: '\\)', display: false},{left: '$', right: '$', display: false}],
+    throwOnError: false
+  });"></script>
+</body>
+</html>

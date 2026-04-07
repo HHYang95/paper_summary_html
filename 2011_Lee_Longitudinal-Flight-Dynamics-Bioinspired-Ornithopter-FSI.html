@@ -1,0 +1,119 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="paper-title" content="Longitudinal Flight Dynamics of Bioinspired Ornithopter Considering Fluid-Structure Interaction"><meta name="paper-year" content="2011"><meta name="paper-author" content="Jun-Seong Lee, Joong-Kwan Kim, Dae-Kwan Kim, Jae-Hung Han"><meta name="paper-journal" content="Journal of Guidance, Control, and Dynamics"><meta name="paper-tags" content="Ornithopter, FSI, Flight Dynamics, Flapping Wing, MBD, Simulation, Aeroelasticity"><meta name="paper-doi" content="10.2514/1.53354">
+<title>Longitudinal Flight Dynamics of Bioinspired Ornithopter Considering Fluid-Structure Interaction — Summary</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter','Segoe UI',-apple-system,sans-serif;background:#f8f9fb;color:#1e293b;line-height:1.7;-webkit-font-smoothing:antialiased}.hero{background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 50%,#0c4a6e 100%);color:#fff;padding:56px 0 48px;position:relative;overflow:hidden}.hero::after{content:'';position:absolute;top:0;right:0;bottom:0;width:40%;background:radial-gradient(ellipse at 80% 50%,rgba(56,189,248,0.08) 0%,transparent 70%);pointer-events:none}.hero-inner{max-width:900px;margin:0 auto;padding:0 40px;position:relative;z-index:1}.hero h1{font-size:28px;font-weight:700;line-height:1.35;letter-spacing:-0.3px;margin-bottom:16px}.hero-meta{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:14px;color:#94a3b8}.hero-meta a{color:#7dd3fc;text-decoration:none}.importance-badge{position:absolute;top:56px;right:40px;font-size:22px;letter-spacing:2px;filter:drop-shadow(0 0 6px rgba(255,215,0,0.4))}.tag-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:20px}.tag{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);color:#cbd5e1;font-size:11px;font-weight:500;padding:3px 10px;border-radius:20px}.container{max-width:900px;margin:0 auto;padding:40px 40px 80px}details{margin-bottom:12px;border-radius:10px;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,0.04);overflow:hidden}details[open]{box-shadow:0 2px 8px rgba(0,0,0,0.06)}summary{display:flex;align-items:center;gap:12px;padding:14px 20px;cursor:pointer;user-select:none;list-style:none;border-bottom:2px solid transparent;transition:background 0.15s}summary:hover{background:#f1f5f9}details[open]>summary{border-bottom-color:#e2e8f0}summary::-webkit-details-marker{display:none}summary::before{content:'\25B6';font-size:10px;color:#94a3b8;transition:transform 0.2s;flex-shrink:0}details[open]>summary::before{transform:rotate(90deg)}.section-number{background:#0f172a;color:#fff;font-size:11px;font-weight:700;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}summary h2{font-size:16px;font-weight:700;color:#0f172a}.section-body{padding:16px 20px 20px}.overview{margin-bottom:12px;background:#fff;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,0.04);overflow:hidden}.overview-header{display:flex;align-items:center;gap:12px;padding:14px 20px;border-bottom:2px solid #e2e8f0}.overview-header h2{font-size:16px;font-weight:700;color:#0f172a}.overview-text{font-size:14.5px;line-height:1.8;color:#334155;padding:16px 20px 20px;border-left:4px solid #0ea5e9;margin:0}.section-body ul{list-style:none;padding:0}.section-body ul li{position:relative;padding:7px 0 7px 18px;font-size:13.5px;line-height:1.7;color:#334155}.section-body ul li::before{content:'';position:absolute;left:0;top:15px;width:5px;height:5px;background:#0ea5e9;border-radius:50%}.section-body ul li+li{border-top:1px solid #f1f5f9}.section-body h3{font-size:13.5px;font-weight:600;color:#0c4a6e;margin:16px 0 6px}.section-body h3:first-child{margin-top:0}.footer{max-width:900px;margin:0 auto;padding:0 40px 48px;text-align:center;font-size:12px;color:#94a3b8}.footer a{color:#64748b;text-decoration:none}</style>
+</head><body>
+<div class="hero"><div class="hero-inner"><h1>Longitudinal Flight Dynamics of Bioinspired Ornithopter Considering Fluid-Structure Interaction</h1><div class="hero-meta"><span>Jun-Seong Lee, Joong-Kwan Kim, Dae-Kwan Kim, Jae-Hung Han</span><span>Journal of Guidance, Control, and Dynamics (2011)</span><span><a href="https://doi.org/10.2514/1.53354">DOI: 10.2514/1.53354</a></span></div><div class="tag-row"><span class="tag">Ornithopter</span><span class="tag">FSI</span><span class="tag">Flight Dynamics</span><span class="tag">Flapping Wing</span><span class="tag">MBD</span><span class="tag">Simulation</span><span class="tag">Aeroelasticity</span></div><div class="importance-badge">★★★</div></div></div>
+<div class="container">
+  <div class="overview"><div class="overview-header"><div class="section-number">1</div><h2>Overview</h2></div><div class="overview-text">This paper develops an <strong>integrative ornithopter flight simulator</strong> coupling a <strong>modal-based flexible multibody dynamics</strong> solver (<strong>Craig-Bampton method</strong>) with a semiempirical reduced-order flapping-wing aerodynamic model (<strong>Modified Strip Theory Improved</strong>) through <strong>loosely coupled fluid-structure interaction</strong>. Applied to a bioinspired ornithopter with <strong>540 mm</strong> wingspan, the simulator reveals that trimmed level flight exhibits <strong>stable limit-cycle oscillations</strong> uniquely determined by flapping frequency, with mean body pitch attitude inversely proportional to flapping frequency and forward flight speed linearly increasing with it. The <strong>FSI-induced phase delays</strong> between imposed wing motion and aeroelastic response are shown to be critical for thrust generation and <strong>passive flight stability</strong>.</div></div>
+
+  <details><summary><div class="section-number">2</div><h2>Introduction</h2></summary><div class="section-body">
+    <h3>Problem Context</h3>
+    <ul>
+      <li>Ornithopter flight dynamics involve complex coupling of <strong>unsteady low Reynolds number aerodynamics</strong>, wing kinematics, and structural flexibility</li>
+      <li>Unlike insect-scale MAVs, the flapping frequency time scale of larger ornithopters is close to the vehicle's dynamic mode time scales, making <strong>cycle-averaging methods</strong> ineffective</li>
+      <li>Previous studies used <strong>quasi-static</strong> or <strong>quasi-steady aerodynamic models</strong> with <strong>rigid-body dynamics</strong> and prescribed wing motions, neglecting FSI effects</li>
+    </ul>
+    <h3>Research Gap and Objectives</h3>
+    <ul>
+      <li>Literature on ornithopter flight dynamics considering wing flexibility and <strong>FSI</strong> was essentially nonexistent</li>
+      <li>This work aims to build an <strong>integrative flight simulator</strong> with FSI capability and investigate <strong>frequency-dependent trim flight characteristics</strong></li>
+      <li>The simulator enables monitoring of all flight state variables, overcoming limitations of physical flight tests with restricted sensors and endurance</li>
+    </ul>
+  </div></details>
+
+  <details><summary><div class="section-number">3</div><h2>Related Works</h2></summary><div class="section-body">
+    <h3>Flapping-Wing Aerodynamics</h3>
+    <ul>
+      <li><strong>DeLaurier (1993)</strong> proposed the <strong>Modified Strip Theory (MST)</strong> for flapping-wing aerodynamics, validated through manned ornithopter flight tests</li>
+      <li><strong>Kim et al. (2008, 2011)</strong> improved MST for larger amplitude motions at low Reynolds numbers, adding a <strong>dynamic stall regime</strong> with three flow classifications</li>
+      <li><strong>Shyy et al. (2010)</strong> reviewed progress showing flexible wings achieve <strong>higher thrust-to-power ratios</strong> than rigid counterparts</li>
+    </ul>
+    <h3>Ornithopter Flight Dynamics</h3>
+    <ul>
+      <li><strong>Dietl and Garcia (2008)</strong> studied <strong>LCO stability</strong> using quasi-static aerodynamics with rigid flapping wings and prescribed motions</li>
+      <li><strong>Grauer and Hubbard (2009)</strong> experimentally demonstrated oscillatory flight dynamics and simulated ornithopter flight with simplified <strong>quasi-steady aerodynamics</strong></li>
+      <li><strong>Pfeiffer et al. (2009)</strong> conducted <strong>FSI-based flight dynamics</strong> simulation for a single flapping frequency using a predecessor of the present simulator</li>
+    </ul>
+  </div></details>
+
+  <details><summary><div class="section-number">4</div><h2>Materials and Methods</h2></summary><div class="section-body">
+    <h3>Structural Modeling</h3>
+    <ul>
+      <li><strong>Quarter-ellipse wing</strong> shape with <strong>540 mm</strong> wingspan, <strong>aspect ratio 5.58</strong>, total mass <strong>79.92 g</strong></li>
+      <li><strong>1857 finite elements</strong> in <strong>ANSYS</strong>: <strong>BEAM4</strong> for carbon stiffeners, <strong>SHELL63</strong> for Ripstop nylon skin (6 DOFs per node)</li>
+      <li><strong>Craig-Bampton component mode synthesis</strong>: <strong>25 fixed-interface normal modes</strong> for main wing, <strong>3</strong> for tail wing</li>
+      <li><strong>Flexible multibody dynamics</strong> solved via <strong>MSC.ADAMS</strong> with <strong>time-varying mass matrix</strong> and Gear stiff integrator</li>
+    </ul>
+    <h3>Aerodynamic Modeling</h3>
+    <ul>
+      <li>Main wing: <strong>MST Improved</strong> with <strong>27 aerodynamic strips</strong>, three flow regimes (<strong>attached</strong>, <strong>dynamic stall</strong>, <strong>post-stall</strong>), and <strong>dynamic stall criterion</strong></li>
+      <li>Tail wing: refined <strong>nonaffine aerodynamic model</strong> with effective angle of attack $\alpha^*$ incorporating forward speed, vertical velocity, pitch rate, and tail deflection rate</li>
+      <li>Tail-wing lift: $L_{tw} = \frac{1}{2}\rho U \hat{V}_{0.25\bar{c}_{tw}} \cdot S_{tw} \cdot C^*_{L,tw}(\alpha^*)$ with <strong>finite wing correction</strong></li>
+    </ul>
+    <h3>FSI and Trim Search</h3>
+    <ul>
+      <li><strong>Loosely coupled FSI</strong> with <strong>5 ms</strong> time step and up to <strong>10 Newton-Raphson iterations</strong> per step (<strong>1%</strong> error bound)</li>
+      <li>Flapping motion: $\Phi = \Phi_{\text{MEAN}} + \Phi_1 \sin(2\pi f t)$ with mean angle <strong>10 deg</strong>, amplitude <strong>35 deg</strong>, frequency <strong>6.5--16 Hz</strong></li>
+      <li>Trim criteria: bounded state variables with converging mean values over successive flapping periods (<strong>weak convergence</strong>)</li>
+    </ul>
+  </div></details>
+
+  <details><summary><div class="section-number">5</div><h2>Results</h2></summary><div class="section-body">
+    <h3>FSI Phase Delay Effects</h3>
+    <ul>
+      <li>At <strong>12 Hz</strong>: FSI-on wing lags <strong>56 deg</strong> in wingtip bending; FSI-off wing leads by <strong>4 deg</strong> relative to imposed flapping motion</li>
+      <li>Wing twisting at 19th AST: FSI-on leads by <strong>65 deg</strong>, FSI-off leads by <strong>160 deg</strong>, yielding a net <strong>91-deg FSI-induced delay</strong></li>
+      <li>The <strong>91-degree phase shift</strong> is critical for generating positive thrust during the <strong>4/10 to 5/10</strong> flapping cycle</li>
+    </ul>
+    <h3>Limit-Cycle Oscillation and Trim</h3>
+    <ul>
+      <li>All longitudinal state variables exhibit <strong>stable LCO</strong> at trimmed conditions, uniquely determined by flapping frequency</li>
+      <li><strong>LCO phase portraits</strong> recover to original orbits after external force and moment disturbances at <strong>12 Hz</strong></li>
+      <li>Phase portrait complexity decreases at higher frequencies: <strong>double-loop trajectories</strong> transition to <strong>single-loop patterns</strong></li>
+    </ul>
+    <h3>Frequency-Dependent Trim Characteristics</h3>
+    <ul>
+      <li>Mean forward flight speed increases nearly linearly: <strong>~12 m/s</strong> at <strong>6.5 Hz</strong> to <strong>~24 m/s</strong> at <strong>16 Hz</strong></li>
+      <li>Mean body pitch attitude decreases inversely: <strong>~5 deg</strong> at <strong>6.5 Hz</strong> to <strong>~3 deg</strong> at <strong>16 Hz</strong></li>
+      <li>Peak-to-peak pitch oscillation generally decreases with increasing flapping frequency up to <strong>14 Hz</strong></li>
+      <li>Tail-wing aeroelastic response shows amplification near <strong>9--10 Hz</strong> and <strong>14--15 Hz</strong> from <strong>higher harmonic forcing</strong></li>
+    </ul>
+  </div></details>
+
+  <details><summary><div class="section-number">6</div><h2>Results Interpretation</h2></summary><div class="section-body">
+    <h3>Physical Mechanisms</h3>
+    <ul>
+      <li><strong>FSI-induced phase delay</strong> between imposed flapping and aeroelastic response is the key mechanism for proper <strong>thrust generation</strong></li>
+      <li>The passive flexible tail wing acts as a <strong>nonlinear feedback controller</strong>: increased tail-wing response correlates with decreased body pitch oscillation</li>
+      <li>Tail-wing <strong>first bending natural frequency</strong> (<strong>31.75 Hz</strong>) is sufficiently above operational range, but higher harmonics in pitch LCO can excite resonance</li>
+    </ul>
+    <h3>Comparison with Avian Flight</h3>
+    <ul>
+      <li>Mean flight characteristics parallel <strong>avian flight</strong>: body pitch attitude and tail angle decrease with increasing airspeed/flapping frequency</li>
+      <li>Unlike birds which modulate <strong>wingbeat amplitude</strong> and <strong>downstroke velocity</strong>, the ornithopter uses <strong>symmetric flapping</strong> with frequency as the sole control parameter</li>
+      <li>The functional relationships between flapping frequency and trim states validate <strong>bioinspired design principles</strong></li>
+    </ul>
+  </div></details>
+
+  <details><summary><div class="section-number">7</div><h2>Conclusion</h2></summary><div class="section-body">
+    <h3>Key Findings</h3>
+    <ul>
+      <li>Trim flight conditions are <strong>uniquely determined by flapping frequency</strong> (<strong>frequency-dependent trim characteristics</strong>)</li>
+      <li><strong>Stable LCO</strong> provides inherent robustness to external disturbances under continuous flapping without <strong>active control</strong></li>
+      <li>Mean flight dynamics show <strong>systematic functional relationships</strong> with flapping frequency: pitch attitude inversely proportional, flight speed linearly proportional</li>
+    </ul>
+    <h3>Future Directions</h3>
+    <ul>
+      <li>Extension to <strong>lateral-directional dynamics</strong> and <strong>active control synthesis</strong> exploiting LCO characteristics</li>
+      <li>Experimental validation of <strong>frequency-dependent trim relationships</strong> across the full <strong>6.5--16 Hz</strong> operational envelope</li>
+      <li>Application to systematic <strong>ornithopter design</strong> for <strong>UAV mission profiles</strong> and <strong>higher-fidelity aerodynamic coupling</strong></li>
+    </ul>
+  </div></details>
+</div>
+<div class="footer">Generated by YANG Lab RECON &middot; <a href="https://doi.org/10.2514/1.53354">View Original Paper</a></div>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false},{left:'$',right:'$',display:false}],throwOnError:false});"></script>
+</body></html>

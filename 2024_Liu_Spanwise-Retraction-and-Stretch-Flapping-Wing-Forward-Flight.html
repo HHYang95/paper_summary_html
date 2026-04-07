@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="paper-title" content="Effects of Dynamical Spanwise Retraction and Stretch on Flapping-Wing Forward Flights">
+<meta name="paper-year" content="2024">
+<meta name="paper-author" content="Kang Liu, Bifeng Song, Ang Chen, Zhihe Wang, Dong Xue, Wenqing Yang">
+<meta name="paper-journal" content="Chinese Journal of Aeronautics">
+<meta name="paper-tags" content="Flapping Wing, Bio Inspired, CFD, Ornithopter, Simulation, MAV">
+<meta name="paper-doi" content="10.1016/j.cja.2024.01.006">
+<title>Effects of Dynamical Spanwise Retraction and Stretch on Flapping-Wing Forward Flights — Summary</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', 'Segoe UI', -apple-system, sans-serif;
+    background: #f8f9fb;
+    color: #1e293b;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Header ── */
+  .hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0c4a6e 100%);
+    color: #fff;
+    padding: 56px 0 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; top: 0; right: 0; bottom: 0;
+    width: 40%;
+    background: radial-gradient(ellipse at 80% 50%, rgba(56,189,248,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+    z-index: 1;
+  }
+  .hero h1 {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: -0.3px;
+    margin-bottom: 16px;
+  }
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    font-size: 14px;
+    color: #94a3b8;
+  }
+  .hero-meta a { color: #7dd3fc; text-decoration: none; }
+  .hero-meta a:hover { text-decoration: underline; }
+  .importance-badge {
+    position: absolute;
+    top: 56px; right: 40px;
+    font-size: 22px;
+    letter-spacing: 2px;
+    filter: drop-shadow(0 0 6px rgba(255,215,0,0.4));
+  }
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 20px;
+  }
+  .tag {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #cbd5e1;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.3px;
+  }
+
+  /* ── Content ── */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 40px 80px;
+  }
+
+  /* ── Toggle sections ── */
+  details {
+    margin-bottom: 12px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    overflow: hidden;
+  }
+  details[open] {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  summary {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    cursor: pointer;
+    user-select: none;
+    list-style: none;
+    border-bottom: 2px solid transparent;
+    transition: background 0.15s;
+  }
+  summary:hover {
+    background: #f1f5f9;
+  }
+  details[open] > summary {
+    border-bottom-color: #e2e8f0;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::before {
+    content: '\25B6';
+    font-size: 10px;
+    color: #94a3b8;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+  }
+  details[open] > summary::before {
+    transform: rotate(90deg);
+  }
+  .section-number {
+    background: #0f172a;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  summary h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
+    letter-spacing: -0.2px;
+  }
+
+  /* ── Section body ── */
+  .section-body {
+    padding: 16px 20px 20px;
+  }
+
+  /* Overview (always open, special style) */
+  .overview {
+    margin-bottom: 12px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    overflow: hidden;
+  }
+  .overview-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  .overview-header h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
+  }
+  .overview-text {
+    font-size: 14.5px;
+    line-height: 1.8;
+    color: #334155;
+    padding: 16px 20px 20px;
+    border-left: 4px solid #0ea5e9;
+    margin: 0;
+  }
+
+  /* Bullet lists */
+  .section-body ul {
+    list-style: none;
+    padding: 0;
+  }
+  .section-body ul li {
+    position: relative;
+    padding: 7px 0 7px 18px;
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: #334155;
+  }
+  .section-body ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 15px;
+    width: 5px; height: 5px;
+    background: #0ea5e9;
+    border-radius: 50%;
+  }
+  .section-body ul li + li {
+    border-top: 1px solid #f1f5f9;
+  }
+
+  /* Sub-section headings */
+  .section-body h3 {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #0c4a6e;
+    margin: 16px 0 6px;
+    padding-left: 2px;
+  }
+  .section-body h3:first-child {
+    margin-top: 0;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px 48px;
+    text-align: center;
+    font-size: 12px;
+    color: #94a3b8;
+  }
+  .footer a { color: #64748b; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <h1>Effects of Dynamical Spanwise Retraction and Stretch on Flapping-Wing Forward Flights</h1>
+    <div class="hero-meta">
+      <span>Kang Liu, Bifeng Song, Ang Chen, Zhihe Wang, Dong Xue, Wenqing Yang</span>
+      <span>Chinese Journal of Aeronautics (2024)</span>
+      <span><a href="https://doi.org/10.1016/j.cja.2024.01.006">DOI: 10.1016/j.cja.2024.01.006</a></span>
+    </div>
+    <div class="tag-row"><span class="tag">Flapping Wing</span><span class="tag">Bio Inspired</span><span class="tag">CFD</span><span class="tag">Ornithopter</span><span class="tag">Simulation</span><span class="tag">MAV</span></div>
+    <div class="importance-badge">★★</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Overview: always visible (no toggle) -->
+  <div class="overview">
+    <div class="overview-header">
+      <div class="section-number">1</div>
+      <h2>Overview</h2>
+    </div>
+    <div class="overview-text">This paper presents a <strong>CFD-based numerical investigation</strong> of <strong>dynamical spanwise retraction and stretch</strong>, a bio-inspired morphing mode observed in birds and bats, on flapping-wing aerodynamic performance in forward flight. Using <strong>3D RANS simulations</strong> with the <strong>SU2 solver</strong> at $Re = 1.5 \times 10^5$ and $St = 0.3$, the study demonstrates that this morphing mode yields <strong>absolute aerodynamic advantages</strong>: simultaneously increased lift, increased thrust, and reduced power consumption compared to non-morphing baselines. Three desirable scenarios are confirmed for plunging wings over a range of mean angles of attack, and these advantages are further validated on a more complex <strong>two-section flapping wing model</strong> with local sweep-based retraction. The mechanism analysis reveals that <strong>asymmetric flow acceleration</strong> and reduced wing area in the upstroke are key drivers.</div>
+  </div>
+
+  <details>
+    <summary>
+      <div class="section-number">2</div>
+      <h2>Introduction</h2>
+    </summary>
+    <div class="section-body">
+      <h3>Motivation</h3>
+      <ul>
+        <li>Flapping-wing propulsion is increasingly attractive for micro aerial vehicles, yet man-made ornithopters still fall short of natural fliers' capacities due to <strong>low-Reynolds-number performance deterioration</strong></li>
+        <li>Birds and bats dynamically <strong>retract and stretch their wings</strong> during each flap across a wide range of forward flight speeds, suggesting beneficial aerodynamic mechanisms shaped by millions of years of evolution</li>
+        <li>Understanding these <strong>bionic morphing behaviors</strong> could provide critical design inspiration for improving artificial flapping-wing vehicles</li>
+      </ul>
+      <h3>State of the Art</h3>
+      <ul>
+        <li>Wing morphing in natural fliers is categorized into three types: <strong>insects</strong> (passive flexible deformation), <strong>birds</strong> (active planform reconfiguration with significant span variation), and <strong>bats</strong> (complex retraction-stretch kinematics)</li>
+        <li>Previous studies consistently showed that spanwise retraction and stretch <strong>improves lift generation and power economy</strong> but is <strong>detrimental to thrust generation</strong> for flapping/plunging wings</li>
+        <li>Prior work deduced that this morphing mode is more suitable for low-speed flights, contradicting observations that birds use spanwise retraction across nearly all forward flight speeds</li>
+      </ul>
+      <h3>Gap &amp; Contribution</h3>
+      <ul>
+        <li>No previous study has evaluated whether spanwise retraction and stretch can achieve <strong>absolute advantages</strong> in all three fundamental aspects (lift, thrust, power) simultaneously</li>
+        <li>This paper introduces an <strong>associated analysis</strong> methodology: rather than comparing at fixed angle of attack, it compares performance at matched lift or matched thrust conditions</li>
+        <li>First study to reveal that the bionic morphing achieves advantages without detriment in any aspect, explaining why birds employ it across all flight speeds</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>
+      <div class="section-number">3</div>
+      <h2>Related Works</h2>
+    </summary>
+    <div class="section-body">
+      <h3>Experimental Studies on Natural Fliers</h3>
+      <ul>
+        <li><strong>Liu et al. (2006)</strong> measured avian wing geometry and kinematics, providing key data on bird wing planform changes during flight</li>
+        <li><strong>Tobalske and Dial (1996)</strong> and <strong>Tobalske (2000)</strong> measured flight kinematics of magpies and pigeons, showing noticeable wingspan variation across forward flight speeds</li>
+        <li><strong>Sekhar et al. (2019)</strong> described canonical wing kinematics of a bat (<em>Hipposideros pratti</em>) in straight flight, documenting spanwise retraction patterns</li>
+        <li><strong>Wolf et al. (2010)</strong> analyzed Pallas' long-tongued bat flight kinematics and vortex wake relationships</li>
+      </ul>
+      <h3>Computational and Analytical Studies</h3>
+      <ul>
+        <li><strong>Wang et al. (2014, 2015)</strong> numerically demonstrated lift enhancement by dynamically changing wingspan in forward flapping flight, revealing LEV manipulation mechanisms</li>
+        <li><strong>Guan and Yu (2015)</strong> studied elementary morphing models for bat flapping wings, analyzing aerodynamic mechanisms of spanwise retraction</li>
+        <li><strong>Chang et al. (2018, 2019)</strong> investigated folding mechanisms of seagull flapping wings and aerodynamic performance of bionic flapping wings</li>
+        <li><strong>Wang et al. (2022)</strong> examined aerodynamic performance of bio-inspired flapping wings with local sweep morphing</li>
+      </ul>
+      <h3>Robotic and Experimental Platforms</h3>
+      <ul>
+        <li><strong>Bahlman et al. (2013, 2014)</strong> designed a multi-articulated robotic bat wing and characterized how wing kinematics affect power requirements and aerodynamic force production</li>
+        <li><strong>Duan et al. (2013)</strong> designed and wind-tunnel-tested an active morphing wing ornithopter, providing experimental validation of retraction-stretch effects</li>
+        <li><strong>Heathcote et al. (2007, 2008)</strong> experimentally studied flexible flapping airfoil propulsion at low Reynolds numbers, serving as benchmark validation cases</li>
+        <li><strong>Chen et al. (2023)</strong> developed a novel actuation strategy for an agile bioinspired FWAV with morphing-coupled wingbeat patterns</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>
+      <div class="section-number">4</div>
+      <h2>Materials and Methods</h2>
+    </summary>
+    <div class="section-body">
+      <h3>Problem Setup</h3>
+      <ul>
+        <li>Primary model: finite rectangular wing with aspect ratio $AR = 6$, NACA0012 cross section, chord $c = 0.2\,\text{m}$, span $s_0 = 1.2\,\text{m}$</li>
+        <li>Basic motion: cosinusoidal plunging $h(t) = h_0 \cos(\Phi)$ where $\Phi = 2\pi f t$ and plunging amplitude $h_0 = c$</li>
+        <li>Morphing defined as: full span in downstroke; cosine-profile retraction in upstroke with peak span loss percentage $M$ (tested $M = 0, 0.1, 0.3, 0.5$)</li>
+        <li>Secondary model: two-section wing with GOE803 airfoil, $s_0 = 0.6\,\text{m}$, section ratio $L_1:L_2 = 2:3$, flapping angle $\psi_0 = 31°$, local sweep angles for retraction</li>
+        <li>Mean angle of attack varied from $0°$ to $12°$ to achieve lift-thrust interconversion</li>
+      </ul>
+      <h3>Governing Equations</h3>
+      <ul>
+        <li>3D Reynolds-averaged incompressible Navier-Stokes equations: $\frac{\partial \bar{u}_i}{\partial x_i} = 0$ and $\frac{\partial \bar{u}_i}{\partial t} + \bar{u}_j \frac{\partial \bar{u}_i}{\partial x_j} = -\frac{1}{\rho}\frac{\partial \bar{p}}{\partial x_i} + \frac{\partial}{\partial x_j}\left(\nu \frac{\partial \bar{u}_i}{\partial x_j} - \bar{\sigma}_{ij}\right)$</li>
+        <li>Turbulence closure: <strong>Spalart-Allmaras (S-A)</strong> one-equation model</li>
+        <li>Non-dimensional aerodynamic coefficients: $L_{\text{non}} = \frac{L}{q_\infty \cdot A_0}$, $T_{\text{non}} = \frac{T}{q_\infty \cdot A_0}$, $P_{\text{non}} = \frac{P}{q_\infty \cdot A_0 \cdot u_\infty}$ where $q_\infty = \frac{1}{2}\rho u_\infty^2$</li>
+        <li>Reynolds number $Re = \frac{\rho_\infty u_\infty c}{\mu_\infty} = 1.5 \times 10^5$; Strouhal number $St = \frac{2fh_0}{u_\infty} = 0.3$</li>
+      </ul>
+      <h3>Numerical Approach</h3>
+      <ul>
+        <li>Solver: <strong>SU2 V7.0.7</strong> (Stanford University Unstructured), open-source CFD, finite volume method framework</li>
+        <li>Spatial discretization: second-order <strong>Jameson-Schmidt-Turkel (JST)</strong> scheme</li>
+        <li>Temporal discretization: second-order <strong>dual-time-stepping</strong> method with $\Delta t = T/200$ per cycle</li>
+        <li>Deforming dynamic mesh for plunging and morphing motions</li>
+        <li>Hybrid unstructured grid: approximately <strong>4.14 million</strong> volume cells (Medium grid) with first layer $< 1 \times 10^{-4}c$ ensuring $y^+ < 1$</li>
+        <li>Farfield boundary placed approximately $300c$ from the wing surface</li>
+        <li>Standard sea-level conditions: $\rho_\infty = 1.225\,\text{kg/m}^3$, $\mu_\infty = 1.789\,\text{kg/(m \cdot s)}$</li>
+      </ul>
+      <h3>Validation Strategy</h3>
+      <ul>
+        <li><strong>Case 1</strong>: Rigid finite-span wing in plunging motion at $Re = 3 \times 10^4$ (benchmark by <strong>Heathcote et al., 2008</strong>). Thrust coefficient matched well with <strong>Liu (2009)</strong> and <strong>Lang et al. (2022)</strong></li>
+        <li><strong>Case 2</strong>: Deformable flapping-twisting wing at $Re = 1 \times 10^6$, $AR = 4$, NACA0014. Lift coefficient showed good agreement with <strong>Lin and Hu (2005)</strong> and <strong>Chang et al. (2019)</strong></li>
+        <li>Grid convergence study: Coarse/Medium/Fine grids ($\sqrt[3]{2}$ refinement ratio); Medium grid closely matched Fine grid results</li>
+        <li>Time-step convergence: $\Delta t = T/100$, $T/200$, $T/400$ tested; $T/200$ nearly coincided with $T/400$</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>
+      <div class="section-number">5</div>
+      <h2>Results</h2>
+    </summary>
+    <div class="section-body">
+      <h3>Time-Averaged Properties (Plunging Wing)</h3>
+      <ul>
+        <li>At fixed AOA, morphing wings produce <strong>more lift</strong> and consume <strong>less power</strong> but generate <strong>less thrust</strong> than baseline, consistent with prior literature</li>
+        <li>Associated analysis reveals three absolutely desirable scenarios: (A) more lift + less power at given thrust, (B) more thrust + less power at given lift, (C) more lift + more thrust + less power simultaneously</li>
+        <li>Scenario A example ($M = 0.5$): at matched thrust $\bar{T}_{\text{non}} \approx 0.163$, morphing wing produces <strong>15.27% more lift</strong> with <strong>17.33% less power</strong></li>
+        <li>Scenario B example ($M = 0.5$): at matched lift $\bar{L}_{\text{non}} \approx 0.646$, morphing wing generates <strong>6.05% more thrust</strong> with <strong>20.27% less power</strong></li>
+        <li>Scenario C example ($M = 0.5$): morphing wing produces <strong>6.93% more lift</strong> and <strong>15.27% more thrust</strong> while consuming <strong>16.86% less power</strong> than baseline</li>
+        <li>All desirable trends are <strong>positively associated with morphing amplitude</strong> $M$</li>
+      </ul>
+      <h3>Phase-Averaged Properties</h3>
+      <ul>
+        <li>Morphing impact is concentrated in the <strong>upstroke</strong>; downstroke discrepancies are marginal</li>
+        <li>Morphing wing generates less lift in downstroke but compensates with more lift in upstroke; thrust situation is reversed</li>
+        <li>Power consumption reduced in <strong>both strokes</strong>, with upstroke dominating the power economy</li>
+        <li>Periodic lift and thrust <strong>load fluctuations are alleviated</strong> by morphing, implying improved stability and steadiness</li>
+      </ul>
+      <h3>Mechanism Analysis (Flow Visualization)</h3>
+      <ul>
+        <li>LEV and WTV (Wing-Tip Vortices) are the primary flow structures; morphing significantly alters their distribution in the upstroke</li>
+        <li>Morphing wing's LEV span length is <strong>nearly halved</strong> in upstroke despite slightly increased local LEV strength</li>
+        <li>WTVs of morphing wing undergo a <strong>pull-and-push process</strong> during retraction-stretch, becoming more three-dimensional and weakened</li>
+        <li>Quantitative circulation analysis at $t/T = 0.25$: morphing wing LEV circulation $\Gamma/(u_\infty c) = 1.91$ vs baseline $2.46$; WTV circulation $1.28$ vs $1.49$</li>
+        <li>Vortex rings in wake are weaker and dissipate faster for morphing wings, indicating <strong>less energy consumption</strong></li>
+        <li>Morphing provides a new form of <strong>asymmetric flow acceleration</strong> enabling net lift generation even at $\text{AOA} = 0°$, reducing reliance on inclined inflow and associated drag penalty</li>
+      </ul>
+      <h3>Two-Section Flapping Wing Validation</h3>
+      <ul>
+        <li>GOE803 airfoil, two-section wing ($L_1:L_2 = 2:3$) with local sweep-based retraction at $Re = 1.5 \times 10^5$, $St = 0.3$</li>
+        <li>All three absolute advantage scenarios confirmed on the more complex model, demonstrating <strong>robustness</strong> of the bionic concept</li>
+        <li>Phase-averaged profiles closely mirror the plunging wing patterns, with upstroke-dominated power economy</li>
+        <li>Morphing wings at minimum span ratio $s_{\min}/s_0 = 0.7$ show strongest advantages, consistent with amplitude-dependent trend</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>
+      <div class="section-number">6</div>
+      <h2>Results Interpretation</h2>
+    </summary>
+    <div class="section-body">
+      <h3>Physical Mechanisms</h3>
+      <ul>
+        <li>The key insight is the <strong>associated analysis</strong> approach: previous studies compared at fixed AOA, showing mixed results; comparing at matched lift or thrust reveals unambiguous advantages</li>
+        <li>Morphing wings achieve equivalent or superior performance at <strong>lower AOA</strong> than baseline, which reduces body drag and further benefits overall flight performance</li>
+        <li>The asymmetric area/span between downstroke and upstroke provides a fundamentally new lift generation mechanism distinct from the traditional inclined-inflow approach</li>
+        <li>Reduced wing area in upstroke simultaneously decreases both negative lift and drag resistance, explaining the coupled benefits in lift, thrust, and power</li>
+      </ul>
+      <h3>Comparison with Prior Work</h3>
+      <ul>
+        <li>Results at fixed AOA are fully consistent with <strong>Guan and Yu (2015)</strong>, <strong>Wang et al. (2014, 2015)</strong>, and <strong>Bahlman et al. (2013, 2014)</strong>: more lift, less thrust, less power</li>
+        <li>The novel associated analysis resolves the long-standing paradox of why birds use retraction-stretch at all flight speeds despite the apparent thrust penalty at fixed AOA</li>
+        <li>Flow visualization confirms the LEV manipulation mechanism reported by <strong>Wang et al. (2014, 2015)</strong> while adding quantitative circulation comparisons</li>
+      </ul>
+      <h3>Limitations</h3>
+      <ul>
+        <li>Simplified rectangular planform and sinusoidal kinematics do not fully represent real bird/bat wing complexity</li>
+        <li>No chordwise twist or pitching motion is included, which generally contributes positively to thrust generation in real fliers</li>
+        <li>Turbulence model (S-A) may not capture all transitional flow phenomena at $Re = 1.5 \times 10^5$</li>
+        <li>Two-dimensional morphing (spanwise only) neglects coupled chordwise camber changes observed in natural wings</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>
+      <div class="section-number">7</div>
+      <h2>Conclusion</h2>
+    </summary>
+    <div class="section-body">
+      <ul>
+        <li>Dynamical spanwise retraction and stretch yields <strong>absolute aerodynamic advantages</strong> for flapping wings in forward flight: (1) more lift + less power at given thrust, (2) more thrust + less power at given lift, (3) more lift + more thrust + less power simultaneously</li>
+        <li>These advantages are positively correlated with morphing amplitude ($M$ up to 0.5) and hold across the tested AOA range ($0°$-$12°$)</li>
+        <li>The bionic morphing provides a <strong>new asymmetric flow acceleration mechanism</strong> for net lift generation, reducing dependence on inclined inflow and associated drag penalties</li>
+        <li>Periodic aerodynamic load fluctuations are alleviated, suggesting improved <strong>stability and steadiness</strong> for flapping-wing fliers</li>
+        <li>All advantages confirmed on a more complex <strong>two-section flapping wing</strong> with GOE803 airfoil, demonstrating robustness of the concept for practical ornithopter design</li>
+        <li>The study provides the first evidence that the bionic spanwise morphing is affirmatively desirable across all fundamental performance aspects, supporting its adoption in artificial flapping-wing vehicles</li>
+        <li>Future work should incorporate chordwise morphing, pitching kinematics, and experimental validation to further assess the concept's applicability</li>
+      </ul>
+    </div>
+  </details>
+
+</div>
+
+<div class="footer">
+  Generated by YANG Lab RECON &middot; <a href="https://doi.org/10.1016/j.cja.2024.01.006">View Original Paper</a>
+</div>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '\\[', right: '\\]', display: true},
+      {left: '\\(', right: '\\)', display: false},
+      {left: '$', right: '$', display: false}
+    ],
+    throwOnError: false
+  });"></script>
+</body>
+</html>

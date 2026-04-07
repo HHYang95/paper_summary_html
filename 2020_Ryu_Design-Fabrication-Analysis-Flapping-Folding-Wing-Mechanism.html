@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="paper-title" content="Design, Fabrication, and Analysis of Flapping and Folding Wing Mechanism For a Robotic Bird">
+<meta name="paper-year" content="2020">
+<meta name="paper-author" content="Seung Wan Ryu, Jong Gu Lee, Hyoun Jin Kim">
+<meta name="paper-journal" content="Journal of Bionic Engineering">
+<meta name="paper-tags" content="Flapping Wing, Folding Wing, Mechanism Design, Four Bar Linkage, Ornithopter, Kinematic Analysis, Force Measurement">
+<meta name="paper-doi" content="10.1007/s42235-020-0018-3">
+<title>Design, Fabrication, and Analysis of Flapping and Folding Wing Mechanism For a Robotic Bird &mdash; Summary</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', 'Segoe UI', -apple-system, sans-serif; background: #f8f9fb; color: #1e293b; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  .hero { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0c4a6e 100%); color: #fff; padding: 56px 0 48px; position: relative; overflow: hidden; }
+  .hero::after { content: ''; position: absolute; top: 0; right: 0; bottom: 0; width: 40%; background: radial-gradient(ellipse at 80% 50%, rgba(56,189,248,0.08) 0%, transparent 70%); pointer-events: none; }
+  .hero-inner { max-width: 900px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 1; }
+  .hero h1 { font-size: 28px; font-weight: 700; line-height: 1.35; letter-spacing: -0.3px; margin-bottom: 16px; }
+  .hero-meta { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px; color: #94a3b8; }
+  .hero-meta a { color: #7dd3fc; text-decoration: none; }
+  .importance-badge { position: absolute; top: 56px; right: 40px; font-size: 22px; letter-spacing: 2px; filter: drop-shadow(0 0 6px rgba(255,215,0,0.4)); }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px; }
+  .tag { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); color: #cbd5e1; font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px; }
+  .container { max-width: 900px; margin: 0 auto; padding: 40px 40px 80px; }
+  details { margin-bottom: 12px; border-radius: 10px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.04); overflow: hidden; }
+  details[open] { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  summary { display: flex; align-items: center; gap: 12px; padding: 14px 20px; cursor: pointer; user-select: none; list-style: none; border-bottom: 2px solid transparent; transition: background 0.15s; }
+  summary:hover { background: #f1f5f9; }
+  details[open] > summary { border-bottom-color: #e2e8f0; }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: '\25B6'; font-size: 10px; color: #94a3b8; transition: transform 0.2s; flex-shrink: 0; }
+  details[open] > summary::before { transform: rotate(90deg); }
+  .section-number { background: #0f172a; color: #fff; font-size: 11px; font-weight: 700; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  summary h2 { font-size: 16px; font-weight: 700; color: #0f172a; }
+  .section-body { padding: 16px 20px 20px; }
+  .overview { margin-bottom: 12px; background: #fff; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); overflow: hidden; }
+  .overview-header { display: flex; align-items: center; gap: 12px; padding: 14px 20px; border-bottom: 2px solid #e2e8f0; }
+  .overview-header h2 { font-size: 16px; font-weight: 700; color: #0f172a; }
+  .overview-text { font-size: 14.5px; line-height: 1.8; color: #334155; padding: 16px 20px 20px; border-left: 4px solid #0ea5e9; margin: 0; }
+  .section-body ul { list-style: none; padding: 0; }
+  .section-body ul li { position: relative; padding: 7px 0 7px 18px; font-size: 13.5px; line-height: 1.7; color: #334155; }
+  .section-body ul li::before { content: ''; position: absolute; left: 0; top: 15px; width: 5px; height: 5px; background: #0ea5e9; border-radius: 50%; }
+  .section-body ul li + li { border-top: 1px solid #f1f5f9; }
+  .section-body h3 { font-size: 13.5px; font-weight: 600; color: #0c4a6e; margin: 16px 0 6px; }
+  .section-body h3:first-child { margin-top: 0; }
+  .footer { max-width: 900px; margin: 0 auto; padding: 0 40px 48px; text-align: center; font-size: 12px; color: #94a3b8; }
+  .footer a { color: #64748b; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="hero"><div class="hero-inner">
+    <h1>Design, Fabrication, and Analysis of Flapping and Folding Wing Mechanism For a Robotic Bird</h1>
+    <div class="hero-meta"><span>Seung Wan Ryu, Jong Gu Lee, Hyoun Jin Kim</span><span>J Bionic Eng (2020)</span><span><a href="https://doi.org/10.1007/s42235-020-0018-3">DOI: 10.1007/s42235-020-0018-3</a></span></div>
+    <div class="tag-row"><span class="tag">Flapping Wing</span><span class="tag">Folding Wing</span><span class="tag">Mechanism Design</span><span class="tag">Four Bar Linkage</span><span class="tag">Ornithopter</span><span class="tag">Kinematic Analysis</span><span class="tag">Force Measurement</span></div>
+    <div class="importance-badge">★★</div>
+</div></div>
+<div class="container">
+  <div class="overview"><div class="overview-header"><div class="section-number">1</div><h2>Overview</h2></div>
+    <div class="overview-text">This paper presents the design, fabrication, and comparative analysis of two bird-inspired wing mechanisms based on a <strong>crank-rocker four-bar linkage</strong>: a <strong>Flapping Motion (FM)</strong> mechanism and a simultaneous <strong>Flapping and Folding Motion (FFM)</strong> mechanism. The authors derive kinematic relationships, formulate an optimization problem to <strong>maximize the flapping angle</strong> (total <strong>range of motion (ROM)</strong>), and fabricate prototypes using MDF frames with Esaki tissue surfaces. The FFM mechanism achieves folding <strong>without an additional actuator</strong> by exploiting coupled inner/outer spar kinematics. Force measurements at motor inputs from <strong>44%</strong> to <strong>62%</strong> demonstrate that FFM produces both <strong>higher average lift</strong> and <strong>higher wing frequency</strong> than FM, confirming the aerodynamic benefit of incorporating folding motion.</div></div>
+
+  <details><summary><div class="section-number">2</div><h2>Introduction</h2></summary>
+    <div class="section-body">
+      <h3>Context and Motivation</h3>
+      <ul>
+        <li><strong>Flapping-wing platforms</strong> offer advantages at bird scale: better maneuverability, lower noise, reduced power cost, and biomimetic concealment compared to fixed- and rotary-wing aircraft.</li>
+        <li>Bird main wing motion during strokes is comprised of <strong>flapping, folding, bending, and twisting</strong>. This work focuses on the first two: flapping and folding.</li>
+        <li>The folding motion can be implemented by wing spar movement alone without additional actuators, helping meet strict <strong>Size, weight, and power (SWaP)</strong> constraints.</li>
+      </ul>
+      <h3>Research Gap</h3>
+      <ul>
+        <li>Most prior <strong>FM</strong> mechanisms used heuristic link length selection or commercial platforms without <strong>systematic kinematic optimization</strong>.</li>
+        <li>Existing <strong>FFM</strong> studies lacked <strong>quantitative force measurement</strong> to validate the benefit of folding motion.</li>
+        <li>This paper combines <strong>systematic kinematic optimization</strong> with <strong>comparative force measurement experiments</strong> for both FM and FFM.</li>
+      </ul>
+    </div></details>
+
+  <details><summary><div class="section-number">3</div><h2>Related Works</h2></summary>
+    <div class="section-body">
+      <h3>Flapping Mechanism Studies</h3>
+      <ul>
+        <li><strong>Rongfa et al. (2016)</strong> &mdash; Motion capture reconstruction of 3D flapping kinematics on a commercial platform; limited design applicability.</li>
+        <li><strong>Mazaheri et al. (2011)</strong> &mdash; Force measurements vs. <strong>wing frequency</strong>, <strong>angle of attack (AOA)</strong>, and wind tunnel speed on a commercial ornithopter.</li>
+        <li><strong>Liang et al. (2017)</strong>, <strong>Lin et al. (2005)</strong>, and <strong>Folkertsma et al. (2017, Robird)</strong> &mdash; Designed main wings for trajectory analysis and force measurement, but without detailed link length optimization.</li>
+      </ul>
+      <h3>Folding Wing Studies</h3>
+      <ul>
+        <li><strong>Yun (2017)</strong> and <strong>Jiang et al. (2016)</strong> &mdash; Considered FFM in wing mechanisms but did not include <strong>force measurements</strong> validation.</li>
+        <li><strong>Kim et al. (2018)</strong> &mdash; Articulated ornithopter capable of FFM but without link parameter optimization.</li>
+        <li><strong>Mueller et al. (2009, 2010)</strong> &mdash; <strong>Compliant wing</strong> designs where folding arises passively from flexible surface inertia.</li>
+        <li><strong>Widhiarini et al. (2016)</strong> &mdash; Bird-mimetic wing system with autonomous flight control but compliant (not active spar) folding.</li>
+      </ul>
+      <h3>Theoretical Foundations</h3>
+      <ul>
+        <li><strong>Djojodihardjo et al. (2016)</strong> and <strong>Lentink et al. (2009)</strong> &mdash; Lift is proportional to flapping angle, motivating ROM maximization.</li>
+        <li><strong>Gerdes et al. (2012)</strong> &mdash; Review of bird-inspired flapping-wing MAV designs identifying key mechanism challenges.</li>
+      </ul>
+    </div></details>
+
+  <details><summary><div class="section-number">4</div><h2>Materials and Methods</h2></summary>
+    <div class="section-body">
+      <h3>Four-Bar Linkage Mechanism</h3>
+      <ul>
+        <li>Both mechanisms use a <strong>crank-rocker four-bar linkage</strong> &mdash; the simplest closed chain converting rotary to oscillatory motion. The crank rotates fully while the rocker (wing spar) undergoes bounded oscillation.</li>
+        <li>FM mechanism: single wing spar toward wingspan direction. Flapping angle is a function of crank angle and four link lengths.</li>
+        <li>FFM mechanism: wing spar split into <strong>Top Inner Spar (TIS)</strong>, <strong>Down Inner Spar (DIS)</strong>, and <strong>outer spar</strong> connected through a folding joint with fixed <strong>$35^\circ$</strong> offset angle.</li>
+      </ul>
+      <h3>Optimization</h3>
+      <ul>
+        <li>Objective: <strong>maximize the total range of wing angle</strong> subject to Grashof constraints and spur gear radius constraints, solved with MATLAB.</li>
+        <li><strong>Safety Margin (SM)</strong> parameter prevents dead points from fabrication imperfections. Five SM values (<strong>0.5--4 mm</strong>) were evaluated; <strong>SM = 2 mm</strong> selected as practical compromise yielding ROM = <strong>$80.07^\circ$</strong>.</li>
+        <li>Optimized link lengths: with crank length <strong>$l_1 = 7\,\text{mm}$</strong> and spur gear radius <strong>$r_{spur} = 11.17\,\text{mm}$</strong>: <strong>$l_2 = 11.17\,\text{mm}$</strong>, <strong>$l_3 = 11\,\text{mm}$</strong>, <strong>$l_4 = 13.17\,\text{mm}$</strong>.</li>
+      </ul>
+      <h3>Fabrication and Gear Design</h3>
+      <ul>
+        <li>Wing frames: MDF (3 mm), laser-cut (ILS12.75, 0.1 mm precision). Four airfoils per wing (8 total), Esaki tissue covering, carbon rod reinforcement (2 mm diameter).</li>
+        <li>Gear box: 10-teeth motor gear, 54-teeth spur gear, 9/54 compound gear (0.4 module, 20&deg; pressure angle). BLDC motor (AP-05-5000 KV) at <strong>3.7 V</strong>, ideal output frequency <strong>$5.9\,\text{Hz}$</strong>.</li>
+        <li>Ball bearings at link joints and gear shafts; 1.5 mm metal rod for joint shafts.</li>
+      </ul>
+      <h3>Experimental Setup</h3>
+      <ul>
+        <li>Force sensor: <strong>Futek LSB200</strong> at 600 Hz sampling rate, 10 s per test. Mechanisms mounted on 3D-printed mounts fixed to aluminum board.</li>
+        <li>Motor input range: 44% to 62% at 3% intervals (7 datasets per mechanism). Arduino-Uno generating PWM signals via MX-3A ESC.</li>
+        <li>Low-pass filter at 10 Hz cutoff for noise removal; <strong>second-order Fourier series</strong> fitting for periodic characterization.</li>
+      </ul>
+    </div></details>
+
+  <details><summary><div class="section-number">5</div><h2>Results</h2></summary>
+    <div class="section-body">
+      <h3>Simulation Validation</h3>
+      <ul>
+        <li>FM: flapping angle range <strong>$-52.08^\circ$</strong> to <strong>$27.99^\circ$</strong> (ROM = <strong>$80.07^\circ$</strong>); arc-shaped wing tip trajectory.</li>
+        <li>FFM: folding angle range <strong>$84.24^\circ$</strong> to <strong>$178.8^\circ$</strong> (ROM = <strong>$94.56^\circ$</strong>); <strong>bowling pin-shaped</strong> wing tip trajectory.</li>
+        <li><strong>LINKAGE</strong> software simulation trajectories identical to analytical reconstruction, validating kinematic formulation. No dead points observed.</li>
+      </ul>
+      <h3>Force Measurement Comparison</h3>
+      <ul>
+        <li>At <strong>62%</strong> input: FM <strong>wing frequency</strong> = <strong>3.24 Hz</strong>, FFM = <strong>3.74 Hz</strong>. Both <strong>&gt; 30%</strong> below ideal 5.9 Hz due to component loading and rolling friction.</li>
+        <li>FM: mass amplitude grows with input but average mass shows <strong>negligible increase</strong> &mdash; upstroke drag negates downstroke gains.</li>
+        <li>FFM: <strong>both</strong> amplitude and average mass increase proportionally with input &mdash; folding reduces upstroke drag by decreasing horizontal wing area.</li>
+      </ul>
+      <h3>Key Quantitative Advantages of FFM</h3>
+      <ul>
+        <li><strong>Shorter wing stroke period</strong> (higher frequency) despite more mechanical components.</li>
+        <li><strong>Larger average lift force</strong> during each wing stroke across all motor input levels.</li>
+      </ul>
+    </div></details>
+
+  <details><summary><div class="section-number">6</div><h2>Results Interpretation</h2></summary>
+    <div class="section-body">
+      <h3>Mechanism Design Insights</h3>
+      <ul>
+        <li>The Safety Margin concept bridges theoretical optimization and practical fabrication: SM = 0.5 mm gives highest ROM (<strong>$122.35^\circ$</strong>) but unnatural near-90&deg; downstroke; <strong>SM = 2 mm</strong> balances ROM and biological plausibility.</li>
+        <li><strong>Passive folding</strong> (no extra actuator) satisfies weight constraints critical for lightweight aerial vehicles, making FFM attractive for SWaP-constrained ornithopters.</li>
+      </ul>
+      <h3>Aerodynamic Interpretation</h3>
+      <ul>
+        <li>FFM's lift advantage stems from two coupled effects: reduced upstroke drag from wing area reduction, and consequent higher wing frequency from that drag reduction.</li>
+        <li>The proportional increase of average lift with motor input in FFM (but not FM) indicates folding provides <strong>scalable lift enhancement</strong> rather than a fixed offset.</li>
+        <li>The bowling pin wing tip trajectory more closely resembles natural avian kinematics than the simple arc of FM.</li>
+      </ul>
+      <h3>Limitations</h3>
+      <ul>
+        <li>Still-air measurements only; no wind tunnel testing separating lift from thrust components.</li>
+        <li>Rigid-body kinematics only &mdash; wing surface flexibility (bending, twisting) not modeled.</li>
+        <li>Flapping-folding timing relationship and its aerodynamic effects not investigated.</li>
+      </ul>
+    </div></details>
+
+  <details><summary><div class="section-number">7</div><h2>Future Directions</h2></summary>
+    <div class="section-body">
+      <h3>Mechanism Extensions</h3>
+      <ul>
+        <li>Incorporate <strong>bending and twisting</strong> motions into the mechanism for more complete biomimetic wing kinematics.</li>
+        <li>Investigate the effect of <strong>flapping-folding phase timing</strong> on lift and thrust generation.</li>
+      </ul>
+      <h3>System Integration</h3>
+      <ul>
+        <li>Develop a <strong>fully-assembled robotic bird</strong> integrating the optimized FFM mechanism with onboard sensing and flight control systems.</li>
+        <li>Conduct wind tunnel tests to characterize thrust generation and lift-thrust coupling under forward flight conditions.</li>
+      </ul>
+    </div></details>
+
+</div>
+<div class="footer">YANG Lab &mdash; Paper Study Card &bull; <a href="https://doi.org/10.1007/s42235-020-0018-3">DOI: 10.1007/s42235-020-0018-3</a></div>
+</body>
+</html>

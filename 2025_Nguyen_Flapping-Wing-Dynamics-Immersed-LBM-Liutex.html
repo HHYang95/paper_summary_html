@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="paper-title" content="A Numerical Study on Bio-Inspired Flapping Wing Dynamics Using Scalable Immersed-Lattice Boltzmann and Liutex Identification Methods">
+<meta name="paper-year" content="2025">
+<meta name="paper-author" content="V. D. Nguyen, N. N. Nguyen, N. D. Duc, V. D. Duong">
+<meta name="paper-journal" content="CEAS Aeronautical Journal">
+<meta name="paper-tags" content="Flapping Wing, LBM, IBM, Vortex Identification, Liutex, LEV, Aerodynamics, CFD, Bio Inspired">
+<meta name="paper-doi" content="10.1007/s13272-025-00860-z">
+<title>A Numerical Study on Bio-Inspired Flapping Wing Dynamics Using Scalable Immersed-Lattice Boltzmann and Liutex Identification Methods &mdash; Summary</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', 'Segoe UI', -apple-system, sans-serif; background: #f8f9fb; color: #1e293b; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  .hero { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0c4a6e 100%); color: #fff; padding: 56px 0 48px; position: relative; overflow: hidden; }
+  .hero::after { content: ''; position: absolute; top: 0; right: 0; bottom: 0; width: 40%; background: radial-gradient(ellipse at 80% 50%, rgba(56,189,248,0.08) 0%, transparent 70%); pointer-events: none; }
+  .hero-inner { max-width: 900px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 1; }
+  .hero h1 { font-size: 28px; font-weight: 700; line-height: 1.35; letter-spacing: -0.3px; margin-bottom: 16px; }
+  .hero-meta { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px; color: #94a3b8; }
+  .hero-meta a { color: #7dd3fc; text-decoration: none; }
+  .hero-meta a:hover { text-decoration: underline; }
+  .importance-badge { position: absolute; top: 56px; right: 40px; font-size: 22px; letter-spacing: 2px; filter: drop-shadow(0 0 6px rgba(255,215,0,0.4)); }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px; }
+  .tag { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); color: #cbd5e1; font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px; letter-spacing: 0.3px; }
+  .container { max-width: 900px; margin: 0 auto; padding: 40px 40px 80px; }
+  details { margin-bottom: 12px; border-radius: 10px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.04); overflow: hidden; }
+  details[open] { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  summary { display: flex; align-items: center; gap: 12px; padding: 14px 20px; cursor: pointer; user-select: none; list-style: none; border-bottom: 2px solid transparent; transition: background 0.15s; }
+  summary:hover { background: #f1f5f9; }
+  details[open] > summary { border-bottom-color: #e2e8f0; }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: '\25B6'; font-size: 10px; color: #94a3b8; transition: transform 0.2s; flex-shrink: 0; }
+  details[open] > summary::before { transform: rotate(90deg); }
+  .section-number { background: #0f172a; color: #fff; font-size: 11px; font-weight: 700; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  summary h2 { font-size: 16px; font-weight: 700; color: #0f172a; letter-spacing: -0.2px; }
+  .section-body { padding: 16px 20px 20px; }
+  .overview { margin-bottom: 12px; background: #fff; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); overflow: hidden; }
+  .overview-header { display: flex; align-items: center; gap: 12px; padding: 14px 20px; border-bottom: 2px solid #e2e8f0; }
+  .overview-header h2 { font-size: 16px; font-weight: 700; color: #0f172a; }
+  .overview-text { font-size: 14.5px; line-height: 1.8; color: #334155; padding: 16px 20px 20px; border-left: 4px solid #0ea5e9; margin: 0; }
+  .section-body ul { list-style: none; padding: 0; }
+  .section-body ul li { position: relative; padding: 7px 0 7px 18px; font-size: 13.5px; line-height: 1.7; color: #334155; }
+  .section-body ul li::before { content: ''; position: absolute; left: 0; top: 15px; width: 5px; height: 5px; background: #0ea5e9; border-radius: 50%; }
+  .section-body ul li + li { border-top: 1px solid #f1f5f9; }
+  .section-body h3 { font-size: 13.5px; font-weight: 600; color: #0c4a6e; margin: 16px 0 6px; padding-left: 2px; }
+  .section-body h3:first-child { margin-top: 0; }
+  .footer { max-width: 900px; margin: 0 auto; padding: 0 40px 48px; text-align: center; font-size: 12px; color: #94a3b8; }
+  .footer a { color: #64748b; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="hero-inner">
+    <h1>A Numerical Study on Bio-Inspired Flapping Wing Dynamics Using Scalable Immersed-Lattice Boltzmann and Liutex Identification Methods</h1>
+    <div class="hero-meta">
+      <span>V. D. Nguyen, N. N. Nguyen, N. D. Duc, V. D. Duong</span>
+      <span>CEAS Aeronautical Journal (2025)</span>
+      <span><a href="https://doi.org/10.1007/s13272-025-00860-z">DOI: 10.1007/s13272-025-00860-z</a></span>
+    </div>
+    <div class="tag-row"><span class="tag">Flapping Wing</span><span class="tag">LBM</span><span class="tag">IBM</span><span class="tag">Vortex Identification</span><span class="tag">Liutex</span><span class="tag">LEV</span><span class="tag">Aerodynamics</span><span class="tag">CFD</span><span class="tag">Bio Inspired</span></div>
+    <div class="importance-badge">★★</div>
+  </div>
+</div>
+<div class="container">
+  <div class="overview">
+    <div class="overview-header">
+      <div class="section-number">1</div>
+      <h2>Overview</h2>
+    </div>
+    <div class="overview-text">This paper presents a <strong>scalable computational framework</strong> combining the <strong>lattice Boltzmann method (LBM)</strong>, <strong>multi direct-forcing immersed boundary method (IBM)</strong>, and <strong>topology-confined block refinement</strong> for simulating complex flows past 2D and 3D flapping wings. The framework is validated against experimental and computational references. For 3D bio-inspired flapping wings at <strong>$Re_t = 300$</strong>, the <strong>Liutex vortex identification method</strong> is applied for the first time to classify rotational vortex structures into LEV, tip vortex, TEV, root vortex, and a newly identified <strong>U-shaped vortex</strong>. The U-shaped vortex formation correlates strongly with lift coefficient jumps, where the maximum $C_L$ at $St = 0.4$ is <strong>four times higher</strong> than at $St = 0.2$.</div>
+  </div>
+
+  <details>
+    <summary><div class="section-number">2</div><h2>Introduction</h2></summary>
+    <div class="section-body">
+      <h3>Motivation</h3>
+      <ul>
+        <li>Moving boundaries of complex geometries are prevalent in <strong>insect and bird flight</strong>, rotorcraft, MAVs, and AUVs</li>
+        <li>The <strong>lattice Boltzmann method</strong> offers simpler algorithms with natural parallelism by solving the kinetic equation instead of the Poisson equation required by conventional CFD</li>
+        <li>The association of <strong>instantaneous coherent vortex structures</strong> with aerodynamic forces and flow separation during flapping flight has not been fully clarified</li>
+      </ul>
+      <h3>State of the Art</h3>
+      <ul>
+        <li><strong>LBM</strong> has grown as a parallel CFD alternative using the BGK collision model and recovering incompressible Navier-Stokes equations via Chapman-Enskog analysis</li>
+        <li>The <strong>IBM</strong> by Peskin (1977) and multi direct-forcing variant eliminate artificial constants for boundary treatment</li>
+        <li>First <strong>LBM-IBM coupling</strong> by Feng and Michaelides (2004); Kang and Hassan established interface schemes for moving boundaries</li>
+        <li>Third-generation <strong>Liutex</strong> vortex identification by Liu et al. (2018) isolates rotational motion without shear contamination</li>
+      </ul>
+      <h3>Gap &amp; Contribution</h3>
+      <ul>
+        <li>Existing studies focus on force measurements; correlation between <strong>instantaneous coherent structures</strong> and aerodynamic forces remains unclear</li>
+        <li>This paper combines IB-LBM with topology-confined block refinement and applies <strong>Liutex identification</strong> for the first time to 3D flapping wing flows</li>
+        <li>The <strong>U-shaped vortex</strong> structure and its correlation with lift generation mechanisms are newly identified</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><div class="section-number">3</div><h2>Related Works</h2></summary>
+    <div class="section-body">
+      <h3>LBM and IBM Foundations</h3>
+      <ul>
+        <li><strong>Chen and Doolen (1998)</strong> &mdash; Comprehensive review of LBM for fluid flows establishing the theoretical foundation</li>
+        <li><strong>Peskin (2002)</strong> &mdash; Definitive formulation of the immersed boundary method for complex boundary interactions</li>
+        <li><strong>Feng and Michaelides (2004)</strong> &mdash; First coupling of IBM with LBM for particle-laden flows</li>
+        <li><strong>Kang and Hassan (2011)</strong> &mdash; Comparative study establishing that 5 multi direct-forcing iterations provide optimal accuracy-efficiency balance</li>
+      </ul>
+      <h3>Vortex Identification Methods</h3>
+      <ul>
+        <li><strong>Liu et al. (2018)</strong> &mdash; Proposed the Liutex vector as a third-generation vortex criterion based on rotational-nonrotational velocity gradient decomposition</li>
+        <li><strong>Wang et al. (2019)</strong> &mdash; Derived explicit Liutex vector formula and physical meaning of vorticity via Liutex-shear decomposition</li>
+        <li><strong>Zhang et al. (2018)</strong> &mdash; Review of vortex identification methods comparing $\omega$, Q-criterion, $\lambda_2$, and Liutex</li>
+      </ul>
+      <h3>Flapping Wing Aerodynamics</h3>
+      <ul>
+        <li><strong>Ellington et al.</strong> &mdash; Identified prominent features of the leading-edge vortex in increasing force coefficients for insect and bird flight</li>
+        <li><strong>Thielicke and Stamhuis</strong> &mdash; Experimental study providing the 3D wing morphology used in this paper</li>
+        <li><strong>Wang (2000)</strong> &mdash; CFD analysis of 2D flapping wing producing reference lift ($\bar{C}_L = 0.49$) and drag ($\bar{C}_D = -0.28$)</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><div class="section-number">4</div><h2>Materials and Methods</h2></summary>
+    <div class="section-body">
+      <h3>LBM Formulation</h3>
+      <ul>
+        <li><strong>BGK collision</strong> with discrete equilibrium distribution: $\Lambda_i^{e} = w_i \rho\left[1 + \frac{\mathbf{c}_i \cdot \mathbf{u}}{c_s^2} + \frac{(\mathbf{c}_i \cdot \mathbf{u})^2}{2c_s^4} - \frac{\mathbf{u}^2}{2c_s^2}\right]$</li>
+        <li>Lattice speed of sound $c_s = 1/\sqrt{3}$; kinematic viscosity $\nu = \Delta t\, c_s^2(\tau - 1/2)$</li>
+        <li>Macroscopic variables recovered from moments of the distribution function: $\rho = \sum_i \Lambda_i$, $\rho\mathbf{u} = \sum_i \mathbf{c}_i \Lambda_i$</li>
+      </ul>
+      <h3>Multi Direct-Forcing IBM</h3>
+      <ul>
+        <li>Rigid geometry surfaces represented by Lagrangian marker points immersed in Eulerian grid with spacing $|r_j - r_k| = \Delta x$</li>
+        <li>No-slip condition enforced iteratively with <strong>5 iterations</strong> per time step for optimal accuracy-efficiency balance</li>
+        <li>Discrete delta functions used for interpolation between Eulerian and Lagrangian grid systems</li>
+      </ul>
+      <h3>Topology-Confined Block Refinement</h3>
+      <ul>
+        <li>Domain partitioned into square blocks with variable refinement levels; parallelized via <strong>MPI + OpenMP</strong></li>
+        <li>Load balancing by <strong>space-filling curves</strong>; recursive synchronous algorithm for nonuniform-grid interface interaction</li>
+        <li>3D domain: $x/\bar{c} \in [-5, 10]$, $y/\bar{c} \in [-2.5, 6.5]$, $z/\bar{c} \in [-3.5, 3.5]$; finest $\Delta x = \bar{c}/48$ (~27M cells)</li>
+      </ul>
+      <h3>Wing Model and Kinematics</h3>
+      <ul>
+        <li>Wing morphology from Thielicke and Stamhuis: root chord $1.14\bar{c}$, tip chord $0.57\bar{c}$, span $2.74\bar{c}$; NACA 4-digit cross sections</li>
+        <li>Pitch: $\alpha(t^*) = \alpha_0 \sin(2\pi f t^*)$ (upstroke only, zero during downstroke); stroke: $\Phi(t^*) = \phi_0 \sin(2\pi f t^* - \pi/2)$</li>
+        <li>Parameters: $\alpha_0 = 45°$, $\phi_0 = 30°$, $Re_t = 300$, $St = 0.2, 0.3, 0.4$</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><div class="section-number">5</div><h2>Results</h2></summary>
+    <div class="section-body">
+      <h3>2D Validation</h3>
+      <ul>
+        <li><strong>Pitch-up flat plate</strong> ($Re = 1000$): $C_L$ reaches critical value of $+2.6$ at $\alpha \approx 5°$; LEV/TEV agree with CFD, FLVM, and LDVM references</li>
+        <li><strong>NACA 0018 pitching</strong> ($\alpha_0 = 64°$, $k = 0.22$): Lift time history collapses with Theodorsen's theory and experimental data of Otomo et al.</li>
+        <li><strong>2D flapping plate</strong>: $\bar{C}_L = 0.6$, $\bar{C}_D = -0.34$; LEV-TEV dipole pairs and vortex shedding consistent with references</li>
+      </ul>
+      <h3>3D Vortex Structure Classification</h3>
+      <ul>
+        <li><strong>Q-criterion</strong> reveals LEV, TEV, TV, and RV; tube-shaped TEV connects TV and RV forming closed starting/stopping vortex structure</li>
+        <li><strong>Liutex identification</strong> isolates rotational cores: high $|R|$ in LEV, TEV, TV without RV at all frequencies</li>
+        <li>At $St = 0.2$: Only wingtip vortex core visible; at $St \geq 0.3$: <strong>U-shaped vortex</strong> forms at $0.5T^*$</li>
+      </ul>
+      <h3>U-Shaped Vortex and Lift Correlation</h3>
+      <ul>
+        <li>U-shaped vortex (LEV + TV + TEV) forms at mid-downstroke; its <strong>formation correlates with lift coefficient jumps</strong></li>
+        <li>Maximum $C_L$ at $St = 0.4$ is <strong>four times higher</strong> than at $St = 0.2$; breakdown from $0.75T^*$ drives lift decrease</li>
+        <li>Transverse spanwise velocity drives LEV separation; TEV disconnects due to <strong>helical tip vortex motion</strong></li>
+        <li><strong>Helicity analysis</strong>: LEV (clockwise) and TEV (counterclockwise) opposite rotations manifest breakdown; LEV maintains connection due to stronger vortex strength</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><div class="section-number">6</div><h2>Results Interpretation</h2></summary>
+    <div class="section-body">
+      <h3>Physical Mechanisms</h3>
+      <ul>
+        <li>The LEV forms above the upper wing surface and grows <strong>asymmetrically</strong>, stronger near wingtip due to local boundary shear layer along the leading edge</li>
+        <li><strong>Maximum transverse flow</strong> occurs at mid-downstroke when <strong>wingtip velocity</strong> is maximum, coinciding with LEV separation from swept wing surfaces</li>
+        <li>TEV breaks from U-shaped vortex while LEV does not, indicating <strong>stronger vortex strength</strong> of LEV at <strong>$St = 0.3$</strong> and <strong>$0.4$</strong></li>
+      </ul>
+      <h3>Resolution and Convergence</h3>
+      <ul>
+        <li><strong>Kolmogorov length scale</strong>: $\Delta/\eta < 3.2$ (max), mean $= 0.67$; <strong>96.5%</strong> of domain satisfies $\Delta/\eta < 1$</li>
+        <li><strong>Kolmogorov time scale</strong>: $\Delta t/\tau_k$ mean $\approx 0.005$, below the <strong>0.0205</strong> threshold</li>
+        <li><strong>Grid convergence</strong> confirmed across three resolutions ($\bar{c}/40$, $\bar{c}/48$, $\bar{c}/56$); <strong>near-linear parallel speedup</strong></li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><div class="section-number">7</div><h2>Conclusion</h2></summary>
+    <div class="section-body">
+      <ul>
+        <li>A <strong>scalable IB-LBM framework</strong> with topology-confined block refinement is validated for 2D and 3D flapping wing aerodynamics</li>
+        <li><strong>Liutex identification</strong> applied for the first time to 3D flapping wings classifies rotational structures into LEV, TV, TEV, RV, and <strong>U-shaped vortex</strong></li>
+        <li>U-shaped vortex forms at $St \geq 0.3$ and its formation <strong>correlates strongly with lift coefficient jumps</strong>; maximum $C_L$ at $St = 0.4$ is four times that at $St = 0.2$</li>
+        <li>TEV disconnects from U-shaped vortex due to <strong>helical tip vortex motion</strong>; LEV maintains connection due to stronger vortex strength</li>
+        <li><strong>Limitations</strong>: Restricted to <strong>$Re_t = 300$</strong> (low Re); rigid wing with prescribed kinematics; only <strong>three Strouhal numbers</strong> investigated</li>
+        <li><strong>Future</strong>: Higher Re with <strong>MRT/LES</strong> turbulence models; <strong>flexible wing FSI</strong>; additional kinematic parameter studies</li>
+      </ul>
+    </div>
+  </details>
+</div>
+<div class="footer">
+  Generated by YANG Lab RECON &middot; <a href="https://doi.org/10.1007/s13272-025-00860-z">View Original Paper</a>
+</div>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '\\[', right: '\\]', display: true},
+      {left: '\\(', right: '\\)', display: false},
+      {left: '$', right: '$', display: false}
+    ],
+    throwOnError: false
+  });"></script>
+</body>
+</html>

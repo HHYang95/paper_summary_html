@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>An Efficient Fluid-Structure Interaction Model For Optimizing Twistable Flapping Wings</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', 'Segoe UI', -apple-system, sans-serif; background: #f8f9fb; color: #1e293b; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+.hero { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0c4a6e 100%); color: #fff; padding: 56px 0 48px; position: relative; overflow: hidden; }
+.hero::after { content: ''; position: absolute; top: 0; right: 0; bottom: 0; width: 40%; background: radial-gradient(ellipse at 80% 50%, rgba(56,189,248,0.08) 0%, transparent 70%); pointer-events: none; }
+.hero-inner { max-width: 900px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 1; }
+.hero h1 { font-size: 28px; font-weight: 700; line-height: 1.35; letter-spacing: -0.3px; margin-bottom: 16px; }
+.hero-meta { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px; color: #94a3b8; }
+.hero-meta a { color: #7dd3fc; text-decoration: none; }
+.hero-meta a:hover { text-decoration: underline; }
+.importance-badge { position: absolute; top: 56px; right: 40px; font-size: 22px; letter-spacing: 2px; filter: drop-shadow(0 0 6px rgba(255,215,0,0.4)); }
+.tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px; }
+.tag { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); color: #cbd5e1; font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px; letter-spacing: 0.3px; }
+.container { max-width: 900px; margin: 0 auto; padding: 40px 40px 80px; }
+details { margin-bottom: 12px; border-radius: 10px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.04); overflow: hidden; }
+details[open] { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+summary { display: flex; align-items: center; gap: 12px; padding: 14px 20px; cursor: pointer; user-select: none; list-style: none; border-bottom: 2px solid transparent; transition: background 0.15s; }
+summary:hover { background: #f1f5f9; }
+details[open] > summary { border-bottom-color: #e2e8f0; }
+summary::-webkit-details-marker { display: none; }
+summary::before { content: '\25B6'; font-size: 10px; color: #94a3b8; transition: transform 0.2s; flex-shrink: 0; }
+details[open] > summary::before { transform: rotate(90deg); }
+.section-number { background: #0f172a; color: #fff; font-size: 11px; font-weight: 700; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+summary h2 { font-size: 16px; font-weight: 700; color: #0f172a; letter-spacing: -0.2px; }
+.section-body { padding: 16px 20px 20px; }
+.overview { margin-bottom: 12px; background: #fff; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); overflow: hidden; }
+.overview-header { display: flex; align-items: center; gap: 12px; padding: 14px 20px; border-bottom: 2px solid #e2e8f0; }
+.overview-header h2 { font-size: 16px; font-weight: 700; color: #0f172a; }
+.overview-text { font-size: 14.5px; line-height: 1.8; color: #334155; padding: 16px 20px 20px; border-left: 4px solid #0ea5e9; margin: 0; }
+.section-body ul { list-style: none; padding: 0; }
+.section-body ul li { position: relative; padding: 7px 0 7px 18px; font-size: 13.5px; line-height: 1.7; color: #334155; }
+.section-body ul li::before { content: ''; position: absolute; left: 0; top: 15px; width: 5px; height: 5px; background: #0ea5e9; border-radius: 50%; }
+.section-body ul li + li { border-top: 1px solid #f1f5f9; }
+.section-body h3 { font-size: 13.5px; font-weight: 600; color: #0c4a6e; margin: 16px 0 6px; padding-left: 2px; }
+.section-body h3:first-child { margin-top: 0; }
+.footer { max-width: 900px; margin: 0 auto; padding: 0 40px 48px; text-align: center; font-size: 12px; color: #94a3b8; }
+.footer a { color: #64748b; text-decoration: none; }
+</style>
+    <meta name="paper-title" content="An Efficient Fluid-Structure Interaction Model For Optimizing Twistable Flapping Wings">
+    <meta name="paper-tags" content="FSI, Flapping Wing, Twist Optimization, Quasi Steady Aerodynamics, Hovering, Power Efficiency, FWMAV, Nonlinear Plate, Lagrangian Dynamics">
+    <meta name="paper-doi" content="10.1016/j.jfs.2017.06.006">
+    <meta name="paper-year" content="2017">
+    <meta name="paper-author" content="Qi Wang, Johannes F.L. Goosen, Fred van Keulen">
+    <meta name="paper-journal" content="Journal of Fluids and Structures (JFS)">
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <h1>An Efficient Fluid-Structure Interaction Model For Optimizing Twistable Flapping Wings</h1>
+    <div class="hero-meta">
+      <span>Q. Wang, J.F.L. Goosen, F. van Keulen</span>
+      <span>Journal of Fluids and Structures (2017)</span>
+      <span><a href="https://doi.org/10.1016/j.jfs.2017.06.006">DOI: 10.1016/j.jfs.2017.06.006</a></span>
+    </div>
+    <div class="tag-row"><span class="tag">FSI</span><span class="tag">Flapping Wing</span><span class="tag">Twist Optimization</span><span class="tag">Quasi Steady Aerodynamics</span><span class="tag">Hovering</span><span class="tag">Power Efficiency</span><span class="tag">FWMAV</span><span class="tag">Nonlinear Plate</span><span class="tag">Lagrangian Dynamics</span></div>
+    <div class="importance-badge">&#9733;&#9733;</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="overview">
+    <div class="overview-header"><div class="section-number">1</div><h2>Overview</h2></div>
+    <div class="overview-text">
+      <h3>Problem Statement and Motivation</h3>
+      Spanwise twist is a dominant deformation mode for flapping wings, significantly altering aerodynamic performance and power efficiency by changing the local angle of attack along the span. Traditional <strong>FSI</strong> models based on <strong>CSD-CFD coupling</strong> have been used to study the influence of twist, but their high computational cost makes them impractical for twist optimization and parametric studies. Understanding optimal twist is essential for designing power-efficient <strong>flapping-wing micro air vehicles (FWMAVs)</strong> and explaining the diverse twist levels observed in insect wings.
+      <h3>Core Contribution</h3>
+      This paper proposes a computationally efficient <strong>FSI model</strong> combining an analytical twist model (polynomial description of spanwise twist angle) with a <strong>quasi-steady aerodynamic model</strong> (four loading terms: translation, rotation, coupling, and added-mass effect). The twist model incorporates <strong>nonlinear plate mechanics</strong> including spanwise shortening and quadratic membrane strain terms, validated against <strong>COMSOL FEA</strong> for large twist angles (<strong>40-50 degrees</strong>). The full FSI simulation runs in approximately <strong>4 minutes per case</strong> in MATLAB, enabling systematic twist optimization. Applied to rectangular wing hovering, optimization reveals that twistable wings exhibit power efficiency close to optimized rigid wings unless the pitching amplitude at the root is limited by high root stiffness, providing an explanation for the different twist levels in insect wings.
+    </div>
+  </div>
+
+  <details>
+    <summary><div class="section-number">2</div><h2>Introduction</h2></summary>
+    <div class="section-body">
+      <h3>Importance of Wing Twist in Flapping Flight</h3>
+      <ul>
+        <li>Insect wings can be modeled as thin-walled structures whose deformation decomposes into three modes: spanwise bending, spanwise twist, and chordwise camber.</li>
+        <li>For artificial flapping wings, twist is of particular interest for power-efficient designs because spanwise bending is typically constrained by structural stiffeners, turbulent flow is less sensitive to camber, cm-scale wings exhibit large twist due to differential loads between root and tip, and twist dramatically alters the local angle of attack distribution.</li>
+        <li>The wing's elastic deformation is defined relative to the co-rotating frame to decouple deformation from finite rigid-body motions, with position vectors related through transformation matrices: $r_c = r_{c0} + r_c^{ela}$</li>
+      </ul>
+      <h3>Limitations of Traditional FSI Approaches</h3>
+      <ul>
+        <li>Traditional <strong>CSD-CFD</strong> based FSI models (e.g., <strong>Du and Sun, 2008</strong>; <strong>Nakata and Liu, 2012</strong>) have demonstrated that twist enhances power efficiency, but these studies generally compared unoptimized twistable wings against unoptimized rigid counterparts, lacking a fair comparison at optimal conditions.</li>
+        <li>The high computational cost of these models precludes comprehensive parametric studies and optimization.</li>
+        <li>Prior analytical or reduced-order approaches used oversimplified structural or aerodynamic models that could not capture the essential physics of twist-induced performance changes.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><div class="section-number">3</div><h2>Related Works</h2></summary>
+    <div class="section-body">
+      <h3>Experimental and Computational Studies on Twist Effects</h3>
+      <ul>
+        <li><strong>Du and Sun (2008)</strong> showed that <strong>20-degree</strong> twist with <strong>6% camber</strong> increases lift by up to <strong>20%</strong> and lift-to-drag ratio by approximately <strong>10%</strong> compared to rigid wings.</li>
+        <li><strong>Nakata and Liu (2012)</strong> performed FSI analysis of hawkmoth hovering demonstrating force enhancement through delayed <strong>LEV</strong> breakdown and elastic energy release.</li>
+        <li><strong>Shyy et al. (2010)</strong> showed that wing twist can make FWMAVs more susceptible to gusty conditions.</li>
+        <li>However, these studies compared unoptimized wings, making it unclear whether twist provides inherent advantages when both twistable and rigid wings are optimally designed.</li>
+      </ul>
+      <h3>Analytical and Quasi-Steady Aerodynamic Models</h3>
+      <ul>
+        <li><strong>Wang et al. (2016)</strong> developed a predictive quasi-steady aerodynamic model including four loading terms (translation, rotation, coupling, and added-mass), which was validated for hovering flight of rigid wings.</li>
+        <li><strong>Dai et al. (2012)</strong> studied dynamic pitching of elastic rectangular wings in hovering.</li>
+        <li>Passive pitching mechanisms using elastic hinges or compliant mechanisms (<strong>Bergou et al., 2007</strong>; <strong>Whitney and Wood, 2010</strong>) have been analyzed but without systematic twist optimization.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><div class="section-number">4</div><h2>Materials and Methods</h2></summary>
+    <div class="section-body">
+      <h3>Analytical Twist Model</h3>
+      <ul>
+        <li>The twist angle variation along the span is described by a polynomial of degree $n$, with the local additional pitching angle $\eta_{ela}$ expressed as: $$\eta_{ela} = \sum_{i=1}^{n} a_i x_{c0}^i, \quad 0 \leq x_{c0} \leq R$$</li>
+        <li>A convergence study demonstrated that <strong>quadratic polynomials</strong> ($n=2$) provide sufficient accuracy regardless of wing stiffness, explained by the roughly linear inertial and quadratic aerodynamic load distributions along the span.</li>
+        <li>The model accounts for the <strong>spanwise shortening effect</strong> and uses nonlinear strain-displacement relations for plates with moderate deformation, including <strong>quadratic membrane strain</strong> terms to ensure accuracy for large twist angles.</li>
+      </ul>
+      <h3>Quasi-Steady Aerodynamic Model</h3>
+      <ul>
+        <li>The <strong>blade element method</strong> divides the wing into chordwise strips of infinitesimal width. The resultant aerodynamic force on each strip includes four components: $$dF_{ye}^{aero} = \left(\tilde{F}_{ye}^{trans} + \tilde{F}_{ye}^{rot} + \tilde{F}_{ye}^{coupl} + \tilde{F}_{ye}^{am}\right) dx_e$$</li>
+        <li>The translational force coefficient uses <strong>Helmbold's correction</strong> for finite aspect ratio: $C_{trans} = 2\pi A \sin(\tilde{\alpha}) / (2 + \sqrt{A^2 + 4})$.</li>
+        <li>Each loading term has a corresponding center of pressure location, and the added-mass term is separated into velocity- and acceleration-dependent parts.</li>
+      </ul>
+      <h3>Equations of Motion and Optimization Framework</h3>
+      <ul>
+        <li>The equations of motion are derived from <strong>Lagrange's equation</strong> with generalized coordinates combining rigid-body rotations $q^{rot}$ and elastic deformation $q^{ela}$: $$M\ddot{q} = -Q^{ela} + Q^{drive} + \tilde{Q}^{aero} - Q^v$$</li>
+        <li>where $M = M_w + M_{am}$ is the effective mass matrix including wing and added-mass contributions.</li>
+        <li>The <strong>Newmark method</strong> ($\gamma = 1/2$, $\beta = 1/4$) is used for time integration with <strong>500 steps per cycle</strong>.</li>
+        <li>Optimization minimizes cycle-averaged power consumption during hovering subject to a lift constraint of <strong>1 g per wing</strong>, with design variables including root stiffness $k_\eta$, Young's modulus $E$, and flapping frequency $f$.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><div class="section-number">5</div><h2>Results</h2></summary>
+    <div class="section-body">
+      <h3>Twist Model Validation</h3>
+      <ul>
+        <li>The analytical twist model was validated against <strong>COMSOL FEA</strong> for a rectangular wing under three static loading cases: aerodynamic load only, inertial load only, and combined loads.</li>
+        <li>Maximum errors were approximately <strong>5%</strong> at point A (tip trailing edge) and <strong>10%</strong> at point B (mid-span trailing edge) for large twist angles of <strong>40-50 degrees</strong>.</li>
+        <li>The accuracy is attributed to the inclusion of the shortening effect and quadratic membrane strain terms. Errors arise from the assumption of linearly varying spanwise displacement and neglect of chordwise stretching and camber.</li>
+      </ul>
+      <h3>Optimization Case 1: Full Optimization</h3>
+      <ul>
+        <li>When flapping frequency, root stiffness, and Young's modulus are all optimized, the power consumption for twistable and rigid wings is <strong>39.77 W/kg</strong> and <strong>40.57 W/kg</strong> respectively, showing only about <strong>2% improvement</strong> from twist.</li>
+        <li>The optimized rigid wing achieves a high pitching amplitude of <strong>77.56 degrees</strong>, yielding comparable angle-of-attack profiles to the twistable wing.</li>
+        <li>This contrasts with previous studies reporting larger improvements using unoptimized rigid counterparts.</li>
+      </ul>
+      <h3>Optimization Case 2: Prescribed Frequency</h3>
+      <ul>
+        <li>When the drive frequency deviates from the optimum (<strong>20.24 Hz</strong>), the power saved by optimized twistable wings relative to rigid wings remains limited.</li>
+        <li>Different combinations of root stiffness and Young's modulus yield similar power efficiency for twistable wings because the lift constraint contour is approximately parallel to power contours in the design space, providing design freedom in choosing structural parameters.</li>
+      </ul>
+      <h3>Optimization Case 3: Prescribed Root Stiffness</h3>
+      <ul>
+        <li>When root stiffness is prescribed at increasingly high values, the power consumption of optimized rigid wings increases approximately linearly.</li>
+        <li>In contrast, twistable wings maintain comparable power efficiency across the entire range of root stiffness values (<strong>3e-4 to 1e-3 Nm/rad</strong>).</li>
+        <li>The twist compensates for the restricted pitching amplitude at the root, explaining why insects with high root stiffness exhibit large twist while those with low root stiffness show minimal twist.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><div class="section-number">6</div><h2>Results Interpretation</h2></summary>
+    <div class="section-body">
+      <h3>Fair Comparison Changes the Narrative</h3>
+      <ul>
+        <li>Previous studies reported <strong>10-20%</strong> power efficiency improvements from wing twist, but these compared unoptimized wings.</li>
+        <li>When both twistable and rigid wings are optimized for their respective design spaces, the power efficiency difference reduces to approximately <strong>2-3%</strong>.</li>
+        <li>The key insight is that high pitching amplitudes in optimized rigid wings achieve similar effective angles of attack as twistable wings, making the aerodynamic performance comparable.</li>
+      </ul>
+      <h3>Twist as a Compensation Mechanism</h3>
+      <ul>
+        <li>The primary advantage of wing twist emerges when the pitching amplitude at the root is constrained.</li>
+        <li>Optimization Case 3 demonstrates that increasing root stiffness linearly increases power consumption for rigid wings but has negligible effect on twistable wings.</li>
+        <li>Twist redistributes the angle of attack along the span, compensating for insufficient root rotation. This provides a biomechanical explanation for the observed correlation between root stiffness and twist magnitude in insect wings.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><div class="section-number">7</div><h2>Conclusion</h2></summary>
+    <div class="section-body">
+      <h3>Summary of the Efficient FSI Model</h3>
+      <ul>
+        <li>The proposed <strong>FSI model</strong> combines an analytical polynomial twist description with a quasi-steady aerodynamic model incorporating four loading terms (translation, rotation, coupling, added-mass).</li>
+        <li>Validated against <strong>COMSOL FEA</strong> for large twist angles (<strong>40-50 degrees</strong>), the model achieves approximately <strong>4-minute computation time</strong> per case in MATLAB, enabling systematic optimization.</li>
+        <li>A <strong>quadratic polynomial</strong> suffices for rectangular wing twist, and the nonlinear plate model with shortening effect ensures accuracy at large deformations.</li>
+      </ul>
+      <h3>Design Implications for FWMAVs and Biological Flight</h3>
+      <ul>
+        <li>Optimized twistable and rigid wings exhibit comparable power efficiency during hovering unless root pitching is constrained.</li>
+        <li>This observation reconciles apparently contradictory findings in the literature and provides an explanation for the diversity of twist levels in insect wings: high root stiffness necessitates twist for efficient flight, while flexible roots achieve efficiency through large pitching amplitudes.</li>
+        <li>For FWMAV design, twist offers advantages when actuator limitations restrict root rotation, and twistable wings show superior lift modulation capability for flight control through frequency variation.</li>
+      </ul>
+      <h3>Limitations and Future Extensions</h3>
+      <ul>
+        <li>The model is limited to rectangular wings, hovering flight, and quasi-steady aerodynamics.</li>
+        <li>Future work should extend to realistic wing planforms with spatially varying properties, incorporate chordwise camber effects, validate against CFD for unsteady flow phenomena (<strong>LEV</strong>, wake capture) not captured by quasi-steady models, and apply the framework to forward flight conditions with asymmetric kinematics.</li>
+      </ul>
+    </div>
+  </details>
+
+</div>
+
+<div class="footer">Generated by YANG Lab RECON &middot; <a href="https://doi.org/10.1016/j.jfs.2017.06.006">View Original Paper</a></div>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, {
+    delimiters: [{left: '$$', right: '$$', display: true},{left: '\\[', right: '\\]', display: true},{left: '\\(', right: '\\)', display: false},{left: '$', right: '$', display: false}],
+    throwOnError: false
+  });"></script>
+
+</body>
+</html>

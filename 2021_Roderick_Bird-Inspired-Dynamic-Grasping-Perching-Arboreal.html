@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="paper-title" content="Bird-Inspired Dynamic Grasping and Perching in Arboreal Environments">
+<meta name="paper-year" content="2021">
+<meta name="paper-author" content="W. R. T. Roderick, M. R. Cutkosky, D. Lentink">
+<meta name="paper-journal" content="Science Robotics">
+<meta name="paper-tags" content="Biomimetics, Perching, Grasping, UAV, Bird Inspired, Underactuated Mechanism, Tendon Driven, Aerial Robotics">
+<meta name="paper-doi" content="10.1126/scirobotics.abj7562">
+<title>Bird-Inspired Dynamic Grasping and Perching in Arboreal Environments &mdash; Summary</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', 'Segoe UI', -apple-system, sans-serif; background: #f8f9fb; color: #1e293b; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  .hero { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0c4a6e 100%); color: #fff; padding: 56px 0 48px; position: relative; overflow: hidden; }
+  .hero::after { content: ''; position: absolute; top: 0; right: 0; bottom: 0; width: 40%; background: radial-gradient(ellipse at 80% 50%, rgba(56,189,248,0.08) 0%, transparent 70%); pointer-events: none; }
+  .hero-inner { max-width: 900px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 1; }
+  .hero h1 { font-size: 28px; font-weight: 700; line-height: 1.35; letter-spacing: -0.3px; margin-bottom: 16px; }
+  .hero-meta { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px; color: #94a3b8; }
+  .hero-meta a { color: #7dd3fc; text-decoration: none; }
+  .hero-meta a:hover { text-decoration: underline; }
+  .importance-badge { position: absolute; top: 56px; right: 40px; font-size: 22px; letter-spacing: 2px; filter: drop-shadow(0 0 6px rgba(255,215,0,0.4)); }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px; }
+  .tag { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); color: #cbd5e1; font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px; letter-spacing: 0.3px; }
+  .container { max-width: 900px; margin: 0 auto; padding: 40px 40px 80px; }
+  details { margin-bottom: 12px; border-radius: 10px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.04); overflow: hidden; }
+  details[open] { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  summary { display: flex; align-items: center; gap: 12px; padding: 14px 20px; cursor: pointer; user-select: none; list-style: none; border-bottom: 2px solid transparent; transition: background 0.15s; }
+  summary:hover { background: #f1f5f9; }
+  details[open] > summary { border-bottom-color: #e2e8f0; }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: '\25B6'; font-size: 10px; color: #94a3b8; transition: transform 0.2s; flex-shrink: 0; }
+  details[open] > summary::before { transform: rotate(90deg); }
+  .section-number { background: #0f172a; color: #fff; font-size: 11px; font-weight: 700; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  summary h2 { font-size: 16px; font-weight: 700; color: #0f172a; letter-spacing: -0.2px; }
+  .section-body { padding: 16px 20px 20px; }
+  .overview { margin-bottom: 12px; background: #fff; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); overflow: hidden; }
+  .overview-header { display: flex; align-items: center; gap: 12px; padding: 14px 20px; border-bottom: 2px solid #e2e8f0; }
+  .overview-header h2 { font-size: 16px; font-weight: 700; color: #0f172a; }
+  .overview-text { font-size: 14.5px; line-height: 1.8; color: #334155; padding: 16px 20px 20px; border-left: 4px solid #0ea5e9; margin: 0; }
+  .section-body ul { list-style: none; padding: 0; }
+  .section-body ul li { position: relative; padding: 7px 0 7px 18px; font-size: 13.5px; line-height: 1.7; color: #334155; }
+  .section-body ul li::before { content: ''; position: absolute; left: 0; top: 15px; width: 5px; height: 5px; background: #0ea5e9; border-radius: 50%; }
+  .section-body ul li + li { border-top: 1px solid #f1f5f9; }
+  .section-body h3 { font-size: 13.5px; font-weight: 600; color: #0c4a6e; margin: 16px 0 6px; padding-left: 2px; }
+  .section-body h3:first-child { margin-top: 0; }
+  .footer { max-width: 900px; margin: 0 auto; padding: 0 40px 48px; text-align: center; font-size: 12px; color: #94a3b8; }
+  .footer a { color: #64748b; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="hero-inner">
+    <h1>Bird-Inspired Dynamic Grasping and Perching in Arboreal Environments</h1>
+    <div class="hero-meta">
+      <span>W. R. T. Roderick, M. R. Cutkosky, D. Lentink</span>
+      <span>Science Robotics (2021)</span>
+      <span><a href="https://doi.org/10.1126/scirobotics.abj7562">DOI: 10.1126/scirobotics.abj7562</a></span>
+    </div>
+    <div class="tag-row"><span class="tag">Biomimetics</span><span class="tag">Perching</span><span class="tag">Grasping</span><span class="tag">UAV</span><span class="tag">Bird Inspired</span><span class="tag">Underactuated Mechanism</span><span class="tag">Tendon Driven</span><span class="tag">Aerial Robotics</span></div>
+    <div class="importance-badge">★★</div>
+  </div>
+</div>
+<div class="container">
+  <div class="overview">
+    <div class="overview-header">
+      <div class="section-number">1</div>
+      <h2>Overview</h2>
+    </div>
+    <div class="overview-text">This paper presents <strong>SNAG (Stereotyped Nature-inspired Aerial Grasper)</strong>, a bird-inspired bipedal robotic leg and foot system that enables aerial robots to dynamically perch on complex natural surfaces and grasp irregular objects. Drawing from biomechanical studies on avian landing, the design incorporates two key internal mechanisms: the <strong>digital flexor mechanism (DFM)</strong> and the <strong>tendon locking mechanism (TLM)</strong>. The robot is isometrically scaled from peregrine falcon anatomy for a ~750-g quadcopter, with each leg's 14 degrees of freedom controlled by only 2 motors. Upon impact, the collapsing legs passively transform kinetic energy into grasp force, while the underactuated toes wrap around objects in less than 50 ms. The authors define the <strong>perching sufficiency region</strong> &mdash; a high-dimensional parameter space encompassing hardware, kinematics, surface properties, and behavior &mdash; and validate it experimentally across ~190 trials.</div>
+  </div>
+
+  <details>
+    <summary><div class="section-number">2</div><h2>Introduction</h2></summary>
+    <div class="section-body">
+      <h3>Avian Perching Biomechanics</h3>
+      <ul>
+        <li>Birds follow a <strong>time-to-contact (Tau Theory)</strong> guidance strategy when landing, maintaining a constant rate of change in $\tau$ to execute a controlled collision with the perch</li>
+        <li>Upon touchdown, the legs absorb momentum while the feet handle surface variability via <strong>toe pad friction</strong> and <strong>claw engagement</strong> with surface asperities</li>
+        <li>Internally, tendons pass through toes and interact with tendon sheaths to effectively <strong>lock the toes</strong> on the surface (tendon locking mechanism hypothesis)</li>
+      </ul>
+      <h3>Engineering Context</h3>
+      <ul>
+        <li>Existing aerial grasping robots rely on either <strong>passive mechanisms</strong> with limited adaptability or <strong>fully actuated grippers</strong> that are heavy and slow</li>
+        <li>Prior bird-inspired designs underperformed; only after 20+ iterations increasingly mimicking bird anatomy did reliable performance emerge</li>
+        <li>Perching enables aerial robots as <strong>low-cost environmental sensors</strong> in arboreal ecosystems, reducing energy cost versus continuous hovering</li>
+      </ul>
+      <h3>Gap &amp; Contribution</h3>
+      <ul>
+        <li>No prior robot demonstrated reliable <strong>dynamic grasping of unknown complex surfaces</strong> at bird-like impact speeds</li>
+        <li>Introduces the <strong>perching sufficiency region</strong> framework for multidimensional parameter space analysis of perching performance</li>
+        <li>SNAG achieves sub-50-ms grasp closure, passive force amplification, and robust perching with only two motors per leg</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><div class="section-number">3</div><h2>Related Works</h2></summary>
+    <div class="section-body">
+      <h3>Avian Landing and Grasping Studies</h3>
+      <ul>
+        <li><strong>Roderick et al. (2019)</strong> &mdash; Discovered stereotyped takeoff and landing behaviors in Pacific parrotlets; established Tau Theory guidance framework for bird landing</li>
+        <li><strong>Chin and Lentink (2017)</strong> &mdash; Characterized how birds direct impulse to minimize energetic cost during foraging flight transitions</li>
+        <li><strong>Provini et al. (2014)</strong> &mdash; Analyzed transition from wing to leg forces during avian landing, quantifying force partitioning at touchdown</li>
+      </ul>
+      <h3>Passive Perching Mechanisms</h3>
+      <ul>
+        <li><strong>Doyle et al. (2013)</strong> &mdash; Proposed an avian-inspired passive mechanism for quadrotor perching using a DFM analog routed around the ankle</li>
+        <li><strong>Nadan et al. (2019)</strong> &mdash; Developed a bird-inspired perching landing gear with tendon-driven passive toe flexion triggered by leg compression</li>
+        <li><strong>Chi et al. (2012)</strong> &mdash; Designed a bio-inspired adaptive perching mechanism for UAVs with compliant feet</li>
+      </ul>
+      <h3>Aerial Grasping and Manipulation</h3>
+      <ul>
+        <li><strong>Seo et al. (2017)</strong> &mdash; Demonstrated aerial grasping of cylindrical objects using visual servoing with stochastic MPC</li>
+        <li><strong>Backus et al. (2014)</strong> &mdash; Analyzed actuator number and routing trade-offs for hands designed for aerial manipulation and perching</li>
+        <li><strong>Kim et al. (2018)</strong> &mdash; Developed an origami-inspired self-locking robotic arm for compact aerial manipulation</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><div class="section-number">4</div><h2>Materials and Methods</h2></summary>
+    <div class="section-body">
+      <h3>Mechanism Design</h3>
+      <ul>
+        <li>SNAG comprises a <strong>bipedal foot and leg system</strong> on a quadrotor; each leg has <strong>14 DOF</strong> controlled by 2 motors (hip servo + foot motor)</li>
+        <li>3D-printed rigid structures with jointed subcomponents; grasping actuated via <strong>Spectra tendons</strong> with tuned springs in series</li>
+        <li>Key dimensions <strong>isometrically scaled</strong> from two peregrine falcon cadavers for a ~750-g platform; each leg ~50 g (6.7% body mass)</li>
+      </ul>
+      <h3>Biomimetic Internal Mechanisms</h3>
+      <ul>
+        <li><strong>Digital Flexor Mechanism (DFM)</strong>: Tendon routed around the ankle stretches during leg collapse, passively absorbing impact energy and converting it to squeeze force: $F_{\text{grasp}} = F_{\text{motor}} + F_{\text{DFM}}$</li>
+        <li><strong>Tendon Locking Mechanism (TLM)</strong>: Ratchet analog in the ankle locks the leg after collapse, maintaining forces passively without motor power</li>
+        <li><strong>Quick-release mechanism</strong>: Spring-loaded energy storage released on impact via a mechanically triggered tendon as the leg collapses</li>
+      </ul>
+      <h3>Balance Control</h3>
+      <ul>
+        <li>Accelerometer in the right foot senses gravity direction relative to foot orientation (proxy for foot angle on perch)</li>
+        <li>Three algorithms tested: <strong>fixed leg angle</strong>, <strong>open-loop</strong>, and <strong>closed-loop</strong></li>
+        <li>Closed-loop: hip servo commands center of mass toward perch top using accelerometer feedback after a leg-collapse delay</li>
+      </ul>
+      <h3>Perching Sufficiency Region Model</h3>
+      <ul>
+        <li>High-dimensional space of all variable combinations resulting in successful perching (COM above perch center)</li>
+        <li>Variables: impact velocity ($v$, $\theta_v$), leg angle ($\theta_{\text{leg}}$), foot misalignment ($e_{\text{foot}}$), surface diameter, balance algorithm</li>
+        <li>Model tests angular and linear momentum bounds: $L_{\text{lower}} \leq L \leq L_{\text{upper}}$, $H_{\text{lower}} \leq H \leq H_{\text{upper}}$</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><div class="section-number">5</div><h2>Results</h2></summary>
+    <div class="section-body">
+      <h3>Toe Arrangement Comparison</h3>
+      <ul>
+        <li><strong>Anisodactyl</strong> (3+1) vs. <strong>zygodactyl</strong> (2+2) tested on 64-mm oak branches</li>
+        <li>No significant difference on one perch section; slight offset on the second (max: <strong>0.04&ndash;0.23 m/s</strong> upper bound, <strong>0.00&ndash;0.16 m/s</strong> lower bound)</li>
+        <li>Arboreal perching does <strong>not represent a strong selection pressure</strong> among common bird toe topographies</li>
+      </ul>
+      <h3>Balance Control Effects</h3>
+      <ul>
+        <li><strong>Fixed angle</strong>: Failed at standard conditions, falling backward after impact</li>
+        <li><strong>Open-loop</strong>: Succeeded with kinematics nearly identical to closed-loop</li>
+        <li><strong>Closed-loop</strong>: Most robust; <strong>significantly widened the perching sufficiency region</strong></li>
+      </ul>
+      <h3>Kinematic and Surface Effects</h3>
+      <ul>
+        <li>Higher leg/impact angles produce more angular momentum; excessive values violate upper-bound constraints</li>
+        <li>Successfully perched on <strong>38</strong>, <strong>64</strong>, and <strong>165 mm</strong> diameter branches; vertical drops succeed even at <strong>0 m/s</strong></li>
+        <li>Grasp speeds: <strong>~10 ms</strong> catching, <strong>&lt;20 ms</strong> manual trigger, <strong>30&ndash;50 ms</strong> perching &mdash; over <strong>4x faster</strong> than prior high-speed graspers</li>
+      </ul>
+      <h3>Field Deployment</h3>
+      <ul>
+        <li>Perched on Douglas fir in an Oregon forest; successful near-horizontal and vertical landings on natural bark with dirt, lichen, moss</li>
+        <li>Recorded <strong>temperature and humidity</strong> while perched for environmental monitoring demonstration</li>
+        <li>Successfully caught prey-model objects during outdoor flight at <strong>$4.49 \pm 0.40$ m/s</strong></li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><div class="section-number">6</div><h2>Results Interpretation</h2></summary>
+    <div class="section-body">
+      <h3>Mechanism Performance</h3>
+      <ul>
+        <li>The <strong>DFM analog</strong> is critical: passive kinetic-to-grasp-force conversion through tendon-spring coupling produces forces exceeding actuator capacity alone</li>
+        <li><strong>Quick-release timing</strong> is a key parameter: too early stiffens the leg excessively; too late reduces energy absorption &mdash; suggesting tension onset timing is equally important in biological systems</li>
+        <li>SNAG's 14 DOF per leg with 2 motors exemplifies how <strong>underactuation and passive dynamics</strong> can replace complex active control</li>
+      </ul>
+      <h3>Scaling and Design Implications</h3>
+      <ul>
+        <li>Isometric scaling reveals angular momentum scales with $l^5$ for larger platforms, requiring less aggressive approach kinematics</li>
+        <li>The <strong>sufficiency region</strong> paradigm: robots should minimize the probability of leaving the acceptable operating volume rather than optimizing single-point performance</li>
+        <li>Modest anisodactyl vs. zygodactyl differences corroborate that toe arrangement diversity is driven by <strong>other ecological pressures</strong> (prey capture, climbing) rather than perching</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><div class="section-number">7</div><h2>Conclusion</h2></summary>
+    <div class="section-body">
+      <ul>
+        <li>SNAG demonstrates that <strong>stereotyped bird-inspired behaviors and mechanisms</strong> are sufficient for reliable dynamic perching on complex natural surfaces</li>
+        <li>Grasp closure in <strong>&lt; 50 ms</strong> (4x faster than prior mechanisms); each leg 6.7% body mass yet holds <strong>10x its own weight</strong></li>
+        <li>Closed-loop balance control <strong>markedly expands the perching sufficiency region</strong>, confirming its critical role</li>
+        <li>The perching sufficiency region framework offers a <strong>general paradigm</strong> for robot design in unstructured environments</li>
+        <li><strong>Limitation</strong>: No footing adjustment after contact; ~20 s takeoff reset; single-branch analysis without wind</li>
+        <li><strong>Future</strong>: Aerodynamic force integration, multi-modal sensor fusion, footing adjustment, scaling for larger platforms, continuous environmental monitoring</li>
+      </ul>
+    </div>
+  </details>
+</div>
+<div class="footer">
+  Generated by YANG Lab RECON &middot; <a href="https://doi.org/10.1126/scirobotics.abj7562">View Original Paper</a>
+</div>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '\\[', right: '\\]', display: true},
+      {left: '\\(', right: '\\)', display: false},
+      {left: '$', right: '$', display: false}
+    ],
+    throwOnError: false
+  });"></script>
+</body>
+</html>

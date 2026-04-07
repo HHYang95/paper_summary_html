@@ -1,0 +1,135 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="paper-title" content="Inertial Measurements From Flight Data of a Flapping-Wing Ornithopter"><meta name="paper-year" content="2009"><meta name="paper-author" content="Jared A. Grauer, James E. Hubbard Jr."><meta name="paper-journal" content="Journal of Guidance, Control, and Dynamics"><meta name="paper-tags" content="Ornithopter, Flapping Wing, Experimental, Flight Dynamics, Flight Test, MAV, Methodology"><meta name="paper-doi" content="10.2514/1.37495">
+<title>Inertial Measurements From Flight Data of a Flapping-Wing Ornithopter — Summary</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter','Segoe UI',-apple-system,sans-serif;background:#f8f9fb;color:#1e293b;line-height:1.7;-webkit-font-smoothing:antialiased}.hero{background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 50%,#0c4a6e 100%);color:#fff;padding:56px 0 48px;position:relative;overflow:hidden}.hero::after{content:'';position:absolute;top:0;right:0;bottom:0;width:40%;background:radial-gradient(ellipse at 80% 50%,rgba(56,189,248,0.08) 0%,transparent 70%);pointer-events:none}.hero-inner{max-width:900px;margin:0 auto;padding:0 40px;position:relative;z-index:1}.hero h1{font-size:28px;font-weight:700;line-height:1.35;letter-spacing:-0.3px;margin-bottom:16px}.hero-meta{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:14px;color:#94a3b8}.hero-meta a{color:#7dd3fc;text-decoration:none}.importance-badge{position:absolute;top:56px;right:40px;font-size:22px;letter-spacing:2px;filter:drop-shadow(0 0 6px rgba(255,215,0,0.4))}.tag-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:20px}.tag{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);color:#cbd5e1;font-size:11px;font-weight:500;padding:3px 10px;border-radius:20px}.container{max-width:900px;margin:0 auto;padding:40px 40px 80px}details{margin-bottom:12px;border-radius:10px;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,0.04);overflow:hidden}details[open]{box-shadow:0 2px 8px rgba(0,0,0,0.06)}summary{display:flex;align-items:center;gap:12px;padding:14px 20px;cursor:pointer;user-select:none;list-style:none;border-bottom:2px solid transparent;transition:background 0.15s}summary:hover{background:#f1f5f9}details[open]>summary{border-bottom-color:#e2e8f0}summary::-webkit-details-marker{display:none}summary::before{content:'\25B6';font-size:10px;color:#94a3b8;transition:transform 0.2s;flex-shrink:0}details[open]>summary::before{transform:rotate(90deg)}.section-number{background:#0f172a;color:#fff;font-size:11px;font-weight:700;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}summary h2{font-size:16px;font-weight:700;color:#0f172a}.section-body{padding:16px 20px 20px}.overview{margin-bottom:12px;background:#fff;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,0.04);overflow:hidden}.overview-header{display:flex;align-items:center;gap:12px;padding:14px 20px;border-bottom:2px solid #e2e8f0}.overview-header h2{font-size:16px;font-weight:700;color:#0f172a}.overview-text{font-size:14.5px;line-height:1.8;color:#334155;padding:16px 20px 20px;border-left:4px solid #0ea5e9;margin:0}.section-body ul{list-style:none;padding:0}.section-body ul li{position:relative;padding:7px 0 7px 18px;font-size:13.5px;line-height:1.7;color:#334155}.section-body ul li::before{content:'';position:absolute;left:0;top:15px;width:5px;height:5px;background:#0ea5e9;border-radius:50%}.section-body ul li+li{border-top:1px solid #f1f5f9}.section-body h3{font-size:13.5px;font-weight:600;color:#0c4a6e;margin:16px 0 6px}.section-body h3:first-child{margin-top:0}.footer{max-width:900px;margin:0 auto;padding:0 40px 48px;text-align:center;font-size:12px;color:#94a3b8}.footer a{color:#64748b;text-decoration:none}</style>
+</head><body>
+<div class="hero"><div class="hero-inner"><h1>Inertial Measurements From Flight Data of a Flapping-Wing Ornithopter</h1><div class="hero-meta"><span>Jared A. Grauer, James E. Hubbard Jr.</span><span>Journal of Guidance, Control, and Dynamics (2009)</span><span><a href="https://doi.org/10.2514/1.37495">DOI: 10.2514/1.37495</a></span></div><div class="tag-row"><span class="tag">Ornithopter</span><span class="tag">Flapping Wing</span><span class="tag">Experimental</span><span class="tag">Flight Dynamics</span><span class="tag">Flight Test</span><span class="tag">MAV</span><span class="tag">Methodology</span></div><div class="importance-badge">★★★</div></div></div>
+<div class="container">
+  <div class="overview"><div class="overview-header"><div class="section-number">1</div><h2>Overview</h2></div><div class="overview-text">This paper presents an experimental investigation of flapping-wing ornithopter flight dynamics through onboard inertial measurements. A custom avionics package was developed for a modified Slow Hawk II ornithopter (446 g, 1.196 m wingspan) to collect magnetometer, gyroscope, and accelerometer data during straight and level flight. Time-domain and frequency-domain analyses reveal that the wing beat frequency and its harmonics dominate the inertial measurements, with pitch rates reaching 285 deg/s and heave accelerations up to 4.25 g. Ensemble averaging over 28 wing strokes produces representative waveforms with associated statistics, demonstrating that standard small-angle and low-acceleration assumptions used in conventional attitude estimation are invalid for flapping-wing vehicles.</div></div>
+
+  <details><summary><div class="section-number">2</div><h2>Introduction</h2></summary><div class="section-body">
+    <h3>Motivation and Context</h3>
+    <ul>
+      <li>Ornithopters generate lift and thrust through wing flapping, offering advantages over fixed-wing and rotary-wing designs at small scales and low <strong>Reynolds numbers</strong></li>
+      <li>Advances in <strong>MEMS</strong> and <strong>VLSI</strong> technologies have enabled practical realization of small ornithoptic aircraft with onboard sensing capabilities</li>
+      <li>Fixed-wing aircraft suffer from decreased aerodynamic efficiency at small scales where viscous effects dominate; rotary-wing vehicles have high power requirements and are limited to indoor flight</li>
+      <li>Ornithopters can achieve contextual camouflage with an avian appearance, making them suited for surveillance, atmospheric data collection, and wildlife monitoring missions</li>
+    </ul>
+    <h3>Research Gap</h3>
+    <ul>
+      <li>Prior ornithopter research focused primarily on numerical simulations based on first-principle models; experimental flight data with onboard inertial measurements were lacking</li>
+      <li>The inertial measurement unit (IMU) is critical for attitude estimation, but the applicability of standard estimation algorithms to flapping-wing vehicles had not been experimentally assessed</li>
+    </ul>
+    <h3>Objective and Approach</h3>
+    <ul>
+      <li>Develop a custom avionics package for a flapping-wing ornithopter to collect in-flight inertial measurements</li>
+      <li>Analyze flight data in time and frequency domains to characterize the dynamic environment experienced by the IMU</li>
+      <li>Apply ensemble averaging to construct representative waveforms over a wing stroke cycle and establish implications for attitude estimation</li>
+    </ul>
+  </div></details>
+
+  <details><summary><div class="section-number">3</div><h2>Related Works</h2></summary><div class="section-body">
+    <ul>
+      <li><strong>Raney and Slominski (2004)</strong> explored mechanization and control concepts for biologically inspired micro air vehicles, establishing design frameworks for flapping-wing aircraft</li>
+      <li><strong>Keennon and Grasmeyer (2003)</strong> developed the Black Widow and Microbat MAVs, advancing the vision of practical small-scale flying vehicles</li>
+      <li><strong>Rashid (1995)</strong> investigated ornithopter longitudinal flight dynamics through simulation; <strong>Dietl and Garcia (2008)</strong> studied stability characteristics in ornithopter longitudinal flight</li>
+      <li><strong>Shuster and Oh (1981)</strong> developed three-axis attitude determination from vector observations; <strong>Crassidis et al. (2007)</strong> surveyed nonlinear attitude estimation techniques applicable to aerial vehicles</li>
+      <li><strong>Gebre-Egziabher et al. (2006)</strong> developed magnetometer calibration techniques in the magnetic field domain, directly enabling the sensor calibration approach used in this work</li>
+      <li><strong>Harmon et al. (2008)</strong> and <strong>Sitaraman et al. (2008)</strong> investigated ornithopter membrane wing shapes and computational aerodynamics, complementing the experimental approach presented here</li>
+    </ul>
+  </div></details>
+
+  <details><summary><div class="section-number">4</div><h2>Materials and Methods</h2></summary><div class="section-body">
+    <h3>Test Vehicle</h3>
+    <ul>
+      <li>Modified Slow Hawk II ornithopter: <strong>446 g</strong> mass, <strong>0.781 m</strong> length, <strong>1.196 m</strong> wingspan, <strong>0.329 m$^2$</strong> wing area, <strong>aspect ratio 4.36</strong></li>
+      <li>Wing sail constructed from rip-stop polyester segments with carbon fiber spars; fuselage cut from 3.2 mm carbon fiber sheet with reinforced nose</li>
+      <li>Control via 72 MHz transmitter: throttle controls flapping frequency, longitudinal and lateral joysticks drive tail servomotors for pitch and roll/yaw control</li>
+    </ul>
+    <h3>Coordinate Frames and Mass Distribution</h3>
+    <ul>
+      <li>Standard aircraft notation with inertial frame $\mathcal{K}_I$ (north-east-down) and body frame $\mathcal{K}_B$ fixed to the center of mass</li>
+      <li>Wing angle $\theta_1 \in [-25^\circ, +25^\circ]$ defined as roll angle of the left wing; longitudinal tail deflection $\theta_2 \in [-50^\circ, -18^\circ]$; lateral tail deflection $\theta_3 \in [-40^\circ, +40^\circ]$</li>
+      <li>Center of mass migrates along the $e_{z_B}$ axis by <strong>0.10 m</strong> (<strong>12.8%</strong> of overall length) during flapping; a multibody model tracks the configuration-dependent mass distribution</li>
+    </ul>
+    <h3>Accelerometer Correction</h3>
+    <ul>
+      <li>Accelerometer measurements corrected to center of mass using: $$a_B = R_{BS} a_S + \frac{1}{g}\left[\dot{\omega}_B \times + \omega_B \times \omega_B \times - S[\dot{\omega}_B]\right] r_{SB}$$</li>
+      <li>Rotational acceleration estimates computed by smooth differentiation of gyroscope measurements</li>
+    </ul>
+    <h3>Avionics Package</h3>
+    <ul>
+      <li>Custom avionics: <strong>0.044 m x 0.070 m</strong> footprint, <strong>27.9 g</strong> mass; PIC18F8722 microprocessor at <strong>40 MHz</strong></li>
+      <li>Data logged to removable memory card (&gt;1 GB capacity) at <strong>146 Hz</strong> sampling rate (limited by write speed)</li>
+      <li>First-order low-pass anti-aliasing filters with <strong>50 Hz</strong> corner frequency; <strong>16-bit</strong> analog-to-digital converter</li>
+      <li>MAG3 IMU from MemSense providing orthogonal triads of MEMS magnetometers, gyroscopes, and linear accelerometers</li>
+    </ul>
+    <h3>Ensemble Averaging</h3>
+    <ul>
+      <li>For periodic signal $x(t)$ with period $T$ and measurement $z(t) = x(t) + v(t)$, the ensemble average is: $$\bar{z}(t) = \frac{1}{N}\sum_{n=0}^{N-1} z(t + nT)$$</li>
+      <li>Measurements interpolated to <strong>100</strong> evenly spaced locations per wing stroke; <strong>28</strong> complete wing strokes analyzed with <strong>2-sigma</strong> confidence intervals</li>
+    </ul>
+  </div></details>
+
+  <details><summary><div class="section-number">5</div><h2>Results</h2></summary><div class="section-body">
+    <h3>Trimmed Flight Conditions</h3>
+    <ul>
+      <li>Throttle setting: <strong>0.81</strong> (normalized), indicating small margins of excess lift and thrust</li>
+      <li>Longitudinal tail deflection: <strong>-37 deg</strong> (balances weight for level flight); lateral tail deflection: <strong>-1 deg</strong> (corrects slight mass imbalance)</li>
+      <li>A <strong>6.4 s</strong> segment containing <strong>28</strong> complete wing strokes selected for analysis (approximately <strong>4.375 Hz</strong> flapping frequency)</li>
+    </ul>
+    <h3>Time-Domain Measurements</h3>
+    <ul>
+      <li>Wing angle: approximately sinusoidal with <strong>25 deg</strong> amplitude, driven by simple crankshaft mechanism</li>
+      <li>Roll, pitch, and yaw rate maximum amplitudes: <strong>265</strong>, <strong>322</strong>, and <strong>124 deg/s</strong> respectively</li>
+      <li>Pitch angle perturbation: approximately <strong>9 deg</strong> oscillation per wing stroke (from integrated pitch rate)</li>
+      <li>Longitudinal, lateral, and heave accelerations: maximum amplitudes of <strong>1.9</strong>, <strong>1.2</strong>, and <strong>4.7 g</strong></li>
+      <li>Estimated heave velocity oscillation: <strong>0.9 m/s</strong> amplitude; altitude oscillation: <strong>0.030 m</strong> amplitude per wing stroke</li>
+    </ul>
+    <h3>Frequency-Domain Analysis</h3>
+    <ul>
+      <li>Wing beat frequency and its harmonics are the dominant frequencies across all inertial measurements</li>
+      <li>Pitch rate dominated by a single frequency component; roll and yaw rates contain significant higher-harmonic content</li>
+      <li>Heave acceleration dominated by one frequency; longitudinal acceleration exhibits rich multi-harmonic spectrum</li>
+    </ul>
+    <h3>Ensemble-Averaged Waveforms</h3>
+    <ul>
+      <li>Wing angle: zero at 0.00T and 0.50T; maximum at 0.25T (upstroke-to-downstroke transition); minimum at 0.75T</li>
+      <li>Pitch rate: maximum <strong>+285 deg/s</strong> at <strong>0.40T</strong>; minimum <strong>-250 deg/s</strong> at <strong>0.90T</strong></li>
+      <li>Heave acceleration: maximum <strong>+4.25 g</strong> at <strong>0.25T</strong>; minimum <strong>-2.22 g</strong> at <strong>0.68T</strong></li>
+      <li>Longitudinal magnetic projection, pitch rate, and heave acceleration lag the wing angle by <strong>0.30T</strong> (strong cross-correlation)</li>
+      <li>Variance peaks occur predominantly after 0.75T (downstroke-to-upstroke transition), suggesting unsteady aerodynamic forcing at this phase</li>
+    </ul>
+  </div></details>
+
+  <details><summary><div class="section-number">6</div><h2>Results Interpretation</h2></summary><div class="section-body">
+    <ul>
+      <li>The sinusoidal, evenly divided wing stroke is characteristic of man-made flapping devices with crankshaft mechanisms, contrasting sharply with biological flyers where the downstroke is longer and actively modulated</li>
+      <li>Pitch rates of <strong>285 deg/s</strong> and heave accelerations of <strong>4.25 g</strong> represent extreme dynamic conditions even for straight and level flight, far exceeding regimes where conventional attitude estimation algorithms operate</li>
+      <li>Small-angle perturbation assumptions (e.g., heading from two-axis magnetometer) are completely invalid due to the <strong>9 deg</strong> pitch oscillation per wing stroke</li>
+      <li>Accelerometers measure loads several times gravity, invalidating low-acceleration assumptions typically used to extract roll and pitch angles</li>
+      <li>Without valid orientation estimates, numerical integration drift in angular velocities cannot be corrected through complementary filtering; model-based state observers combining multiple measurement sources are necessary</li>
+      <li>Many high-frequency harmonics in gyroscope and accelerometer data are attributed to structural vibrations in the fuselage, degrading measurement quality and attitude estimation performance</li>
+      <li>Variance analysis reveals asymmetric aerodynamic forcing between upstroke-to-downstroke and downstroke-to-upstroke transitions, with larger disturbances occurring at the latter</li>
+      <li>Empirical bird scaling laws predict a flapping frequency of <strong>2.67 Hz</strong> for this vehicle, roughly half the measured rate, indicating significant design optimization potential</li>
+    </ul>
+  </div></details>
+
+  <details><summary><div class="section-number">7</div><h2>Conclusion</h2></summary><div class="section-body">
+    <ul>
+      <li>Custom avionics package successfully collected wing angle, magnetic projection, rotational velocity, and linear acceleration data from a flapping-wing ornithopter in flight</li>
+      <li>Time-domain analysis characterized amplitudes and trends; frequency-domain analysis illuminated the harmonic structure of inertial measurements dominated by the wing beat frequency</li>
+      <li>Ensemble averaging over 28 wing strokes produced representative waveforms with statistical confidence intervals, enabling detailed phase-resolved characterization of the flight dynamics</li>
+      <li>Standard attitude estimation techniques (small-angle, low-acceleration assumptions, complementary filtering) are inapplicable to flapping-wing vehicles due to extreme dynamic loads</li>
+      <li>Model-based state observers combining multiple sensor measurements are recommended for ornithopter attitude estimation</li>
+      <li>Strengthening the vehicle structure is recommended to reduce fuselage vibrations that degrade measurement quality; if flight performance suffers, additional sensors can model structural flexibility</li>
+      <li>Future vehicle designs may include mechanisms to augment the wing stroke waveform for active control of aerodynamic forces and moments</li>
+    </ul>
+  </div></details>
+</div>
+<div class="footer">Generated by YANG Lab RECON &middot; <a href="https://doi.org/10.2514/1.37495">View Original Paper</a></div>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false},{left:'$',right:'$',display:false}],throwOnError:false});"></script>
+</body></html>

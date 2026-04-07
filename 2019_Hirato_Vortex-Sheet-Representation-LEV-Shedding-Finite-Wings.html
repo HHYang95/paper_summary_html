@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="paper-title" content="Vortex-Sheet Representation of Leading-Edge Vortex Shedding From Finite Wings">
+<meta name="paper-year" content="2019">
+<meta name="paper-author" content="Yoshikazu Hirato, Minao Shen, Ashok Gopalarathnam, Jack R. Edwards">
+<meta name="paper-journal" content="Journal of Aircraft">
+<meta name="paper-tags" content="UVLM, Leading Edge Vortex, Vortex Sheet, Finite Wing, LESP, Unsteady Aerodynamics, Low Order Method, Pitching Wing">
+<meta name="paper-doi" content="10.2514/1.C035124">
+<title>Vortex-Sheet Representation of Leading-Edge Vortex Shedding From Finite Wings — Summary</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter','Segoe UI',-apple-system,sans-serif;background:#f8f9fb;color:#1e293b;line-height:1.7;-webkit-font-smoothing:antialiased}.hero{background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 50%,#0c4a6e 100%);color:#fff;padding:56px 0 48px;position:relative;overflow:hidden}.hero::after{content:'';position:absolute;top:0;right:0;bottom:0;width:40%;background:radial-gradient(ellipse at 80% 50%,rgba(56,189,248,0.08) 0%,transparent 70%);pointer-events:none}.hero-inner{max-width:900px;margin:0 auto;padding:0 40px;position:relative;z-index:1}.hero h1{font-size:28px;font-weight:700;line-height:1.35;letter-spacing:-0.3px;margin-bottom:16px}.hero-meta{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:14px;color:#94a3b8}.hero-meta a{color:#7dd3fc;text-decoration:none}.importance-badge{position:absolute;top:56px;right:40px;font-size:22px;letter-spacing:2px;filter:drop-shadow(0 0 6px rgba(255,215,0,0.4))}.tag-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:20px}.tag{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);color:#cbd5e1;font-size:11px;font-weight:500;padding:3px 10px;border-radius:20px}.container{max-width:900px;margin:0 auto;padding:40px 40px 80px}details{margin-bottom:12px;border-radius:10px;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,0.04);overflow:hidden}details[open]{box-shadow:0 2px 8px rgba(0,0,0,0.06)}summary{display:flex;align-items:center;gap:12px;padding:14px 20px;cursor:pointer;user-select:none;list-style:none;border-bottom:2px solid transparent;transition:background 0.15s}summary:hover{background:#f1f5f9}details[open]>summary{border-bottom-color:#e2e8f0}summary::-webkit-details-marker{display:none}summary::before{content:'\25B6';font-size:10px;color:#94a3b8;transition:transform 0.2s;flex-shrink:0}details[open]>summary::before{transform:rotate(90deg)}.section-number{background:#0f172a;color:#fff;font-size:11px;font-weight:700;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}summary h2{font-size:16px;font-weight:700;color:#0f172a}.section-body{padding:16px 20px 20px}.overview{margin-bottom:12px;background:#fff;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,0.04);overflow:hidden}.overview-header{display:flex;align-items:center;gap:12px;padding:14px 20px;border-bottom:2px solid #e2e8f0}.overview-header h2{font-size:16px;font-weight:700;color:#0f172a}.overview-text{font-size:14.5px;line-height:1.8;color:#334155;padding:16px 20px 20px;border-left:4px solid #0ea5e9;margin:0}.section-body ul{list-style:none;padding:0}.section-body ul li{position:relative;padding:7px 0 7px 18px;font-size:13.5px;line-height:1.7;color:#334155}.section-body ul li::before{content:'';position:absolute;left:0;top:15px;width:5px;height:5px;background:#0ea5e9;border-radius:50%}.section-body ul li+li{border-top:1px solid #f1f5f9}.section-body h3{font-size:13.5px;font-weight:600;color:#0c4a6e;margin:16px 0 6px}.section-body h3:first-child{margin-top:0}.footer{max-width:900px;margin:0 auto;padding:0 40px 48px;text-align:center;font-size:12px;color:#94a3b8}.footer a{color:#64748b;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="hero"><div class="hero-inner"><h1>Vortex-Sheet Representation of Leading-Edge Vortex Shedding From Finite Wings</h1><div class="hero-meta"><span>Yoshikazu Hirato, Minao Shen, Ashok Gopalarathnam, Jack R. Edwards</span><span>Journal of Aircraft (2019)</span><span><a href="https://doi.org/10.2514/1.C035124">DOI: 10.2514/1.C035124</a></span></div><div class="tag-row"><span class="tag">UVLM</span><span class="tag">Leading Edge Vortex</span><span class="tag">Vortex Sheet</span><span class="tag">Finite Wing</span><span class="tag">LESP</span><span class="tag">Unsteady Aerodynamics</span><span class="tag">Low Order Method</span><span class="tag">Pitching Wing</span></div><div class="importance-badge">★★★</div></div></div>
+<div class="container">
+  <div class="overview"><div class="overview-header"><div class="section-number">1</div><h2>Overview</h2></div><div class="overview-text">This paper presents a low-order method for modeling leading-edge vortex (LEV) formation on finite wings by augmenting an unsteady vortex-lattice method (UVLM) with a vortex-sheet representation. The two-dimensional leading-edge suction parameter (LESP) concept is extended to three-dimensional flows, using the criticality of leading-edge suction to determine spanwise LEV onset and nonuniform growth along the wing span. The LEV is modeled as a vortex sheet composed of vortex rings shed from upstream of the leading edge, connected to the bound-vortex sheet through a pseudovortex ring construct. Three AR = 6 wings with SD7003 airfoil sections undergoing pitch ramp motions at Re = 20,000 are tested against RANS CFD, showing broad agreement in LEV structure and reasonable agreement in aerodynamic loads, with approximately three orders of magnitude computational speedup.</div></div>
+
+  <details><summary><div class="section-number">2</div><h2>Introduction</h2></summary><div class="section-body">
+    <h3>Research Motivation</h3>
+    <ul>
+      <li>Leading-edge vortices (LEVs) are ubiquitous in nature (insect/bird flight, autorotating seeds) and engineering (rotorcraft, wind turbines, delta wings, MAVs), generating <strong>low-pressure suction-side regions</strong> that augment lift</li>
+      <li>LEV advection causes rapid pitching moment variation, making accurate prediction of LEV <strong>initiation and development</strong> critical for engineering applications</li>
+      <li>Predicting LEV formation on <strong>finite wings</strong> remains a key challenge, as most existing low-order models are limited to two-dimensional flows</li>
+    </ul>
+    <h3>Gaps in Prior Work</h3>
+    <ul>
+      <li>Two-dimensional LEV models (conformal mapping, discrete-vortex methods) are successful but their <strong>3D extensions are limited</strong></li>
+      <li>Delta wing models assume steady conical vortex structures, <strong>unsuitable for general wing geometries</strong> in unsteady motion</li>
+      <li>Existing 3D models idealize the LEV as <strong>single vortex filaments</strong> rather than vortex sheets, limiting physical accuracy</li>
+      <li>Conventional LEV models assume continuous shedding or ad hoc triggers; the physics-based <strong>LESP criterion</strong> of Ramesh et al. (2014) has been restricted to 2D</li>
+    </ul>
+    <h3>Present Contribution</h3>
+    <ul>
+      <li>First extension of the <strong>LESP concept</strong> from 2D airfoils to 3D finite wings within a UVLM framework</li>
+      <li>The model predicts <strong>spanwise location of LEV onset</strong> and the <strong>nonuniform growth</strong> of the LEV sheet along the span</li>
+      <li>Validation against RANS CFD for three wing configurations (unswept, tip-twisted, swept) undergoing pitch ramp motions</li>
+    </ul>
+  </div></details>
+
+  <details><summary><div class="section-number">3</div><h2>Related Works</h2></summary><div class="section-body">
+    <ul>
+      <li><strong>Ramesh et al. (2014)</strong> &mdash; LESP-modulated discrete vortex method (LDVM) with novel shedding criterion for unsteady airfoils with intermittent LEV shedding; direct motivation for the current 3D extension</li>
+      <li><strong>Ansari et al. (2006)</strong> &mdash; nonlinear unsteady aero model for insect-like flapping wings; LEV placement method at one-third distance from leading edge adopted in this work</li>
+      <li><strong>Katz and Plotkin (2001)</strong> &mdash; foundational UVLM formulation with vortex rings and Kelvin condition; basis for the current implementation</li>
+      <li><strong>Brown and Michael (1954)</strong> &mdash; single vortex filament representing LEV core for delta wings; illustrative of earlier simplified 3D LEV models</li>
+      <li><strong>Ellington et al. (1996)</strong> &mdash; first direct observation of LEVs in insect flight, establishing their biological significance</li>
+      <li><strong>Murua et al. (2012)</strong> &mdash; comprehensive review of UVLM applications in aircraft aeroelasticity and flight dynamics</li>
+      <li><strong>Ramesh et al. (2018)</strong> &mdash; leading-edge flow criticality as governing factor in LEV initiation, providing theoretical foundation for the LESP criterion</li>
+      <li><strong>Pitt Ford and Babinsky (2013)</strong> &mdash; relationship between lift and LEV using conformal mapping approach</li>
+      <li><strong>Sarpkaya (1975)</strong> &mdash; inviscid model of 2D vortex shedding for transient separated flow over inclined plates</li>
+      <li><strong>Hirato et al. (2015)</strong> &mdash; earlier work by the same group on initiation of LEV formation on finite wings, establishing the framework extended in this paper</li>
+    </ul>
+  </div></details>
+
+  <details><summary><div class="section-number">4</div><h2>Materials and Methods</h2></summary><div class="section-body">
+    <h3>UVLM Framework and Vortex-Ring Discretization</h3>
+    <ul>
+      <li>Wing surface discretized into <strong>bound-vortex rings</strong> with front edges at quarter-chord and control points at three-quarter-chord of each panel</li>
+      <li>Velocity field computed via <strong>Biot-Savart law</strong> with Lamb-Oseen viscous core model to avoid singularities:
+        <span class="katex-display">$$v_r = \frac{\Gamma}{4\pi} \frac{r_s \times r_e}{|r_s \times r_e|^2}(|r_s| + |r_e|)\left(1 - \frac{r_s \cdot r_e}{|r_s||r_e|}\right)\left\{1 - e^{-(r/r_c)^2}\right\}$$</span></li>
+      <li>TEV rings shed at each time step to satisfy <strong>Kelvin condition</strong>: <span class="katex-inline">$\Gamma^n_W = \Gamma^{n-1}_{b,i_{\max}}$</span></li>
+    </ul>
+    <h3>LESP Extension to 3D</h3>
+    <ul>
+      <li>LESP defined as leading Fourier coefficient <span class="katex-inline">$A_0(t)$</span> in the chordwise bound circulation expansion:
+        <span class="katex-display">$$\gamma(\theta, t) = 2U_\infty \left[\frac{A_0(t)(1+\cos\theta)}{\sin\theta} + \sum_{n=1}^{\infty} A_n(t)\sin(n\theta)\right]$$</span></li>
+      <li>For UVLM strips, instantaneous LESP related to the <strong>frontmost bound-vortex ring strength</strong> through an integral relationship with cotangent weighting</li>
+      <li>LEV formation triggers when LESP exceeds <span class="katex-inline">$\text{LESP}_{\text{crit}}$</span> determined from 2D CFD for the given airfoil/Re combination</li>
+    </ul>
+    <h3>LEV Sheet and Pseudovortex Ring</h3>
+    <ul>
+      <li>LEV rings placed at one-third distance from leading edge to last LEV: <span class="katex-inline">$x_{L,n-1} = \tfrac{2}{3}x_{i,\text{L.E.}} + \tfrac{1}{3}x_{L,n-2}$</span> following Ansari et al.</li>
+      <li><strong>Pseudovortex ring</strong> of strength <span class="katex-inline">$\Gamma^n_L$</span> connects LEV sheet to bound-vortex sheet, ensuring zero vortex filament at geometric leading edge</li>
+      <li>Extended Kelvin condition with LEV shedding: <span class="katex-inline">$\Gamma^n_W = \Gamma^{n-1}_{b,i_{\max}} + \Gamma^{n-1}_L$</span></li>
+    </ul>
+    <h3>Aerodynamic Load Calculation</h3>
+    <ul>
+      <li>Normal forces from unsteady Bernoulli equation; potential difference during LEV shedding: <span class="katex-inline">$\phi_u - \phi_l = \Gamma^n_L + \Gamma_{b,x}$</span></li>
+      <li>Leading-edge suction force: <span class="katex-inline">$F_S = \pi \rho c U_\infty^2 A_0^2$</span></li>
+      <li>Total lift: <span class="katex-inline">$C_L = C_N \cos\alpha + C_S \sin\alpha$</span>, combining normal and suction force contributions</li>
+    </ul>
+    <h3>Test Cases and CFD Reference</h3>
+    <ul>
+      <li>Three <strong>AR = 6</strong> constant-chord wings with SD7003 airfoil at <strong>Re = 20,000</strong>: unswept, 10 deg tip twist, and swept configurations</li>
+      <li>Pitch ramp 0&ndash;45 deg with reduced pitch rate <span class="katex-inline">$K = \dot{\alpha}c/(2U_\infty) = 0.3$</span></li>
+      <li><span class="katex-inline">$\text{LESP}_{\text{crit}} = 0.27$</span> from 2D CFD of SD7003 airfoil</li>
+      <li>RANS CFD (REACTMB-INS) with Spalart&ndash;Allmaras turbulence model on ~35 million cell meshes</li>
+    </ul>
+  </div></details>
+
+  <details><summary><div class="section-number">5</div><h2>Results</h2></summary><div class="section-body">
+    <h3>LEV Structure Predictions</h3>
+    <ul>
+      <li><strong>Case 1 (unswept)</strong>: LEV initiates at the wing root where LESP peaks, then spreads outboard; rolled-up sheet shape agrees broadly with CFD iso-Q contours, though UVLM predicts slightly <strong>slower spanwise progression</strong></li>
+      <li><strong>Case 2 (tip twist)</strong>: LEV onset at midspan (<span class="katex-inline">$y \approx 0.5\, b/2$</span>) matching LESP peak; characteristic bulge near <span class="katex-inline">$y \approx 0.75\, b/2$</span> due to higher outboard incidence reproduced by both methods</li>
+      <li><strong>Case 3 (swept)</strong>: Tip-dominated LEV formation with <strong>conical structure</strong> reminiscent of delta wing shedding, caused by motion-induced upwash at the wingtip from pitch-up about the root quarter-chord</li>
+      <li>UVLM captures full LEV evolution sequence: onset, spanwise progression, initial rollup, and well-developed vortical structure on the upper surface</li>
+    </ul>
+    <h3>Aerodynamic Load Comparisons</h3>
+    <ul>
+      <li>Apparent mass spikes at pitch start/stop captured by UVLM but <strong>overpredicted</strong> relative to CFD</li>
+      <li>Pitching moment <span class="katex-inline">$C_M$</span> with LEV shows <strong>excellent agreement</strong> with CFD between LEV onset and end of pitch-up</li>
+      <li>Lift coefficient <span class="katex-inline">$C_L$</span> with LEV-on shows reduced lift increase rate; CFD shows higher slope during this phase</li>
+      <li>After pitch-up ceases (<span class="katex-inline">$\alpha = 45°$</span> held), LEV-on model predicts decreasing <span class="katex-inline">$C_L$</span> and <span class="katex-inline">$C_M$</span> as the LEV continues to evolve</li>
+    </ul>
+    <h3>Discrepancy Sources</h3>
+    <ul>
+      <li>Underestimation of leading-edge suction force <span class="katex-inline">$F_S$</span> following LEV onset &mdash; major contributor to <span class="katex-inline">$C_L$</span> at high <span class="katex-inline">$\alpha$</span></li>
+      <li>Absence of separated tip vortex model affecting outboard downwash distribution</li>
+      <li>Delayed spanwise LEV growth leading to underestimated vortex lift</li>
+      <li>Attached-flow assumption does not model trailing-edge separation on the suction surface</li>
+    </ul>
+  </div></details>
+
+  <details><summary><div class="section-number">6</div><h2>Results Interpretation</h2></summary><div class="section-body">
+    <ul>
+      <li>The LESP-based trigger successfully predicts <strong>geometry-dependent LEV onset locations</strong>: root (unswept), midspan (twisted), wingtip (swept) &mdash; demonstrating that the spanwise LESP distribution encodes the combined effects of geometry, twist, sweep, and motion kinematics</li>
+      <li>A single <span class="katex-inline">$\text{LESP}_{\text{crit}}$</span> value from one 2D simulation governs LEV formation across <strong>all three wing geometries</strong>, validating the universality of the LESP concept for a given airfoil and Reynolds number</li>
+      <li>The pseudovortex ring is a mathematical construct ensuring <strong>zero vortex strength</strong> at the leading edge while maintaining the Kelvin condition across all three vortex sheets (bound, LEV, TEV)</li>
+      <li>The UVLM with LEV requires ~<strong>25 min on 1 processor</strong> vs ~<strong>1 day on 128 processors</strong> for RANS CFD &mdash; roughly three orders of magnitude faster, suitable for preliminary design and optimization loops</li>
+      <li>The excellent <span class="katex-inline">$C_M$</span> agreement but imperfect <span class="katex-inline">$C_L$</span> match suggests that the LEV model correctly captures <strong>vortex-induced pressure redistribution</strong> but underestimates the net suction force contribution at high angles of attack</li>
+      <li>Computational cost grows nonlinearly with simulation time due to increasing vortex element count; <strong>vortex amalgamation</strong> and deletion strategies from 2D methods need 3D extension for practical long-time simulations</li>
+      <li>The current work is a <strong>proof of concept</strong>; the nonuniform spanwise LEV shedding model is applicable to more advanced vortex formulations, making it a foundational contribution for future development</li>
+    </ul>
+  </div></details>
+
+  <details><summary><div class="section-number">7</div><h2>Conclusion</h2></summary><div class="section-body">
+    <ul>
+      <li>A UVLM augmented with a <strong>vortex-sheet LEV model</strong> has been formulated, extending the LESP concept from 2D to 3D finite wings for the first time</li>
+      <li>The method predicts spanwise <strong>LEV onset location</strong> and <strong>nonuniform growth patterns</strong> that correctly vary with wing geometry (unswept, tip-twisted, swept)</li>
+      <li>The <strong>pseudovortex ring</strong> construct provides a consistent mechanism for connecting the LEV sheet to the bound-vortex sheet while satisfying the Kelvin condition</li>
+      <li>LEV sheet shapes show <strong>broad qualitative agreement</strong> with iso-Q contours from RANS CFD across all three test cases</li>
+      <li>Pitching moment <span class="katex-inline">$C_M$</span> with LEV matches CFD <strong>excellently</strong> during the pitch-up phase; lift <span class="katex-inline">$C_L$</span> shows reasonable agreement with identified sources of discrepancy</li>
+      <li>Computational cost is approximately <strong>three orders of magnitude lower</strong> than RANS CFD, demonstrating potential for preliminary design applications</li>
+      <li>Future work requires <strong>higher-order discretization</strong>, improved time-stepping, vortex amalgamation strategies, and incorporation of tip vortex and trailing-edge separation models for routine use in long-time simulations</li>
+      <li>The nonuniform spanwise LEV shedding framework is <strong>transferable to advanced vortex methods</strong>, establishing this work as an important foundational step</li>
+    </ul>
+  </div></details>
+</div>
+<div class="footer">Generated by YANG Lab RECON &mdash; <a href="https://doi.org/10.2514/1.C035124">View Original Paper</a></div>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false});"></script>
+</body>
+</html>

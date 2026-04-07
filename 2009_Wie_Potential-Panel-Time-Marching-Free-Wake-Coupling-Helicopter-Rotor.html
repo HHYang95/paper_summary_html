@@ -1,0 +1,125 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="paper-title" content="Potential Panel and Time-Marching Free-Wake Coupling Analysis For Helicopter Rotor"><meta name="paper-year" content="2009"><meta name="paper-author" content="Seong Yong Wie, Seongkyu Lee, Duck Joo Lee"><meta name="paper-journal" content="Journal of Aircraft"><meta name="paper-tags" content="Panel Method, Free Wake, Helicopter, Rotor, Vortex Method"><meta name="paper-doi" content="10.2514/1.40001">
+<title>Potential Panel and Time-Marching Free-Wake Coupling Analysis For Helicopter Rotor — Summary</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter','Segoe UI',-apple-system,sans-serif;background:#f8f9fb;color:#1e293b;line-height:1.7;-webkit-font-smoothing:antialiased}.hero{background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 50%,#0c4a6e 100%);color:#fff;padding:56px 0 48px;position:relative;overflow:hidden}.hero::after{content:'';position:absolute;top:0;right:0;bottom:0;width:40%;background:radial-gradient(ellipse at 80% 50%,rgba(56,189,248,0.08) 0%,transparent 70%);pointer-events:none}.hero-inner{max-width:900px;margin:0 auto;padding:0 40px;position:relative;z-index:1}.hero h1{font-size:28px;font-weight:700;line-height:1.35;letter-spacing:-0.3px;margin-bottom:16px}.hero-meta{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:14px;color:#94a3b8}.hero-meta a{color:#7dd3fc;text-decoration:none}.importance-badge{position:absolute;top:56px;right:40px;font-size:22px;letter-spacing:2px;filter:drop-shadow(0 0 6px rgba(255,215,0,0.4))}.tag-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:20px}.tag{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);color:#cbd5e1;font-size:11px;font-weight:500;padding:3px 10px;border-radius:20px}.container{max-width:900px;margin:0 auto;padding:40px 40px 80px}details{margin-bottom:12px;border-radius:10px;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,0.04);overflow:hidden}details[open]{box-shadow:0 2px 8px rgba(0,0,0,0.06)}summary{display:flex;align-items:center;gap:12px;padding:14px 20px;cursor:pointer;user-select:none;list-style:none;border-bottom:2px solid transparent;transition:background 0.15s}summary:hover{background:#f1f5f9}details[open]>summary{border-bottom-color:#e2e8f0}summary::-webkit-details-marker{display:none}summary::before{content:'\25B6';font-size:10px;color:#94a3b8;transition:transform 0.2s;flex-shrink:0}details[open]>summary::before{transform:rotate(90deg)}.section-number{background:#0f172a;color:#fff;font-size:11px;font-weight:700;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}summary h2{font-size:16px;font-weight:700;color:#0f172a}.section-body{padding:16px 20px 20px}.overview{margin-bottom:12px;background:#fff;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,0.04);overflow:hidden}.overview-header{display:flex;align-items:center;gap:12px;padding:14px 20px;border-bottom:2px solid #e2e8f0}.overview-header h2{font-size:16px;font-weight:700;color:#0f172a}.overview-text{font-size:14.5px;line-height:1.8;color:#334155;padding:16px 20px 20px;border-left:4px solid #0ea5e9;margin:0}.section-body ul{list-style:none;padding:0}.section-body ul li{position:relative;padding:7px 0 7px 18px;font-size:13.5px;line-height:1.7;color:#334155}.section-body ul li::before{content:'';position:absolute;left:0;top:15px;width:5px;height:5px;background:#0ea5e9;border-radius:50%}.section-body ul li+li{border-top:1px solid #f1f5f9}.section-body h3{font-size:13.5px;font-weight:600;color:#0c4a6e;margin:16px 0 6px}.section-body h3:first-child{margin-top:0}.footer{max-width:900px;margin:0 auto;padding:0 40px 48px;text-align:center;font-size:12px;color:#94a3b8}.footer a{color:#64748b;text-decoration:none}</style>
+</head><body>
+<div class="hero"><div class="hero-inner"><h1>Potential Panel and Time-Marching Free-Wake Coupling Analysis For Helicopter Rotor</h1><div class="hero-meta"><span>Seong Yong Wie, Seongkyu Lee, Duck Joo Lee</span><span>Journal of Aircraft (2009)</span><span><a href="https://doi.org/10.2514/1.40001">DOI: 10.2514/1.40001</a></span></div><div class="tag-row"><span class="tag">Panel Method</span><span class="tag">Free Wake</span><span class="tag">Helicopter</span><span class="tag">Rotor</span><span class="tag">Vortex Method</span></div><div class="importance-badge">★★</div></div></div>
+<div class="container">
+  <div class="overview"><div class="overview-header"><div class="section-number">1</div><h2>Overview</h2></div><div class="overview-text">This paper develops a coupled potential-based panel method with time-marching free-wake techniques for fast and accurate prediction of unsteady aerodynamics and wake dynamics of helicopter rotor blades. The coupling exploits the mathematical equivalence between doublet wake panels and vortex filaments, enabling the panel method to incorporate curved vortex filament self-induced velocity, high-order time integration (fourth-order Adams-Bashforth-Moulton), and parallel computation for wake convection. Validated against Caradonna-Tung hover experiments and AH-1G forward flight data, the method accurately predicts blade pressure distributions, thrust coefficients, tip-vortex trajectories, and notably captures tip-vortex pairing phenomena for the first time within a panel method framework.</div></div>
+  <details><summary><div class="section-number">2</div><h2>Introduction</h2></summary><div class="section-body">
+<h3>Background and Motivation</h3>
+<ul>
+<li>Rotor wake prediction is critical for analyzing rotor loads, performance, vibration, and acoustics; unsteady panel methods offer a computationally efficient alternative to CFD or lifting-line approaches</li>
+<li>Standard unsteady panel methods can predict blade airloads adequately but struggle with accurate and fast wake dynamics prediction, particularly for complex phenomena such as tip-vortex pairing</li>
+<li>Free-wake methods based on vortex filaments are powerful for simulating wake roll-up, but lifting-line/lifting-surface methods lack chordwise pressure resolution compared to panel methods</li>
+</ul>
+<h3>Paper Objective</h3>
+<ul>
+<li>Develop a coupled doublet-panel and time-marching free-wake method that exploits the equivalence between doublet wake panels and vortex filament rings</li>
+<li>Incorporate advanced wake modeling techniques (curved vortex filaments, self-induced velocity via Moore-Rosenhead desingularization, fourth-order predictor-corrector time integration) into the panel framework</li>
+<li>Demonstrate the method's capability for hover, vertical climb with tip-vortex pairing, and forward flight with cyclic pitch and flapping motions</li>
+</ul>
+</div></details>
+  <details><summary><div class="section-number">3</div><h2>Related Works</h2></summary><div class="section-body">
+<h3>Panel Methods for Rotorcraft</h3>
+<ul>
+<li><strong>Richason and Katz (1994)</strong>: unsteady <strong>panel method</strong> for multiple bodies; <strong>Katz and Maskew (1988)</strong>: low-speed model for complete aircraft configurations</li>
+<li><strong>Morino and Kuo (1974)</strong>, <strong>Morino et al. (1989)</strong>: subsonic potential aerodynamics with boundary integral formulations extended to compressible flows and moving boundaries</li>
+</ul>
+<h3>Free-Wake Methods</h3>
+<ul>
+<li><strong>Bagai and Leishman (1995)</strong>: relaxation and pseudo-implicit techniques for rotor <strong>free-wake</strong> modeling with experimental validation</li>
+<li><strong>Chung et al. (2006)</strong>: time-marching free-wake with lifting-surface method that successfully predicted tip-vortex pairing and associated acoustic radiation</li>
+<li><strong>Bhagwat and Leishman (2001)</strong>: stability analysis of rotor wake roll-up showing sensitivity to time-integration scheme and wake age</li>
+</ul>
+<h3>Relevant Techniques</h3>
+<ul>
+<li><strong>Hess and Smith (1964)</strong>: foundational analytical formulations for constant-strength potential panels on arbitrary 3D bodies</li>
+<li><strong>Caradonna and Tung (1982)</strong>: benchmark two-blade rotor hover experiment widely used for validation; <strong>Cross and Watts (1988)</strong>: AH-1G tip aerodynamics and acoustics test data</li>
+</ul>
+</div></details>
+  <details><summary><div class="section-number">4</div><h2>Materials and Methods</h2></summary><div class="section-body">
+<h3>Boundary Integral Formulation</h3>
+<ul>
+<li>Incompressible, inviscid, irrotational flow governed by the Laplace equation $\nabla^2 \phi = 0$ outside the body surface $S_B$</li>
+<li>Boundary integral equation with Green's function $G = 1/(4\pi r)$ yields the complete formulation including body surface $S_B$ and wake surface $S_W$: $$E(\mathbf{x})\phi(\mathbf{x}) = \int_{S_B}\left[\frac{\partial \phi}{\partial n}G - \phi\frac{\partial G}{\partial n}\right]dS + \int_{S_W}\Delta\phi\frac{\partial G}{\partial n}dS$$</li>
+<li>The wake doublet strength $\Delta\phi$ on $S_W$ is determined by the Kutta condition enforced at the trailing edge, where $\Delta\phi$ equals the difference in doublet potential between upper and lower blade surfaces</li>
+</ul>
+<h3>Panel-Wake Coupling via Doublet-Vortex Equivalence</h3>
+<ul>
+<li>Each doublet wake panel is mathematically equivalent to a vortex ring with circulation $\Gamma$ equal to the doublet strength $\mu$; this equivalence enables direct replacement of wake panels by vortex filament rings</li>
+<li>Wake-induced velocities are computed using vortex filaments rather than doublet panels, providing more accurate and efficient velocity field evaluation</li>
+</ul>
+<h3>Curved Vortex Filament and Self-Induced Velocity</h3>
+<ul>
+<li>Trailing vortex filaments are modeled as curved lines using parabolic blending interpolation to capture the helical trajectory of rotor tip vortices</li>
+<li>Induced velocity from curved filaments is computed via the Moore-Rosenhead equation: $$\mathbf{V}_{ind} = \frac{1}{4\pi}\int_C \frac{\Gamma \times \mathbf{r}}{(|\mathbf{r}|^2 + \delta_S^2)^{3/2}} \cdot \frac{\partial \mathbf{y}(\xi,t)}{\partial \xi} d\xi$$ with Rosenhead cutoff $\delta_S$ set to 10% of chord length for singularity removal</li>
+</ul>
+<h3>Time Integration and Numerical Schemes</h3>
+<ul>
+<li>Fourth-order Adams-Bashforth-Moulton predictor-corrector method for wake convection, providing enhanced stability over conventional explicit Euler integration</li>
+<li>Velocity-field integration technique applied for blade-wake interaction to avoid numerical singularity when wake filaments pass close to blade surfaces</li>
+<li>Parallel computation distributes induced velocity calculations from individual vortex filaments across multiple CPUs</li>
+</ul>
+<h3>Pressure and Force Computation</h3>
+<ul>
+<li>Surface pressure obtained from the unsteady Bernoulli equation: $$C_p = 1 - \frac{v^2}{v_{ref}^2} - \frac{2}{v_{ref}^2}\frac{\partial \phi}{\partial t}$$ with the time derivative evaluated by second-order backward differentiation</li>
+<li>For forward flight, cyclic pitch and flapping angles are determined via Newton-Raphson trim iteration to match target thrust and moment coefficients</li>
+</ul>
+</div></details>
+  <details><summary><div class="section-number">5</div><h2>Results</h2></summary><div class="section-body">
+<h3>Hover Flight (Caradonna-Tung Rotor)</h3>
+<ul>
+<li>Two-blade <strong>NACA 0012</strong> rotor (radius <strong>1.143 m</strong>, aspect ratio <strong>6</strong>) at collective pitch angles of <strong>5, 8, and 12 deg</strong>; tip Mach number <strong>0.439</strong>; <strong>40</strong> chordwise x <strong>30</strong> spanwise panels; azimuthal step <strong>15 deg</strong>; <strong>10 revolutions</strong></li>
+<li>Total thrust coefficients show very good agreement with experimental data across all three pitch angles; sectional thrust distributions match well except slight deviation at 12 deg outboard due to leading-edge separation effects</li>
+<li>Pressure coefficients at $r/R = 0.96$, $0.80$, and $0.68$ agree closely with measurements for all collective angles</li>
+<li>Tip-vortex radial contraction matches measured data very well; axial (downward) convection is slightly overpredicted</li>
+</ul>
+<h3>Tip-Vortex Pairing (AH-1G Subscale Model)</h3>
+<ul>
+<li>AH-1G model (radius 1.0414 m, 1800 rpm) simulated for 80 revolutions at 11 deg pitch with climb rates of 1.067 and 2.928 m/s, and at 6 deg pitch with climb rate of 1.067 m/s</li>
+<li>Tip-vortex pairing was successfully captured: the fourth and fifth tip vortices pair and their radial/axial positions interchange, matching experimental trajectories quantitatively</li>
+<li>Convergence of pairing position initiated around the <strong>20th revolution</strong>, confirming that many revolutions are required to resolve wake dynamics</li>
+<li>Computational cost: approximately <strong>29 hours on 12 CPUs</strong> for the <strong>80-revolution</strong> pairing simulation</li>
+</ul>
+<h3>Forward Flight (AH-1G Model)</h3>
+<ul>
+<li>AH-1G blade (aspect ratio <strong>9.8</strong>, linear twist <strong>-10 deg</strong>) at tip Mach <strong>0.65</strong> and advance ratio <strong>0.19</strong>; <strong>40</strong> chordwise x <strong>16</strong> spanwise panels; azimuthal step <strong>3 deg</strong>; <strong>4 revolutions</strong>; <strong>8 hours on 16 CPUs</strong></li>
+<li>Trim procedure via Newton-Raphson converges cyclic pitch coefficients; predicted thrust and moment coefficients match experimental values closely</li>
+<li>Sectional thrust variation with azimuth and pressure coefficients at $r/R = 0.6$ and $0.91$ show good agreement with measurements across advancing and retreating sides</li>
+</ul>
+</div></details>
+  <details><summary><div class="section-number">6</div><h2>Results Interpretation</h2></summary><div class="section-body">
+<h3>Strengths of the Coupled Approach</h3>
+<ul>
+<li>The doublet-vortex equivalence preserves the panel method's chordwise pressure resolution while gaining the free-wake method's superior wake dynamics modeling capability</li>
+<li>Curved vortex filaments with parabolic blending accurately reproduce the helical nature of rotor tip vortices and generate physically meaningful self-induced velocities</li>
+<li>The fourth-order predictor-corrector integration provides sufficient numerical stability for long-duration simulations (80 revolutions) needed to capture tip-vortex pairing convergence</li>
+</ul>
+<h3>Limitations</h3>
+<ul>
+<li>As a potential flow method, the approach cannot capture compressibility effects (transonic shocks at high tip Mach), dynamic flow separation, or turbulence; these are acknowledged to be secondary for wake dynamics prediction</li>
+<li>At high collective pitch (12 deg), the method shows minor discrepancies in outboard sectional thrust due to leading-edge separation that potential flow cannot model</li>
+<li>Axial tip-vortex convection is slightly overpredicted in hover, suggesting the vortex-core model or cutoff parameter may need further calibration</li>
+</ul>
+<h3>Significance</h3>
+<ul>
+<li>First demonstration of tip-vortex pairing prediction within an unsteady panel method framework, extending the method's applicability to complex rotor wake phenomena</li>
+<li>Parallel computation strategy enables practical turnaround times despite the high computational demand of long free-wake simulations</li>
+</ul>
+</div></details>
+  <details><summary><div class="section-number">7</div><h2>Conclusion</h2></summary><div class="section-body">
+<ul>
+<li>A tightly coupled doublet panel / time-marching free-wake method is demonstrated for helicopter rotor aerodynamics, exploiting doublet-vortex filament equivalence to unify chordwise pressure accuracy with advanced wake dynamics</li>
+<li>Validated against Caradonna-Tung hover data and AH-1G forward flight measurements; thrust coefficients, pressure distributions, and sectional airloads show consistently good agreement</li>
+<li>Tip-vortex pairing is captured for the first time in a panel method, with quantitative trajectory comparisons matching experimental data for multiple flight conditions</li>
+<li>The method is suitable for designing advanced blade planforms and high-twist rotors with high accuracy and moderate computational cost, though it does not address compressibility, dynamic stall, or turbulence effects</li>
+</ul>
+</div></details>
+</div>
+<div class="footer">Generated by YANG Lab RECON &middot; <a href="https://doi.org/10.2514/1.40001">View Original Paper</a></div>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false},{left:'$',right:'$',display:false}],throwOnError:false});"></script>
+</body></html>

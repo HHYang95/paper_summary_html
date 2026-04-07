@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="paper-title" content="Generalized Viscous Vortex Model For Application to Free-Vortex Wake and Aeroacoustic Calculations">
+<meta name="paper-year" content="2002">
+<meta name="paper-author" content="Mahendra J. Bhagwat, J. Gordon Leishman">
+<meta name="paper-journal" content="58th Annual Forum of the American Helicopter Society">
+<meta name="paper-tags" content="Vortex Method, Free Wake, Helicopter, Rotor, Methodology">
+<meta name="paper-doi" content="">
+<title>Generalized Viscous Vortex Model For Application to Free-Vortex Wake and Aeroacoustic Calculations — Summary</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter','Segoe UI',-apple-system,sans-serif;background:#f8f9fb;color:#1e293b;line-height:1.7;-webkit-font-smoothing:antialiased}.hero{background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 50%,#0c4a6e 100%);color:#fff;padding:56px 0 48px;position:relative;overflow:hidden}.hero::after{content:'';position:absolute;top:0;right:0;bottom:0;width:40%;background:radial-gradient(ellipse at 80% 50%,rgba(56,189,248,0.08) 0%,transparent 70%);pointer-events:none}.hero-inner{max-width:900px;margin:0 auto;padding:0 40px;position:relative;z-index:1}.hero h1{font-size:28px;font-weight:700;line-height:1.35;letter-spacing:-0.3px;margin-bottom:16px}.hero-meta{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:14px;color:#94a3b8}.hero-meta a{color:#7dd3fc;text-decoration:none}.importance-badge{position:absolute;top:56px;right:40px;font-size:22px;letter-spacing:2px;filter:drop-shadow(0 0 6px rgba(255,215,0,0.4))}.tag-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:20px}.tag{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);color:#cbd5e1;font-size:11px;font-weight:500;padding:3px 10px;border-radius:20px}.container{max-width:900px;margin:0 auto;padding:40px 40px 80px}details{margin-bottom:12px;border-radius:10px;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,0.04);overflow:hidden}details[open]{box-shadow:0 2px 8px rgba(0,0,0,0.06)}summary{display:flex;align-items:center;gap:12px;padding:14px 20px;cursor:pointer;user-select:none;list-style:none;border-bottom:2px solid transparent;transition:background 0.15s}summary:hover{background:#f1f5f9}details[open]>summary{border-bottom-color:#e2e8f0}summary::-webkit-details-marker{display:none}summary::before{content:'\25B6';font-size:10px;color:#94a3b8;transition:transform 0.2s;flex-shrink:0}details[open]>summary::before{transform:rotate(90deg)}.section-number{background:#0f172a;color:#fff;font-size:11px;font-weight:700;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}summary h2{font-size:16px;font-weight:700;color:#0f172a}.section-body{padding:16px 20px 20px}.overview{margin-bottom:12px;background:#fff;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,0.04);overflow:hidden}.overview-header{display:flex;align-items:center;gap:12px;padding:14px 20px;border-bottom:2px solid #e2e8f0}.overview-header h2{font-size:16px;font-weight:700;color:#0f172a}.overview-text{font-size:14.5px;line-height:1.8;color:#334155;padding:16px 20px 20px;border-left:4px solid #0ea5e9;margin:0}.section-body ul{list-style:none;padding:0}.section-body ul li{position:relative;padding:7px 0 7px 18px;font-size:13.5px;line-height:1.7;color:#334155}.section-body ul li::before{content:'';position:absolute;left:0;top:15px;width:5px;height:5px;background:#0ea5e9;border-radius:50%}.section-body ul li+li{border-top:1px solid #f1f5f9}.section-body h3{font-size:13.5px;font-weight:600;color:#0c4a6e;margin:16px 0 6px}.section-body h3:first-child{margin-top:0}.footer{max-width:900px;margin:0 auto;padding:0 40px 48px;text-align:center;font-size:12px;color:#94a3b8}.footer a{color:#64748b;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="hero"><div class="hero-inner"><h1>Generalized Viscous Vortex Model For Application to Free-Vortex Wake and Aeroacoustic Calculations</h1><div class="hero-meta"><span>Mahendra J. Bhagwat, J. Gordon Leishman</span><span>58th Annual Forum of the American Helicopter Society (2002)</span><span>AHS International, Montr&eacute;al, Canada</span></div><div class="tag-row"><span class="tag">Vortex Method</span><span class="tag">Free Wake</span><span class="tag">Helicopter</span><span class="tag">Rotor</span><span class="tag">Methodology</span></div><div class="importance-badge">★</div></div></div>
+<div class="container">
+  <div class="overview"><div class="overview-header"><div class="section-number">1</div><h2>Overview</h2></div><div class="overview-text">This paper develops a generalized viscous vortex model for rotor free-wake and aeroacoustic analyses. The authors extend the classic <strong>Lamb-Oseen</strong> laminar vortex diffusion model by incorporating <strong>Squire's hypothesis</strong> for turbulent eddy viscosity, validated against extensive experimental data spanning vortex Reynolds numbers from <strong>$10^3$</strong> to <strong>$10^7$</strong>. A family of algebraic velocity profiles (swirl, axial, radial) is derived from a simplified form of the incompressible <strong>Navier-Stokes equations</strong> using the <strong>Vatistas</strong> swirl velocity profile parameterized by a single integer exponent $n$. The model with <strong>$n=2$</strong> closely approximates the Lamb-Oseen/Newman exponential solution and shows strong agreement with both fixed-wing and rotating-wing tip vortex measurements, demonstrating <strong>self-similarity</strong> when scaled by the vortex core radius.</div></div>
+
+  <details><summary><div class="section-number">2</div><h2>Introduction</h2></summary><div class="section-body">
+    <h3>Motivation and Context</h3>
+    <ul>
+      <li><strong>Trailing tip vortices</strong> from lifting surfaces are central to both fixed-wing wake hazard problems and rotary-wing aeroacoustic predictions</li>
+      <li>The viscous core structure and temporal development of tip vortices remain a <strong>continuing modeling challenge</strong> in aerodynamics despite five decades of research</li>
+      <li>For helicopter rotors, blade tip vortex characteristics have <strong>significant impact on airloads, performance, and acoustics</strong> due to close proximity of vortices to rotating blades</li>
+      <li><strong>Blade-vortex interactions (BVI)</strong> make it essential to properly represent tip vortex core structures; Gandhi &amp; Tauszig (Ref. 14) demonstrated sensitivity of BVI predictions to viscous core models</li>
+    </ul>
+    <h3>Existing Models and Limitations</h3>
+    <ul>
+      <li><strong>Free-vortex wake models</strong> are increasingly used in rotating-wing aeroacoustic analyses but rely on semi-empirical viscous core models</li>
+      <li>Full Navier-Stokes solutions are not analytically tractable and numerically prohibitive; closed-form solutions require simplifying assumptions</li>
+      <li>The <strong>Rankine vortex</strong> has discontinuous velocity/vorticity at the core boundary; the <strong>Scully (Kaufmann) model</strong> provides desingularization but limited physical basis</li>
+      <li>The <strong>Vatistas family</strong> of algebraic models parameterized by integer $n$ unifies Scully ($n=1$), Lamb-Oseen approximation ($n=2$), and Rankine ($n \to \infty$)</li>
+      <li>A complete three-component velocity model (swirl + axial + radial) with physically motivated core growth is needed for accurate <strong>aeroacoustic and free-wake applications</strong></li>
+    </ul>
+    <h3>Paper Objective</h3>
+    <ul>
+      <li>Develop a <strong>generalized algebraic vortex model</strong> with all three velocity components derived from simplified Navier-Stokes equations</li>
+      <li>Validate the turbulent core growth model against comprehensive experimental data from both fixed-wing and rotating-wing measurements</li>
+    </ul>
+  </div></details>
+
+  <details><summary><div class="section-number">3</div><h2>Related Works</h2></summary><div class="section-body">
+    <ul>
+      <li><strong>Lamb (1932)</strong> and <strong>Oseen (1912)</strong> derived the classic one-dimensional laminar vortex diffusion solution with core radius growing as $r_c = \sqrt{4\alpha\nu t}$</li>
+      <li><strong>Squire (1965)</strong> extended the Lamb-Oseen model to trailing vortices using $t = z/V_\infty$ and introduced eddy viscosity $\delta\nu$ with $\delta = 1 + a_1 Re_v$ to account for turbulence</li>
+      <li><strong>Burgers (1948)</strong> extended to three-dimensional vortex flows but assumed constant axial velocity, inconsistent with experimental wake-like profiles</li>
+      <li><strong>Newman (1959)</strong> derived exponential solutions for all three velocity components from simplified 3D incompressible Navier-Stokes equations with good experimental correlation</li>
+      <li><strong>Vatistas et al. (1991)</strong> proposed the desingularized algebraic swirl velocity family $V_\theta \propto r/(r_c^{2n} + r^{2n})^{1/n}$</li>
+      <li><strong>Iversen (1976)</strong> correlated turbulent trailing vortex decay data showing turbulent effects become important at $Re_v > 10^5$</li>
+      <li><strong>Bhagwat &amp; Leishman (2000)</strong> established universal peak swirl velocity correlations for both fixed-wing and rotating-wing tip vortices supporting Squire's hypothesis</li>
+      <li><strong>Cotel &amp; Breidenthal (1999)</strong> analyzed vortex core growth rates showing $b_1 \propto Re_v^{-1/2}$ trend consistent with laminar-dominated inner core growth</li>
+      <li><strong>Leishman &amp; Bagai (1998)</strong> reviewed challenges in understanding vortex dynamics of helicopter rotor wakes</li>
+      <li><strong>Martin, Pugliese &amp; Leishman (2001)</strong> performed high-resolution trailing vortex measurements in hovering rotor wakes</li>
+    </ul>
+  </div></details>
+
+  <details><summary><div class="section-number">4</div><h2>Materials and Methods</h2></summary><div class="section-body">
+    <h3>Viscous Core Growth Model</h3>
+    <ul>
+      <li>Core radius modeled using <strong>extended Lamb-Oseen</strong> with Squire's eddy viscosity: $$r_c(\zeta) = \sqrt{r_{c0}^2 + 4\alpha\delta\nu\frac{\zeta}{\Omega}}$$ where $\delta = 1 + a_1 Re_v$ and $\alpha = 1.25643$ is the Oseen parameter</li>
+      <li>Squire's parameter $a_1$ empirically determined from experimental data; <strong>$a_1 = O(10^{-4})$</strong> for rotating-wing and $O(10^{-5})$ for fixed-wing vortices</li>
+      <li>Empirical validation performed across vortex Reynolds numbers from $10^3$ to $10^7$ using multiple experimental datasets</li>
+    </ul>
+    <h3>Swirl Velocity Profile</h3>
+    <ul>
+      <li>Pre-assumed <strong>Vatistas algebraic profile</strong>: $$V_\theta(r) = \frac{\Gamma_v}{2\pi}\frac{r}{(r_c^{2n} + r^{2n})^{1/n}}$$ satisfying the one-dimensional Navier-Stokes swirl equation</li>
+      <li>Parameter $n$ takes integer values; <strong>$n=2$</strong> provides best approximation to Lamb-Oseen exponential solution</li>
+    </ul>
+    <h3>Navier-Stokes Simplification</h3>
+    <ul>
+      <li>Full 3D incompressible Navier-Stokes equations written in cylindrical coordinates with <strong>axisymmetry assumption</strong></li>
+      <li><strong>Ordering scheme</strong>: swirl and axial velocities $O(\varepsilon)$, radial velocity $O(\varepsilon^2)$, pressure $O(\varepsilon^2)$, where $\varepsilon \sim 0.1$&ndash;$0.3$</li>
+      <li>The $\theta$-momentum equation is simplified by subtracting the 1D Lamb-Oseen form, yielding a reduced system of three coupled equations</li>
+    </ul>
+    <h3>Axial and Radial Velocity Solutions</h3>
+    <ul>
+      <li><strong>Axial velocity</strong>: $V_z = -\frac{A}{z}\left(1 - \frac{r^2}{(r_c^{2n}+r^{2n})^{1/n}}\right)$ &mdash; wake-like or jet-like depending on sign of constant $A$</li>
+      <li><strong>Radial velocity</strong>: $V_r = -\frac{Ar}{2z^2}\left(1 - \frac{r^2}{(r_c^{2n}+r^{2n})^{1/n}}\right)$</li>
+      <li>Constant $A$ determined from wing zero-lift drag: $A = D_0 / (4\pi\rho\delta\nu)$</li>
+      <li><strong>Static pressure</strong> obtained by radial integration of centrifugal balance: $p(r) = \int_0^r V_\theta^2/r\,dr$</li>
+    </ul>
+  </div></details>
+
+  <details><summary><div class="section-number">5</div><h2>Results</h2></summary><div class="section-body">
+    <h3>Core Growth Validation</h3>
+    <ul>
+      <li>Hovering rotor wake geometry predictions highly sensitive to $a_1$: <strong>$a_1 = O(10^{-3})$ to $O(10^{-4})$</strong> correctly captured blade passage effects and radial contraction</li>
+      <li>Laminar diffusion alone ($a_1 = 0$) gave excellent hovering wake geometry agreement due to absence of close vortex interactions</li>
+      <li>Forward flight inflow at $\mu = 0.15$ showed strong sensitivity: only $a_1 = O(10^{-3})$ and $O(10^{-4})$ properly represented azimuthal inflow variations</li>
+    </ul>
+    <h3>Empirical Turbulent Diffusion Evidence</h3>
+    <ul>
+      <li>Peak swirl velocity correlation $\bar{V}_{\theta_{max}}(\bar{d}+d_0)^{1/2} = k$ validated for both fixed-wing (Refs. 2) and rotating-wing (Refs. 25) measurements</li>
+      <li>Non-dimensional core growth rate $b_1 \propto \sqrt{a_1 + Re_v^{-1/2}}$; <strong>experimental data from 15+ studies</strong> confirmed Squire's hypothesis at high $Re_v$</li>
+      <li>Apparent viscosity coefficient $\delta$ approximately constant (laminar-like) at $Re_v < 10^5$ and increases linearly at higher Reynolds numbers</li>
+    </ul>
+    <h3>Velocity Profile Comparisons</h3>
+    <ul>
+      <li>Fixed-wing tip vortex (Ref. 2): <strong>$n=2$ model showed good agreement</strong> with measured swirl velocities at $z/c = 1.0$, $2.0$, and $4.0$, confirming self-similarity</li>
+      <li>Rotating-wing tip vortex (Ref. 25): swirl velocity showed <strong>strongly self-similar profile</strong> across wake ages $\zeta = 9.7^\circ$ to $232.0^\circ$; $n=2$ model matched well</li>
+      <li>Axial velocity showed wake-like deficit profile; some asymmetric deviations observed in rotating-wing data but overall agreement considered good</li>
+      <li>Radial velocities confirmed to be of much smaller magnitude ($O(\varepsilon^2)$); measurements from Ref. 2 showed scatter but agreed with $n=2$ trend</li>
+      <li>The <strong>$n=2$ algebraic model closely resembles the Newman exponential model</strong>, verifying it as an algebraic approximation to the Navier-Stokes solution</li>
+    </ul>
+  </div></details>
+
+  <details><summary><div class="section-number">6</div><h2>Results Interpretation</h2></summary><div class="section-body">
+    <ul>
+      <li>The <strong>self-similarity</strong> of velocity profiles when scaled by core radius $r_c$ is a key finding &mdash; it validates the use of a single algebraic function for the entire velocity field</li>
+      <li>Squire's eddy viscosity hypothesis ($\delta \propto Re_v$) is <strong>empirically confirmed</strong> across multiple decades of vortex Reynolds number, providing a physically motivated turbulent diffusion correction</li>
+      <li>The discrepancy between rotating-wing ($a_1 \sim 10^{-4}$) and fixed-wing ($a_1 \sim 10^{-5}$) values is attributed to <strong>implicit vortex straining effects</strong> from filament curvature and wake distortion in rotor measurements</li>
+      <li>Values of $\delta < 1$ observed in some experiments are physically impossible (less diffusion than laminar), highlighting <strong>measurement uncertainties</strong> in vortex flow experiments</li>
+      <li>The laminar-to-turbulent transition in vortex core growth is governed by a <strong>critical Richardson number</strong>: strong rotational velocity re-laminarizes turbulence entrained from outside the core</li>
+      <li>The integer parameter $n$ provides a <strong>flexible model family</strong>: $n=1$ (Scully), $n=2$ (best Lamb-Oseen approximation), $n \to \infty$ (Rankine); $n=2$ is recommended for practical applications</li>
+      <li>The three-component velocity model (swirl + axial + radial) is <strong>self-consistent</strong> as it satisfies the simplified Navier-Stokes equations, unlike ad hoc models combining independent profiles</li>
+      <li>Forward flight conditions are more sensitive to core growth model than hover, because tip vortices linger near the tip-path-plane longer, producing more severe <strong>BVI-related inflow variations</strong></li>
+    </ul>
+  </div></details>
+
+  <details><summary><div class="section-number">7</div><h2>Conclusion</h2></summary><div class="section-body">
+    <ul>
+      <li>The Lamb-Oseen model extended with Squire's hypothesis provides a <strong>validated semi-empirical framework</strong> for viscous core growth that accounts for turbulent diffusion proportional to $Re_v$</li>
+      <li>An empirical value of <strong>$a_1 = O(10^{-4})$ to $O(10^{-5})$</strong> is recommended, with rotating-wing applications trending toward the higher end</li>
+      <li>The proposed three-component algebraic velocity model yields <strong>continuous, bounded profiles</strong> that asymptote to zero at large distances from the vortex axis</li>
+      <li>The axial velocity exhibits a <strong>wake-like deficit</strong> at the vortex center; radial velocity is directed inward with magnitude much smaller than swirl or axial components</li>
+      <li>Free-vortex wake predictions are <strong>sensitive to core growth assumptions</strong>; the proposed model with empirically calibrated parameters improves hovering and forward-flight wake geometry and airload predictions</li>
+      <li>The model with <strong>$n=2$</strong> is validated against fixed-wing and rotating-wing experiments, demonstrating self-similar velocity profiles consistent with Navier-Stokes-based solutions</li>
+      <li>The generalized model is suitable for integration into <strong>comprehensive rotor aeroacoustic analyses</strong> requiring accurate vortex-induced velocity fields</li>
+    </ul>
+  </div></details>
+</div>
+<div class="footer">Generated by YANG Lab RECON &middot; AHS International Conference Paper, 2002</div>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false},{left:'$',right:'$',display:false}],throwOnError:false});"></script>
+</body></html>

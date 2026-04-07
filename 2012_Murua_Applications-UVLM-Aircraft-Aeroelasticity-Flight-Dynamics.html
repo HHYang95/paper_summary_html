@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="paper-title" content="Applications of the Unsteady Vortex-Lattice Method in Aircraft Aeroelasticity and Flight Dynamics">
+<meta name="paper-year" content="2012">
+<meta name="paper-author" content="Joseba Murua, Rafael Palacios, J. Michael R. Graham">
+<meta name="paper-journal" content="Progress in Aerospace Sciences">
+<meta name="paper-tags" content="Unsteady Vortex Lattice Method, Aeroelasticity, Flight Dynamics, Potential Flow, Flexible Aircraft, Free Wake, State Space Formulation">
+<meta name="paper-doi" content="10.1016/j.paerosci.2012.06.001">
+<title>Applications of the Unsteady Vortex-Lattice Method in Aircraft Aeroelasticity and Flight Dynamics &mdash; Summary</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', 'Segoe UI', -apple-system, sans-serif; background: #f8f9fb; color: #1e293b; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  .hero { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0c4a6e 100%); color: #fff; padding: 56px 0 48px; position: relative; overflow: hidden; }
+  .hero::after { content: ''; position: absolute; top: 0; right: 0; bottom: 0; width: 40%; background: radial-gradient(ellipse at 80% 50%, rgba(56,189,248,0.08) 0%, transparent 70%); pointer-events: none; }
+  .hero-inner { max-width: 900px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 1; }
+  .hero h1 { font-size: 28px; font-weight: 700; line-height: 1.35; letter-spacing: -0.3px; margin-bottom: 16px; }
+  .hero-meta { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px; color: #94a3b8; }
+  .hero-meta a { color: #7dd3fc; text-decoration: none; }
+  .hero-meta a:hover { text-decoration: underline; }
+  .importance-badge { position: absolute; top: 56px; right: 40px; font-size: 22px; letter-spacing: 2px; filter: drop-shadow(0 0 6px rgba(255,215,0,0.4)); }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px; }
+  .tag { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); color: #cbd5e1; font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px; letter-spacing: 0.3px; }
+  .container { max-width: 900px; margin: 0 auto; padding: 40px 40px 80px; }
+  details { margin-bottom: 12px; border-radius: 10px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.04); overflow: hidden; }
+  details[open] { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  summary { display: flex; align-items: center; gap: 12px; padding: 14px 20px; cursor: pointer; user-select: none; list-style: none; border-bottom: 2px solid transparent; transition: background 0.15s; }
+  summary:hover { background: #f1f5f9; }
+  details[open] > summary { border-bottom-color: #e2e8f0; }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: '\25B6'; font-size: 10px; color: #94a3b8; transition: transform 0.2s; flex-shrink: 0; }
+  details[open] > summary::before { transform: rotate(90deg); }
+  .section-number { background: #0f172a; color: #fff; font-size: 11px; font-weight: 700; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  summary h2 { font-size: 16px; font-weight: 700; color: #0f172a; letter-spacing: -0.2px; }
+  .section-body { padding: 16px 20px 20px; }
+  .overview { margin-bottom: 12px; background: #fff; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); overflow: hidden; }
+  .overview-header { display: flex; align-items: center; gap: 12px; padding: 14px 20px; border-bottom: 2px solid #e2e8f0; }
+  .overview-header h2 { font-size: 16px; font-weight: 700; color: #0f172a; }
+  .overview-text { font-size: 14.5px; line-height: 1.8; color: #334155; padding: 16px 20px 20px; border-left: 4px solid #0ea5e9; margin: 0; }
+  .section-body ul { list-style: none; padding: 0; }
+  .section-body ul li { position: relative; padding: 7px 0 7px 18px; font-size: 13.5px; line-height: 1.7; color: #334155; }
+  .section-body ul li::before { content: ''; position: absolute; left: 0; top: 15px; width: 5px; height: 5px; background: #0ea5e9; border-radius: 50%; }
+  .section-body ul li + li { border-top: 1px solid #f1f5f9; }
+  .section-body h3 { font-size: 13.5px; font-weight: 600; color: #0c4a6e; margin: 16px 0 6px; padding-left: 2px; }
+  .section-body h3:first-child { margin-top: 0; }
+  .footer { max-width: 900px; margin: 0 auto; padding: 0 40px 48px; text-align: center; font-size: 12px; color: #94a3b8; }
+  .footer a { color: #64748b; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="hero-inner">
+    <h1>Applications of the Unsteady Vortex-Lattice Method in Aircraft Aeroelasticity and Flight Dynamics</h1>
+    <div class="hero-meta">
+      <span>Joseba Murua, Rafael Palacios, J. Michael R. Graham</span>
+      <span>Progress in Aerospace Sciences (2012)</span>
+      <span><a href="https://doi.org/10.1016/j.paerosci.2012.06.001">DOI: 10.1016/j.paerosci.2012.06.001</a></span>
+    </div>
+    <div class="tag-row">
+      <span class="tag">Unsteady Vortex Lattice Method</span><span class="tag">Aeroelasticity</span><span class="tag">Flight Dynamics</span><span class="tag">Potential Flow</span><span class="tag">Flexible Aircraft</span><span class="tag">Free Wake</span><span class="tag">State Space Formulation</span></div>
+    <div class="importance-badge">&#9733;&#9733;&#9733;</div>
+  </div>
+</div>
+<div class="container">
+  <div class="overview">
+    <div class="overview-header">
+      <div class="section-number">1</div>
+      <h2>Overview</h2>
+    </div>
+    <div class="overview-text">This comprehensive review presents the <strong>unsteady vortex-lattice method (UVLM)</strong> as a <strong>medium-fidelity</strong> aerodynamic tool for non-stationary load prediction in low-speed, high-Reynolds-number, <strong>attached-flow</strong> conditions. Despite being well-established in rotorcraft and flapping-wing applications, the UVLM has been historically underutilised in fixed-wing aircraft aeroelasticity and flight dynamics, where simpler methods such as the <strong>doublet-lattice method (DLM)</strong> and <strong>strip theory</strong> have dominated. The paper provides both <strong>nonlinear time-marching</strong> and <strong>linearised state-space</strong> formulations of the UVLM, integrated with a <strong>geometrically nonlinear composite beam model</strong> to describe the full dynamics of a free-flying flexible vehicle. Four numerical examples demonstrate scenarios where the UVLM provides advantages over conventional approaches: <strong>T-tail flutter</strong>, flexible wing stability, coupled flight dynamics and aeroelasticity of a full aircraft, and <strong>open-loop gust response</strong> of a UAV platform.</div>
+  </div>
+
+  <details><summary><div class="section-number">2</div><h2>Introduction</h2></summary>
+    <div class="section-body">
+      <h3>Historical Context of Potential-Flow Methods</h3>
+      <ul>
+        <li>Unsteady aerodynamics based on <strong>potential-flow theory</strong> has long served as the foundation for low-speed aircraft aeroelasticity and dynamic-load analysis</li>
+        <li>The <strong>doublet-lattice method</strong> has been the principal tool in the aeroelastic community for non-stationary aerodynamic prediction</li>
+        <li>Novel aircraft concepts such as <strong>high-altitude long-endurance (HALE)</strong> platforms with highly flexible wings are pushing the limits of existing design tools</li>
+        <li>These vehicles exhibit coupled aeroelasticity and flight dynamics, complex kinematic motions, and large deformations that demand new modelling paradigms</li>
+      </ul>
+      <h3>UVLM as an Enhanced Alternative</h3>
+      <ul>
+        <li>The <strong>UVLM</strong> extends the classical steady vortex-lattice method into the time domain using <strong>vortex rings</strong> distributed over mean lifting surfaces</li>
+        <li>Unlike the frequency-domain DLM, the UVLM naturally handles <strong>force-free wakes</strong>, arbitrary wing motions, and nonplanar geometries</li>
+        <li>Computational cost scales as <strong>$O(N^2)$</strong> per time step, with <strong>fast multipole acceleration</strong> reducing this to $O(N \log N)$</li>
+        <li>Linearisation yields a <strong>discrete-time state-space</strong> form enabling stability analysis, reduced-order modelling, and control law design without requiring <strong>rational function approximations</strong></li>
+      </ul>
+    </div>
+  </details>
+
+  <details><summary><div class="section-number">3</div><h2>Related Works</h2></summary>
+    <div class="section-body">
+      <h3>Evolution of Vortex-Lattice Methods</h3>
+      <ul>
+        <li>The steady VLM was first introduced by <strong>Falkner (1943)</strong> and independently developed as the lattice-based lifting surface model</li>
+        <li><strong>Hedman (1966)</strong> aligned spanwise vortex elements along the swept quarter-chord and located collocation points at the three-quarter chord, establishing the modern VLM formulation</li>
+        <li>The unsteady extension was primarily driven by the need to model <strong>leading-edge separation</strong> on delta wings, with pioneering contributions by <strong>Belotserkovskii</strong>, <strong>Rehbach</strong>, and researchers at Virginia Tech and Technion</li>
+      </ul>
+      <h3>Comparison with Other Potential-Flow Approaches</h3>
+      <ul>
+        <li>The <strong>DLM</strong>, developed by <strong>Albano and Rodden (1969)</strong>, operates in the frequency domain on a fixed geometry with a <strong>flat wake assumption</strong></li>
+        <li><strong>Strip theory</strong>, based on 2D unsteady-aerofoil models (<strong>Wagner</strong>, <strong>Theodorsen</strong>, <strong>Kussner</strong> functions), offers simplicity but fails to capture <strong>spanwise interference</strong> effects critical for 3D wings</li>
+        <li>The UVLM occupies a middle ground, providing <strong>3D unsteady capability</strong> with free-wake modelling at moderate computational cost</li>
+        <li>Recent HALE aircraft studies have increasingly favoured the UVLM for problems involving geometric nonlinearity and wake interference</li>
+      </ul>
+    </div>
+  </details>
+
+  <details><summary><div class="section-number">4</div><h2>Materials and Methods</h2></summary>
+    <div class="section-body">
+      <h3>UVLM Discrete-Time State-Space Formulation</h3>
+      <ul>
+        <li>The UVLM distributes <strong>vortex rings</strong> over the mean surface with the <strong>non-penetration boundary condition</strong> imposed at collocation points</li>
+        <li>Induced velocities computed via <strong>Biot-Savart law</strong>: $\vec{q}_{kl} = \oint_{C_l} \frac{d\vec{s}_l \times \vec{r}_{kl}}{4\pi r_{kl}^3}$</li>
+        <li>Aerodynamic state vector: $\mathbf{x}_A = [\Gamma_b, \Gamma_w, \dot{\Gamma}_b, \zeta_w]^T$; inputs: $\mathbf{u}_A = [\zeta_b, \dot{\zeta}_b]^T$</li>
+        <li>Loads computed via <strong>unsteady Bernoulli equation</strong> generalised for arbitrary motions</li>
+      </ul>
+      <h3>Linearisation and Monolithic State-Space Assembly</h3>
+      <ul>
+        <li>Linearisation about a deformed equilibrium yields a <strong>descriptor state-space</strong> form: $E_A \Delta \mathbf{x}_{A}^{n+1} + F_A \Delta \mathbf{u}_{A}^{n+1} = A_A \Delta \mathbf{x}_{A}^{n} + B_A \Delta \mathbf{u}_{A}^{n}$</li>
+        <li>The linearised UVLM allows <strong>nonplanar</strong> wakes, flow tangency on the <strong>deformed geometry</strong>, and captures <strong>in-plane deformations</strong></li>
+        <li>Integration with a <strong>geometrically nonlinear beam model</strong> (<strong>Geradin-Cardona</strong> approach) yields the coupled system</li>
+        <li>The <strong>monolithic eigenvalue problem</strong> $E_{sys} \Delta \mathbf{x}^{n+1} = A_{sys} \Delta \mathbf{x}^n$ is solved directly <strong>without mode projection</strong></li>
+      </ul>
+      <h3>Geometrically Nonlinear Beam Model</h3>
+      <ul>
+        <li>Structural dynamics described by a <strong>displacement-based geometrically exact beam</strong> formulation derived from <strong>Hamilton's principle</strong></li>
+        <li>Equations of motion: $\mathbf{M}(\eta) \{\ddot{\eta}; \dot{\nu}\} + \mathbf{Q}_{gyr} + \mathbf{Q}_{stif} = \mathbf{Q}_{ext}$</li>
+        <li>Cross-sectional properties obtained through appropriate analysis methodologies (e.g., <strong>VABS</strong>)</li>
+        <li>The <strong>Newmark-beta method</strong> is used for time integration in nonlinear simulations</li>
+      </ul>
+    </div>
+  </details>
+
+  <details><summary><div class="section-number">5</div><h2>Results</h2></summary>
+    <div class="section-body">
+      <h3>T-Tail Flutter Analysis</h3>
+      <ul>
+        <li>The UVLM captures <strong>in-plane motions</strong> and <strong>static deformation effects</strong> on T-tail flutter, both critical but neglected in conventional methods</li>
+        <li>Static deformations, even when small, have a <strong>significant and non-conservative</strong> influence on the flutter boundary</li>
+        <li>Flutter mode switches from <strong>bending-dominated (Mode 1)</strong> to <strong>torsion-dominated (Mode 2)</strong> at approximately <strong>3 degrees</strong> angle of attack</li>
+        <li>Without static deformations, a <strong>divergence plateau</strong> appears for intermediate angles (<strong>3&ndash;6 degrees</strong>)</li>
+      </ul>
+      <h3>Flexible Wing Flutter with Geometric Nonlinearity</h3>
+      <ul>
+        <li>Flutter analysis of a <strong>HALE UAV</strong> wing demonstrates the critical role of geometric nonlinearity</li>
+        <li>Using a <strong>matched flutter procedure</strong>, the deformed wing exhibits a flutter mechanism with strong <strong>chordwise bending (in-plane)</strong> component coupling with torsion and spanwise bending</li>
+        <li>The flutter mode switches from <strong>Mode 1 to Mode 2</strong> as wing flexibility increases beyond a threshold</li>
+      </ul>
+      <h3>Coupled Flight Dynamics and Aeroelastic Stability</h3>
+      <ul>
+        <li><strong>Short-period</strong> damping decreases by <strong>an order of magnitude</strong> from rigid to nominally flexible aircraft</li>
+        <li>Geometric nonlinearities provide an instrumental <strong>dihedral effect</strong> that stabilises the spiral mode</li>
+        <li>The <strong>phugoid</strong> becomes the <strong>most lightly damped oscillatory mode</strong> as wing flexibility increases</li>
+        <li><strong>Quasi-steady aerodynamics</strong> agree well with the UVLM for the phugoid but show larger discrepancies for the short-period mode</li>
+      </ul>
+      <h3>Open-Loop Gust Response</h3>
+      <ul>
+        <li>The <strong>UVLM state-space</strong> formulation enables direct gust response analysis without rational function approximation</li>
+        <li>Critical gust length for the flexible UAV: <strong>57 chord lengths</strong></li>
+        <li>Linearised state-space (prescribed wake) agrees well with fully nonlinear (free wake) solution at the critical load condition</li>
+        <li>Discrepancies arise primarily from <strong>free-wake effects</strong> on aerodynamic interference at the tail</li>
+      </ul>
+    </div>
+  </details>
+
+  <details><summary><div class="section-number">6</div><h2>Results Interpretation</h2></summary>
+    <div class="section-body">
+      <h3>Advantages of the UVLM over Conventional Methods</h3>
+      <ul>
+        <li>The UVLM provides a <strong>unified framework</strong> capturing <strong>3D unsteady aerodynamics</strong>, <strong>nonplanar wake</strong> effects, <strong>in-plane motions</strong>, static deformation effects, and seamless aeroelasticity/flight dynamics coupling</li>
+        <li><strong>Direct eigenvalue solution</strong> avoids mode selection and <strong>rational function approximation</strong> errors inherent in DLM-based approaches</li>
+        <li><strong>Linearised UVLM</strong> has <strong>comparable computational cost</strong> to the DLM while offering higher fidelity for nonplanar geometries</li>
+      </ul>
+      <h3>Role of Geometric Nonlinearity</h3>
+      <ul>
+        <li><strong>Geometric nonlinearities</strong> play an <strong>instrumental and counter-intuitive</strong> role: wing bending <strong>stabilises the spiral mode</strong> while <strong>destabilising the short-period</strong> and Dutch roll modes</li>
+        <li>The <strong>matched flutter procedure</strong> is essential for identifying <strong>mode-switching bifurcations</strong> that would be missed in undeformed analyses</li>
+        <li>Even when dynamic perturbations are small, the <strong>nonlinear static equilibrium</strong> fundamentally alters the stability landscape</li>
+      </ul>
+      <h3>Computational Considerations</h3>
+      <ul>
+        <li>The <strong>nonlinear time-marching</strong> solution is more expensive ($O(N^2)$ per time step) but captures large wing excursions and wake roll-up</li>
+        <li>For practical application, the linearised formulation suffices for stability analysis and gust loads prediction with prescribed wake</li>
+        <li>The nonlinear solver is needed for large-amplitude manoeuvres and accurate free-wake modelling</li>
+      </ul>
+    </div>
+  </details>
+
+  <details><summary><div class="section-number">7</div><h2>Conclusion</h2></summary>
+    <div class="section-body">
+      <h3>Summary of Findings</h3>
+      <ul>
+        <li>The <strong>UVLM</strong> is demonstrated as a <strong>medium-fidelity</strong> tool bridging the gap between <strong>strip theory</strong> and <strong>CFD</strong> for flexible aircraft dynamics</li>
+        <li>The <strong>discrete-time state-space</strong> formulation enables both <strong>nonlinear time-marching</strong> and <strong>linearised stability analysis</strong> within a single <strong>monolithic framework</strong></li>
+        <li>Four numerical examples validate the method for capturing <strong>in-plane motions</strong>, <strong>static deformation effects</strong>, coupled aeroelasticity/flight dynamics, and <strong>gust response</strong></li>
+      </ul>
+      <h3>Future Directions and Limitations</h3>
+      <ul>
+        <li><strong>Compressibility corrections</strong> for extending applicability to higher Mach numbers</li>
+        <li>Coupling with <strong>boundary-layer solvers</strong> for viscous drag estimation</li>
+        <li><strong>Reduced-order modelling</strong> for computational acceleration</li>
+        <li><strong>Gust alleviation</strong> and flight control system design using the state-space framework</li>
+        <li>Extension to <strong>morphing</strong> and unconventional configurations; method remains limited to attached-flow conditions</li>
+      </ul>
+    </div>
+  </details>
+</div>
+<div class="footer">Generated by YANG Lab RECON &middot; <a href="https://doi.org/10.1016/j.paerosci.2012.06.001">View Original Paper</a></div>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, {
+    delimiters: [{left: '$$', right: '$$', display: true},{left: '\\[', right: '\\]', display: true},{left: '\\(', right: '\\)', display: false},{left: '$', right: '$', display: false}],
+    throwOnError: false
+  });"></script>
+</body>
+</html>

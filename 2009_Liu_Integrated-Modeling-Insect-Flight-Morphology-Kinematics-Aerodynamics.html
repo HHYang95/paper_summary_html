@@ -1,0 +1,110 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="paper-title" content="Integrated modeling of insect flight: From morphology, kinematics to aerodynamics"><meta name="paper-year" content="2009"><meta name="paper-author" content="Hao Liu"><meta name="paper-journal" content="Journal of Computational Physics"><meta name="paper-tags" content="Insect Flight, Flapping Wing Aerodynamics, Navier Stokes Cfd, Overset Grid, Morphological Modeling, Vortex Dynamics"><meta name="paper-doi" content="10.1016/j.jcp.2008.09.020">
+<title>Integrated modeling of insect flight: From morphology, kinematics to aerodynamics — Summary</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter','Segoe UI',-apple-system,sans-serif;background:#f8f9fb;color:#1e293b;line-height:1.7;-webkit-font-smoothing:antialiased}.hero{background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 50%,#0c4a6e 100%);color:#fff;padding:56px 0 48px;position:relative;overflow:hidden}.hero::after{content:'';position:absolute;top:0;right:0;bottom:0;width:40%;background:radial-gradient(ellipse at 80% 50%,rgba(56,189,248,0.08) 0%,transparent 70%);pointer-events:none}.hero-inner{max-width:900px;margin:0 auto;padding:0 40px;position:relative;z-index:1}.hero h1{font-size:28px;font-weight:700;line-height:1.35;letter-spacing:-0.3px;margin-bottom:16px}.hero-meta{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:14px;color:#94a3b8}.hero-meta a{color:#7dd3fc;text-decoration:none}.importance-badge{position:absolute;top:56px;right:40px;font-size:22px;letter-spacing:2px;filter:drop-shadow(0 0 6px rgba(255,215,0,0.4))}.tag-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:20px}.tag{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);color:#cbd5e1;font-size:11px;font-weight:500;padding:3px 10px;border-radius:20px}.container{max-width:900px;margin:0 auto;padding:40px 40px 80px}details{margin-bottom:12px;border-radius:10px;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,0.04);overflow:hidden}details[open]{box-shadow:0 2px 8px rgba(0,0,0,0.06)}summary{display:flex;align-items:center;gap:12px;padding:14px 20px;cursor:pointer;user-select:none;list-style:none;border-bottom:2px solid transparent;transition:background 0.15s}summary:hover{background:#f1f5f9}details[open]>summary{border-bottom-color:#e2e8f0}summary::-webkit-details-marker{display:none}summary::before{content:'\25B6';font-size:10px;color:#94a3b8;transition:transform 0.2s;flex-shrink:0}details[open]>summary::before{transform:rotate(90deg)}.section-number{background:#0f172a;color:#fff;font-size:11px;font-weight:700;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}summary h2{font-size:16px;font-weight:700;color:#0f172a}.section-body{padding:16px 20px 20px}.overview{margin-bottom:12px;background:#fff;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,0.04);overflow:hidden}.overview-header{display:flex;align-items:center;gap:12px;padding:14px 20px;border-bottom:2px solid #e2e8f0}.overview-header h2{font-size:16px;font-weight:700;color:#0f172a}.overview-text{font-size:14.5px;line-height:1.8;color:#334155;padding:16px 20px 20px;border-left:4px solid #0ea5e9;margin:0}.section-body ul{list-style:none;padding:0}.section-body ul li{position:relative;padding:7px 0 7px 18px;font-size:13.5px;line-height:1.7;color:#334155}.section-body ul li::before{content:'';position:absolute;left:0;top:15px;width:5px;height:5px;background:#0ea5e9;border-radius:50%}.section-body ul li+li{border-top:1px solid #f1f5f9}.section-body h3{font-size:13.5px;font-weight:600;color:#0c4a6e;margin:16px 0 6px}.section-body h3:first-child{margin-top:0}.footer{max-width:900px;margin:0 auto;padding:0 40px 48px;text-align:center;font-size:12px;color:#94a3b8}.footer a{color:#64748b;text-decoration:none}</style>
+</head><body>
+<div class="hero"><div class="hero-inner"><h1>Integrated modeling of insect flight: From morphology, kinematics to aerodynamics</h1><div class="hero-meta"><span>Hao Liu</span><span>Journal of Computational Physics (2009)</span><span><a href="https://doi.org/10.1016/j.jcp.2008.09.020">DOI: 10.1016/j.jcp.2008.09.020</a></span></div><div class="tag-row"><span class="tag">Insect Flight</span><span class="tag">Flapping Wing Aerodynamics</span><span class="tag">Navier Stokes Cfd</span><span class="tag">Overset Grid</span><span class="tag">Morphological Modeling</span><span class="tag">Vortex Dynamics</span></div><div class="importance-badge">★★</div></div></div>
+<div class="container">
+  <div class="overview"><div class="overview-header"><div class="section-number">1</div><h2>Overview</h2></div><div class="overview-text">This paper presents an integrated computational framework for simulating insect flapping flight by unifying realistic wing-body morphological modeling (via differential geometry), kinematic modeling (Fourier-series-based flapping angles), and unsteady aerodynamic analysis (multi-blocked overset-grid Navier-Stokes solver with fortified boundary conditions). The methodology is validated across three representative hovering insects spanning $Re \sim O(10^2)$ to $O(10^4)$ — fruitfly, honeybee, and hawkmoth — demonstrating accurate lift and drag prediction against experimental measurements. The solver reveals detailed vortex tube ring (VTR) wake topology and quantifies flapping energetics including inertial, aerodynamic, and total mechanical power requirements.</div></div>
+  <details><summary><div class="section-number">2</div><h2>Introduction</h2></summary><div class="section-body">
+<ul>
+<li>Flying insects generate both lift and thrust through flapping wings, operating in an unsteady aerodynamic regime at moderate Reynolds numbers $Re \sim O(10^1)$ to $O(10^4)$, characterized by large-scale vortex structures and complex kinematics.</li>
+<li>Prior experimental studies using robotic models quantified unsteady mechanisms (leading-edge vortex, wing rotation, wake capture), but were limited to specific insects (hawkmoth, fruitfly) and simplified hovering geometries.</li>
+<li>Most existing CFD models employed non-realistic wing geometries (2D or single-wing 3D) or focused on algorithm development (e.g., immersed boundary methods) with simplified kinematics, lacking integrated morphology-kinematics-aerodynamics capability.</li>
+<li>A universal explanation of flapping-wing aerodynamic mechanisms remained controversial, motivating the need for an integrative study that systematically varies Reynolds number, morphology, and kinematics.</li>
+<li>This work addresses the gap by developing a versatile simulator that constructs realistic wing-body geometry, accurately mimics complex flapping kinematics, and efficiently solves the NS equations on dynamically moving multi-blocked overset grids.</li>
+</ul>
+</div></details>
+  <details><summary><div class="section-number">3</div><h2>Related Works</h2></summary><div class="section-body">
+<h3>Experimental approaches</h3>
+<ul>
+<li>Robotic insect wing models by <strong>Dickinson et al.</strong> quantified <strong>leading-edge vortex</strong>, rotational lift, and wake capture mechanisms at controlled <strong>Reynolds numbers</strong>.</li>
+<li>Direct flow measurements around real insects (hawkmoth, fruitfly, honeybee, butterfly, hummingbird) using <strong>PIV</strong> and <strong>DPIV</strong> provided insights into far-field wake structures and downwash topology.</li>
+</ul>
+<h3>Computational approaches</h3>
+<ul>
+<li>Early CFD studies (<strong>Sun and Tang</strong>, <strong>Wang</strong>) used simplified 2D or 3D single-wing models to isolate specific unsteady effects but could not capture wing-body interactions.</li>
+<li><strong>Immersed boundary methods</strong> (<strong>Gilmanov and Sotiropoulos</strong>) handled complex geometries in Cartesian grids but relied on simple kinematic prescriptions.</li>
+<li><strong>Liu and Kawachi (1998)</strong> developed a single-block NS solver for hawkmoth hovering, which the present work extends to multi-blocked overset grids with fortified solutions.</li>
+<li>The chimera/overset grid approach (Prewitt et al.) offered advantages for moving multi-body systems but had not been applied in an integrated morphology-kinematics-aerodynamics framework for insects.</li>
+</ul>
+</div></details>
+  <details><summary><div class="section-number">4</div><h2>Materials and Methods</h2></summary><div class="section-body">
+<h3>Morphological modeling</h3>
+<ul>
+<li>Wing-body geometry is reconstructed via a differential geometric method: digitized images yield a skeleton centerline $L: \mathbf{r} = (x(s), y(s), z(s))$, from which curvature $\kappa$ and torsion $\tau$ are computed using Frenet-Serret formulas.</li>
+<li>Each cross-section is approximated as an ellipse mapped onto the local TNB plane, generating O-O type structured grids for wing and body blocks with minimum spacing $d_{\min} = 0.1 c_m / \sqrt{Re}$.</li>
+</ul>
+<h3>Multi-block overset grid</h3>
+<ul>
+<li>A three-block chimera grid system embeds two wing-fitted sub-grids within a body-fitted background grid. Hole-cutting removes interior points; inter-grid boundary points (IGBPs) are updated via tri-linear interpolation using Newton's method for stencil identification.</li>
+</ul>
+<h3>Kinematic modeling</h3>
+<ul>
+<li>Flapping angles (positional $\phi$, elevation $\theta$, angle of attack $\alpha$) are expressed via Fourier series:
+$$\phi(t) = \sum_{n=0}^{3} [\phi_{cn}\cos(n\omega t) + \phi_{sn}\sin(n\omega t)]$$
+with coefficients fitted to measured kinematic data for each species.</li>
+<li>Dynamic regridding follows sequential rigid rotations — feathering, flapping, elevation — about the wing pivot, with coordinate transformations among wing-fixed, body-fixed, and global systems via composite rotation matrices.</li>
+</ul>
+<h3>Navier-Stokes solver</h3>
+<ul>
+<li>Incompressible unsteady NS equations are solved using artificial compressibility and a finite-volume method (FVM). The fortified solution algorithm adds forcing terms $\sigma(\mathbf{q}_f - \mathbf{q})$ to enforce inter-grid communication at overlapping zones.</li>
+<li>Temporal integration uses the second-order implicit Euler (Pade) scheme with LU-factored approximate factorization in three coordinate directions. The Geometric Conservation Law is satisfied for moving grids.</li>
+</ul>
+<h3>Scaling parameters</h3>
+<ul>
+<li><strong>Reynolds number</strong>: $Re = U_{ref}L_{ref}/\nu = 2\Phi f R c_m / \nu$; reduced frequency: $k = c_m / (2\Phi R)$. For hawkmoth <strong>Re = 6300</strong>, honeybee <strong>Re = 1134</strong>, fruitfly <strong>Re = 134</strong>.</li>
+</ul>
+<h3>Energetics evaluation</h3>
+<ul>
+<li>Aerodynamic forces are computed from inviscid + viscous flux integration over wing/body surfaces. Inertial forces account for wing mass acceleration. Torques and muscle-mass-specific powers (aerodynamic $P_{aero}$, inertial $P_{iner}$, total $P_{total}$) are derived from force-velocity scalar products.</li>
+</ul>
+</div></details>
+  <details><summary><div class="section-number">5</div><h2>Results</h2></summary><div class="section-body">
+<h3>Grid convergence and self-consistency</h3>
+<ul>
+<li>Five grid configurations for hawkmoth hovering and three for fruitfly hovering showed less than 5% difference in mean lift/drag coefficients; time steps of $dt = 0.01$ and $0.005$ produced negligible discrepancy, confirming grid and temporal convergence.</li>
+<li>All three insect models (hawkmoth, honeybee, fruitfly) generated sufficient mean lift to support body weight in hovering conditions.</li>
+</ul>
+<h3>High-Re validation (Re = 30,000)</h3>
+<ul>
+<li>Thrust coefficients for a plunging <strong>NACA0012</strong> wing matched experimental measurements by <strong>Heathcote et al.</strong> The two-block overset grid results closely agreed with fine single-grid solutions, verifying the fortified NS solver's accuracy.</li>
+<li>A slight spanwise bending (inflexible wing model) captured the experimentally observed thrust increase and phase delay.</li>
+</ul>
+<h3>Low-Re validation (Re = 234)</h3>
+<ul>
+<li>Lift and drag force time histories for idealized fruitfly flapping kinematics showed close agreement with <strong>Dickinson's</strong> robo-fly measurements, particularly the fine-grid wing-wing model without body.</li>
+<li>Rotational and wake-capture force peaks were reproduced, with the impulsive-start effect identified at translational acceleration and rotational phase transitions.</li>
+</ul>
+<h3>Hawkmoth hovering vortex dynamics</h3>
+<ul>
+<li>Near-field visualization revealed horseshoe vortices (HSV) composed of leading-edge (<strong>LEV</strong>), trailing-edge (<strong>TEV</strong>), and tip vortices (TV), growing into downstroke and upstroke <strong>vortex tube ring (VTR)</strong> pairs.</li>
+<li>Far-field wake exhibited vertically pulsed lattice downwash with horizontally oscillating jet columns; conventional downwash contraction was not observed.</li>
+</ul>
+</div></details>
+  <details><summary><div class="section-number">6</div><h2>Results Interpretation</h2></summary><div class="section-body">
+<ul>
+<li>The integrated morphology-kinematics-aerodynamics approach enables systematic investigation of how Reynolds number, wing geometry, and flapping patterns collectively determine force production — unlike isolated single-mechanism studies.</li>
+<li>The VTR wake topology provides a unifying framework: paired vortex tube rings create structured downwash jets whose intensity correlates with flapping amplitude and wing morphology, with induced velocities reaching 50-90% of the mean wing tip speed.</li>
+<li>At high Re (hawkmoth), two distinct lift peaks per stroke cycle are driven by LEV and VTR dynamics, contrasting with the single-peak pattern at low Re (fruitfly), indicating Reynolds-number-dependent force generation mechanisms.</li>
+<li>Energetics analysis reveals that aerodynamic power peaks during late translational phases when force production is highest (<strong>$\sim$90 W/kg</strong> mean aerodynamic power for hawkmoth), while inertial power peaks during wing acceleration phases (<strong>$\sim$65 W/kg</strong>), consistent with experimental measurements.</li>
+<li>The absence of conventional downwash contraction in the hovering wake challenges simplified momentum-theory models and suggests that realistic body-wing interaction and near-field vortex structure must be captured for accurate performance prediction.</li>
+<li>The differential-geometry-based morphological modeling unifies geometry and kinematics construction, enabling efficient dynamic regridding without separate mesh generation — a practical advantage for parametric studies across insect species.</li>
+</ul>
+</div></details>
+  <details><summary><div class="section-number">7</div><h2>Conclusion</h2></summary><div class="section-body">
+<ul>
+<li>A robust integrated computational framework was developed that seamlessly combines realistic morphological modeling (differential geometry + elliptic cross-sections), kinematic modeling (Fourier-series flapping angles + sequential rotation regridding), and unsteady aerodynamics (multi-blocked overset-grid fortified NS solver).</li>
+<li>Validation across three insect species (hawkmoth <strong>Re = 6300</strong>, honeybee <strong>Re = 1134</strong>, fruitfly <strong>Re = 134</strong>) demonstrated quantitative agreement with experimental force measurements and qualitative agreement with observed vortex structures.</li>
+<li>The solver proved self-consistent through extensive grid and time-step convergence studies, and was further validated against high-Re (30,000) plunging wing experiments and low-Re (234) robo-fly measurements.</li>
+<li>Detailed vortex dynamics analysis revealed species-dependent VTR wake topologies and their correlation with force generation and hovering downwash characteristics.</li>
+<li>Future work targets coupling 6DOF flight dynamics equations with the aerodynamic solver for free-flight simulation, and extension toward micro air vehicle (MAV) design tool development.</li>
+</ul>
+</div></details>
+</div>
+<div class="footer">Generated by YANG Lab RECON &middot; <a href="https://doi.org/10.1016/j.jcp.2008.09.020">View Original Paper</a></div>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false},{left:'$',right:'$',display:false}],throwOnError:false});"></script>
+</body></html>

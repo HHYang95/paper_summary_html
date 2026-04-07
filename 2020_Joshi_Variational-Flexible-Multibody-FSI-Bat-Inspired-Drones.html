@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="paper-title" content="A Variational Flexible Multibody Formulation For Partitioned Fluid-Structure Interaction: Application to Bat-Inspired Drones and Unmanned Air-Vehicles">
+<meta name="paper-year" content="2020">
+<meta name="paper-author" content="Vaibhav Joshi, Rajeev K. Jaiman, Carl Ollivier-Gooch">
+<meta name="paper-journal" content="Computers and Mathematics with Applications">
+<meta name="paper-tags" content="Fluid Structure Interaction, Flexible Multibody Dynamics, Bat Inspired Flight, Co Rotational Framework, Radial Basis Function, Partitioned Coupling, Flapping Wing Aerodynamics">
+<meta name="paper-doi" content="10.1016/j.camwa.2020.09.020">
+<title>A Variational Flexible Multibody Formulation for Partitioned FSI: Bat-Inspired Drones &mdash; Summary</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter','Segoe UI',-apple-system,sans-serif;background:#f8f9fb;color:#1e293b;line-height:1.7;-webkit-font-smoothing:antialiased}.hero{background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 50%,#0c4a6e 100%);color:#fff;padding:56px 0 48px;position:relative;overflow:hidden}.hero::after{content:'';position:absolute;top:0;right:0;bottom:0;width:40%;background:radial-gradient(ellipse at 80% 50%,rgba(56,189,248,0.08) 0%,transparent 70%);pointer-events:none}.hero-inner{max-width:900px;margin:0 auto;padding:0 40px;position:relative;z-index:1}.hero h1{font-size:28px;font-weight:700;line-height:1.35;letter-spacing:-0.3px;margin-bottom:16px}.hero-meta{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:14px;color:#94a3b8}.hero-meta a{color:#7dd3fc;text-decoration:none}.importance-badge{position:absolute;top:56px;right:40px;font-size:22px;letter-spacing:2px;filter:drop-shadow(0 0 6px rgba(255,215,0,0.4))}.tag-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:20px}.tag{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);color:#cbd5e1;font-size:11px;font-weight:500;padding:3px 10px;border-radius:20px}.container{max-width:900px;margin:0 auto;padding:40px 40px 80px}details{margin-bottom:12px;border-radius:10px;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,0.04);overflow:hidden}details[open]{box-shadow:0 2px 8px rgba(0,0,0,0.06)}summary{display:flex;align-items:center;gap:12px;padding:14px 20px;cursor:pointer;user-select:none;list-style:none;border-bottom:2px solid transparent;transition:background 0.15s}summary:hover{background:#f1f5f9}details[open]>summary{border-bottom-color:#e2e8f0}summary::-webkit-details-marker{display:none}summary::before{content:'\25B6';font-size:10px;color:#94a3b8;transition:transform 0.2s;flex-shrink:0}details[open]>summary::before{transform:rotate(90deg)}.section-number{background:#0f172a;color:#fff;font-size:11px;font-weight:700;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}summary h2{font-size:16px;font-weight:700;color:#0f172a}.section-body{padding:16px 20px 20px}.overview{margin-bottom:12px;background:#fff;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,0.04);overflow:hidden}.overview-header{display:flex;align-items:center;gap:12px;padding:14px 20px;border-bottom:2px solid #e2e8f0}.overview-header h2{font-size:16px;font-weight:700;color:#0f172a}.overview-text{font-size:14.5px;line-height:1.8;color:#334155;padding:16px 20px 20px;border-left:4px solid #0ea5e9;margin:0}.section-body ul{list-style:none;padding:0}.section-body ul li{position:relative;padding:7px 0 7px 18px;font-size:13.5px;line-height:1.7;color:#334155}.section-body ul li::before{content:'';position:absolute;left:0;top:15px;width:5px;height:5px;background:#0ea5e9;border-radius:50%}.section-body ul li+li{border-top:1px solid #f1f5f9}.section-body h3{font-size:13.5px;font-weight:600;color:#0c4a6e;margin:16px 0 6px}.section-body h3:first-child{margin-top:0}.footer{max-width:900px;margin:0 auto;padding:0 40px 48px;text-align:center;font-size:12px;color:#94a3b8}.footer a{color:#64748b;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="hero"><div class="hero-inner"><h1>A Variational Flexible Multibody Formulation for Partitioned Fluid&ndash;Structure Interaction: Application to Bat-Inspired Drones</h1><div class="hero-meta"><span>Vaibhav Joshi, Rajeev K. Jaiman, Carl Ollivier-Gooch</span><span>Computers and Mathematics with Applications (2020)</span><span><a href="https://doi.org/10.1016/j.camwa.2020.09.020">DOI: 10.1016/j.camwa.2020.09.020</a></span></div><div class="tag-row"><span class="tag">Fluid Structure Interaction</span><span class="tag">Flexible Multibody Dynamics</span><span class="tag">Bat Inspired Flight</span><span class="tag">Co Rotational Framework</span><span class="tag">Radial Basis Function</span><span class="tag">Partitioned Coupling</span><span class="tag">Flapping Wing Aerodynamics</span></div><div class="importance-badge">★★★</div></div></div>
+<div class="container">
+  <div class="overview"><div class="overview-header"><div class="section-number">1</div><h2>Overview</h2></div><div class="overview-text">This paper develops a 3D partitioned aeroelastic framework for <strong>flexible multibody systems</strong> in incompressible turbulent flow. The structural domain uses a <strong>co-rotational formulation</strong> (Wiener-Milenkovi&#263; CRV parameterization) for small strain problems with multiple component types&mdash;rigid bodies, Euler-Bernoulli beams, and thin shells&mdash;connected by joints with <strong>Lagrange multiplier</strong> constraints. The fluid domain solves the incompressible <strong>Navier-Stokes equations</strong> with <strong>Spalart-Allmaras DDES</strong> turbulence via stabilized <strong>Petrov-Galerkin</strong> methods. Interface coupling across non-matching meshes employs <strong>radial basis function (RBF)</strong> interpolation with compact support, achieving approximately <strong>third-order convergence</strong>. A <strong>nonlinear iterative force correction (NIFC)</strong> scheme stabilizes the partitioned coupling at low mass ratios (<span class="katex-inline">m^* = 0.03</span>). Validated on a pitching plate at <span class="katex-inline">Re = 10{,}000</span> and demonstrated on a bat wing model (Glossophaga soricina) at <span class="katex-inline">Re = 12{,}000</span>, the framework shows <strong>8% higher mean lift</strong> and <strong>120% higher maximum unsteady lift</strong> for flexible flapping wings versus rigid non-flapping wings.</div></div>
+
+  <details><summary><div class="section-number">2</div><h2>Introduction</h2></summary><div class="section-body">
+    <h3>Biologically Inspired MAVs</h3>
+    <ul>
+      <li>MAVs and drones at low Reynolds numbers (<span class="katex-inline">Re = 10^4</span>&ndash;<span class="katex-inline">10^5</span>) suffer degraded performance with rigid fixed wings; flapping of flexible wings offers superior <strong>lift-to-drag ratio</strong>, delayed stall, and enhanced stability</li>
+      <li>Large amplitude flapping induces strong inertial forces and unsteady effects including <strong>leading edge vortex (LEV) formation</strong> that generates significantly higher lift than steady-state aerodynamics</li>
+      <li>Among natural flyers, <strong>bats</strong> possess the most complex wing kinematics with over <strong>40 degrees of freedom</strong> in wing articulation (bones, joints, membranes)</li>
+    </ul>
+    <h3>Need for Multibody FSI Framework</h3>
+    <ul>
+      <li>Existing approaches often treat wings as single flexible bodies without modeling <strong>multiple interconnected structural components</strong> and joint constraints</li>
+      <li>The ALE framework provides accurate interface tracking but faces challenges with <strong>non-matching meshes</strong> at the fluid&ndash;structure boundary</li>
+      <li>A partitioned scheme is preferred for modularity: independent fluid and structural solvers coupled through <strong>interface equilibrium conditions</strong></li>
+    </ul>
+  </div></details>
+
+  <details><summary><div class="section-number">3</div><h2>Related Works</h2></summary><div class="section-body">
+    <ul>
+      <li><strong>Riskin et al. (2008)</strong> &mdash; quantified bat wing kinematics complexity with over 40 DOF in articulation</li>
+      <li><strong>Swartz and Middleton (2008)</strong> &mdash; measured biomechanical properties of bat limb skeleton providing material data used in this study</li>
+      <li><strong>Altenbuchner and Hubbard (2018)</strong> &mdash; flexible multibody dynamics for flapping wing vehicles using Newton-Euler equations</li>
+      <li><strong>Wang et al. (2015)</strong> &mdash; immersed boundary study of lift enhancement by dynamically changing bat wingspan</li>
+      <li><strong>Wendland (1995)</strong> &mdash; established compactly supported positive definite radial functions foundational to the RBF mapping</li>
+      <li><strong>Beckert (2000)</strong> &mdash; finite interpolation elements for coupling CFD and structural models</li>
+      <li><strong>Hron and Turek (2006)</strong> &mdash; monolithic FEM/multigrid solvers for ALE-based FSI</li>
+      <li><strong>Chen et al. (2014)</strong> &mdash; bat-inspired flapping flight experimental platform</li>
+    </ul>
+  </div></details>
+
+  <details><summary><div class="section-number">4</div><h2>Materials and Methods</h2></summary><div class="section-body">
+    <h3>Co-Rotational Structural Framework</h3>
+    <ul>
+      <li>Displacement decomposed as <span class="katex-inline">\boldsymbol{\eta}^s = \boldsymbol{\eta}^s_R + \boldsymbol{\eta}^s_E</span> (rigid rotation + small elastic deformation); deformation gradient <span class="katex-inline">\mathbf{F} = \mathbf{R}\hat{\mathbf{F}}</span></li>
+      <li>Strain simplified for small elastic deformation: <span class="katex-inline">\mathbf{E} \approx \frac{1}{2}[\mathbf{R}^T\nabla\boldsymbol{\eta}^s_E + (\nabla\boldsymbol{\eta}^s_E)^T\mathbf{R}]</span></li>
+      <li>Rotation parameterized by <strong>Wiener-Milenkovi&#263; conformal rotation vector</strong>: <span class="katex-inline">\mathbf{R} = \frac{1}{(4-c_0)^2}[(c_0^2+8c_0-16)\mathbf{I}+2\mathbf{c}\mathbf{c}^T+2c_0\tilde{\mathbf{c}}]</span></li>
+      <li>Joint constraints enforced via <strong>Lagrange multipliers</strong>: displacement constraint <span class="katex-inline">(\mathbf{e}_m^A)^T\boldsymbol{\eta}^{B/A}-\eta_m=0</span> and rotation constraint <span class="katex-inline">s_{kk}\sin\varphi_m+s_{kl}\cos\varphi_m=0</span></li>
+    </ul>
+    <h3>Fluid Solver</h3>
+    <ul>
+      <li>Incompressible Navier-Stokes in ALE form with <strong>Spalart-Allmaras DDES</strong> turbulence model</li>
+      <li>Stabilized <strong>Petrov-Galerkin</strong> spatial discretization (SUPG + PSPG); <strong>generalized-<span class="katex-inline">\alpha</span></strong> time integration</li>
+    </ul>
+    <h3>RBF Interface Mapping</h3>
+    <ul>
+      <li>Wendland <span class="katex-inline">C^2</span> compactly supported RBF: <span class="katex-inline">\phi(r) = (1-r)^4_+(4r+1)</span></li>
+      <li><strong>Globally conservative</strong>; avoids common-refinement surface construction for complex multibody geometries</li>
+      <li>Approximately <strong>third-order convergence</strong> demonstrated for traction transfer across non-matching interfaces</li>
+    </ul>
+    <h3>Partitioned Coupling</h3>
+    <ul>
+      <li>Staggered predictor-corrector with <strong>nonlinear iterative force correction (NIFC)</strong> and <strong>Aitken <span class="katex-inline">\Delta^2</span> acceleration</strong> for stability at low mass ratios</li>
+    </ul>
+  </div></details>
+
+  <details><summary><div class="section-number">5</div><h2>Results</h2></summary><div class="section-body">
+    <h3>Pitching Plate Validation (Re = 10,000)</h3>
+    <ul>
+      <li>3D flexible plate with trailing-edge serration; <span class="katex-inline">Re = 10{,}000</span>, <span class="katex-inline">m^* = 0.03</span>, <span class="katex-inline">Ae = 1.575 \times 10^8</span></li>
+      <li>Interface convergence: mesh IC3 (289 nodes) achieves <strong>&lt;0.1% error</strong> vs finest mesh</li>
+      <li>Mesh convergence: M3 (289 structural / 777,508 fluid nodes) achieves <strong>&lt;1% error</strong></li>
+      <li>Thrust coefficient <span class="katex-inline">C_T</span> and propulsive efficiency <span class="katex-inline">\eta</span> across <span class="katex-inline">St \in [0.17, 0.68]</span> show <strong>close agreement with experimental data</strong></li>
+    </ul>
+    <h3>Bat Wing Demonstration (Re = 12,000)</h3>
+    <ul>
+      <li>Glossophaga soricina geometry: wingspan <span class="katex-inline">b = 0.2369</span> m, root chord <span class="katex-inline">c_{\text{root}} = 0.0384</span> m; 6 revolute joints modeled</li>
+      <li>Bone fingers as Euler-Bernoulli beams (humerus <span class="katex-inline">EI = 1.56 \times 10^{-3}</span> Nm<sup>2</sup>); membrane as thin shell (<span class="katex-inline">E = 7 \times 10^5</span> N/m<sup>2</sup>, <span class="katex-inline">h = 0.046</span> cm)</li>
+      <li>Fluid mesh: 4.04M grid points; structural: 792 quad + 74 beam elements per wing</li>
+      <li>At AOA = 10&deg;: <span class="katex-inline">\bar{C}_L = 0.6059</span>, <span class="katex-inline">\bar{C}_D = 0.1522</span>, <span class="katex-inline">\bar{C}_L/\bar{C}_D = 3.98</span></li>
+      <li><strong>8% higher mean <span class="katex-inline">C_L</span></strong> and <strong>120% higher <span class="katex-inline">C_{L,\max}</span></strong> (1.2838 vs 0.5822) compared to rigid non-flapping wing</li>
+    </ul>
+    <h3>Wake Dynamics</h3>
+    <ul>
+      <li>Horseshoe-like vortices in near and far wake generated by trailing-edge serration</li>
+      <li>Complex <strong>tip vortex and LEV interactions</strong> at both 10&deg; and 15&deg; angles of attack</li>
+      <li>Spanwise vorticity variation directly linked to anisotropic bone/membrane structural properties</li>
+    </ul>
+  </div></details>
+
+  <details><summary><div class="section-number">6</div><h2>Results Interpretation</h2></summary><div class="section-body">
+    <ul>
+      <li>The <strong>8% mean lift improvement</strong> and <strong>3.5% lift-to-drag ratio gain</strong> demonstrate measurable aerodynamic benefits of flexible multibody flapping over rigid wings at <span class="katex-inline">Re = 12{,}000</span></li>
+      <li>The 120% increase in maximum unsteady <span class="katex-inline">C_L</span> confirms that <strong>unsteady aerodynamic mechanisms</strong> (LEV formation, pressure differential during downstroke) are the primary lift source for natural flyers</li>
+      <li>Anisotropic flexural rigidity along bone fingers (varying by over an order of magnitude) creates <strong>passive deformation gradients</strong> that shape vortex structures differently at each spanwise station</li>
+      <li>The <strong>RBF interface mapping</strong> with third-order convergence proves robust for complex multibody geometries where common-refinement construction becomes impractical</li>
+      <li>The <strong>NIFC partitioned coupling</strong> successfully handles the challenging low mass ratio (<span class="katex-inline">m^* = 0.03</span>) regime typical of biological flight systems</li>
+      <li>The framework is <strong>generic</strong>: applicable to marine/offshore, rotor dynamics, dual aerial-aquatic vehicles, and other flexible multibody FSI applications beyond bio-inspired flight</li>
+    </ul>
+  </div></details>
+
+  <details><summary><div class="section-number">7</div><h2>Conclusion &amp; Future Work</h2></summary><div class="section-body">
+    <h3>Key Achievements</h3>
+    <ul>
+      <li>Developed a <strong>variational flexible multibody aeroelastic framework</strong> combining co-rotational dynamics, Lagrange multiplier joints, Navier-Stokes with DDES, and RBF interface mapping</li>
+      <li>RBF interpolation achieves approximately <strong>third-order convergence</strong> for traction transfer across non-matching interfaces</li>
+      <li>Pitching plate validation shows <strong>close agreement with experiments</strong> across <span class="katex-inline">St \in [0.17, 0.68]</span></li>
+      <li>Bat wing simulation demonstrates quantitative benefits of flexible flapping: <strong>8% mean <span class="katex-inline">C_L</span> increase</strong>, <strong>120% unsteady <span class="katex-inline">C_{L,\max}</span> increase</strong></li>
+    </ul>
+    <h3>Future Directions</h3>
+    <ul>
+      <li><strong>Active joint kinematics</strong>: incorporate controlled motion at individual bone-finger joints for more realistic bat flight simulation with wing morphing</li>
+      <li><strong>Optimization of joint DOFs</strong>: systematically vary actuation patterns to identify optimal flapping strategies for bio-inspired drone design</li>
+      <li><strong>Integration with flight dynamics</strong>: couple aeroelastic framework with 6-DOF rigid body equations for stability and control analysis</li>
+    </ul>
+  </div></details>
+</div>
+<div class="footer"><p>Generated by YANG Lab &middot; RECON Agent &middot; Paper Study Pipeline</p></div>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false});document.querySelectorAll('.katex-inline').forEach(el=>{try{katex.render(el.textContent,el)}catch(e){el.textContent=el.textContent}})"></script>
+</body>
+</html>

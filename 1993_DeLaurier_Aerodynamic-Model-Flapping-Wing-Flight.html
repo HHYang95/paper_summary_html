@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="paper-title" content="An Aerodynamic Model For Flapping-Wing Flight">
+<meta name="paper-year" content="1993">
+<meta name="paper-author" content="J. D. DeLaurier">
+<meta name="paper-journal" content="The Aeronautical Journal">
+<meta name="paper-tags" content="Flapping Wing, Ornithopter, Key Paper, Methodology, Aeroelasticity, Simulation">
+<meta name="paper-doi" content="10.1017/S0001924000026002">
+<title>An Aerodynamic Model For Flapping-Wing Flight — Summary</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', 'Segoe UI', -apple-system, sans-serif; background: #f8f9fb; color: #1e293b; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  .hero { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0c4a6e 100%); color: #fff; padding: 56px 0 48px; position: relative; overflow: hidden; }
+  .hero::after { content: ''; position: absolute; top: 0; right: 0; bottom: 0; width: 40%; background: radial-gradient(ellipse at 80% 50%, rgba(56,189,248,0.08) 0%, transparent 70%); pointer-events: none; }
+  .hero-inner { max-width: 900px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 1; }
+  .hero h1 { font-size: 28px; font-weight: 700; line-height: 1.35; letter-spacing: -0.3px; margin-bottom: 16px; }
+  .hero-meta { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px; color: #94a3b8; }
+  .hero-meta a { color: #7dd3fc; text-decoration: none; }
+  .importance-badge { position: absolute; top: 56px; right: 40px; font-size: 22px; letter-spacing: 2px; filter: drop-shadow(0 0 6px rgba(255,215,0,0.4)); }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px; }
+  .tag { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); color: #cbd5e1; font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px; }
+  .container { max-width: 900px; margin: 0 auto; padding: 40px 40px 80px; }
+  details { margin-bottom: 12px; border-radius: 10px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.04); overflow: hidden; }
+  details[open] { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  summary { display: flex; align-items: center; gap: 12px; padding: 14px 20px; cursor: pointer; user-select: none; list-style: none; border-bottom: 2px solid transparent; transition: background 0.15s; }
+  summary:hover { background: #f1f5f9; }
+  details[open] > summary { border-bottom-color: #e2e8f0; }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: '\25B6'; font-size: 10px; color: #94a3b8; transition: transform 0.2s; flex-shrink: 0; }
+  details[open] > summary::before { transform: rotate(90deg); }
+  .section-number { background: #0f172a; color: #fff; font-size: 11px; font-weight: 700; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  summary h2 { font-size: 16px; font-weight: 700; color: #0f172a; }
+  .section-body { padding: 16px 20px 20px; }
+  .overview { margin-bottom: 12px; background: #fff; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); overflow: hidden; }
+  .overview-header { display: flex; align-items: center; gap: 12px; padding: 14px 20px; border-bottom: 2px solid #e2e8f0; }
+  .overview-header h2 { font-size: 16px; font-weight: 700; color: #0f172a; }
+  .overview-text { font-size: 14.5px; line-height: 1.8; color: #334155; padding: 16px 20px 20px; border-left: 4px solid #0ea5e9; margin: 0; }
+  .section-body ul { list-style: none; padding: 0; }
+  .section-body ul li { position: relative; padding: 7px 0 7px 18px; font-size: 13.5px; line-height: 1.7; color: #334155; }
+  .section-body ul li::before { content: ''; position: absolute; left: 0; top: 15px; width: 5px; height: 5px; background: #0ea5e9; border-radius: 50%; }
+  .section-body ul li + li { border-top: 1px solid #f1f5f9; }
+  .section-body h3 { font-size: 13.5px; font-weight: 600; color: #0c4a6e; margin: 16px 0 6px; }
+  .section-body h3:first-child { margin-top: 0; }
+  .footer { max-width: 900px; margin: 0 auto; padding: 0 40px 48px; text-align: center; font-size: 12px; color: #94a3b8; }
+  .footer a { color: #64748b; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="hero"><div class="hero-inner">
+    <h1>An Aerodynamic Model For Flapping-Wing Flight</h1>
+    <div class="hero-meta"><span>J. D. DeLaurier</span><span>The Aeronautical Journal (1993)</span><span><a href="https://doi.org/10.1017/S0001924000026002">DOI: 10.1017/S0001924000026002</a></span></div>
+    <div class="tag-row"><span class="tag">Flapping Wing</span><span class="tag">Ornithopter</span><span class="tag">Key Paper</span><span class="tag">Methodology</span><span class="tag">Aeroelasticity</span><span class="tag">Simulation</span></div>
+    <div class="importance-badge">★★★</div>
+</div></div>
+<div class="container">
+  <div class="overview"><div class="overview-header"><div class="section-number">1</div><h2>Overview</h2></div>
+    <div class="overview-text">This paper presents a design-oriented aerodynamic model for flapping-wing flight based on a <strong>modified strip theory</strong> approach. The model incorporates <strong>finite-wing unsteady wake effects</strong> through modified <strong>Theodorsen functions</strong>, partial <strong>leading-edge suction</strong>, post-stall behavior via crossflow drag, and contributions from camber, mean angle of attack, and friction drag. By integrating these elements, the method predicts average lift, thrust, power required, and propulsive efficiency for harmonically flapping wings in equilibrium flight. The model is validated through application to the <strong>AeroVironment QN mechanical pterosaur</strong> (18 ft span, 40 lb), where it predicted a narrow optimal dynamic twist of $\beta_0 = 2.25\,^\circ/\text{ft}$ yielding a maximum propulsive efficiency of <strong>42%</strong>, consistent with the aircraft's observed inability to sustain flight due to tight design margins.</div></div>
+
+  <details><summary><div class="section-number">2</div><h2>Introduction</h2></summary>
+    <div class="section-body">
+      <h3>Motivation</h3>
+      <ul>
+        <li>The work is motivated by interest in <strong>mechanical flapping-wing flight</strong>, requiring a design-oriented analysis readily applicable to diverse candidate configurations.</li>
+        <li>Existing models either oversimplify unsteady effects (quasi-steady) or are too complex for practical design iteration.</li>
+        <li>A method capable of predicting <strong>average lift, thrust, power, and propulsive efficiency</strong> simultaneously is needed for ornithopter feasibility assessment.</li>
+      </ul>
+      <h3>State of the Art</h3>
+      <ul>
+        <li><strong>Quasi-steady models</strong> ignore shed wake effects entirely; ranging from simple rigid elliptical planform analyses (<strong>Kuchemann and von Holst, 1941</strong>) to refined lifting-line approaches (<strong>Betteridge and Archer, 1974</strong>).</li>
+        <li>Intermediate-complexity models use representative spanwise points: <strong>Walker (1927)</strong> uses three stations with piecewise-constant lift/drag; <strong>Norberg (1985)</strong> uses a single 70%-span point with sinusoidal motion.</li>
+        <li><strong>Unsteady wake models</strong> include discrete vortex representations: <strong>Philps, East, and Pratt (1981)</strong> use nonplanar vortex elements for rigid root-flapping wings; <strong>Blackwell and Archer (1985)</strong> extend this to sawtooth twisting motion.</li>
+        <li><strong>Variable-span models</strong> by <strong>Rayner (1979)</strong> assume aerodynamic activity only on the downstroke with closed vortex rings, later extended by <strong>Lighthill (1990)</strong> to allow upstroke lift with span differences producing net thrust.</li>
+        <li>All prior analyses assumed either spanwise rigidity or variable span, and none adequately addressed partial leading-edge suction or post-stall effects for design purposes.</li>
+      </ul>
+      <h3>Gap &amp; Contribution</h3>
+      <ul>
+        <li>Previous work commonly assumed <strong>100% leading-edge suction</strong> from inviscid theory, which is unrealistic for cambered wings of flying animals and ornithopters.</li>
+        <li>Post-stall behavior was generally neglected, yet constant-semispan flapping wings experience significant flow separation over portions of the cycle.</li>
+        <li>This paper fills both gaps by introducing <strong>partial leading-edge suction efficiency</strong> $\eta_s$, a <strong>dynamic stall criterion</strong>, and <strong>crossflow drag</strong> for separated flow, within a computationally efficient strip theory framework.</li>
+        <li>The constant-semispan assumption is shown to be viable for mechanical ornithopter design, distinct from the variable-span biological flight model.</li>
+      </ul>
+    </div></details>
+
+  <details><summary><div class="section-number">3</div><h2>Related Works</h2></summary>
+    <div class="section-body">
+      <h3>Quasi-Steady Approaches</h3>
+      <ul>
+        <li><strong>Kuchemann and von Holst (1941)</strong> — Simplest model: rigid elliptical-planform wing with spanwise uniform motions, no wake effects.</li>
+        <li><strong>Schmeidler (1935, 1936)</strong> — Used lifting-line theory for root-flapping wing performance prediction.</li>
+        <li><strong>Betteridge and Archer (1974)</strong> — Refined lifting-line approach investigating optimized flapping behavior.</li>
+        <li><strong>Walker (1927)</strong> — Three representative semispan stations with constant lift/drag values per half-stroke.</li>
+        <li><strong>Norberg (1985)</strong> — Single point at 70% span with sinusoidal motion and constant lift-curve slope.</li>
+      </ul>
+      <h3>Unsteady Wake Models</h3>
+      <ul>
+        <li><strong>Philps, East, and Pratt (1981)</strong> — Discrete nonplanar vortex elements with spanwise vortices spaced one per half cycle for rigid root-flapping wings.</li>
+        <li><strong>Blackwell and Archer (1985)</strong> — Extended vortex model for twisting wings with sawtooth flapping motion.</li>
+        <li><strong>Rayner (1979)</strong> — Vortex ring wake model assuming aerodynamic activity only on the downstroke.</li>
+        <li><strong>Lighthill (1990)</strong> — Extended Rayner's model to allow upstroke lift, with span difference producing thrust.</li>
+      </ul>
+      <h3>Foundational Theory</h3>
+      <ul>
+        <li><strong>Jones (1940)</strong> — Derived unsteady lift for finite aspect ratio wings (NACA Report 681), forming the basis for the modified Theodorsen function used in this work.</li>
+        <li><strong>Scherer (1968)</strong> — Provided approximate algebraic expressions for the complex components of the modified Theodorsen function $C'(k)$.</li>
+        <li><strong>Garrick (1936)</strong> — Derived 2D leading-edge suction for oscillating aerofoils (NACA Report 567), extended here to finite wings.</li>
+      </ul>
+    </div></details>
+
+  <details><summary><div class="section-number">4</div><h2>Materials and Methods</h2></summary>
+    <div class="section-body">
+      <h3>Problem Setup</h3>
+      <ul>
+        <li>A high aspect ratio wing undergoing <strong>harmonic root-flapping</strong> with continuous sinusoidal motion and equal upstroke/downstroke times.</li>
+        <li>Section kinematics defined by plunging velocity $\dot{h}$ at the leading edge and pitch angle $\theta$; the semispan length is constant throughout the cycle.</li>
+        <li>Spanwise bending and twisting distributions are permitted but the wing is not variable-span.</li>
+      </ul>
+      <h3>Governing Equations</h3>
+      <ul>
+        <li><strong>Circulatory normal force</strong> per section: $dN_c = \frac{1}{2}\rho V^2 C_n(y)\, c\, dy$, where $C_n(y) = 2\pi(\alpha' + \alpha_0 + \bar{\theta})$.</li>
+        <li><strong>Finite-wing Theodorsen function</strong> via Scherer's formulation: $$C(k)_{\text{Jones}} = \frac{AR \cdot C'(k)}{2 + AR}$$ with $C'(k) = F'(k) + iG'(k)$ approximated algebraically in terms of reduced frequency $k = c\omega / 2U$.</li>
+        <li><strong>Leading-edge suction</strong>: $dT_s = \eta_s \cdot 2\pi \left(\alpha' + \bar{\theta} - \frac{c\dot{\theta}}{4U}\right)^2 \frac{1}{2}\rho U V\, c\, dy$, where $\eta_s$ is the suction efficiency factor.</li>
+        <li><strong>Dynamic stall criterion</strong> from Prouty: $(\alpha_{\text{stall}})_{\text{dyn}} = (\alpha_{\text{stall}})_{\text{static}} + K_1 \frac{c\dot{\alpha}}{2U}$, applied at the leading edge to determine attached vs. separated flow.</li>
+        <li><strong>Apparent mass normal force</strong>: $dN_a = \frac{\pi}{4}\rho c^2 \dot{v}_2\, dy$, acting at midchord.</li>
+        <li><strong>Separated flow</strong>: all chordwise forces vanish; normal force becomes crossflow drag $dN_{cf} = \frac{1}{2}(C_d)_{cf}\, c\, V_n |V_n|\, dy$ plus half the apparent-mass contribution.</li>
+      </ul>
+      <h3>Numerical Approach</h3>
+      <ul>
+        <li>Discrete element integration along the semispan with $n = 12$ equal stations ($\Delta y = 6$ in) and $m = 20$ cycle-angle increments.</li>
+        <li>Average lift and thrust obtained by double summation: $$\bar{T} = \frac{1}{m}\sum_{j=1}^{m} T_j, \quad T_j = 2\sum_{i=1}^{n} \Delta T_{ij}$$</li>
+        <li>Propulsive efficiency: $\eta = \bar{P}_{\text{out}} / \bar{P}_{\text{in}} = \bar{T}U / \bar{P}_{\text{in}}$.</li>
+      </ul>
+      <h3>Validation Strategy</h3>
+      <ul>
+        <li>Applied to the <strong>AeroVironment QN mechanical pterosaur</strong> (18 ft span, 40 lb, Liebeck LPT 110A aerofoil).</li>
+        <li>Predictions compared against AeroVironment's independent aerodynamic estimates and flight test observations (powered glides only, significant outer panel stall).</li>
+        <li>Key parameters: $\alpha_0 = 0.5^\circ$, $\eta_s = 0.98$, $(C_d)_f = 0.025$, $(\alpha_{\text{stall}})_{\text{static}} = 13^\circ$, flapping amplitude $\Gamma = 20^\circ$.</li>
+      </ul>
+    </div></details>
+
+  <details><summary><div class="section-number">5</div><h2>Results</h2></summary>
+    <div class="section-body">
+      <h3>Validation Results</h3>
+      <ul>
+        <li>For $\theta_a = 7.5^\circ$, $U = 44$ ft/s, and flapping frequency <strong>1.2 Hz</strong>, the model predicts the wing lifts the 40 lb weight when $\beta_0 > 2.2\,^\circ/\text{ft}$.</li>
+        <li>Predicted <strong>significant outer panel flow separation during the downstroke</strong>, confirmed by AeroVironment's flow visualization experiments.</li>
+        <li>The analysis correctly predicted the aircraft's inability to achieve sustained flight, consistent with flight test observations of powered glides only.</li>
+      </ul>
+      <h3>Parametric Studies</h3>
+      <ul>
+        <li>Average lift remains fairly constant for $\beta_0$ in the range $2.2$&ndash;$3.0\,^\circ/\text{ft}$, showing insensitivity to dynamic twist beyond the threshold.</li>
+        <li><strong>Maximum thrust of 1.2 lb</strong> achieved at $\beta_0 = 2.25\,^\circ/\text{ft}$, within a very narrow optimal band; thrust drops to zero at $\beta_0 = 2.8\,^\circ/\text{ft}$.</li>
+        <li>Average input power decreases monotonically with increasing $\beta_0$; beyond $3.0\,^\circ/\text{ft}$, $\bar{P}_{\text{in}}$ becomes negative ("windmilling").</li>
+        <li><strong>Peak input power</strong> required for engine sizing: <strong>800 watts</strong> at the optimal condition.</li>
+      </ul>
+      <h3>Key Findings</h3>
+      <ul>
+        <li><strong>Maximum propulsive efficiency of 42%</strong> at $\beta_0 = 2.25\,^\circ/\text{ft}$, noting this underestimates the wing's true efficiency since wing drag is included in the thrust calculation.</li>
+        <li>The high $\theta_a$ required for equilibrium flight causes substantial stalling on outboard panels during the downstroke.</li>
+        <li>Sustained flight requires virtually <strong>singular dynamic twist optimization</strong>, leaving almost no error margin for practical implementation.</li>
+        <li>Fur-like covering increased drag beyond smooth-skin predictions; leading-edge irregularity reduced $\eta_s$ below the assumed 0.98, both factors degrading thrust.</li>
+        <li>Without battery weight and fur covering drag, the analysis indicates the constant-semispan flapping wing <strong>could achieve sustained flight</strong>.</li>
+      </ul>
+    </div></details>
+
+  <details><summary><div class="section-number">6</div><h2>Results Interpretation</h2></summary>
+    <div class="section-body">
+      <ul>
+        <li>The <strong>narrow optimal range</strong> of $\beta_0$ for maximum thrust reveals a fundamental sensitivity: ornithopter wing twist must be precisely controlled for efficient flight.</li>
+        <li>The abrupt transition from thrust-producing to windmilling behavior beyond optimal $\beta_0$ highlights the importance of accurate twist distribution in mechanical ornithopter design.</li>
+        <li>The <strong>42% propulsive efficiency</strong> is conservative because the wing also generates lift; a fair comparison with propellers would subtract the wing's drag contribution from propeller thrust.</li>
+        <li>Post-stall behavior on outboard panels is not necessarily detrimental; the model shows that localized flow separation can coexist with net positive thrust and lift for sustained flight.</li>
+        <li>The discrepancy between predicted and observed performance (powered glides vs. sustained flight) is attributed to practical factors: surface roughness from fur covering, reduced leading-edge suction, and battery weight.</li>
+        <li>The <strong>constant-semispan model</strong> is shown viable for high-speed, large-animal or ornithopter flight, complementing the variable-span model applicable to slow-speed biological flight.</li>
+        <li>The strip theory framework, while approximate, captures the essential physics (unsteady wake, partial suction, stall) at a computational cost suitable for design iteration.</li>
+        <li>Modified Theodorsen functions via Scherer's approximation provide an efficient alternative to full vortex-lattice methods for preliminary design.</li>
+        <li>The model's prediction of stall locations matched experimental flow visualization, supporting the validity of the dynamic stall criterion approach.</li>
+      </ul>
+    </div></details>
+
+  <details><summary><div class="section-number">7</div><h2>Conclusion</h2></summary>
+    <div class="section-body">
+      <ul>
+        <li>A <strong>design-oriented strip theory method</strong> was developed for predicting lift, thrust, power, and efficiency of harmonically flapping wings with constant semispan.</li>
+        <li>The model incorporates <strong>modified Theodorsen functions</strong> for finite-span unsteady wake, <strong>partial leading-edge suction</strong>, <strong>post-stall crossflow drag</strong>, camber effects, and friction drag.</li>
+        <li>Application to the QN mechanical pterosaur showed sustained flight was possible only for a <strong>virtually singular dynamic twist distribution</strong> ($\beta_0 \approx 2.25\,^\circ/\text{ft}$).</li>
+        <li>Practical factors (fur-like covering drag, reduced leading-edge suction, battery weight) explained the aircraft's inability to sustain flight.</li>
+        <li>Without these parasitic effects, the analysis confirms that a <strong>constant-semispan harmonically flapping wing can achieve sustained flight</strong> with localized flow separation.</li>
+        <li>The constant-semispan model is appropriate for <strong>large animals at high speeds and ornithopter aircraft</strong>, complementing variable-span models for slow-speed biological flight.</li>
+        <li>This analysis provides ornithopter designers with a computationally efficient tool that captures the critical real-fluid effects (viscosity, stall, partial suction) often neglected in idealized theories.</li>
+      </ul>
+    </div></details>
+</div>
+<div class="footer">Generated by YANG Lab RECON &middot; <a href="https://doi.org/10.1017/S0001924000026002">View Original Paper</a></div>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true},{left: '\\[', right: '\\]', display: true},{left: '\\(', right: '\\)', display: false},{left: '$', right: '$', display: false}], throwOnError: false});"></script>
+</body></html>
