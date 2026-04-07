@@ -55,23 +55,19 @@
       : '';
 
     return `
-      <a href="${paper.file}" target="_blank" rel="noopener" class="paper-card block">
-        <div class="flex items-start justify-between gap-4">
-          <div class="flex-1 min-w-0">
-            <div class="flex items-center gap-2 mb-1.5">
-              <span class="year-badge">${paper.year}</span>
-              ${renderStars(paper.importance)}
-            </div>
-            <h2 class="text-base font-semibold text-slate-900 leading-snug mb-1.5">${paper.title}</h2>
-            <p class="text-sm text-slate-500 mb-2">${paper.authors} &mdash; <span class="italic">${paper.journal}</span></p>
-            <p class="text-sm text-slate-600 leading-relaxed mb-3 line-clamp-2">${paper.abstract || ''}</p>
-            <div class="flex flex-wrap items-center gap-1.5">
-              ${tagsHtml}
-              ${doiHtml ? `<span class="mx-1 text-slate-300">|</span>${doiHtml}` : ''}
-            </div>
-          </div>
+      <div class="paper-card" data-href="${paper.file}">
+        <div class="flex items-center gap-2 mb-1.5">
+          <span class="year-badge">${paper.year}</span>
+          ${renderStars(paper.importance)}
         </div>
-      </a>`;
+        <h2 class="text-base font-semibold text-slate-900 leading-snug mb-1.5">${paper.title}</h2>
+        <p class="text-sm text-slate-500 mb-2">${paper.authors} &mdash; <span class="italic">${paper.journal}</span></p>
+        <p class="text-sm text-slate-600 leading-relaxed mb-3 line-clamp-2">${paper.abstract || ''}</p>
+        <div class="flex flex-wrap items-center gap-1.5">
+          ${tagsHtml}
+          ${doiHtml ? `<span class="mx-1 text-slate-300">|</span>${doiHtml}` : ''}
+        </div>
+      </div>`;
   }
 
   // ── Collect all unique tags from papers ──
@@ -142,6 +138,12 @@
     // Paper list
     if (filtered.length > 0) {
       paperList.innerHTML = filtered.map(renderPaperCard).join('');
+      paperList.querySelectorAll('.paper-card[data-href]').forEach(card => {
+        card.addEventListener('click', (e) => {
+          if (e.target.closest('.doi-link')) return; // let DOI link handle itself
+          window.open(card.dataset.href, '_blank', 'noopener');
+        });
+      });
       paperList.classList.remove('hidden');
       emptyState.classList.add('hidden');
     } else {
