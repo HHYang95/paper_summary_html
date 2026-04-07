@@ -6,15 +6,14 @@
     "year": 2025,
     "journal": "Bioinspiration & Biomimetics",
     "tags": [
-      "BFAV",
-      "Scaling Law",
       "Flapping Wing",
-      "Bionic Design",
-      "Parameter Estimation",
       "Ornithopter",
-      "Bird Flight"
+      "Scaling Law",
+      "Preliminary Design",
+      "Wing Morphology",
+      "Flapping Frequency"
     ],
-    "doi": "10.1088/1748-3190/adadbc",
+    "doi": "https://doi.org/10.1088/1748-3190/adadbc",
     "abstract": "This paper systematically investigates the design characteristics and scaling laws of bird-like flapping-wing aerial vehicles (BFAVs) from the perspective of aviation designers. Scaling laws of birds relevant to BFAV design are compiled, covering wingspan, wing area, wing loading, aspect ratio,...",
     "importance": 2,
     "file": "2025_Ma_Design-Characteristics-and-Scaling-Laws-Bird-Like-FWAV.html"
@@ -27,16 +26,12 @@
     "journal": "CEAS Aeronautical Journal",
     "tags": [
       "Flapping Wing",
-      "LBM",
-      "IBM",
-      "Vortex Identification",
-      "Liutex",
-      "LEV",
+      "Lattice Boltzmann Method",
       "Aerodynamics",
       "CFD",
-      "Bio Inspired"
+      "Bio-Inspired"
     ],
-    "doi": "10.1007/s13272-025-00860-z",
+    "doi": "https://doi.org/10.1007/s13272-025-00860-z",
     "abstract": "This paper presents a scalable computational framework combining the lattice Boltzmann method (LBM), multi direct-forcing immersed boundary method (IBM), and topology-confined block refinement for simulating complex flows past 2D and 3D flapping wings. The framework is validated against...",
     "importance": 2,
     "file": "2025_Nguyen_Flapping-Wing-Dynamics-Immersed-LBM-Liutex.html"
@@ -51,11 +46,10 @@
       "Flapping Wing",
       "Reinforcement Learning",
       "Control",
-      "Bio-Inspired",
       "MAV",
       "Experimental"
     ],
-    "doi": "10.1038/s42256-024-00893-9",
+    "doi": "https://doi.org/10.1038/s42256-024-00893-9",
     "abstract": "This paper presents a bio-inspired \"fly-by-feel\" flight control system for flapping-wing drones that replaces traditional inertial measurement units (IMUs) and gyroscopic sensors with ultrasensitive crack-based strain sensors attached to the wing bases. Inspired by insect campaniform sensilla,...",
     "importance": 3,
     "file": "2024_Kim_Wing-Strain-Based-Flight-Control-Flapping-Wing-Drones-RL.html"
@@ -70,10 +64,12 @@
       "Flapping Wing",
       "Simulation",
       "MAV",
-      "Bio-Inspired",
-      "Methodology"
+      "Methodology",
+      "Discrete Vortex Method",
+      "Wing Flexibility",
+      "Low Reynolds Number"
     ],
-    "doi": "10.1016/j.jfluidstructs.2024.104128",
+    "doi": "https://doi.org/10.1016/j.jfluidstructs.2024.104128",
     "abstract": "This paper presents a three-dimensional numerical simulation of flapping rectangular wings using the discrete vortex method (DVM), an inviscid panel method that avoids flow-field grid generation at each time step. Four wing configurations are investigated: rigid, bending, twisting, and...",
     "importance": 2,
     "file": "2024_Kumar_Aerodynamic-Performance-3D-Flapping-Wing-Discrete-Vortex-Method.html"
@@ -86,13 +82,13 @@
     "journal": "Nature Communications",
     "tags": [
       "Flapping Wing",
+      "Deep Learning",
+      "Piezoelectric Sensing",
       "Biohybrid",
       "Embodied Perception",
-      "Piezoelectric Sensing",
-      "Deep Learning",
-      "PVDF"
+      "Feathered Wing"
     ],
-    "doi": "10.1038/s41467-024-53517-6",
+    "doi": "https://doi.org/10.1038/s41467-024-53517-6",
     "abstract": "This paper proposes an avian-inspired embodied perception approach for biohybrid flapping-wing robots by integrating natural goose feathers with PVDF piezoelectric films to create a lightweight mechanoreceptor. The feather-PVDF sensor leverages coupled oscillator interactions and feather...",
     "importance": 2,
     "file": "2024_Li_Avian-Inspired-Embodied-Perception-Biohybrid-Flapping-Wing-Robotics.html"
@@ -105,13 +101,13 @@
     "journal": "Chinese Journal of Aeronautics",
     "tags": [
       "Flapping Wing",
-      "Bio Inspired",
+      "Bio-Inspired",
       "CFD",
       "Ornithopter",
       "Simulation",
       "MAV"
     ],
-    "doi": "10.1016/j.cja.2024.01.006",
+    "doi": "https://doi.org/10.1016/j.cja.2024.01.006",
     "abstract": "This paper presents a CFD-based numerical investigation of dynamical spanwise retraction and stretch, a bio-inspired morphing mode observed in birds and bats, on flapping-wing aerodynamic performance in forward flight. Using 3D RANS simulations with the SU2 solver at $Re = 1.5 \\times 10^5$ and...",
     "importance": 2,
     "file": "2024_Liu_Spanwise-Retraction-and-Stretch-Flapping-Wing-Forward-Flight.html"
@@ -125,13 +121,13 @@
     "tags": [
       "Flapping Wing",
       "Ornithopter",
-      "Bio-Inspired",
-      "Review Paper",
       "Optimization",
       "MAV",
-      "Mechanism"
+      "Scaling Law",
+      "Bio-Inspired",
+      "Drive System Design"
     ],
-    "doi": "10.1088/1748-3190/ad88c4",
+    "doi": "https://doi.org/10.1088/1748-3190/ad88c4",
     "abstract": "This topical review provides a comprehensive survey of bird-like flapping-wing aerial vehicle (BFAV) design from the perspective of aviation engineering, covering overall parameter design, flapping wing design, and drive system design. The authors systematically analyze the scaling laws relating...",
     "importance": 2,
     "file": "2024_Ma_Designing-Efficient-Bird-Like-FWAV-Aviation-Perspective.html"
@@ -143,15 +139,14 @@
     "year": 2024,
     "journal": "Biomimetics",
     "tags": [
-      "flapping wing",
-      "folding motion",
-      "fluid-structure coupling",
-      "unsteady panel method",
-      "propulsion efficiency",
-      "passive torsion",
-      "ornithopter"
+      "Flapping Wing",
+      "Ornithopter",
+      "FSI",
+      "Aeroelasticity",
+      "Bio-Inspired",
+      "Simulation"
     ],
-    "doi": "10.3390/biomimetics9010042",
+    "doi": "https://doi.org/10.3390/biomimetics9010042",
     "abstract": "This paper presents a computationally efficient fluid-structure interaction (FSI) method for analyzing folding flapping wings with passive torsional deformation, targeting the early design stage of ornithopter-type vehicles. The approach couples an unsteady three-dimensional panel method for...",
     "importance": 2,
     "file": "2024_Qi_Effect-Spanwise-Folding-Aerodynamic-Performance-Passively-Deformed-Flapping-Wing.html"
@@ -164,15 +159,14 @@
     "journal": "IEEE Transactions on Robotics (T-RO)",
     "tags": [
       "Flapping Wing",
-      "Morphing Wing",
-      "Bioinspired Robot",
       "Mechanism Design",
       "Ornithopter",
-      "Roll Control",
       "Wind Tunnel",
-      "System Identification"
+      "Morphing Wing",
+      "Roll Control",
+      "Bio-Inspired"
     ],
-    "doi": "10.1109/TRO.2022.3189812",
+    "doi": "https://doi.org/10.1109/TRO.2022.3189812",
     "abstract": "Core Contribution This paper presents RoboFalcon, a bioinspired flapping-wing aerial vehicle (FWAV) with a 1.2 m wingspan and 600 g flight weight modeled after the peregrine falcon. The vehicle employs a novel Cross-shaft Rocker Mechanism (CRM) that mechanically couples wing morphing with...",
     "importance": 0,
     "file": "2022_Chen_Novel-Actuation-Strategy-for-Agile-Bioinspired-FWAV-Morphing-Coupled-Wingbeat.html"
@@ -187,11 +181,11 @@
       "Flapping Wing",
       "Folding Wing",
       "CFD",
-      "LEV",
-      "Bio Inspired",
-      "Aerodynamic Performance"
+      "Bio-Inspired",
+      "Leading-Edge Vortex",
+      "Low Reynolds Number"
     ],
-    "doi": "10.1063/5.0078844",
+    "doi": "https://doi.org/10.1063/5.0078844",
     "abstract": "This paper numerically investigates the effect of spanwise folding motion on the aerodynamic performance of a three-dimensional two-section flapping flat plate using CFD (ANSYS Fluent, $k$-$\\omega$ SST turbulence model) at $\\text{Re} = 69\\,000$. Three folding kinematic parameters &mdash; folding...",
     "importance": 2,
     "file": "2022_Lang_Spanwise-Folding-Aerodynamic-Performance-3D-Flapping-Wing.html"
@@ -206,12 +200,11 @@
       "UVLM",
       "Vortex Particle Method",
       "Rotor Aerodynamics",
-      "Ground Effect",
-      "Viscous Inviscid Coupling",
-      "LES",
-      "Fast Multipole Method"
+      "Free Wake",
+      "Fast Multipole Method",
+      "Ground Effect"
     ],
-    "doi": "10.3390/fluids7020081",
+    "doi": "https://doi.org/10.3390/fluids7020081",
     "abstract": "This paper presents a hybrid non-linear unsteady vortex lattice method coupled with the vortex particle method (NL UVLM-VPM) for aerodynamic simulation of rotor blades hovering in and out of ground effect. The UVLM models blade surfaces with vortex panels that are converted to Lagrangian vortex...",
     "importance": 2,
     "file": "2022_Proulx-Cabana_Hybrid-Nonlinear-UVLM-Vortex-Particle-Rotor-Blades.html"
@@ -231,7 +224,7 @@
       "Methodology",
       "Optimization"
     ],
-    "doi": "10.1016/j.cja.2020.06.029",
+    "doi": "https://doi.org/10.1016/j.cja.2020.06.029",
     "abstract": "This paper presents a Dipole Panel Fast Multipole Method (DPFMM) that accelerates the induced velocity computation in the Unsteady Vortex Lattice Method (UVLM) from $O(N^2)$ to $O(N)$ complexity. The key insight exploits the mathematical equivalence between a constant-strength dipole panel and a...",
     "importance": 2,
     "file": "2021_Deng_Acceleration-UVLM-via-Dipole-Panel-FMM.html"
@@ -243,16 +236,14 @@
     "year": 2021,
     "journal": "Science Robotics",
     "tags": [
-      "Biomimetics",
+      "Bird-Inspired",
       "Perching",
-      "Grasping",
-      "UAV",
-      "Bird Inspired",
-      "Underactuated Mechanism",
-      "Tendon Driven",
-      "Aerial Robotics"
+      "Aerial Grasping",
+      "Biomimetic Mechanism",
+      "Tendon-Driven",
+      "UAV"
     ],
-    "doi": "10.1126/scirobotics.abj7562",
+    "doi": "https://doi.org/10.1126/scirobotics.abj7562",
     "abstract": "This paper presents SNAG (Stereotyped Nature-inspired Aerial Grasper), a bird-inspired bipedal robotic leg and foot system that enables aerial robots to dynamically perch on complex natural surfaces and grasp irregular objects. Drawing from biomechanical studies on avian landing, the design...",
     "importance": 2,
     "file": "2021_Roderick_Bird-Inspired-Dynamic-Grasping-Perching-Arboreal.html"
@@ -264,15 +255,15 @@
     "year": 2020,
     "journal": "Computers and Mathematics with Applications",
     "tags": [
-      "Fluid Structure Interaction",
+      "FSI",
       "Flexible Multibody Dynamics",
-      "Bat Inspired Flight",
-      "Co Rotational Framework",
+      "Bio-Inspired",
+      "Co-Rotational Framework",
       "Radial Basis Function",
       "Partitioned Coupling",
       "Flapping Wing Aerodynamics"
     ],
-    "doi": "10.1016/j.camwa.2020.09.020",
+    "doi": "https://doi.org/10.1016/j.camwa.2020.09.020",
     "abstract": "This paper develops a 3D partitioned aeroelastic framework for flexible multibody systems in incompressible turbulent flow. The structural domain uses a co-rotational formulation (Wiener-Milenkovi&#263; CRV parameterization) for small strain problems with multiple component types&mdash;rigid...",
     "importance": 3,
     "file": "2020_Joshi_Variational-Flexible-Multibody-FSI-Bat-Inspired-Drones.html"
@@ -287,12 +278,11 @@
       "Flapping Wing",
       "Folding Wing",
       "Mechanism Design",
-      "Four Bar Linkage",
       "Ornithopter",
-      "Kinematic Analysis",
+      "Four-Bar Linkage",
       "Force Measurement"
     ],
-    "doi": "10.1007/s42235-020-0018-3",
+    "doi": "https://doi.org/10.1007/s42235-020-0018-3",
     "abstract": "This paper presents the design, fabrication, and comparative analysis of two bird-inspired wing mechanisms based on a crank-rocker four-bar linkage: a Flapping Motion (FM) mechanism and a simultaneous Flapping and Folding Motion (FFM) mechanism. The authors derive kinematic relationships,...",
     "importance": 2,
     "file": "2020_Ryu_Design-Fabrication-Analysis-Flapping-Folding-Wing-Mechanism.html"
@@ -305,15 +295,15 @@
     "journal": "Journal of Aircraft",
     "tags": [
       "UVLM",
-      "Leading Edge Vortex",
+      "Leading-Edge Vortex",
       "Vortex Sheet",
       "Finite Wing",
       "LESP",
       "Unsteady Aerodynamics",
-      "Low Order Method",
+      "Low-Order Method",
       "Pitching Wing"
     ],
-    "doi": "10.2514/1.C035124",
+    "doi": "https://doi.org/10.2514/1.C035124",
     "abstract": "This paper presents a low-order method for modeling leading-edge vortex (LEV) formation on finite wings by augmenting an unsteady vortex-lattice method (UVLM) with a vortex-sheet representation. The two-dimensional leading-edge suction parameter (LESP) concept is extended to three-dimensional...",
     "importance": 3,
     "file": "2019_Hirato_Vortex-Sheet-Representation-LEV-Shedding-Finite-Wings.html"
@@ -326,14 +316,13 @@
     "journal": "Journal of Aerospace Information Systems",
     "tags": [
       "UVLM",
-      "Fast Multipole Method",
-      "Computational Acceleration",
-      "N Body Problem",
-      "Wake Velocity",
       "Aeroelasticity",
-      "Decision Support System"
+      "Fast Multipole Method",
+      "Biot-Savart Law",
+      "Computational Acceleration",
+      "Free Wake"
     ],
-    "doi": "10.2514/1.I010690",
+    "doi": "https://doi.org/10.2514/1.I010690",
     "abstract": "This paper presents the first integration of the fast multipole method (FMM) with an unsteady vortex lattice method (UVLM)-based nonlinear, unsteady aerodynamic simulator. The FMM accelerates wake velocity evaluation — the dominant computational cost (>90% of total time) — by decomposing the...",
     "importance": 2,
     "file": "2019_Kebbie-Anthony_Fast-Multipole-Accelerated-UVLM-Computations.html"
@@ -351,9 +340,9 @@
       "Simulation",
       "Insect Flight",
       "MAV",
-      "Bio Inspired"
+      "Bio-Inspired"
     ],
-    "doi": "10.1115/1.4044268",
+    "doi": "https://doi.org/10.1115/1.4044268",
     "abstract": "This paper develops a novel reduced-order fluid-structure interaction (FSI) framework for flapping, flexible insect wings that accommodates arbitrary wing geometry and any fluid loading model. The framework uses Lagrangian mechanics for structural dynamics and the principle of virtual work for...",
     "importance": 2,
     "file": "2019_Schwab_Novel-FSI-Framework-Flapping-Flexible-Wings.html"
@@ -366,15 +355,12 @@
     "journal": "Aerospace Science and Technology (Aerosp. Sci. Technol.)",
     "tags": [
       "Flapping Wing",
-      "Wing Flexibility",
       "FWMAV",
       "Aeroelasticity",
       "UVLM",
-      "Multibody Dynamics",
-      "Flight Stability",
-      "Hawkmoth"
+      "Multibody Dynamics"
     ],
-    "doi": "10.1016/j.ast.2018.06.004",
+    "doi": "https://doi.org/10.1016/j.ast.2018.06.004",
     "abstract": "Research Motivation and Gap Insect-like flapping-wing micro-air vehicles (FWMAVs) have been the subject of extensive research in aerodynamics and flight dynamics, yet few studies have comprehensively examined how wing flexibility affects flight performance across multiple aspects simultaneously....",
     "importance": 0,
     "file": "2018_Nguyen_Wing-Flexibility-Effects-Flight-Performance-Insect-Like-FWMAV.html"
@@ -388,13 +374,13 @@
     "tags": [
       "Flapping Wing",
       "FWMAV",
-      "Biomimetic",
+      "Bio-Inspired",
       "Mechanism Design",
+      "Four-Bar Linkage",
       "Flexible Wing",
-      "Flight Control",
-      "System Integration"
+      "Flight Control"
     ],
-    "doi": "10.1177/1756829317734837",
+    "doi": "https://doi.org/10.1177/1756829317734837",
     "abstract": "This paper describes the design, development, and flight testing of Dove, a biomimetic flapping-wing micro air vehicle (FWMAV) developed at Northwestern Polytechnical University. The vehicle evolved through three developmental stages spanning over a decade. The final Dove has a mass of 220 g, a...",
     "importance": 2,
     "file": "2018_Yang_Dove-Biomimetic-Flapping-Wing-Micro-Air-Vehicle.html"
@@ -408,15 +394,13 @@
     "tags": [
       "FSI",
       "Flapping Wing",
-      "Twist Optimization",
-      "Quasi Steady Aerodynamics",
       "Hovering",
-      "Power Efficiency",
       "FWMAV",
-      "Nonlinear Plate",
-      "Lagrangian Dynamics"
+      "Wing Twist",
+      "Quasi-Steady Aerodynamics",
+      "Optimization"
     ],
-    "doi": "10.1016/j.jfs.2017.06.006",
+    "doi": "https://doi.org/10.1016/j.jfs.2017.06.006",
     "abstract": "Problem Statement and Motivation Spanwise twist is a dominant deformation mode for flapping wings, significantly altering aerodynamic performance and power efficiency by changing the local angle of attack along the span. Traditional FSI models based on CSD-CFD coupling have been used to study...",
     "importance": 0,
     "file": "2017_Wang_Efficient-FSI-Model-Optimizing-Twistable-Flapping-Wings.html"
@@ -429,14 +413,13 @@
     "journal": "Journal of Aircraft",
     "tags": [
       "UVLM",
-      "flapping wing",
-      "insect flight",
-      "leading-edge vortex",
-      "hawkmoth",
-      "aerodynamics",
-      "vortex-lattice method"
+      "Aerodynamics",
+      "Flapping Wing",
+      "CFD",
+      "Leading-Edge Vortex",
+      "Low Reynolds Number"
     ],
-    "doi": "10.2514/1.C033456",
+    "doi": "https://doi.org/10.2514/1.C033456",
     "abstract": "This paper develops an extended unsteady vortex-lattice method (UVLM) capable of simulating insect flapping-wing aerodynamics in both hovering and forward flight. Two key extensions are incorporated into a conventional UVLM: (1) a vortex-core growth model based on the Lamb–Oseen vortex with eddy...",
     "importance": 2,
     "file": "2016_Nguyen_Extended-UVLM-for-Insect-Flapping-Wings.html"
@@ -453,9 +436,10 @@
       "Flapping Wing",
       "Insect Flight",
       "Stability Analysis",
-      "Hawkmoth"
+      "Blade Element Theory",
+      "Hovering"
     ],
-    "doi": "10.1088/1748-3182/9/1/016011",
+    "doi": "https://doi.org/10.1088/1748-3182/9/1/016011",
     "abstract": "This paper presents a multibody dynamics framework for the hawkmoth Manduca sexta that performs direct time integration of fully coupled 6-DOF nonlinear equations of motion, incorporating time-varying inertia tensors of all body segments including wings. Conventional insect flight stability...",
     "importance": 0,
     "file": "2014_Kim_Multibody-6DOF-Flight-Dynamics-Stability-Hawkmoth.html"
@@ -469,12 +453,12 @@
     "tags": [
       "UVLM",
       "Flapping Wing",
-      "Hover Flight",
-      "Insect Aerodynamics",
       "Vortex Method",
-      "Leading Edge Separation"
+      "Leading-Edge Vortex",
+      "Hovering",
+      "Insect Flight"
     ],
-    "doi": "10.2514/1.J052262",
+    "doi": "https://doi.org/10.2514/1.J052262",
     "abstract": "This paper presents a modified three-dimensional unsteady vortex-lattice method (UVLM) designed to model the nonlinear unsteady aerodynamics of flapping wings in hover flight. The primary contribution is the extension of the classical UVLM to incorporate leading-edge vortex (LEV) separation...",
     "importance": 0,
     "file": "2013_Roccia_Modified-UVLM-for-Flapping-Wings-in-Hover.html"
@@ -488,12 +472,12 @@
     "tags": [
       "Flapping Wing",
       "MAV",
-      "Bio-Inspired",
-      "Review Paper",
       "Ornithopter",
-      "Robotics"
+      "Mechanism Design",
+      "Bio-Inspired",
+      "Flight Control"
     ],
-    "doi": "10.1115/1.4005525",
+    "doi": "https://doi.org/10.1115/1.4005525",
     "abstract": "This review surveys the mechanical design landscape of bird-inspired flapping wing miniature air vehicles (MAVs) in the 10&ndash;100 g weight class. Designs are systematically categorized by directional control scheme, wing design, and drive mechanism. The paper focuses on flight-validated...",
     "importance": 3,
     "file": "2012_Gerdes_Review-Bird-Inspired-Flapping-Wing-MAV-Designs.html"
@@ -505,15 +489,15 @@
     "year": 2012,
     "journal": "Progress in Aerospace Sciences",
     "tags": [
-      "Unsteady Vortex Lattice Method",
       "Aeroelasticity",
       "Flight Dynamics",
-      "Potential Flow",
-      "Flexible Aircraft",
       "Free Wake",
-      "State Space Formulation"
+      "UVLM",
+      "State-Space Model",
+      "Vortex-Lattice Method",
+      "Flexible Aircraft"
     ],
-    "doi": "10.1016/j.paerosci.2012.06.001",
+    "doi": "https://doi.org/10.1016/j.paerosci.2012.06.001",
     "abstract": "This comprehensive review presents the unsteady vortex-lattice method (UVLM) as a medium-fidelity aerodynamic tool for non-stationary load prediction in low-speed, high-Reynolds-number, attached-flow conditions. Despite being well-established in rotorcraft and flapping-wing applications, the...",
     "importance": 0,
     "file": "2012_Murua_Applications-UVLM-Aircraft-Aeroelasticity-Flight-Dynamics.html"
@@ -527,16 +511,13 @@
     "tags": [
       "FSI",
       "Insect Flight",
-      "Flexible Wing",
       "FEM",
       "CFD",
-      "Hawkmoth",
       "Hovering",
       "Aeroelasticity",
-      "Thin Shell",
       "Unsteady Aerodynamics"
     ],
-    "doi": "10.1016/j.jcp.2011.11.005",
+    "doi": "https://doi.org/10.1016/j.jcp.2011.11.005",
     "abstract": "This paper presents a loosely coupled FSI model combining a finite element method (FEM)-based computational structural dynamics solver with a CFD-based insect dynamic flight simulator. The CSD solver models thin shell structures of insect wings using AT/DKT triangular elements with anisotropic...",
     "importance": 0,
     "file": "2012_Nakata_FSI-Model-Insect-Flight-Flexible-Wings.html"
@@ -549,11 +530,8 @@
     "journal": "ICAS 2012",
     "tags": [
       "Flapping Wing",
-      "Active Torsion",
       "Ornithopter",
-      "Bio Inspired",
-      "Smartbird",
-      "Kinematics",
+      "Bio-Inspired",
       "Unsteady Aerodynamics",
       "Experimental"
     ],
@@ -575,9 +553,9 @@
       "CFD",
       "Simulation",
       "Insect Flight",
-      "Flexibility"
+      "Flexible Wing"
     ],
-    "doi": "10.1017/jfm.2011.428",
+    "doi": "https://doi.org/10.1017/jfm.2011.428",
     "abstract": "This study establishes a unified scaling framework relating wing flexibility to the aerodynamic force generation and propulsive efficiency of flapping wings. Through dimensional analysis and high-fidelity aeroelastic computations of three canonical cases (chordwise flexible aerofoils, spanwise...",
     "importance": 3,
     "file": "2011_Kang_Effects-Flexibility-Aerodynamic-Performance-Flapping-Wings.html"
@@ -593,11 +571,11 @@
       "FSI",
       "Flight Dynamics",
       "Flapping Wing",
-      "MBD",
+      "Multibody Dynamics",
       "Simulation",
       "Aeroelasticity"
     ],
-    "doi": "10.2514/1.53354",
+    "doi": "https://doi.org/10.2514/1.53354",
     "abstract": "This paper develops an integrative ornithopter flight simulator coupling a modal-based flexible multibody dynamics solver (Craig-Bampton method) with a semiempirical reduced-order flapping-wing aerodynamic model (Modified Strip Theory Improved) through loosely coupled fluid-structure...",
     "importance": 3,
     "file": "2011_Lee_Longitudinal-Flight-Dynamics-Bioinspired-Ornithopter-FSI.html"
@@ -610,14 +588,14 @@
     "journal": "Journal of Bionic Engineering",
     "tags": [
       "Ornithopter",
-      "MBD",
+      "Multibody Dynamics",
       "FSI",
       "Flapping Wing",
       "Simulation",
       "Flight Dynamics",
       "Aeroelasticity"
     ],
-    "doi": "10.1016/S1672-6529(09)60189-X",
+    "doi": "https://doi.org/10.1016/S1672-6529(09)60189-X",
     "abstract": "This paper presents an efficient integrative simulation framework for ornithopter (flapping-wing air vehicle) flight based on flexible multi-body dynamics (MBD), a modified strip theory (MST) aerodynamic model, and a fluid-structure interaction (FSI) approach. The framework couples MSC.ADAMS for...",
     "importance": 2,
     "file": "2010_Pfeiffer_Ornithopter-Flight-Simulation-Flexible-Multi-Body-Dynamics.html"
@@ -631,13 +609,11 @@
     "tags": [
       "Flapping Wing",
       "Aeroelasticity",
-      "Review Paper",
       "MAV",
       "Insect Flight",
-      "LEV",
       "FSI"
     ],
-    "doi": "10.1016/j.paerosci.2010.01.001",
+    "doi": "https://doi.org/10.1016/j.paerosci.2010.01.001",
     "abstract": "This comprehensive review consolidates recent progress in flapping wing aerodynamics and aeroelasticity for micro air vehicles (MAVs). The authors systematically examine unsteady lift enhancement mechanisms (LEV delayed stall, clap-and-fling, wake capture, rapid pitch rotation), Reynolds number...",
     "importance": 3,
     "file": "2010_Shyy_Recent-Progress-Flapping-Wing-Aerodynamics-Aeroelasticity.html"
@@ -652,12 +628,11 @@
       "Flapping Wing",
       "UVLM",
       "Optimization",
-      "Sensitivity Analysis",
       "Aeroelasticity",
       "Simulation",
       "Methodology"
     ],
-    "doi": "10.2514/1.46259",
+    "doi": "https://doi.org/10.2514/1.46259",
     "abstract": "This paper derives a complete analytical sensitivity analysis for a three-dimensional unsteady vortex-lattice method (UVLM) applied to flapping-wing optimization in forward flight. The framework enables efficient gradient-based optimization of propulsive efficiency under lift and thrust...",
     "importance": 3,
     "file": "2010_Stanford_Analytical-Sensitivity-UVLM-Flapping-Wing-Optimization.html"
@@ -677,7 +652,7 @@
       "MAV",
       "Methodology"
     ],
-    "doi": "10.2514/1.37495",
+    "doi": "https://doi.org/10.2514/1.37495",
     "abstract": "This paper presents an experimental investigation of flapping-wing ornithopter flight dynamics through onboard inertial measurements. A custom avionics package was developed for a modified Slow Hawk II ornithopter (446 g, 1.196 m wingspan) to collect magnetometer, gyroscope, and accelerometer...",
     "importance": 3,
     "file": "2009_Grauer_Inertial-Measurements-Flight-Data-Flapping-Wing-Ornithopter.html"
@@ -691,12 +666,12 @@
     "tags": [
       "Insect Flight",
       "Flapping Wing Aerodynamics",
-      "Navier Stokes Cfd",
-      "Overset Grid",
-      "Morphological Modeling",
-      "Vortex Dynamics"
+      "CFD",
+      "Navier-Stokes",
+      "Hovering",
+      "Leading-Edge Vortex"
     ],
-    "doi": "10.1016/j.jcp.2008.09.020",
+    "doi": "https://doi.org/10.1016/j.jcp.2008.09.020",
     "abstract": "This paper presents an integrated computational framework for simulating insect flapping flight by unifying realistic wing-body morphological modeling (via differential geometry), kinematic modeling (Fourier-series-based flapping angles), and unsteady aerodynamic analysis (multi-blocked...",
     "importance": 2,
     "file": "2009_Liu_Integrated-Modeling-Insect-Flight-Morphology-Kinematics-Aerodynamics.html"
@@ -714,7 +689,7 @@
       "Rotor",
       "Vortex Method"
     ],
-    "doi": "10.2514/1.40001",
+    "doi": "https://doi.org/10.2514/1.40001",
     "abstract": "This paper develops a coupled potential-based panel method with time-marching free-wake techniques for fast and accurate prediction of unsteady aerodynamics and wake dynamics of helicopter rotor blades. The coupling exploits the mathematical equivalence between doublet wake panels and vortex...",
     "importance": 2,
     "file": "2009_Wie_Potential-Panel-Time-Marching-Free-Wake-Coupling-Helicopter-Rotor.html"
@@ -733,7 +708,7 @@
       "Free Wake",
       "Methodology"
     ],
-    "doi": "10.4050/JAHS.52.214",
+    "doi": "https://doi.org/10.4050/JAHS.52.214",
     "abstract": "This paper develops a mathematical model for predicting the temporal growth and induced velocity distribution of helicopter blade tip vortices as a function of vortex Reynolds number $Re_v = \\Gamma_v / \\nu$. The model combines a vortex filament strain model with a transitional flow model that...",
     "importance": 3,
     "file": "2007_Ramasamy_Reynolds-Number-Based-Blade-Tip-Vortex-Model.html"
@@ -753,7 +728,7 @@
       "UVLM",
       "MAV"
     ],
-    "doi": "10.1243/09544100JAERO50",
+    "doi": "https://doi.org/10.1243/09544100JAERO50",
     "abstract": "This paper presents the numerical implementation and experimental validation of a nonlinear, unsteady, quasi-three-dimensional aerodynamic model for insect-like flapping wings in hover. The coupled wake integral equations derived in Part 1 are solved using discrete vortex methods with a...",
     "importance": 2,
     "file": "2006_Ansari_Nonlinear-Unsteady-Aero-Model-Insect-Flapping-Wings-Hover-Part2.html"
@@ -769,11 +744,11 @@
       "UVLM",
       "Free Wake",
       "Vortex Method",
-      "Bio Inspired",
+      "Bio-Inspired",
       "Simulation",
       "Methodology"
     ],
-    "doi": "10.2514/1.7357",
+    "doi": "https://doi.org/10.2514/1.7357",
     "abstract": "This paper presents an object-oriented unsteady vortex lattice method (UVLM) implemented in C++ for simulating the aerodynamics of flapping flight. The method models plunging, pitching, twisting, and flapping motions of finite-aspect-ratio wings with applications to micro air vehicles (MAVs) and...",
     "importance": 2,
     "file": "2004_Fritz_Object-Oriented-UVLM-Flapping-Flight.html"
@@ -803,13 +778,11 @@
     "year": 1993,
     "journal": "Journal of Applied Mechanics",
     "tags": [
-      "MBD",
+      "Multibody Dynamics",
       "Simulation",
-      "Methodology",
-      "Time Integration",
-      "Numerical Dissipation"
+      "Methodology"
     ],
-    "doi": "10.1115/1.2900803",
+    "doi": "https://doi.org/10.1115/1.2900803",
     "abstract": "This paper introduces the generalized-$\\alpha$ method, a new family of implicit time integration algorithms for structural dynamics that provides user-controllable numerical dissipation. The method achieves optimal high-frequency dissipation while minimizing unwanted low-frequency dissipation,...",
     "importance": 3,
     "file": "1993_Chung_Generalized-Alpha-Time-Integration-Structural-Dynamics.html"
@@ -823,12 +796,11 @@
     "tags": [
       "Flapping Wing",
       "Ornithopter",
-      "Key Paper",
       "Methodology",
       "Aeroelasticity",
       "Simulation"
     ],
-    "doi": "10.1017/S0001924000026002",
+    "doi": "https://doi.org/10.1017/S0001924000026002",
     "abstract": "This paper presents a design-oriented aerodynamic model for flapping-wing flight based on a modified strip theory approach. The model incorporates finite-wing unsteady wake effects through modified Theodorsen functions, partial leading-edge suction, post-stall behavior via crossflow drag, and...",
     "importance": 3,
     "file": "1993_DeLaurier_Aerodynamic-Model-Flapping-Wing-Flight.html"

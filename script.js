@@ -3,19 +3,57 @@
 (function () {
   'use strict';
 
-  // State
+  // ══════════════════════════════════════════════
+  //  Tag Taxonomy: 3 groups × subcategories
+  // ══════════════════════════════════════════════
+  const TAG_TAXONOMY = {
+    'Main Category': {
+      'Flapping Wing': ['Flapping Wing', 'Ornithopter', 'MAV', 'FWMAV', 'Folding Wing', 'Flexible Wing', 'Morphing Wing', 'Feathered Wing'],
+      'Rotorcraft': ['Helicopter', 'Rotor'],
+      'Fixed Wing & Other': ['UAV', 'Flexible Aircraft', 'Pitching Wing', 'Finite Wing'],
+      'Bio & Nature': ['Insect Flight', 'Bio-Inspired', 'Bird-Inspired', 'Biohybrid', 'Hovering'],
+    },
+    'Study Field': {
+      'Aerodynamics': ['Aerodynamics', 'Unsteady Aerodynamics', 'Flapping Wing Aerodynamics', 'Rotor Aerodynamics', 'Quasi-Steady Aerodynamics', 'Low Reynolds Number', 'Ground Effect'],
+      'Aeroelasticity & FSI': ['Aeroelasticity', 'FSI', 'Multibody Dynamics', 'Flexible Multibody Dynamics', 'Wing Flexibility'],
+      'Flow Physics': ['Leading-Edge Vortex', 'Tip Vortex', 'Wing Morphology', 'Wing Twist', 'Scaling Law'],
+      'Dynamics & Control': ['Flight Dynamics', 'Flight Control', 'Control', 'Roll Control', 'Stability Analysis'],
+      'Design & Mechanism': ['Mechanism Design', 'Four-Bar Linkage', 'Drive System Design', 'Biomimetic Mechanism', 'Tendon-Driven', 'Perching', 'Aerial Grasping'],
+    },
+    'Materials and Methods': {
+      'Vortex-Based': ['UVLM', 'Free Wake', 'Vortex Method', 'Vortex-Lattice Method', 'Vortex Particle Method', 'Vortex Sheet', 'Discrete Vortex Method'],
+      'CFD & High-Fidelity': ['CFD', 'Navier-Stokes', 'Lattice Boltzmann Method', 'Panel Method'],
+      'Structural': ['FEM', 'Co-Rotational Framework', 'Radial Basis Function', 'Partitioned Coupling'],
+      'Reduced-Order': ['Blade Element Theory', 'Biot-Savart Law', 'State-Space Model', 'LESP', 'Low-Order Model', 'Fast Multipole Method'],
+      'AI & Data-Driven': ['Reinforcement Learning', 'Deep Learning', 'Optimization', 'Piezoelectric Sensing', 'Embodied Perception'],
+      'Experimental': ['Experimental', 'Wind Tunnel', 'Flight Test', 'Force Measurement'],
+      'General': ['Simulation', 'Methodology', 'Computational Acceleration', 'Flapping Frequency', 'Preliminary Design'],
+    },
+  };
+
+  // Build reverse lookup: tag → group name (for uncategorized detection)
+  const tagToGroup = {};
+  for (const [group, subs] of Object.entries(TAG_TAXONOMY)) {
+    for (const [, tags] of Object.entries(subs)) {
+      tags.forEach(t => { tagToGroup[t] = group; });
+    }
+  }
+
+  // ══════════════════════════════════════════════
+  //  State
+  // ══════════════════════════════════════════════
   let papers = [];
   let activeTags = new Set();
-  let sortOrder = 'desc'; // desc = newest first
+  let sortOrder = 'desc';
   let searchQuery = '';
-  let tagsExpanded = false;
-  const MAX_VISIBLE_TAGS = 8;
+  let activeTab = null; // null = all tabs closed
 
   // DOM refs
   const searchInput = document.getElementById('search-input');
   const sortBtn = document.getElementById('sort-btn');
   const sortLabel = document.getElementById('sort-label');
   const clearBtn = document.getElementById('clear-btn');
+  const tabBar = document.getElementById('tab-bar');
   const tagContainer = document.getElementById('tag-container');
   const paperList = document.getElementById('paper-list');
   const emptyState = document.getElementById('empty-state');
@@ -24,16 +62,11 @@
   const activeFilters = document.getElementById('active-filters');
   const filterSummary = document.getElementById('filter-summary');
 
-  // ── Tag → CSS class mapping ──
-  function tagToClass(tag) {
-    const slug = tag.toLowerCase().replace(/\s+/g, '-');
-    const knownTags = [
-      'aerodynamics', 'uvlm', 'flapping-wing', 'ornithopter',
-      'fsi', 'multibody-dynamics', 'biorobotics', 'cfd',
-      'simulation', 'aeroelasticity', 'methodology', 'optimization',
-      'flight-dynamics', 'key-paper', 'review'
-    ];
-    return knownTags.includes(slug) ? `tag-${slug}` : 'tag-default';
+  // ── Tag frequency from current papers ──
+  function getTagFrequency() {
+    const freq = {};
+    papers.forEach(p => p.tags.forEach(t => { freq[t] = (freq[t] || 0) + 1; }));
+    return freq;
   }
 
   // ── Importance stars ──
@@ -41,15 +74,15 @@
     const filled = importance || 0;
     const empty = 3 - filled;
     return '<span class="stars">' +
-      '★'.repeat(filled) +
-      '<span class="stars-dimmed">' + '★'.repeat(empty) + '</span>' +
+      '\u2605'.repeat(filled) +
+      '<span class="stars-dimmed">' + '\u2605'.repeat(empty) + '</span>' +
       '</span>';
   }
 
   // ── Render a single paper card ──
   function renderPaperCard(paper) {
     const tagsHtml = paper.tags.map(tag =>
-      `<span class="card-tag ${tagToClass(tag)}">${tag}</span>`
+      `<span class="card-tag tag-default">${tag}</span>`
     ).join('');
 
     const doiHtml = paper.doi
@@ -72,39 +105,55 @@
       </div>`;
   }
 
-  // ── Collect tags sorted by frequency (descending), active tags always first ──
-  function collectTagsByFrequency(papers) {
-    const freq = {};
-    papers.forEach(p => p.tags.forEach(t => { freq[t] = (freq[t] || 0) + 1; }));
-    return Object.entries(freq)
-      .sort((a, b) => b[1] - a[1])
-      .map(([tag]) => tag);
-  }
-
-  // ── Render tag filter buttons with toggle ──
-  function renderTagButtons(tags) {
-    // Active tags always visible at the top, then frequency-sorted rest
-    const activeList = tags.filter(t => activeTags.has(t));
-    const inactiveList = tags.filter(t => !activeTags.has(t));
-    const ordered = [...activeList, ...inactiveList];
-
-    const needsToggle = ordered.length > MAX_VISIBLE_TAGS;
-    const visible = tagsExpanded ? ordered : ordered.slice(0, MAX_VISIBLE_TAGS);
-    const hiddenCount = ordered.length - MAX_VISIBLE_TAGS;
-
-    let html = visible.map(tag => {
-      const isActive = activeTags.has(tag);
-      return `<button class="tag-btn ${tagToClass(tag)} ${isActive ? 'active' : ''}" data-tag="${tag}">${tag}</button>`;
+  // ── Render tab bar ──
+  function renderTabs() {
+    const groups = Object.keys(TAG_TAXONOMY);
+    tabBar.innerHTML = groups.map(group => {
+      const isActive = group === activeTab;
+      return `<button class="tab-btn ${isActive ? 'tab-active' : ''}" data-group="${group}">${group}</button>`;
     }).join('');
 
-    if (needsToggle) {
-      if (tagsExpanded) {
-        html += `<button class="tag-toggle-btn" id="tag-toggle">Show less</button>`;
-      } else {
-        html += `<button class="tag-toggle-btn" id="tag-toggle">+${hiddenCount} more</button>`;
-      }
+    tabBar.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        activeTab = activeTab === btn.dataset.group ? null : btn.dataset.group;
+        renderTabs();
+        renderTagPanel();
+      });
+    });
+  }
+
+  // ── Render tag panel (subcategories for active tab) ──
+  function renderTagPanel() {
+    if (!activeTab) {
+      tagContainer.innerHTML = '';
+      return;
+    }
+    const subcategories = TAG_TAXONOMY[activeTab];
+    const freq = getTagFrequency();
+
+    let html = '';
+    for (const [subName, tags] of Object.entries(subcategories)) {
+      // Only show tags that exist in current papers
+      const existingTags = tags.filter(t => freq[t]);
+      if (existingTags.length === 0) continue;
+
+      // Sort by frequency within subcategory
+      existingTags.sort((a, b) => (freq[b] || 0) - (freq[a] || 0));
+
+      const tagsHtml = existingTags.map(tag => {
+        const isActive = activeTags.has(tag);
+        const count = freq[tag] || 0;
+        return `<button class="tag-btn tag-default ${isActive ? 'active' : ''}" data-tag="${tag}">${tag}<span class="tag-count">${count}</span></button>`;
+      }).join('');
+
+      html += `
+        <div class="subcategory-row">
+          <span class="subcategory-label">${subName}</span>
+          <div class="subcategory-tags">${tagsHtml}</div>
+        </div>`;
     }
 
+    // Uncategorized tags in this group (safety net for new tags)
     tagContainer.innerHTML = html;
 
     // Tag click handlers
@@ -119,22 +168,12 @@
         render();
       });
     });
-
-    // Toggle handler
-    const toggleBtn = document.getElementById('tag-toggle');
-    if (toggleBtn) {
-      toggleBtn.addEventListener('click', () => {
-        tagsExpanded = !tagsExpanded;
-        render();
-      });
-    }
   }
 
   // ── Filter & sort papers ──
   function getFilteredPapers() {
     let filtered = papers;
 
-    // Text search (title + authors)
     if (searchQuery) {
       const q = searchQuery.toLowerCase();
       filtered = filtered.filter(p =>
@@ -145,14 +184,12 @@
       );
     }
 
-    // Tag filter (intersection — paper must have ALL selected tags)
     if (activeTags.size > 0) {
       filtered = filtered.filter(p =>
         Array.from(activeTags).every(tag => p.tags.includes(tag))
       );
     }
 
-    // Sort
     filtered.sort((a, b) =>
       sortOrder === 'desc' ? b.year - a.year : a.year - b.year
     );
@@ -163,17 +200,17 @@
   // ── Main render ──
   function render() {
     const filtered = getFilteredPapers();
-    const allTags = collectTagsByFrequency(papers);
 
-    // Tag buttons
-    renderTagButtons(allTags);
+    // Tabs + tag panel
+    renderTabs();
+    renderTagPanel();
 
     // Paper list
     if (filtered.length > 0) {
       paperList.innerHTML = filtered.map(renderPaperCard).join('');
       paperList.querySelectorAll('.paper-card[data-href]').forEach(card => {
         card.addEventListener('click', (e) => {
-          if (e.target.closest('.doi-link')) return; // let DOI link handle itself
+          if (e.target.closest('.doi-link')) return;
           window.open(card.dataset.href, '_blank', 'noopener');
         });
       });
@@ -202,7 +239,7 @@
       const parts = [];
       if (searchQuery) parts.push(`"${searchQuery}"`);
       if (activeTags.size > 0) parts.push(`tags: ${Array.from(activeTags).join(', ')}`);
-      filterSummary.textContent = `Filtered by ${parts.join(' + ')} — ${shown} result${shown !== 1 ? 's' : ''}`;
+      filterSummary.textContent = `Filtered by ${parts.join(' + ')} \u2014 ${shown} result${shown !== 1 ? 's' : ''}`;
       clearBtn.classList.remove('hidden');
       clearBtn.classList.add('flex');
     } else {
@@ -230,7 +267,6 @@
     render();
   });
 
-  // ── Keyboard shortcut: "/" focuses search ──
   document.addEventListener('keydown', (e) => {
     if (e.key === '/' && document.activeElement !== searchInput) {
       e.preventDefault();
