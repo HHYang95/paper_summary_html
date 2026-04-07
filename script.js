@@ -47,6 +47,8 @@
   let sortOrder = 'desc';
   let searchQuery = '';
   let activeTab = null; // null = all tabs closed
+  let currentPage = 1;
+  const PAPERS_PER_PAGE = 10;
 
   // DOM refs
   const searchInput = document.getElementById('search-input');
@@ -165,6 +167,7 @@
         } else {
           activeTags.add(tag);
         }
+        currentPage = 1;
         render();
       });
     });
@@ -197,6 +200,72 @@
     return filtered;
   }
 
+  // ── Pagination controls ──
+  function renderPagination(totalItems, totalPages) {
+    let paginationEl = document.getElementById('pagination');
+    if (!paginationEl) {
+      paginationEl = document.createElement('div');
+      paginationEl.id = 'pagination';
+      paperList.parentNode.insertBefore(paginationEl, paperList.nextSibling);
+    }
+
+    if (totalPages <= 1) {
+      paginationEl.innerHTML = '';
+      return;
+    }
+
+    const startItem = (currentPage - 1) * PAPERS_PER_PAGE + 1;
+    const endItem = Math.min(currentPage * PAPERS_PER_PAGE, totalItems);
+
+    let btns = '';
+
+    // Previous
+    btns += `<button class="page-btn ${currentPage === 1 ? 'page-disabled' : ''}" data-page="prev">&lsaquo; Prev</button>`;
+
+    // Page numbers
+    const pages = getPageNumbers(currentPage, totalPages);
+    for (const p of pages) {
+      if (p === '...') {
+        btns += `<span class="page-ellipsis">&hellip;</span>`;
+      } else {
+        btns += `<button class="page-btn ${p === currentPage ? 'page-active' : ''}" data-page="${p}">${p}</button>`;
+      }
+    }
+
+    // Next
+    btns += `<button class="page-btn ${currentPage === totalPages ? 'page-disabled' : ''}" data-page="next">Next &rsaquo;</button>`;
+
+    paginationEl.className = 'pagination-bar';
+    paginationEl.innerHTML = `
+      <span class="page-info">${startItem}\u2013${endItem} of ${totalItems}</span>
+      <div class="page-buttons">${btns}</div>`;
+
+    paginationEl.querySelectorAll('.page-btn:not(.page-disabled)').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const val = btn.dataset.page;
+        if (val === 'prev') currentPage--;
+        else if (val === 'next') currentPage++;
+        else currentPage = parseInt(val);
+        render();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+  }
+
+  // Generate smart page number list with ellipsis
+  function getPageNumbers(current, total) {
+    if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1);
+    const pages = [];
+    pages.push(1);
+    if (current > 3) pages.push('...');
+    for (let i = Math.max(2, current - 1); i <= Math.min(total - 1, current + 1); i++) {
+      pages.push(i);
+    }
+    if (current < total - 2) pages.push('...');
+    pages.push(total);
+    return pages;
+  }
+
   // ── Main render ──
   function render() {
     const filtered = getFilteredPapers();
@@ -205,9 +274,16 @@
     renderTabs();
     renderTagPanel();
 
+    // Pagination
+    const totalFiltered = filtered.length;
+    const totalPages = Math.max(1, Math.ceil(totalFiltered / PAPERS_PER_PAGE));
+    if (currentPage > totalPages) currentPage = totalPages;
+    const startIdx = (currentPage - 1) * PAPERS_PER_PAGE;
+    const pageItems = filtered.slice(startIdx, startIdx + PAPERS_PER_PAGE);
+
     // Paper list
-    if (filtered.length > 0) {
-      paperList.innerHTML = filtered.map(renderPaperCard).join('');
+    if (pageItems.length > 0) {
+      paperList.innerHTML = pageItems.map(renderPaperCard).join('');
       paperList.querySelectorAll('.paper-card[data-href]').forEach(card => {
         card.addEventListener('click', (e) => {
           if (e.target.closest('.doi-link')) return;
@@ -222,12 +298,14 @@
       emptyState.classList.remove('hidden');
     }
 
+    // Pagination controls
+    renderPagination(totalFiltered, totalPages);
+
     // Paper count
     const total = papers.length;
-    const shown = filtered.length;
-    paperCount.textContent = shown === total
+    paperCount.textContent = totalFiltered === total
       ? `${total} papers`
-      : `${shown} / ${total} papers`;
+      : `${totalFiltered} / ${total} papers`;
 
     // Sort label
     sortLabel.textContent = sortOrder === 'desc' ? 'Newest first' : 'Oldest first';
@@ -252,11 +330,13 @@
   // ── Event listeners ──
   searchInput.addEventListener('input', (e) => {
     searchQuery = e.target.value.trim();
+    currentPage = 1;
     render();
   });
 
   sortBtn.addEventListener('click', () => {
     sortOrder = sortOrder === 'desc' ? 'asc' : 'desc';
+    currentPage = 1;
     render();
   });
 
@@ -264,6 +344,7 @@
     searchQuery = '';
     searchInput.value = '';
     activeTags.clear();
+    currentPage = 1;
     render();
   });
 
