@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="paper-title" content="PaperOrchestra: A Multi-Agent Framework for Automated AI Research Paper Writing">
+<meta name="paper-year" content="2026">
+<meta name="paper-author" content="Yiwen Song, Yale Song, Tomas Pfister, Jinsung Yoon">
+<meta name="paper-journal" content="arXiv Preprint">
+<meta name="paper-tags" content="Multi-Agent System, LLM, Automated Paper Writing, Literature Synthesis, Benchmark, Scientific Discovery, RAG">
+<meta name="paper-doi" content="10.48550/arXiv.2604.05018">
+<title>PaperOrchestra: A Multi-Agent Framework for Automated AI Research Paper Writing — Summary</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', 'Segoe UI', -apple-system, sans-serif;
+    background: #f8f9fb;
+    color: #1e293b;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Header ── */
+  .hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0c4a6e 100%);
+    color: #fff;
+    padding: 56px 0 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; top: 0; right: 0; bottom: 0;
+    width: 40%;
+    background: radial-gradient(ellipse at 80% 50%, rgba(56,189,248,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+    z-index: 1;
+  }
+  .hero h1 {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: -0.3px;
+    margin-bottom: 16px;
+  }
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    font-size: 14px;
+    color: #94a3b8;
+  }
+  .hero-meta a { color: #7dd3fc; text-decoration: none; }
+  .hero-meta a:hover { text-decoration: underline; }
+  .importance-badge {
+    position: absolute;
+    top: 56px; right: 40px;
+    font-size: 22px;
+    letter-spacing: 2px;
+    filter: drop-shadow(0 0 6px rgba(255,215,0,0.4));
+  }
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 20px;
+  }
+  .tag {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #cbd5e1;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.3px;
+  }
+
+  /* ── Content ── */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 40px 80px;
+  }
+
+  /* ── Toggle sections ── */
+  details {
+    margin-bottom: 12px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    overflow: hidden;
+  }
+  details[open] {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  summary {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    cursor: pointer;
+    user-select: none;
+    list-style: none;
+    border-bottom: 2px solid transparent;
+    transition: background 0.15s;
+  }
+  summary:hover {
+    background: #f1f5f9;
+  }
+  details[open] > summary {
+    border-bottom-color: #e2e8f0;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::before {
+    content: '\25B6';
+    font-size: 10px;
+    color: #94a3b8;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+  }
+  details[open] > summary::before {
+    transform: rotate(90deg);
+  }
+  .section-number {
+    background: #0f172a;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  summary h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
+    letter-spacing: -0.2px;
+  }
+
+  /* ── Section body ── */
+  .section-body {
+    padding: 16px 20px 20px;
+  }
+
+  /* Overview (always open, special style) */
+  .overview {
+    margin-bottom: 12px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    overflow: hidden;
+  }
+  .overview-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  .overview-header h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
+  }
+  .overview-text {
+    font-size: 14.5px;
+    line-height: 1.8;
+    color: #334155;
+    padding: 16px 20px 20px;
+    border-left: 4px solid #0ea5e9;
+    margin: 0;
+  }
+
+  /* Bullet lists */
+  .section-body ul {
+    list-style: none;
+    padding: 0;
+  }
+  .section-body ul li {
+    position: relative;
+    padding: 7px 0 7px 18px;
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: #334155;
+  }
+  .section-body ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 15px;
+    width: 5px; height: 5px;
+    background: #0ea5e9;
+    border-radius: 50%;
+  }
+  .section-body ul li + li {
+    border-top: 1px solid #f1f5f9;
+  }
+
+  /* Sub-section headings */
+  .section-body h3 {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #0c4a6e;
+    margin: 16px 0 6px;
+    padding-left: 2px;
+  }
+  .section-body h3:first-child {
+    margin-top: 0;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px 48px;
+    text-align: center;
+    font-size: 12px;
+    color: #94a3b8;
+  }
+  .footer a { color: #64748b; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <h1>PaperOrchestra: A Multi-Agent Framework for Automated AI Research Paper Writing</h1>
+    <div class="hero-meta">
+      <span>Yiwen Song, Yale Song, Tomas Pfister, Jinsung Yoon</span>
+      <span>arXiv Preprint (2026)</span>
+      <span><a href="https://doi.org/10.48550/arXiv.2604.05018">DOI: 10.48550/arXiv.2604.05018</a></span>
+    </div>
+    <div class="tag-row"><span class="tag">Multi-Agent System</span><span class="tag">LLM</span><span class="tag">Automated Paper Writing</span><span class="tag">Literature Synthesis</span><span class="tag">Benchmark</span><span class="tag">Scientific Discovery</span><span class="tag">RAG</span></div>
+    <div class="importance-badge">★</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Overview: always visible (no toggle) -->
+  <div class="overview">
+    <div class="overview-header">
+      <div class="section-number">1</div>
+      <h2>Overview</h2>
+    </div>
+    <div class="overview-text">PaperOrchestra is a multi-agent framework developed at Google that autonomously transforms unstructured pre-writing materials (idea summaries, experimental logs, LaTeX templates) into submission-ready AI research manuscripts with comprehensive literature reviews and generated visuals. The system orchestrates specialized agents for outline generation, parallel literature search with Semantic Scholar verification, plot generation via PaperBanana, section-by-section writing, and iterative content refinement using simulated peer review. Evaluated on PaperWritingBench — a new benchmark of 200 reverse-engineered papers from CVPR 2025 and ICLR 2025 — PaperOrchestra achieves 84% and 81% simulated acceptance rates (ScholarPeer), closely tracking human ground truth (86%/94%), and outperforms AI Scientist-v2 by absolute win margins of 50%–68% in literature review quality and 14%–38% in overall manuscript quality in human evaluations. For Dr. Yang's research group, this work is relevant as a demonstration of advanced multi-agent LLM orchestration that could inform AI-assisted scientific workflows, though its domain focus is NLP/AI rather than aerospace engineering.</div>
+  </div>
+
+  <details>
+    <summary>
+      <div class="section-number">2</div>
+      <h2>Introduction</h2>
+    </summary>
+    <div class="section-body">
+<h3>Motivation</h3>
+<ul>
+  <li>Translating unstructured research materials (raw ideas, experimental logs) into rigorous, submission-ready manuscripts is a critical bottleneck in AI-driven scientific discovery</li>
+  <li>Early automated writing attempts relied on <strong>parametric LLM memory</strong>, frequently producing factual hallucinations and shallow content</li>
+  <li>Recent RAG-based systems (e.g., <strong>AutoSurvey2</strong>, <strong>LiRA</strong>) decompose literature review into structured stages but cannot handle full manuscript generation from raw experimental data</li>
+  <li>Full-lifecycle autonomous research agents (e.g., <strong>AI Scientist-v1/v2</strong>) are tightly coupled to their internal experimental loops, preventing standalone use as writing tools</li>
+</ul>
+<h3>State of the Art</h3>
+<ul>
+  <li>Existing E2E frameworks such as <strong>CycleResearcher</strong> require structured BibTeX input and fail on unstructured materials</li>
+  <li><strong>AI Scientist-v2</strong> and <strong>AI-Researcher</strong> accept unstructured topic descriptions but rely on artifacts from internal pipelines and cannot generate conceptual diagrams</li>
+  <li>Survey-generation systems (<strong>AutoSurvey2</strong>, <strong>SurveyGen-I</strong>, <strong>LiRA</strong>) excel at long-form reviews but lack contextual awareness for targeted related-work sections</li>
+  <li>No prior system combines standalone manuscript generation, robust literature synthesis, and autonomous visual generation in a single framework</li>
+</ul>
+<h3>Gap &amp; Contribution</h3>
+<ul>
+  <li><strong>PaperOrchestra</strong>: first standalone multi-agent framework that processes unconstrained pre-writing materials into complete LaTeX manuscripts with comprehensive literature reviews and generated visuals</li>
+  <li><strong>PaperWritingBench</strong>: first standardized benchmark for AI paper writing, comprising 200 reverse-engineered papers from CVPR 2025 and ICLR 2025 with automated evaluators</li>
+  <li>Human evaluations show absolute win rate margins of 50%–68% in literature review quality and 14%–38% in overall manuscript quality over autonomous baselines</li>
+</ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>
+      <div class="section-number">3</div>
+      <h2>Related Works</h2>
+    </summary>
+    <div class="section-body">
+<h3>AI Researcher Frameworks</h3>
+<ul>
+  <li><strong>Lu et al. (2024)</strong> introduced AI Scientist-v1 with automated experimentation and drafting via code templates</li>
+  <li><strong>Yamada et al. (2025)</strong> extended this with AI Scientist-v2 using agentic tree-search for increased autonomy</li>
+  <li><strong>Weng et al. (2024)</strong> proposed CycleResearcher with iterative refinement via RL from reviewer feedback</li>
+  <li><strong>Shao et al. (2025)</strong> introduced OmniScientist coupling agentic framework with structured knowledge and tool-based reasoning</li>
+  <li><strong>Team et al. (2025)</strong> developed InternAgent and <strong>Gottweis et al. (2025)</strong> proposed AI Co-Scientist for human-in-the-loop scientific collaboration</li>
+</ul>
+<h3>Automated Writing &amp; Literature Synthesis</h3>
+<ul>
+  <li><strong>Wang et al. (2019)</strong> pioneered PaperRobot for incremental text generation conditioned on entity relation graphs, but lacked complex narrative synthesis</li>
+  <li><strong>OpenAI (2026)</strong> released Prism for stylistic refinement but does not support E2E manuscript generation from raw logs</li>
+  <li><strong>Technion-Kishony Lab (2024)</strong> developed data-to-paper for translating structured analytical results into text with backward traceability</li>
+  <li><strong>Wu et al. (2025)</strong> proposed AutoSurvey2 using multi-stage RAG pipelines for comprehensive survey generation</li>
+  <li><strong>Chen et al. (2025)</strong> introduced SurveyGen-I with iteratively refining topic outlines for literature surveys</li>
+  <li><strong>Go et al. (2025)</strong> developed LiRA, a multi-agent workflow for structuring, drafting, and refining literature reviews</li>
+</ul>
+<h3>Evaluation Frameworks</h3>
+<ul>
+  <li><strong>Jin et al. (2024)</strong> created AgentReview for exploring peer review dynamics with LLM agents, used as the refinement module in PaperOrchestra</li>
+  <li><strong>Goyal et al. (2026)</strong> introduced ScholarPeer, a search-enabled multi-agent system mimicking expert peer review workflows</li>
+  <li><strong>Beel et al. (2025)</strong> and <strong>Tang et al. (2025b)</strong> empirically evaluated autonomous research agents, revealing critical deficits in literature synthesis</li>
+</ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>
+      <div class="section-number">4</div>
+      <h2>Materials and Methods</h2>
+    </summary>
+    <div class="section-body">
+<h3>Task Formulation</h3>
+<ul>
+  <li>The task is formulated as a mapping $P = (P_{\text{tex}}, P_{\text{pdf}}) = W(I, E, T, G, F)$ where $I$ = idea summary, $E$ = experimental log, $T$ = LaTeX template, $G$ = conference guidelines, $F$ = optional figures</li>
+  <li>If no figures are provided ($F = \emptyset$), the pipeline autonomously synthesizes all visuals</li>
+  <li>The framework operates as a <strong>standalone writing tool</strong> decoupled from experimental pipelines</li>
+</ul>
+<h3>PaperWritingBench Dataset</h3>
+<ul>
+  <li>200 accepted papers from CVPR 2025 (100) and ICLR 2025 (100), ensuring high academic standards and format diversity (double-column vs. single-column)</li>
+  <li>Raw materials reverse-engineered using Gemini-3.1-Pro: <strong>Sparse</strong> variant (~590 words, high-level) and <strong>Dense</strong> variant (~1,060 words, with equations)</li>
+  <li>Experimental logs extracted via <strong>MinerU</strong> (Wang et al., 2024) for structured Markdown and <strong>PDFFigures 2.0</strong> (Clark and Divvala, 2016) for visual extraction</li>
+  <li>All materials anonymized and de-contextualized (stripped of authors, titles, citations, URLs) to prevent information leakage</li>
+</ul>
+<h3>Multi-Agent Pipeline (5 Steps)</h3>
+<ul>
+  <li><strong>Step 1 — Outline Agent</strong>: synthesizes pre-writing materials into JSON outline with visualization plan, literature search strategy, and section-level writing plan with citation hints</li>
+  <li><strong>Step 2 — Plotting Agent</strong> (parallel with Step 3): executes visualization plan using <strong>PaperBanana</strong> (Zhu et al., 2026) with closed-loop VLM critique for iterative refinement of diagrams and plots</li>
+  <li><strong>Step 3 — Literature Review Agent</strong> (parallel with Step 2): hybrid discovery via LLM web search + <strong>Semantic Scholar API</strong> validation, temporal cutoffs, deduplication via Semantic Scholar IDs, auto-generated BibTeX, and drafting of Introduction/Related Work</li>
+  <li><strong>Step 4 — Section Writing Agent</strong>: drafts remaining sections (abstract, methodology, experiments, conclusion) using outputs from previous stages, extracting numeric values from experimental logs for tables</li>
+  <li><strong>Step 5 — Content Refinement Agent</strong>: iterative optimization using <strong>AgentReview</strong> (Jin et al., 2024) simulated peer review; revisions accepted if overall score increases or ties with non-negative sub-axis gains; reverts on any decrease</li>
+</ul>
+<h3>Evaluation Methods</h3>
+<ul>
+  <li><strong>Citation F1</strong>: references classified as P0 (must-cite: baselines, datasets, metrics) and P1 (good-to-cite: supplementary context), resolved via Semantic Scholar API for unique entity matching</li>
+  <li><strong>Literature Review Quality</strong>: LLM evaluator scoring 0–100 across six axes (coverage, relevance, critical analysis, positioning, organization, citation rigor) with strict score caps and anti-inflation penalties</li>
+  <li><strong>Overall Quality</strong>: AI Scientist-v2 Reviewer and ScholarPeer frameworks for multi-axis scoring, overall rating, and simulated acceptance decision</li>
+  <li><strong>SxS Comparison</strong>: two automated evaluators for literature review and full paper quality with positional bias mitigation (both orderings evaluated)</li>
+</ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>
+      <div class="section-number">5</div>
+      <h2>Results</h2>
+    </summary>
+    <div class="section-body">
+<h3>Human Evaluation</h3>
+<ul>
+  <li>11 AI researchers evaluated 40 randomly sampled papers (20 per venue), yielding 180 paired evaluations</li>
+  <li>PaperOrchestra achieves absolute win margins of <strong>50%–68%</strong> in Literature Review Quality and <strong>14%–38%</strong> in Overall Paper Quality over AI baselines</li>
+  <li>Achieves a competitive <strong>43% tie/win rate</strong> against human ground truth in literature synthesis</li>
+  <li>GPT-5 evaluator correlates strongly with human scores for Overall Quality (Pearson $r = 0.6458$, Spearman $\rho = 0.6355$)</li>
+</ul>
+<h3>Technical Quality (Simulated Peer Review)</h3>
+<ul>
+  <li>Under ScholarPeer: <strong>84% acceptance rate</strong> (CVPR) and <strong>81%</strong> (ICLR), closely tracking Human GT baselines (86% and 94%)</li>
+  <li>Outperforms strongest AI baseline by absolute acceptance gains of <strong>+13%</strong> (CVPR) and <strong>+9%</strong> (ICLR)</li>
+  <li>Dominates in Clarity (3.75 vs. 3.44 CVPR, 3.65 vs. 3.28 ICLR), Presentation, and Soundness sub-axes under ScholarPeer</li>
+  <li>Under AI Scientist-v2 Reviewer: overall scores of 5.12 (CVPR) and 4.10 (ICLR), substantially above baselines (4.22/3.42 best AI)</li>
+</ul>
+<h3>Citation Coverage</h3>
+<ul>
+  <li>PaperOrchestra generates <strong>45.73–47.98 citations</strong> per paper, closely mirroring Human GT (~59), vs. baselines averaging 9–14</li>
+  <li>P0 (must-cite) Recall improves by <strong>+2.13%–6.07%</strong> absolute over strongest baseline</li>
+  <li>P1 (good-to-cite) Recall increases by <strong>+12.59%–13.75%</strong> absolute, demonstrating active exploration of broader literature beyond shallow keyword matching</li>
+</ul>
+<h3>Literature Review Quality (LLM-as-a-Judge)</h3>
+<ul>
+  <li>Overall Score gains of <strong>+32.87%–33.25%</strong> (Gemini-3.1-Pro) and <strong>+9.66%–9.85%</strong> (GPT-5) over strongest AI baseline</li>
+  <li>PaperOrchestra scores are highly comparable to human baselines (78.30 vs. 71.08 CVPR, 76.23 vs. 75.18 ICLR under Gemini-3.1-Pro)</li>
+  <li>Dominates in Citation Practices and Critical Analysis sub-axes</li>
+</ul>
+<h3>Ablation Studies</h3>
+<ul>
+  <li><strong>Sparse vs. Dense idea</strong>: Dense setting dominates Overall Quality win rates (43%–56% vs. 18%–24%), but Literature Review Quality shows near-parity, proving robustness of the Literature Review Agent</li>
+  <li><strong>PlotOff vs. PlotOn</strong>: autonomously generated visuals achieve ties or wins in <strong>51%–66%</strong> of matchups against human-authored GT figures</li>
+  <li><strong>Content Refinement Agent</strong>: refined manuscripts achieve <strong>79%–81% win rates</strong> and 0% losses vs. unrefined drafts, with +19% (CVPR) and +22% (ICLR) simulated acceptance rate gains</li>
+</ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>
+      <div class="section-number">6</div>
+      <h2>Results Interpretation</h2>
+    </summary>
+    <div class="section-body">
+<h3>Multi-Agent Architecture Advantages</h3>
+<ul>
+  <li>The multi-agent decomposition proves essential: Single Agent baselines fail to produce rigorous citations and data-grounded visuals despite executing rapidly (~3.3 min vs. ~39.6 min)</li>
+  <li>Parallel execution of Literature Review Agent and Plotting Agent enables competitive latency (~39.6 min) despite ~60–70 LLM calls, only marginally slower than AI Scientist-v2 (~35.1 min with ~40–45 calls)</li>
+  <li>The decoupled paper discovery pipeline (10 concurrent workers for search, sequential Semantic Scholar verification at 1 query/sec) successfully balances high-throughput LLM API calls with strict Semantic Scholar rate limits</li>
+</ul>
+<h3>Evaluation Insights</h3>
+<ul>
+  <li>LLM evaluators exhibit <strong>structural grading bias</strong> — rewarding rigid formatting (e.g., "Problem-Gap-Solution" paragraphs) while human experts prioritize dense, pragmatic factuality and narrative-driven flow</li>
+  <li>Literature review correlation between human and automated evaluators is lower than overall quality correlation, suggesting current autoraters under-represent human preferences for nuanced synthesis</li>
+  <li>High inter-autorater agreement (Pearson 0.74 for overall quality between Gemini-3.1-Pro and GPT-5) validates automated SxS metrics for relative pipeline ranking despite absolute score differences</li>
+</ul>
+<h3>Limitations</h3>
+<ul>
+  <li>Visual generation relies on external <strong>PaperBanana</strong> framework, limiting direct control over figure hallucinations</li>
+  <li>The refinement agent uses structured LLM feedback rather than human-in-the-loop interaction, constraining the types of improvements possible</li>
+  <li>PaperWritingBench uses reverse-engineered materials from published papers, carrying inherent risk of pre-training data contamination despite anonymization and de-contextualization safeguards</li>
+  <li>Current scope is limited to AI research papers — generalization to other scientific domains (e.g., aerospace, biology) is not evaluated</li>
+</ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>
+      <div class="section-number">7</div>
+      <h2>Conclusion</h2>
+    </summary>
+    <div class="section-body">
+<ul>
+  <li>PaperOrchestra establishes a new paradigm for autonomous AI research manuscript generation by decomposing the writing process into specialized, coordinated agents</li>
+  <li>The framework generates manuscripts with <strong>84%/81% simulated acceptance rates</strong> (CVPR/ICLR under ScholarPeer), approaching human-authored quality (86%/94%)</li>
+  <li>Literature synthesis is the strongest differentiator: <strong>50%–68% absolute win margins</strong> over AI baselines in human evaluations, with citation counts closely matching human GT</li>
+  <li>PaperWritingBench provides the first standardized, reproducible evaluation protocol for automated paper writing, enabling systematic comparison of future systems</li>
+  <li>The system is positioned as an <strong>advanced assistive tool</strong> — human researchers retain full accountability for factual accuracy, originality, and validity of claims</li>
+  <li>Future directions include: expanding to richer research artifacts, transitioning to interactive human-AI writing environments, integrating targeted VLMs for visual content verification, and mitigating data contamination risks through unpublished/synthetic materials</li>
+  <li>Computational cost (~60–70 LLM calls, ~39.6 min per paper) remains practical for real-world deployment</li>
+</ul>
+    </div>
+  </details>
+
+</div>
+
+<div class="footer">
+  Generated by YANG Lab RECON &middot; <a href="https://doi.org/10.48550/arXiv.2604.05018">View Original Paper</a>
+</div>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '\\[', right: '\\]', display: true},
+      {left: '\\(', right: '\\)', display: false},
+      {left: '$', right: '$', display: false}
+    ],
+    throwOnError: false
+  });"></script>
+</body>
+</html>
